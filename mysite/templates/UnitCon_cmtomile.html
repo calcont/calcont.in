@@ -1,0 +1,188 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+This is a simple centimeter to mile/mile to centimeter converter,where centimeter and mile are a part of length units.
+So, 1 standard unit centimeter is equal to 0.0000062137119 times of mile and 1 standard unit mile is 160934.4 times of centimeter.
+{% endblock  %}
+{% block MKW %}cm,mile.{% endblock  %}
+{% block Mr %}
+24/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Convert cm to mile or convert mile to cm
+{% endblock  %}
+{% block body %}
+<style>
+.jumbotron{
+    background-image:linear-gradient(to right,rgb(25, 30, 30) 100%, rgb(100,100,100) 70%);
+}
+</style>
+<div class="container col-md-6 my-4">
+<div class="jumbotron my-2 text-light">
+  <h1 class="my-4 text-center">cm to mile/mile to cm</h1>
+
+  <hr class="my-4 bg-white">
+  <h4>Conversion from cm to mile/mile to cm</h4>
+   <p class="text-monospace my-4"> How to convert cm to mile?So, 1 standard unit
+    cm is equal to 0.0000062137119 times of miles and 1 standard unit miles is 160934.4 times of cm.Like 1 cm=0.0000062137119 miles
+    ,for any number formula would be x cm=0.0000062137119 x mile.lets see some more examples..</p>
+    <hr class="bg-light">
+<h4 class="my-2 text-center">cm to miles</h4>
+    <div class="container col-md-8 mt-4">
+    <table class="table text-light">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">cm</th>
+      <th scope="col">miles</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>1</td>
+      <td>0.0000062137119</td>
+     
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>2</td>
+      <td>0.00001242</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>3</td>
+      <td>0.00001863</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>5</td>
+      <td>0.0000310499</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>20</td>
+      <td>0.000124199</td>
+      
+    </tr>
+   
+  </tbody>
+</table>
+</div>
+    <hr class="bg-light">
+<h4 class="my-2 text-center">miles to cm</h4>
+    <div class="container col-md-8 mt-4">
+    <table class="table text-light">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">mile</th>
+      <th scope="col">cm</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>1</td>
+      <td>160934.4</td>
+     
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>2</td>
+      <td>321868.8</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>3</td>
+      <td>482803.2</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>5</td>
+      <td>804672</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>20</td>
+      <td>3218688</td>
+      
+    </tr>
+   
+  </tbody>
+</table>
+</div>
+<p class="text monospace my-4">So from above examples you would have get an idea about how to convert cm to mile.Since its an simple Conversion
+but for some big calculation you will need an software which convert quickly from cm to mile.CalConT has these,in below you just have to enter 
+xm or mile value.
+<hr class="bg-light">
+  <form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">cm</label>
+      <input type="number" class="form-control" id="cm">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">to mile..</label>
+      <input class="form-control" type="number" id="cmtomile" readonly>
+    </div>
+  </div>
+  <a class="btn btn-primary btn-lg Concm" role="button">Convert</a>
+  <div class="form-row my-4">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">mile</label>
+      <input type="number" class="form-control" id="mile">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">to cm..</label>
+      <input class="form-control"  id="miletocm" readonly>
+    </div>
+  </div>
+  <a class="btn btn-primary btn-lg Conmile" href="#" role="button">Convert</a>
+</form>
+<hr class="bg-light">
+<h3 class="my-4 text-center">Applications?</h3>
+<p class="text-monospace">As cm to miles or vice versa conversion is so important beacause it has lot of application
+   in mathematical, in science & technolgical world. examples will be..<br>Mile unit are generally use in longest route 
+  vehicle runnning status is calculated using miles but not everyone knows mile unit.That's why  mile to cm converter can userful,which
+  is easily understandble to everyone. </p> 
+<hr class="bg-light">
+<h4 class="text-monospace text-center">Can checkout some other cm converter..</h4>
+<p class="text-center my-2  text-light"><a  href="/Conversion/UnitsConverter/m_to_cm">cm to m</a>
+        <a class="mx-2" href="/Conversion/UnitsConverter/cm_to_inch">cm to inch</a>
+        <a class="mx-2" href="/Conversion/UnitsConverter/cm_to_foot">cm to foot</a>
+        <a class="mx-2" href="/Conversion/UnitsConverter/cm_to_yard">cm to yard</a>
+        
+        </p>
+<p class="text-center my-2  text-light"><a  class="mx-2" href="/Conversion/UnitsConverter/cm_to_angstrom">cm to angstrom</a>
+        <a class="mx-2" href="/Conversion/UnitsConverter/cm_to_mm">cm to mm</a>
+        </p>
+</div>
+
+</div>
+{% endblock %}
+{% block JS %}
+<script>
+$('.Concm').click(function (e) {
+var val=document.getElementById("cm").value;
+var ans=val*0.00000621
+document.getElementById("cmtomile").value=ans;
+e.preventDefault();
+});
+$('.Conmile').click(function (e) {
+var val=document.getElementById("mile").value;
+var ans=val*160934.4
+document.getElementById("miletocm").value=ans;
+e.preventDefault();
+});
+</script>
+{% endblock  %}

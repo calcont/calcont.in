@@ -1,0 +1,110 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Since,english is a global language but in india percentage of people who can speak/write english is less.Since mumbai is well known city
+which is in a maharashtra state and there most of people speaks marathi only but people from other side find diffculty to understand these language or to speak these 
+language.For all those people they can enter the English text here  and can translate it into in hindi,it"ll really helps you all
+to improve your skills easily. 
+{% endblock  %}
+{% block MKW %}English,Marathi,translator{% endblock  %}
+{% block Mr %}
+30/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}-English to Marathi Translator
+{% endblock  %}
+{% block body %}
+<style>
+
+.container{
+  border:2px solid rgb(25, 30, 66);
+    background-image:linear-gradient(to right,rgb(5, 33, 46) 100%, rgb(100,100,100) 70%);
+ border-radius:10px;
+}
+
+.text-info{
+  
+}
+
+
+</style>
+{% if alt %}
+<div class="alert alert-secondary alert-dismissible fade show" role="alert">
+  <strong>Hey!</strong> Your English text   is converted to MARATHI.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+<div class="container border  mb-5 col-md-6 my-5">
+<h1 class="my-3 text-center text-light" >English to Marathi</h2>
+<hr class="bg-light my-2">
+
+  <h3 class="my-4 text-light">Why we need translation?</h3>
+  <p class="text-light text-monospace my-4 mx-2">The skills of translation are becoming ever more important and desirable. 
+    Today’s multicultural and multilingual society demands effective, efficient,
+     and empathetic communication between languages and cultures. That’s important for various reasons, which we’ll now explore</p>
+  <hr class="bg-light my-2">
+<h3 class="my-4 text-light">Marathi language?</h3>
+<p class="text-light text-monospace my-4 mx-2">As we all know English is global language but Marathi is a language which is very famous and it is 
+an language which is spoken in maharashtra state which is the loacated in  india.Mumbai is an economical capital of india and its city which is 
+loacted in Maharashtra state.
+Since it is and tradtional language of maharashtra and its been spoken since from long time ago.And people over there are very pride of their language and <b>SHIVAJI MAHARAJ</b> </p>
+
+
+<hr class="bg-light my-2">
+
+<form action="/Translator/English_to_Marathi/" class="tra" method='POST'>{% csrf_token %}
+     {% if not alt %}
+      <div class="form-group">
+      <label for="" class='ui text-secondary text-light my-3'>Enter the text in english</label>
+      <input class="form-control" name='text' id="EText" placeholder="Enter the english text" rows="9" required>
+    </div>
+<div class="form-group">
+   
+      <label for="Hindi" class='ui text-secondary text-light my-3'>Marathi</label>
+      <textarea class="form-control"  placeholder="To Marathi.." id="Tohind"   rows="6"></textarea>
+    </div>
+      {% endif %}
+    {% if alt%}
+<div class="form-group">
+      <label for="" class='ui text-secondary text-light my-3'>Enter the text in english</label>
+      <input class="form-control" name='text' id="EText"  value="{{ortext}}" rows="9" required>
+    </div>
+
+<div class="form-group">
+      <label for="Hindi" class='ui text-secondary text-light my-3'>Marathi</label>
+      <textarea class="form-control"   id="Tohind"   rows="6">{{text}}</textarea>
+      </div>
+      {% endif %}
+      <button type="submit" class="btn btn-outline-primary trae my-2">Translate</button>
+</form>
+<hr class="bg-light my-2">
+<h3 class="my-4 text-light">For whom these will be helpul?</h3>
+<p class="text-light text-monospace my-4 mx-2">Since there are rural areas or many areas in maharashtra who speaks only Marathi but there very less people who speaks English
+.And People around world/India loves to learn Marathi and those who know english but 
+not Marathi but they live in Maharashtra for some reason.For all those people they can enter the English text here  and can translate it into in Marathi
+,it"ll really helps you all
+to improve your skills easily. </p>
+<hr class="bg-light my-2">
+<h3 class="text-light my-4">How can it will be helpful?</h3>
+<p class="text-monospace text-light my-3">1)You can try to write english text by your own and can check whether its gramatically or in any aspect right or not
+  and still you can practice more.<br>2)People who dont know the meaning of english word/sentence will be helpful for those. and many more..
+</p>
+<hr class="bg-light my-2">
+   <h4 class="text-center text-light my-4">Can check other Translator>></h4>
+<p class="text-center my-2 mb-4  text-light"><a  href="/Translator/English_to_hindi/">English to Hindi</a>
+        <a class="mx-2" href="/Translator/English_to_French/">English to French</a>
+        <a class="mx-2" href="/Translator/English_to_German/">English to German</a>
+        <a class="mx-2" href="/Translator/English_to_Arabian/">English to Arabian</a>
+        
+        </p>
+</div>
+{% endblock  %}
+{% block JS %}
+<script>
+
+
+</script>
+{% endblock  %}

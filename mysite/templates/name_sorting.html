@@ -1,0 +1,116 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Can add student names/employe name and sort those names in alphabetically sorted order..
+{% endblock  %}
+{% block MKW %}Student names,sort alphabetically{% endblock  %}
+{% block Mr %}
+7/01/2021
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Arrange or sort  Students/employe names in alphabetical order.. 
+{% endblock  %}
+{% block body %}
+<style>
+  .jumbotron {
+    background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
+  }
+</style>
+<div class="container col-md-6">
+  <div class="jumbotron my-2 text-light">
+    <h1 class="display-4">Name sorting</h1>
+    <hr class="my-4 bg-white">
+    <h3 class="font-italic">Intro to sorting</h3>
+    <p class="text-monospace my-4">So,what is sorting  &#129300 ?Sorting is a techinque in which we arrange numbers in their ascending/descending order or we arrange letter
+    in alphabetical order	if we want to sort we check each numbers/alphabets with each other and according to that we arrange that.But in computer we have some algorithms
+     for that which sort these in very efficient way and in less time.</p>
+    <h3 class="font-italic">sorting in web</h3>
+    <p class="text-monospace my-4">As every individual in these world  don't do the coding.So,people like them who cant code for those there should be an software
+    which sort the names in alphabetical order and can decrease their manual work.So,<a href="/"><b>calcont</b><a/> has these software to sort the names which uses some 
+    basic sort function had written in JAVASCRIPT.</p>
+    <h3 class="font-italic">How can you use?</h3>
+    <p class="text-monospace my-4">You just have to write the names one by one and add them by clicking add button , if you want an sorted sequence you can click on sort
+    ,if you want to reset names or clear all data can click on reset button and to copy sequence just click on copy sorted sequence button.</p>
+    <hr class="my-4 bg-white">
+    <form>
+      <li><label for="exampleFormControlTextarea1">Names</label></li>
+      <div class="row">
+        <div class="col-8">
+          <input type="text" class="form-control" id="Namess" placeholder="Enter name">
+        </div>
+
+      </div>
+      
+      <div>
+
+        <a class="btn btn-outline-primary btn-lg my-4 AddName"  role="button">Add</a>
+        <a class="mx-4 btn btn-outline-primary btn-lg SortAll" role="button">Sort</a>
+        <a class="mx-4 btn btn-outline-primary btn-lg reset" role="button">Reset</a>
+      </div>
+      <br>
+      <div class="form-group">
+        <li><label for="exampleFormControlTextarea1">Sorted sequence</label></li>
+        <textarea class="form-control" id="Textarea1" rows="3"></textarea>
+      </div>
+<a class="btn btn-outline-primary btn-lg my-4 Copy"  role="button">Copy sorted sequence</a>
+    </form>
+    <hr class="my-4 bg-white">
+    <h3 class="font-italic my-3">Where can we use these?</h3>
+    <p class="text-monospace my-4">There are a lot application like,<br>1)School/colleges can use these software to arrange their students name in alphabetical order and 
+    according to that they can assign roll no/marks.<br>2)To keep customers names record in alphabetical order.<br>3)Helpful for those who has big data of names and want to
+    create some document.</p>
+    <p class="text-monospace mb-2 my-4">You can also try <a href="/Analyzer/TextAnalyzer/" >Text Analyzer
+      <a> in which you can arrange/sort names in alphabetical order..</p>
+  </div>
+
+</div>
+{% endblock %}
+{% block JS %}
+<script>
+  var names=[],text=""
+  $('.AddName').click(function (e) {
+
+    var val = document.getElementById('Namess').value;
+    names.push(val);
+    document.getElementById('Namess').value="";
+    
+    
+
+    e.preventDefault();
+  });
+  $('.SortAll').click(function (e) {
+    names.sort();
+    for(i=0;i<names.length;i++){
+      text+=names[i];
+      text+="\r\n"
+    }
+      document.getElementById('Textarea1').innerHTML=text;
+    e.preventDefault();
+  });
+  $('.reset').click(function (e) {
+    names=[],text="";
+    document.getElementById('Textarea1').innerHTML=text;
+    e.preventDefault();
+  });
+  $('.Copy').click(function (e) {
+  var copyText=document.getElementById("Textarea1");
+  var seq=document.getElementById("Textarea1").value;
+  if (seq==""){
+    alert("Your sequence has nothing to copy")
+  }
+  else{
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Text is copied");
+  }
+    e.preventDefault();
+  });
+</script>
+
+{% endblock %}

@@ -1,0 +1,188 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+This is a simple centimeter to milimeter/milimeter to centimeter converter,where centimeter and milimeter are a part of length units.
+So, 1 standard unit centimeter is equal to 10 times of milimeter and 1 standard unit milimeter is 1/10 times of centimeter.
+{% endblock  %}
+{% block MKW %}cm,mm.{% endblock  %}
+{% block Mr %}
+24/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Convert cm to mm or convert mm to cm
+{% endblock  %}
+{% block body %}
+<style>
+.jumbotron{
+    background-image:linear-gradient(to right,rgb(25, 30, 30) 100%, rgb(100,100,100) 70%);
+}
+</style>
+<div class="container col-md-6 my-4">
+<div class="jumbotron my-2 text-light">
+  <h1 class="my-4 text-center">cm to mm/mm to cm</h1>
+
+  <hr class="my-4 bg-white">
+  <h4>Conversion from cm to mm/mm to cm</h4>
+   <p class="text-monospace my-4"> How to convert cm to milimeter?So, 1 standard unit
+    cm is equal to 10 times of mm and 1 standard unit mm is 0.1 times of meter.Like 1 cm=10mm
+    ,for any number formula would be x cm=10x mm.lets see some more examples..</p>
+    <hr class="bg-light">
+<h4 class="my-2 text-center">cm to mm</h4>
+    <div class="container col-md-8 mt-4">
+    <table class="table text-light">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">cm</th>
+      <th scope="col">mm</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>1</td>
+      <td>10</td>
+     
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>2</td>
+      <td>20</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>3</td>
+      <td>30</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>5</td>
+      <td>50</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>20</td>
+      <td>200</td>
+      
+    </tr>
+   
+  </tbody>
+</table>
+</div>
+    <hr class="bg-light">
+<h4 class="my-2 text-center">mm to cm</h4>
+    <div class="container col-md-8 mt-4">
+    <table class="table text-light">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">milimeter</th>
+      <th scope="col">cm</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>1</td>
+      <td>0.1</td>
+     
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>2</td>
+      <td>0.2</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>3</td>
+      <td>0.3</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>5</td>
+      <td>0.5</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>20</td>
+      <td>2</td>
+      
+    </tr>
+   
+  </tbody>
+</table>
+</div>
+<p class="text monospace my-4">So from above examples you would have get an idea about how to convert cm to mm.Since its an simple Conversion
+but for some complex calculation you will need an software which convert quickly from cm to milimeter.CalConT has these,in below you just have to enter 
+cm or mm value.
+<hr class="bg-light">
+  <form>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">cm</label>
+      <input type="number" class="form-control" id="cm">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">to mm..</label>
+      <input class="form-control" type="number" id="cmtomm" readonly>
+    </div>
+  </div>
+  <a class="btn btn-primary btn-lg Concm" role="button">Convert</a>
+  <div class="form-row my-4">
+    <div class="form-group col-md-6">
+      <label for="inputEmail4">mm</label>
+      <input type="number" class="form-control" id="mm">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">to cm..</label>
+      <input class="form-control"  id="mmtocm" readonly>
+    </div>
+  </div>
+  <a class="btn btn-primary btn-lg Conmm" href="#" role="button">Convert</a>
+</form>
+<hr class="bg-light">
+<h3 class="my-4 text-center">Applications?</h3>
+<p class="text-monospace">As cm to mm or vice versa conversion is so important beacause it has lot of application
+   in mathematical, in science & technolgical world. examples will be..<br>Milimeter unit is useful in microinstrument
+   i.e.to calculate radius,length of an object e.g screw gauge is an instrument which calculates radius in mm,
+   in that for simple  calculation we can  convert it into cm..  </p> 
+<hr class="bg-light">
+<h4 class="text-monospace text-center">Can checkout some other cm converter..</h4>
+<p class="text-center my-2  text-light"><a  href="/Conversion/UnitsConverter/m_to_cm">cm to m</a>
+        <a class="mx-2" href="/Conversion/UnitsConverter/cm_to_mile">cm to mile</a>
+        <a class="mx-2" href="/Conversion/UnitsConverter/cm_to_foot">cm to foot</a>
+        <a class="mx-2" href="/Conversion/UnitsConverter/cm_to_yard">cm to yard</a>
+        
+        </p>
+<p class="text-center my-2  text-light"><a  class="mx-2" href="/Conversion/UnitsConverter/cm_to_angstrom">cm to angstrom</a>
+        <a class="mx-2" href="/Conversion/UnitsConverter/cm_to_inch">cm to inch</a>
+        </p>
+</div>
+
+</div>
+{% endblock %}
+{% block JS %}
+<script>
+$('.Concm').click(function (e) {
+var val=document.getElementById("cm").value;
+var ans=val*10
+document.getElementById("cmtomm").value=ans;
+e.preventDefault();
+});
+$('.Conmm').click(function (e) {
+var val=document.getElementById("mm").value;
+var ans=val*0.1
+document.getElementById("mmtocm").value=ans;
+e.preventDefault();
+});
+</script>
+{% endblock  %}

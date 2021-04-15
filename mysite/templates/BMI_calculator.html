@@ -1,0 +1,177 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+BMI calculator which calculates your body mass index by analysing your weight and height,which has some basic formula (mass(kg)/height(m^2))..
+Calculate your BMI by entering weight and mass as your input.And check what is your bmi and how much bmi you required to get normal.
+{% endblock  %}
+{% block MKW %}BMI,suggestor,calculator,Body mass index{% endblock  %}
+{% block Mr %}
+25/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}-BMI calculator & Suggestor.
+{% endblock  %}
+{% block body %}
+<style>
+.jumbotron{
+    border-radius:10px;
+
+}
+</style>
+<div class="container col-md-6 text-monospace my-4">
+<div class="jumbotron jumbotron-fluid bg-light">
+  <div class="container">
+    <h1 class="text-center my-3">BMI calculator & Suggestor</h1>
+    <hr class='bg-black'>
+    <p class="text-monospace my-3">Body mass index (BMI) is a value derived from the mass (weight) and height of a person. The BMI is defined as the body mass divided by the square 
+      of the body height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and height in metres.
+      The BMI is a convenient rule of thumb used to broadly categorize a person as underweight, normal weight, overweight, or obese based on tissue mass (muscle, fat, and bone)
+      and height. Commonly accepted BMI ranges are underweight (under 18.5 kg/m2), normal weight (18.5 to 25), overweight (25 to 30), and obese (over 30).
+      BMIs under 20 and over 25 have been associated with higher all-causes mortality, with the risk increasing with distance from the 20–25 range.
+      
+      . </p>
+      <div class="col-md-6 mx-4">
+        <h2>BMI range table</h2>
+        <table class="table">
+          <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Category</th>
+      <th scope="col">BMI(Kg/m^2)</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>very severely underweight</td>
+      <td>15</td>
+     
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Severely underweight</td>
+      <td>15-16</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Underweight</td>
+      <td>16-18.5</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">4</th>
+      <td>Normal (healthy weight)</td>
+      <td>18.5-25</td>
+      
+    </tr>
+    <tr>
+      <th scope="row">5</th>
+      <td>Overweight</td>
+      <td>25-30</td>
+      
+    </tr>
+    
+  </tbody>
+</table>
+</div>
+<p class="my-4">BMI calculator which calculates your body mass index by analysing your weight and height,which has some basic formula (mass(kg)/height(m^2))..
+  Calculate your BMI by entering weight and mass as your input.And check what is your bmi and how much bmi you required to get normal.
+</p>
+<hr class='bg-black my-2'>
+<form>
+  <div class="form-group  ">
+    <label for="">Weight</label>
+    <input type="number" placeholder="Enter weight(kg)" class="form-control" id="weight" required>
+  </div>
+<div class="form-row">
+ <div class="form-group col-md-6">
+   <label for="">Height</label>
+   <input type="number" placeholder="Enter Height" class="form-control" id="Height" required>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="">Choose m/cm/inch</label>
+      <select id="height" class="form-control" required>
+        
+        <option value="1">in cm^2</option>
+        <option value="2">in foot</option>
+        <option value="3">in m^2</option>
+        
+      </select>
+    </div>
+  </div>
+  
+  <button type="submit" class="btn btn-primary cal">Calculate</button>
+  
+</form>
+<h4 class="text-center my-3" id="ans"></h4>
+</div>
+<hr class='bg-black my-4'>
+<div class="mx-3">
+  <h3 class="my-4 mx-3">Advantage?</h3>
+  <p clas="my-2 mx-3">By using such bmi suggestor/calculator you can calculate your bmi and can see in what range your bmi is,at the 
+    same time it will suggest you how much you should manage to get fit.So,according to that you can scheduled your diet plan and fitness
+    plan.
+  </p>
+</div>
+<hr class='bg-black my-4'>
+<h4 class="text-center text-dark mt-4">Can check some unit conversions>></h4>
+<a class="text-center" href="/Conversion/UnitsConverter/"><p>unit conversions<p></a>
+</div>
+</div>
+{% endblock  %}
+{% block JS %}
+<script>
+
+$('.cal').click(function (e) {
+var weigh=document.getElementById('weight').value;
+var heigh=document.getElementById('Height').value;
+var choose=document.getElementById('height').value;
+var bmi;
+if(weigh=="" || heigh==""){
+document.getElementById('ans').innerHTML="<p class='text-danger'>Enter Inputs</p>";
+}
+else{
+if ((weigh=="")||(heigh=="")||(weigh=="" && heigh=="" ) ){
+    document.getElementById('ans').innerHTML="Enter input";
+}
+else if(choose=="1"){
+bmi=((weigh*10000)/(heigh*heigh)).toFixed(2);
+    
+}
+else if(choose=="2"){
+bmi=((weigh*3.28*3.28)/(heigh*heigh)).toFixed(2);
+
+}
+else if(choose=="3"){
+bmi=((weigh)/(heigh*heigh)).toFixed(2);
+}
+
+if (bmi<18.5){
+cover=(18.5-bmi).toFixed(2)
+if (bmi==15){
+    document.getElementById('ans').innerHTML="Your BMI is " + "<p class='text-danger'>"+bmi+"</p>" + ".Your very severely underweight.  <p>&#128532</p> .You should balance it "+ "<p class='text-danger'>"+cover +"</p>" +"of your bmi";
+}
+else if (bmi>15 || bmi<16){
+    document.getElementById('ans').innerHTML="Your BMI is " + "<p class='text-danger'>"+bmi+"</p>" + ".Your severely underweight. <p>&#128532</p> You should balance it,by increasing " + "<p class='text-danger'>"+cover +"</p>" +"of your bmi" ;
+}
+else if (bmi>16 || bmi<18.5){
+    document.getElementById('ans').innerHTML="Your BMI is " + "<p class='text-danger'>"+bmi+"</p>" + ".Your  underweight. <p>&#128532</p> You should balance it,by increasing " + "<p class='text-danger'>"+cover +"</p>" +"of your bmi" ;
+}
+
+}
+else if (bmi>25){
+  cover=(bmi-25).toFixed(2)
+    document.getElementById('ans').innerHTML="Your BMI is " + "<p class='text-danger'>"+bmi+"</p>" + ".You r overweight. <p>&#128532</p> You should balance it,by decreasing" + "<p class='text-danger'>"+cover +"</p>" +"of your bmi";
+    }
+else{
+    document.getElementById('ans').innerHTML="Your BMI is " + "<p class='text-danger'>"+bmi+"</p>" + "You r fit  <p>&#128170</p>" ;
+
+}
+}
+e.preventDefault();
+});
+</script>
+{% endblock  %}

@@ -1,0 +1,87 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+GCD/greatest common divisor of two numbers.We calculate these by choosing greatest common divisor of two number.But we can calculate these using EUCLEDAN
+    approach.The Euclid's algorithm (or Euclidean Algorithm) is a method for efficiently finding the greatest common divisor (GCD) of 
+    two numbers. The Euclidean algorithm is one of the oldest algorithms in common use. It appears in Euclid's Elements (c. 300 BC).
+The GCD of two integers X and Y is the largest integer that divides both of X and Y (without leaving a remainder). Greatest Common 
+Divisor is, also, known as greatest common factor (gcf), highest common factor (hcf), greatest common measure (gcm) and highest common divisor.
+{% endblock  %}
+{% block MKW %}GCD,two numbers,HCF,greates common divisor{% endblock  %}
+{% block Mr %}
+25/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}-GCD calculator of two numbers. 
+{% endblock  %}
+{% block body %}
+<style>
+.jumbotron{
+    border-radius:10px;
+
+}
+</style>
+<div class="container col-md-6 my-5 mb-5">
+<div class="jumbotron jumbotron-fluid bg-light">
+  <div class="container">
+    <h1 class="text-center ">GCD calculator</h1>
+    <hr class='bg-black'>
+    <h3 class="my-4 text-center">What is GCD?</h3>
+    <p class="text-monospace my-4">GCD/greatest common divisor of two numbers,We calculate these by choosing greatest common divisor of two 
+    number In mathematics, the greatest common divisor (gcd) of two or more integers, which are not all zero, is the largest positive integer that 
+    divides each of the integers. For two integers x, y, the greatest common divisor of x and y is denoted gcd(x,y).</p>
+    <hr class='bg-black my-4'>
+    <h3 class="my-3 text-center">How to calculate GCD?</h3>
+    <p class="text-monospace my-4"> We can calculate these using EUCLEDAN
+    approach.The Euclid's algorithm (or Euclidean Algorithm) is a method for efficiently finding the greatest common divisor (GCD) of 
+    two numbers. The Euclidean algorithm is one of the oldest algorithms in common use. 
+The GCD of two integers X and Y is the largest integer that divides both of X and Y (without leaving a remainder). Greatest Common 
+Divisor is, also, known as greatest common factor (gcf), highest common factor (hcf), greatest common measure (gcm) and highest common divisor. </p>
+    <p class="text-monospace">You can calculate GCD of two numbers here in below by entering two numbers.</p>
+    <hr class='bg-black my-4'>
+    <form>
+  <div class="form-group my-4">
+    <label for="">Enter 1st number</label>
+    <input type="number" class="form-control" placeholder="1st no" id="FirstNo" Required>
+
+  </div>
+  <div class="form-group">
+    <label for="">Enter 2nd number</label>
+    <input type="number" class="form-control" placeholder="2nd no" id="SecondNo" Required>
+  </div>
+ 
+  <button type="submit" class="btn btn-primary cal">Calculate</button>
+</form>
+<h4 class="text-center my-3" id="ans"></h4>
+    <hr class='bg-black my-3'>
+    <h4 class="text-center text-dark mt-4">Can check EMI calculator>></h4>
+<a class="text-center" href="/Calculator/EMI_calculator/"><p>EMI calculator<p></a>
+  </div>
+</div>
+</div>
+{% endblock  %}
+{% block JS %}
+<script>
+
+$('.cal').click(function (e) {
+var n1=document.getElementById('FirstNo').value;
+var n2=document.getElementById('SecondNo').value;
+var hcf;
+if((n1=="") || (n2=="") || (n1=="" && n2=="")){
+    document.getElementById('ans').innerHTML="Enter input";
+}
+else{
+for (let i = 1; i <= n1 && i <= n2; i++) {
+
+    // check if is factor of both integers
+    if( n1 % i == 0 && n2 % i == 0) {
+     hcf = i;
+    }
+}
+document.getElementById('ans').innerHTML="GCD of "+ n1 +" & " + n2 + " is  " + '<h4 class="text-danger" >' + hcf + '</b>';
+}
+e.preventDefault();
+});
+</script>
+{% endblock  %}

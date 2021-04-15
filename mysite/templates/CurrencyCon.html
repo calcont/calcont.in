@@ -1,0 +1,348 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Convert indian rs to usd ,pound,euros,rand,yen...,
+usd to rs,pound,euros,rand,yen..
+Pound to rs,usd,euros,rand,yen..
+{% endblock  %}
+{% block MKW %}
+Currency conversion from RS,USD,POUNDS to all currencies
+{% endblock  %}
+{% block Mr %}
+24/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Convert indian rs to usd ,pound,euros,rand,yen...,
+usd to rs,pound,euros,rand,yen..
+Pound to rs,usd,euros,rand,yen..
+{% endblock  %}
+{% block body %}
+<style>
+  .input-group-prepend {
+    margin-right: -15px;
+    height: 38px;
+  }
+  .container{
+    background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%)
+  }
+</style>
+
+<div class="jumbotron text-light text-monospace container col-md-6 my-2">
+  <h2 class="text-center">Currency Converter</h2>
+  <hr class="my-4 bg-dark">
+  <p class="my-2"><h5>Convert <b>indian rs</b> to usd ,pound,euros,rand,yen...,
+    <b>usd</b> to rs,pound,euros,rand,yen..
+    <b>Pound</b> to rs,usd,euros,rand,yen..
+    As,many of us dont know what currency rates are there around the world.But while travelling around the globe or importing/exporting materials 
+    from other countries,these type of software is in need from which we can convert currency rate from by just entering the amount or compare the currency strcuture.
+    You can use the below converter to get idea about currencies around the globe.</p>
+  <hr class="my-4 bg-dark">
+  <h3 id="HeadRs" class="text-center">Indian Rupees to Usd</h3>
+  <p class="my-4">Convert indian rupees to all top currencies by just entering the Rs amount.As india is populated nation from which people from other country 
+    visited india are of huge amount.So,for all those these conversion will be helpful.</p> 
+  <form>
+    <div class="row my-2">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">RS</span>
+        </div>
+        <div class="col">
+
+          <input type="number" id="Rs" class="form-control" placeholder="Enter Rs" aria-label="Amount (to the nearest dollar)">
+        </div>
+
+        <div class="form-group col-md-5">
+
+          <select id="inputCurrencyRs" class="form-control">
+            
+            <option value="1">Indian Rs to Usd</option>
+            <option value="2">Indian Rs to Pound</option>
+            <option value="3">Indian Rs to Euros</option>
+            <option value="4">Indian Rs to Austrialian Dollar</option>
+            <option value="5">Indian Rs to New zealand Dollar</option>
+            <option value="6">Indian Rs to Srilankan Rupees</option>
+            <option value="7">Indian Rs to South African rand</option>
+            <option value="8">Indian Rs to Japanese yen</option>
+          </select>
+        </div>
+         
+       
+      </div>
+    <a class="btn btn-outline-secondary btn-lg  ConRs" href="#" role="button">Convert</a>
+    
+    
+    
+    </div>
+  <form>
+  <h3 class="text-danger text-center" id="rsconv"></h3>
+  <hr class="my-4 bg-dark">
+
+  <h3 id="HeadDollar" class="text-center">USD to Indian Rupees</h3>
+  <p class="my-4">Convert United dollars to all top currencies by just entering the $ amount.The United States dollar has the status of a reserve currency.
+    This is because the central banks of most countries keep their foreign exchange assets in US securities. US being the largest and the most open economy,
+    the bonds issued by the US government is seen as a safe asset in the event of a financial crisis. As a result most countries are willing to accept payments for 
+   their exports in dollars. Also cross-currency rates are determined as relative value of each currency toward US dollar,that's why US dollar always compared 
+   universally with other currencies.So,all the people should know the USD comparision for their countries,and that you can get from here.</p>
+  <form>
+    <div class="row my-2">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">$</span>
+        </div>
+        <div class="col">
+
+          <input type="number" id="dollar" class="form-control" placeholder="Enter $" aria-label="Amount (to the nearest dollar)">
+        </div>
+
+        <div class="form-group col-md-5">
+
+          <select id="inputCurrencyDollar" class="form-control">
+            
+            <option value="1">USD to Indian Rupees</option>
+            <option value="2">USD to Pound</option>
+            <option value="3">USD to Euros</option>
+            <option value="4">USD to Austrialian Dollar</option>
+            <option value="5">USD to New zealand Dollar</option>
+            <option value="6">USD to Srilankan Rupees</option>
+            <option value="7">USD to South African rand</option>
+            <option value="8">USD to Japanese yen</option>
+          </select>
+        </div>
+         
+       
+      </div>
+    <a class="btn btn-outline-secondary btn-lg  ConDollar" href="#" role="button">Convert</a>
+  </div>
+  <form>
+  <h3 class="text-danger text-center" id="Dollarconv"></h3>
+  <hr class="my-4 bg-dark">
+ 
+  <h3 id="HeadEuro" class="text-center">Euro to Indian Rupees</h3>
+  <p class="my-4">Convert euros to all top currencies by just entering the €
+    amount. Austria, Belgium, Cyprus, Estonia, Finland, France, Germany, Greece, Ireland, Italy, Latvia, Lithuania, Luxembourg, Malta, the Netherlands, Portugal, Slovakia
+  , Slovenia, and Spain who uses only these currencies.So,for those people these euro to... converter will be helpful.</p> 
+<form>
+    <div class="row my-2">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">€</span>
+        </div>
+        <div class="col">
+
+          <input type="number" id="euro" class="form-control" placeholder="Enter €" aria-label="Amount (to the nearest dollar)">
+        </div>
+
+        <div class="form-group col-md-5">
+
+          <select id="inputCurrencyEuro" class="form-control">
+            
+            <option value="1">Euros to Indian Rupees</option>
+            <option value="2">Euro to Pound</option>
+            <option value="3">Euros to USD</option>
+            <option value="4">Euro to Austrialian Dollar</option>
+            <option value="5">Euro to New zealand Dollar</option>
+            <option value="6">Euro to Srilankan Rupees</option>
+            <option value="7">Euro to South African rand</option>
+            <option value="8">Euro to Japanese yen</option>
+          </select>
+        </div>
+         
+       
+      </div>
+    <a class="btn btn-outline-secondary btn-lg  ConEuro" href="#" role="button">Convert</a>
+  </div>
+  <form>
+  <h3 class="text-danger text-center" id="Euroconv"></h3>
+    <hr class="my-4 bg-dark">
+    <h5 class="text-center  my-4">Can check some Translators>></h5>
+    <a class="text-center" href="/Translator/English_to_hindi/"><p>English to Hindi</p></a>
+    <a class="text-center" href="/Translator/English_to_Marathi/"><p>English to Marathi</p></a>
+    <a class="text-center" href="/Translator/English_to_French/"><p>English to French</p></a>
+    <a class="text-center" href="/Translator/English_to_German/"><p>English to German</p></a>
+    <a class="text-center" href="/Translator/English_to_Arabian/"><p>English to Arab</p></a>
+  <hr class="my-4 bg-dark">
+
+
+</div>
+{% endblock %}
+{% block JS %}
+<script>
+$('.ConRs').click(function (e) {
+const val=document.getElementById("inputCurrencyRs").value;
+var inpt=document.getElementById("Rs").value;
+//console.log(val)
+if( inpt=="" ){
+  document.getElementById('rsconv').innerHTML= "Enter the amount first";
+}
+else{
+ if(val=="1"){
+var doll=(parseInt(inpt))*(0.014);
+//console.log()
+document.getElementById('rsconv').innerHTML= inpt+" Indian rs. = " + doll.toFixed(3) +" Dollars";
+ }
+ else if(val=="2"){
+var doll=(parseInt(inpt))*(0.010);
+//console.log()
+document.getElementById("HeadRs").innerHTML="Indian Rupees. to Pound"
+document.getElementById('rsconv').innerHTML= inpt+" Indian rs. = " + doll.toFixed(3) +" Pound";
+ }
+ else if(val=="3"){
+var doll=(parseInt(inpt))*(0.012);
+//console.log()
+document.getElementById("HeadRs").innerHTML="Indian Rupees. to Euros"
+document.getElementById('rsconv').innerHTML= inpt+" Indian rs. = " + doll.toFixed(3) +" Euros";
+}
+ else if(val=="4"){
+var doll=(parseInt(inpt))*(0.019);
+//console.log()
+document.getElementById("HeadRs").innerHTML="Indian Rupees. to Austrialian Dollars"
+document.getElementById('rsconv').innerHTML= inpt+" Indian rs. = " + doll.toFixed(3) +" Austrialian Dollars";
+}
+ else if(val=="5"){
+var doll=(parseInt(inpt))*(0.021);
+//console.log()
+document.getElementById("HeadRs").innerHTML="Indian Rupees. to New zealand Dollars"
+document.getElementById('rsconv').innerHTML= inpt+" Indian rs. = " + doll.toFixed(3) +" New zealand Dollars";
+}
+ else if(val=="6"){
+var doll=(parseInt(inpt))*(2.52);
+//console.log()
+document.getElementById("HeadRs").innerHTML="Indian Rupees. to Srilankan Rupees"
+document.getElementById('rsconv').innerHTML= inpt+" Indian rs. = " + doll.toFixed(3) +" Srilankan Rupees";
+}
+ else if(val=="7"){
+var doll=(parseInt(inpt))*(0.23);
+//console.log()
+document.getElementById("HeadRs").innerHTML="Indian Rupees. to South African Rands"
+document.getElementById('rsconv').innerHTML= inpt+" Indian rs. = " + doll.toFixed(3) +" rand";
+}
+ else if(val=="8"){
+var doll=(parseInt(inpt))*(1.45);
+//console.log()
+document.getElementById("HeadRs").innerHTML="Indian Rupees. to Japanese yen"
+document.getElementById('rsconv').innerHTML= inpt+" Indian rs. = " + doll.toFixed(3) +" Yen";
+}
+}
+ e.preventDefault();
+});
+$('.ConDollar').click(function (e) {
+const val=document.getElementById("inputCurrencyDollar").value;
+var inpt=document.getElementById("dollar").value;
+if( inpt=="" || inpt=="e"){
+  document.getElementById('Dollarconv').innerHTML= "Enter the amount first";
+}
+else{
+ if(val=="1"){
+var doll=(parseInt(inpt))*(73.32);
+//console.log()
+document.getElementById('Dollarconv').innerHTML= inpt+" USD = " + doll.toFixed(3) +" Indian rs.";
+ }
+ else if(val=="2"){
+var doll=(parseInt(inpt))*(0.77);
+//console.log()
+document.getElementById("HeadDollar").innerHTML="USD to Pound"
+document.getElementById('Dollarconv').innerHTML= inpt+" USD = " + doll.toFixed(3) +" Pound";
+ }
+ else if(val=="3"){
+var doll=(parseInt(inpt))*(0.85);
+//console.log()
+document.getElementById("HeadDollar").innerHTML="USD to Euros"
+document.getElementById('Dollarconv').innerHTML= inpt+" USD = " + doll.toFixed(3) +" Euros";
+}
+ else if(val=="4"){
+var doll=(parseInt(inpt))*(1.39);
+//console.log()
+document.getElementById("HeadDollar").innerHTML="USD to Austrialian Dollars"
+document.getElementById('Dollarconv').innerHTML= inpt+" USD = " + doll.toFixed(3) +" Austrialian Dollars";
+}
+else if(val=="5"){
+var doll=(parseInt(inpt))*(1.50);
+//console.log()
+document.getElementById("HeadDollar").innerHTML="USD to New zealand Dollars"
+document.getElementById('Dollarconv').innerHTML= inpt+" USD = " + doll.toFixed(3) +" New zealand Dollars";
+}
+ else if(val=="6"){
+var doll=(parseInt(inpt))*(184.35);
+//console.log()
+document.getElementById("HeadDollar").innerHTML="USD to Srilankan Rupees"
+document.getElementById('Dollarconv').innerHTML= inpt+" USD = " + doll.toFixed(3) +" Srilankan Rupees";
+}
+ else if(val=="7"){
+var doll=(parseInt(inpt))*(16.50);
+//console.log()
+document.getElementById("HeadDollar").innerHTML="USD to South African Rands"
+document.getElementById('Dollarconv').innerHTML= inpt+" USD = " + doll.toFixed(3) +" rand";
+}
+ else if(val=="8"){
+var doll=(parseInt(inpt))*(105.58);
+//console.log()
+document.getElementById("HeadDollar").innerHTML="USD to Japanese yen"
+document.getElementById('Dollarconv').innerHTML= inpt+" USD = " + doll.toFixed(3) +" Yen";
+}
+} e.preventDefault();
+});
+//EUROS CONVERTER
+$('.ConEuro').click(function (e) {
+const val=document.getElementById("inputCurrencyEuro").value;
+var inpt=document.getElementById("euro").value;
+if( inpt=="" || inpt=="e"){
+  document.getElementById('Euroconv').innerHTML= "Enter the amount first";
+}
+else{
+ if(val=="1"){
+var doll=(parseInt(inpt))*(86.31);
+//console.log()
+document.getElementById('Euroconv').innerHTML= inpt+" Euro = " + doll.toFixed(3) +" Indian rs.";
+ }
+ else if(val=="2"){
+var doll=(parseInt(inpt))*(0.91);
+//console.log()
+document.getElementById("HeadDollar").innerHTML="Euro to Pound"
+document.getElementById('Euroconv').innerHTML= inpt+" Euro = " + doll.toFixed(3) +" Pound";
+ }
+ else if(val=="3"){
+var doll=(parseInt(inpt))*(1.18);
+//console.log()
+document.getElementById("HeadEuro").innerHTML="Euro to USD"
+document.getElementById('Euroconv').innerHTML= inpt+" Euro = " + doll.toFixed(3) +" USD";
+}
+ else if(val=="4"){
+var doll=(parseInt(inpt))*(1.64);
+//console.log()
+document.getElementById("HeadEuro").innerHTML="Euro to Austrialian Dollars"
+document.getElementById('Euroconv').innerHTML= inpt+" Euro = " + doll.toFixed(3) +" Austrialian Dollars";
+}
+else if(val=="5"){
+var doll=(parseInt(inpt))*(1.77);
+//console.log()
+document.getElementById("HeadEuro").innerHTML="Euro to New zealand Dollars"
+document.getElementById('Euroconv').innerHTML= inpt+" Euro = " + doll.toFixed(3) +" New zealand Dollars";
+}
+ else if(val=="6"){
+var doll=(parseInt(inpt))*(216.19);
+//console.log()
+document.getElementById("HeadEuro").innerHTML="Euro to Srilankan Rupees"
+document.getElementById('Euroconv').innerHTML= inpt+" Euro = " + doll.toFixed(3) +" Srilankan Rupees";
+}
+ else if(val=="7"){
+var doll=(parseInt(inpt))*(19.41);
+//console.log()
+document.getElementById("HeadEuro").innerHTML="Euro to South African Rands"
+document.getElementById('Euroconv').innerHTML= inpt+" Euro = " + doll.toFixed(3) +" rand";
+}
+ else if(val=="8"){
+var doll=(parseInt(inpt))*(124.09 );
+//console.log()
+document.getElementById("HeadEuro").innerHTML="Euro to Japanese yen"
+document.getElementById('Euroconv').innerHTML= inpt+" Euro = " + doll.toFixed(3) +" Yen";
+}
+}
+
+
+ e.preventDefault();
+});
+
+</script>
+
+{% endblock  %}

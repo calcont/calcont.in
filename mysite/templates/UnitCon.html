@@ -1,0 +1,68 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Convert one unit measurement to another
+{% endblock  %}
+{% block MKW %}
+m,cm,yard,foot,angstrom..converter
+{% endblock  %}
+{% block Mr %}
+24/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+
+{% block title %}-Convert one unit measurement to another
+{% endblock  %}
+{% block body %}
+<style>
+    .list-group-item {
+        background-image: rgb(255,255,255);
+    }
+    .container{
+      border:2px solid rgb(255,255,255);
+      border-radius:10px;
+    }
+</style>
+<div class="container col-md-6 mx-auto my-4">
+<h1 class="text-light text-center my-4">Units Converter</h1>
+<hr class="bg-light">
+
+
+<h3 class="text-light my-3">1) Length converter</h3>
+
+
+<div class="list-group">
+
+
+<h4 class="text-light my-4"><li>mtr converter</li></h4>
+<p class="text-monospace text-light my-2 mb-2">As meter is an length measurement unit in international SI units and which has various application in all the field like in
+  meterscale or measure some height,in scientific field  etc.But at the same time it is essential to convert meter into suitable/appropriate length unit.As meter can be 
+  the smallest unit if we want to measure the longest distance,radius n all it wont be possible to count it in metre or vice versa it can be bigger than other length unit.
+  So you can convert meter unit to all necessary length units.Select to convert..</p>
+  <a href="/Conversion/UnitsConverter/m_to_cm" class="mt-4 list-group-item list-group-item-action list-group-item-dark text-primary">m to cm or cm to m</a>
+  <a href="/Conversion/UnitsConverter/m_to_mm" class="list-group-item list-group-item-action list-group-item-dark text-primary">m to mm or mm to m</a>
+  <a href="/Conversion/UnitsConverter/m_to_inch" class="list-group-item list-group-item-action list-group-item-dark text-primary">m to inch or inch to m</a>
+  <a href="/Conversion/UnitsConverter/m_to_mile" class="list-group-item list-group-item-action list-group-item-dark text-primary">m to mile or mile to m</a>
+  <a href="/Conversion/UnitsConverter/m_to_foot" class="list-group-item list-group-item-action list-group-item-dark text-primary">m to foot or foot to m</a>
+  <a href="/Conversion/UnitsConverter/m_to_yard" class="list-group-item list-group-item-action list-group-item-dark text-primary">m to yard or yard to m</a>
+  <a href="/Conversion/UnitsConverter/m_to_angstrom" class="list-group-item list-group-item-action list-group-item-dark text-primary">m to angstorm or angstorm to m</a>
+  
+</div>
+<div class="list-group my-4">
+
+<h4 class="text-light my-2"><li>cm converter</li></h4>
+<p class="text-monospace text-light my-4"> As centimeter also an length measurement unit and it also has various application.But as metre it is also necessary to convert
+centimeter into appropriate length unit.As cm is smaller than meter unit so if want to convert it to longest unit or smallest unit we should have some converters. So you can convert centimeter unit to all necessary length units.Select to convert..</p>
+  <a href="/Conversion/UnitsConverter/cm_to_mm" class="mt-4 list-group-item list-group-item-action list-group-item-dark text-primary">cm to mm or mm to cm</a>
+  <a href="/Conversion/UnitsConverter/cm_to_inch" class="list-group-item list-group-item-action list-group-item-dark text-primary">cm to inch or inch to cm</a>
+  <a href="/Conversion/UnitsConverter/cm_to_mile" class="list-group-item list-group-item-action list-group-item-dark text-primary">cm to mile or mile to cm</a>
+  <a href="/Conversion/UnitsConverter/cm_to_foot" class="list-group-item list-group-item-action list-group-item-dark text-primary">cm to foot or foot to cm</a>
+  <a href="/Conversion/UnitsConverter/cm_to_yard" class="list-group-item list-group-item-action list-group-item-dark text-primary">cm to yard or yard to cm</a>
+  <a href="/Conversion/UnitsConverter/cm_to_angstrom" class="list-group-item list-group-item-action list-group-item-dark text-primary">cm to angstorm or angstorm to cm</a>
+  
+</div>
+<hr class="my-4 bg-light">
+<p class="my-4 text-light">You can check some other converters as well    <a href="/Conversion/BinaryConverter/">Binary converter,  </a> <a href="/Conversion/DecimalConverter/">Decimal converter</a></p>
+</div>
+{% endblock %}

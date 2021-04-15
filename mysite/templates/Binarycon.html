@@ -1,0 +1,291 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Convert Binary number to Decimal,
+Binary number to Hexadecimal,
+Binary number to Octal.
+{% endblock  %}
+{% block MKW %}
+Binary to Decimal,octal,Hexadecimal
+{% endblock  %}
+{% block Mr %}
+24/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %} - Convert binary number to Decimal ,Octal,Hexadecimal
+{% endblock  %}
+{% block body %}
+
+<style>
+
+.container{
+  border:2px solid rgb(25, 30, 66);
+  background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
+  border-radius:10px;
+}
+.coll{
+  
+  font-weight:bold;
+}
+
+
+
+
+
+</style>
+
+
+<form>
+<div class="container border  text-light text-monospace col-md-6 my-2">
+<h1 class="my-4 text-center">Binary Converters</h1>
+<p class="my-4">First up all what is binary number System?So,it is an number System with a radix 2.As most modern computer systems use the binary logic for their operation.
+A computer cannot operate on the decimal number system.A binary number system uses only two digits namely 0 and 1.So,we can convert these to decimal,hexadecimal and octal
+number system.That you can see in below..</p>
+  <hr class="bg-light">
+<div class="container">
+<h2 class="my-4  text-light" >Binary to Decimal</h2>
+</div>
+<p class="text-light my-4 mx-2">how can one convert binary number to decimal manually?First up all, one has to write down weights corresponding to different positions then multiply each
+digit in given number with corresponding weight to obtain product numbers and then add all the product numbers to get decimal equivalent.
+But,stil  most humans only knows decimal number.So,it is necessary to have an software which can convert longest binary number to respective decimal number 
+.So,calcont have that in which you have to just enter binary number in below and click to convert..</p>
+  <div class="form-row my-4">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="text"  placeholder="Enter The Binary No." class="form-control coll" id="bin" required>
+    </div>
+  </div>
+  <div class="form-row">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary sub " type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="BintoDecHead"></h4>
+<h4 class="text-center text-light" id="BintoDecOut"></h4> 
+
+
+<hr class="bg-light">
+<div class="container">
+<h2 class="my-4  text-light" >Binary to Octal</h2>
+</div>
+<p class="text-light my-4 mx-2">how can one convert binary number to octal manually?First up all one has to write down weights corresponding to different positions then multiply each
+digit in given number with corresponding weight to obtain product numbers and then add all the product numbers to get octal equivalent.
+But,stil it is necessary to have an software which can convert longest bytes to respective octal number 
+.So,calcont have that in which you have to just enter binary number in below and click to convert.. </p>
+  <div class="form-row my-4">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="text"  placeholder="Enter The Binary No." class="form-control coll" id="bina" required>
+    </div>
+  </div>
+  <div class="form-row my-4">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary subm " type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="BintoOctHead"></h2>
+<h4 class="text-center text-light" id="BintoOctOut"></h4> 
+
+<hr class="bg-light">
+<div class="container">
+<h2 class="my-4  text-light" >Binary to Hexadecimal</h2>
+</div>
+<p class="text-light my-4 mx-2">how can one convert binary number to hexadecimal manually?First up all one has to write down weights corresponding to different positions then multiply each
+digit in given number with corresponding weight to obtain product numbers and then add all the product numbers to get hexadecimal equivalent.
+But,stil it is necessary to have an software which can convert longest bytes to respective hexadecimal number 
+.So,calcont have that in which you have to just enter binary number in below and click to convert.. </p>
+  <div class="form-row">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="text"  placeholder="Enter The Binary No." class="form-control coll" id="binar" required>
+    </div>
+  </div>
+  <div class="form-row">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary submi my-4" type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="BintoHexaHead"></h2>
+<h4 class="text-center text-light" id="BintoHexaOut"></h4> 
+<p class="text-center">you can check <a href="/Conversion/DecimalConverter/">decimal converters</a> also</p>
+</div>
+</form>
+
+</div>
+
+{% endblock %}
+{% block JS %}
+<script>
+
+  $('.sub').click(function (e) {
+    //BINARY TO DECIMAL
+    
+      var selecte = document.getElementById('bin').value;
+      
+      //console.log(" ");
+      //console.log(selecte.length);
+      var s=0;
+      if (selecte==""){
+        s=""
+        stri="Enter binary no. first"
+      }  
+      else{
+      for (var i = 0; i < selecte.length; i++) {
+        
+        if (selecte[i] == '1') {
+          s += 2 ** (selecte.length - 1 - i);
+        }
+        else if (selecte[i] == '0') {
+          s += 0;
+        }
+        else{
+          s="";
+          var stri="Error please enter valid binary no."
+          break
+        }
+        if (i==selecte.length-1 ){
+          var stri='Decimal no is...'
+        }
+      
+      }
+      }
+
+      //console.log(s);
+      document.getElementById('BintoDecHead').innerHTML = stri;
+      document.getElementById('BintoDecOut').innerHTML = s;
+  e.preventDefault();
+  });
+  //BINARY TO OCTAL
+  $('.subm').click(function (e){
+      
+    var selecte = document.getElementById('bina').value;
+    var s=0;
+    var ans="";
+    var i=selecte.length-1;
+    var j=2;
+    var c=0;
+    if (selecte==""){
+      x=""
+      var stri="Enter binary no. first"
+    }
+    else{
+      while(1){ 
+      if (selecte[i] == '1') {
+        
+         s += 2 ** (2 - j);
+         c+=1
+         j-=1
+
+      }
+      else if (selecte[i] == '0'){
+         s += 0;
+         c+=1
+         j-=1
+      }
+      else{
+          ans="";
+          var x="Error please enter valid binary no."
+          break
+        }
+      if (i!=selecte.length-1 & ((c==3) || i==0)){
+        ans = ans + String(s)
+        s=0;
+        j=2;
+        c=0
+      }
+      if (i==0){
+        var stri='Octal no is...'
+        break
+      }
+    
+      i-=1;
+      }
+      var x=ans.split('').reverse().join('')
+    }
+      document.getElementById('BintoOctHead').innerHTML = stri;
+      document.getElementById('BintoOctOut').innerHTML = x;
+e.preventDefault();    
+});
+$('.submi').click(function (e){
+      var val = document.getElementById('binar').value;
+      
+      
+      var s=0;
+      var ans="";
+     var i=val.length-1;
+     var j=2;
+     var c=0;
+    var hexad={"A":10,"B":11,"C":12,"D":13,"E":14,"F":15}
+     function hexa(s){
+       for (var [key, value] of Object.entries(hexad)) {
+         if (s==value){
+           return key;
+           break;
+         }
+      }
+  }
+     if (val==""){
+      x=""
+      var stri="Enter binary no. first"
+    }
+    else{
+      while(1){ 
+      if (val[i] == '1') {
+        
+         s += 2 ** (2 - j);
+         c+=1
+         j-=1
+
+      }
+      else if (val[i] == '0'){
+         s += 0;
+         c+=1
+         j-=1
+      }
+      else{
+          ans=" ";
+          var stri="Error please enter valid binary no."
+          break
+        }
+      if (i!=val.length-1 & ((c==4) || i==0)){
+        if (s>9){
+           s=hexa(s)
+        }
+        ans = ans + String(s)
+        s=0;
+        j=2;
+        c=0
+      }
+      if (i==0){
+        var stri='Hexadecimal no is...'
+        break
+      }
+    
+      i-=1;
+      }
+      var x=ans.split('').reverse().join('')
+    } 
+      document.getElementById('BintoHexaHead').innerHTML = stri;
+      document.getElementById('BintoHexaOut').innerHTML = x;
+ 
+    
+    e.preventDefault();
+  });
+
+
+    
+</script>
+{% endblock  %}

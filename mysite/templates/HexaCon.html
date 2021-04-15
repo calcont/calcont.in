@@ -1,0 +1,280 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Convert Hexadecimal number to Decimal,
+Hexadecimal number to Hexadecimal,
+Hexadecimal number to Octal.
+{% endblock  %}
+{% block MKW %}
+Hexadecimal,Decimal,octal,Binary,converter
+{% endblock  %}
+{% block Mr %}
+27/03/2021
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %} - Convert Hexadecimal number to Decimal ,Octal,hexadecimal
+{% endblock  %}
+{% block body %}
+
+<style>
+
+.container{
+  border:2px solid rgb(25, 30, 66);
+  background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
+  border-radius:10px;
+}
+.coll{
+  
+  font-weight:bold;
+}
+
+
+
+
+
+</style>
+
+
+<form>
+<div class="container border  text-light text-monospace col-md-6 my-2">
+<h1 class="my-4 text-center">Hexadecimal Converters</h1>
+<p class="my-4">First up all what is Hexadecimal number System?So,it is an number System with a radix 16.In thes number System
+we have 0-15 numbers where 0-9 are represnt normally as decimal format but 10-15 are represnt by alphabets which is from A-F.Wide application of 
+such number system can be seen in microprocessor which stores 16 bit of data and so on. </p>
+  <hr class="bg-light">
+<div class="container">
+<h2 class="my-4  text-light" >Hexadecimal to Decimal</h2>
+</div>
+<p class="text-light my-4 mx-2">how can one convert Hexadecimal number to decimal?First up all, one has to write down weights corresponding 
+to different positions then multiply each
+digit in given number with corresponding weight to obtain product numbers and then add all the product numbers to get decimal equivalent.
+But,stil  most humans only knows decimal number.So,it is necessary to have an software which can convert hexdecimal number to respective decimal number 
+.So,calcont have that in which you have to just enter hexdecimal number in below and click to convert..</p>
+  <div class="form-row my-4">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="text"  placeholder="Enter The hexadecimal No." class="form-control coll" id="HextoDec" required>
+    </div>
+  </div>
+  <div class="form-row">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary subm " type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="HextoDecHead"></h4>
+<h4 class="text-center text-light" id="HextoDecOut"></h4> 
+
+
+<hr class="bg-light">
+<div class="container">
+<h2 class="my-4  text-light" >Hexadecimal to binary</h2>
+</div>
+<p class="text-light my-4 mx-2">how can one convert Hexadecimal number to binary manually?We just write binary equivalent of each hexadecimal number one 
+by one and then combine all those binary number.For Binary numbers you can see our <a href="/Conversion/BinaryConverter/">Binary Converters</a></p>
+  <div class="form-row my-4">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="text"  placeholder="Enter The Hexadecimal No." class="form-control coll" id="Hexa" >
+    </div>
+  </div>
+  <div class="form-row my-4">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary sub" type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="HextoBinHead"></h2>
+<h4 class="text-center text-light" id="HextoBinOut"></h4> 
+
+<hr class="bg-light">
+<div class="container">
+<h2 class="my-4  text-light" >Hexadecimal to Octal</h2>
+</div>
+<p class="text-light my-4 mx-2">how can one convert hexadecimal number to octal manually?We just write binary equivalent of each hexadecimal number one 
+by one and then combine all those binary number.And then again
+we convert those binary to octal.For Binary numbers you can see our <a href="/Conversion/BinaryConverter/">Binary Converters</a></p>
+  <div class="form-row">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="text"  placeholder="Enter The Hexadecimal No." class="form-control coll" id="Hexade" required>
+    </div>
+  </div>
+  <div class="form-row">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary submi my-4" type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="HextoOctHead"></h2>
+<h4 class="text-center text-light" id="HextoOctOut"></h4> 
+<hr class="my-2 bg-white">
+<p class="text-center">you can check <a href="/Conversion/DecimalConverter/">decimal converters  </a>
+ & <a href="/Conversion/BinaryConverter/">Binary converters </a> also</p>
+
+</div>
+</form>
+
+</div>
+
+{% endblock %}
+{% block JS %}
+<script>
+ 
+ var hexaVal={"0":"0000","1":"0001","2":"0010","3":"0011","4":"0100","5":"0101","6":"0110","7":"0111","8":"1000","9":"1001",
+ "A":"1010","B":"1011","C":"1100","D":"1101","E":"1110","F":"1111"};
+ $('.sub').click(function (e) {
+   var ans,ans="",num;
+var hex = document.getElementById("Hexa").value;
+hex=hex.toUpperCase()
+if (hex==""){
+      ans=""
+      var stri="Enter hexadecimal no. first"
+    }
+else{
+function ToGetVal(num){
+for (var [key, value] of Object.entries(hexaVal)){
+if(num==key){
+return value;
+}
+}
+}
+//for(var i=0;i<hex.length;i++){
+var i=0;
+  while(i<hex.length){
+
+if(ToGetVal(hex[i])){
+  
+  ans+=ToGetVal(hex[i]);
+}
+else{
+
+  stri="Enter Valid hexadecimal no"
+  ans=""
+  break
+}
+if (i==hex.length-1){
+  stri="Binary no is"
+}
+i++;
+}
+
+}
+document.getElementById('HextoBinHead').innerHTML=stri;
+document.getElementById('HextoBinOut').innerHTML=ans;
+e.preventDefault();
+});
+ $('.subm').click(function (e) {
+   var hexaVal={"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9",
+   "A":"10","B":"11","C":"12","D":"13","E":"14","F":"15"};
+   
+   var hexd=document.getElementById('HextoDec').value,ans=0,num,num1;
+   hexd=hexd.toUpperCase();
+  var splitString = hexd.split(""); 
+    var reverseArray = splitString.reverse();
+    hexd= reverseArray.join(""); 
+
+   if(hexd==""){
+     ans=""
+      var stri="Enter hexadecimal no. first"
+   }
+   else{
+function ToGetVal(num){
+for (var [key, value] of Object.entries(hexaVal)){
+if(num==key){
+return value;
+}
+}
+}
+   var i=0;
+   while(i<hexd.length){
+
+     if(ToGetVal(hexd[i])){
+       ans+=parseInt(ToGetVal(hexd[i]))*(16**i);
+   }
+else{
+
+  stri="Enter Valid hexadecimal no"
+  ans=""
+  break
+}
+if (i==hexd.length-1){
+  stri="Decimal no is"
+}
+
+     i++;
+   }
+   
+   }
+   document.getElementById('HextoDecHead').innerHTML=stri;
+   document.getElementById('HextoDecOut').innerHTML=ans;
+e.preventDefault();
+});
+ $('.submi').click(function (e) {
+   var hexaVal={"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9",
+   "A":"10","B":"11","C":"12","D":"13","E":"14","F":"15"};
+   
+   var hexde=document.getElementById('Hexade').value,ans=0,val,rem,answ="",num,num1;
+   hexde=hexde.toUpperCase();
+  var splitString = hexde.split(""); 
+    var reverseArray = splitString.reverse();
+    hexde= reverseArray.join(""); 
+
+   if(hexde==""){
+     ans=""
+      var stri="Enter hexadecimal no. first"
+   }
+   else{
+function ToGetVal(num){
+    
+for (var [key, value] of Object.entries(hexaVal)){
+if(num==key){
+return value;
+}
+}
+}
+   var i=0;
+   while(i<hexde.length){
+
+     if(ToGetVal(hexde[i])){
+       ans+=parseInt(ToGetVal(hexde[i]))*(16**i);
+   }
+else{
+ var bool=0;
+  stri="Enter Valid hexadecimal no"
+  ans=""
+  break
+}
+
+
+     i++;
+   }
+     while (ans!="0" && bool!=0){
+          rem=parseInt(ans)%8;
+          ans=parseInt(ans)/8;
+          answ=answ.concat(rem)    
+        //console.log(answ)
+        }
+        if(bool!=0){
+        stri="Octal no. is..."
+        }
+    }
+       var answer=answ.split('').reverse().join('') 
+      document.getElementById('HextoOctOut').innerHTML =answer.slice(1,);
+      document.getElementById('HextoOctHead').innerHTML =stri;
+
+e.preventDefault();
+});
+
+</script>
+{% endblock  %}

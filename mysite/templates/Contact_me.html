@@ -1,0 +1,52 @@
+{% extends 'main_index.html' %}
+{% block title %}- Contact me
+{% endblock  %}
+{% block body %}
+<style>
+
+</style>
+
+
+<div class="container text-light col-md-6 mb-3 py-10">
+
+<h1 class="text-center text-light">Contact me</h1>
+        
+
+<form method="post" action="/Contact_me/">
+  {% csrf_token %}
+  <div class="form-group">
+    <label for="validationDefault01"><label class="text-danger">*</label> Name</label>
+    <input type="text" class="form-control my-2" id="name" 
+    name="name" placeholder='Enter your name' required>
+  </div>
+ <div class="form-group">
+    <label for="4"><label class="text-danger">*</label> Email</label>
+    <input type="text" class="form-control" id="email" 
+    name="email" placeholder='Enter your email address' required>
+  </div>
+  <div class="form-group">
+    <label for="validationDefault03"><label class="text-danger">*</label> Any suggestions or else?</label>
+    
+    <textarea class="form-control" id="address" name="desc" rows='4' required></textarea> 
+    
+  </div>
+    <div class="form-group">
+    <label for="validationDefault02"> phone no.</label>
+    <input type="text" class="form-control" id="phone no." 
+    name="phone" placeholder='Enter your phone no.' >
+  </div>
+
+   <button class="btn btn-outline-primary my-4" type="submit">Submit</button>
+</form>
+</div>
+{% endblock  %}
+{% block JS %}
+<script>
+{% if than %}
+alert('Your contact form has been submitted succesfully')
+document.location="/"
+{% endif %}
+
+
+</script>
+  {% endblock %}

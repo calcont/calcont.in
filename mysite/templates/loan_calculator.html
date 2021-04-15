@@ -1,0 +1,207 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Formula to calculate EMI is simple, EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P stands for the loan amount or principal, 
+R is the interest rate per month [if the interest rate per annum is 11%, then the rate of interest will be 11/(12 x 100)], 
+and N is the number of monthly installments.So you can calculate these by entering loan amount,% of interest and time period (yrs) and calculate EMI to be given with how 
+much extra interest have to give ,in below.
+{% endblock  %}
+{% block MKW %}EMI,Rate of interest,loan,car-loan,home-loan.{% endblock  %}
+{% block Mr %}
+24/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Calculate EMI for Car loans etc..with interest amount
+{% endblock  %}
+{% block body %}
+<style>
+
+
+#loading,
+#result {
+  display: none;
+}
+
+</style>
+
+ 
+    <div class="container my-5 mb-5">
+      <div class="row">
+        <div class="col-md-6 mx-auto calculate-form">
+          <div class="card card-body bg-light text-center ">
+            <h1 class="text-dark text-center">EMI Calculator</h1>
+            <hr class="bg-dark my-2">
+            <h3 class="my-4">What is EMI?</h3>
+            <p class="text-monospace">It is Equated Monthly Income which is a fixed payment amount made by a borrower to a lender at a specified date each calendar month.
+              Equated monthly installments are used to pay off both interest and principal each month so that over a specified number of years, the loan is paid off in full. With most common types of loans—such
+              as real estate mortgages, auto loans, and stude
+              loans—the borrower makes fixed periodic payments to the lender over the course of several years with the goal of retiring the loan.</p>
+              <hr class="bg-dark my-2">
+              <h3 class="my-4">How to calculate it?</h3>
+            <p class="text-monospace">Formula to calculate EMI is simple, EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P stands for the loan amount or principal, 
+            R is the interest rate per month [if the interest rate per annum is 11%, then the rate of interest will be 11/(12 x 100)], 
+            and N is the number of monthly installments.</p>
+            <p class="text-monospace">So you can calculate these by entering loan amount,% of interest and time period (yrs) and calculate EMI to be given with how 
+            much extra interest have to give ,in below.</p>
+            <hr class="bg-dark">
+            <form id="loan-form">
+              <div class="form-group my-3">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">$</span>
+                  </div>
+                  <input type="number" class="form-control" id="amount" placeholder="Loan Amount" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">%</span>
+                  </div>
+                  <input type="text" class="form-control" id="interest" placeholder="Interest" required>
+                </div>
+              </div>
+              <div class="form-group">
+                <input type="number" id="years" class="form-control" placeholder="Years To Repay" required>
+              </div>
+              <div class="form-group">
+                <input type="submit" value="Calculate" class="btn btn-outline-dark btn-block"/>
+              </div>
+            </form>
+            <!-- Loader -->
+            <div id="loading">
+              <img src="https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif" alt="loading"/>
+            </div>
+            <!-- Result -->
+            <div id="result">
+              <h5>Results</h5>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Monthly Payment</span>
+                  </div>
+                  <input type="number" class="form-control" id="monthly-payment"
+ disabled
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Total Payment</span>
+                  </div>
+                  <input type="number" class="form-control" id="total-payment"
+ disabled
+                  />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">Total Interest</span>
+                  </div>
+                  <input
+  type="number"
+ class="form-control"
+ id="total-interest"
+ disabled
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+  
+
+{% endblock %}
+{% block JS %}
+<script>
+document.getElementById("loan-form").addEventListener("submit", function(e) {
+  // Hide Results
+  document.getElementById("result").style.display = "none";
+ 
+  // Show Loader
+  document.getElementById("loading").style.display = "block";
+ 
+  setTimeout(calculateResults, 2000);
+ 
+  e.preventDefault();
+});
+ 
+// Calculate Results
+function calculateResults() {
+ 
+  const amount = document.getElementById("amount");
+  const interest = document.getElementById("interest").value;
+  const years = document.getElementById("years");
+  const monthlyPayment = document.getElementById("monthly-payment");
+  const totalPayment = document.getElementById("total-payment");
+  const totalInterest = document.getElementById("total-interest");
+ if(isNaN(interest)){
+  showError("Please check number inputs");
+ }
+ else{
+  const principal = parseFloat(amount.value);
+  const calculatedInterest = parseFloat(interest) / 100 / 12;
+  const calculatedPayments = parseFloat(years.value) * 12;
+ 
+  // Computed Monthly payment
+  const x = Math.pow(1 + calculatedInterest, calculatedPayments);
+  const monthly = (principal * x * calculatedInterest) / (x - 1);
+ 
+  if (isFinite(monthly)) {
+    monthlyPayment.value = monthly.toFixed(2);
+    totalPayment.value = (monthly * calculatedPayments).toFixed(2);
+    totalInterest.value = (monthly * calculatedPayments - principal).toFixed(2);
+ 
+    // Show Results
+    document.getElementById("result").style.display = "block";
+ 
+    // Hide Loader
+    document.getElementById("loading").style.display = "none";
+  } 
+
+  else {
+    showError("Please check number inputs");
+  }
+}
+}
+ 
+// Show Error
+function showError(error) {
+  // Hide Results
+  document.getElementById("result").style.display = "none";
+ 
+  // Hide Loader
+  document.getElementById("loading").style.display = "none";
+ 
+  // Create a div
+  const errorDiv = document.createElement("div");
+ 
+  // Get Elements
+  const card = document.querySelector(".card");
+  const heading = document.querySelector(".heading");
+ 
+  // Add class
+  errorDiv.className = "alert alert-danger";
+ 
+  // Create text node and append div
+  errorDiv.appendChild(document.createTextNode(error));
+ 
+  // Insert error above heading
+  card.insertBefore(errorDiv, heading);
+ 
+  // Clear Error after 3 seconds
+  setTimeout(clearError, 3000);
+ 
+  // Clear Error
+  function clearError() {
+    document.querySelector(".alert").remove();
+  }
+}
+</script>
+{% endblock  %}

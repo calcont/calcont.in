@@ -1,0 +1,221 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Convert Decimal number to Binary,
+decimal number to Hexadecimal,
+decimal number to Octal.
+{% endblock  %}
+{% block MKW %}
+Decimal to Binary,octal,Hexadecimal
+{% endblock  %}
+{% block Mr %}
+24/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Convert Decimal number to Binary ,Octal,Hexadecimal
+{% endblock  %}
+{% block body %}
+
+<style>
+
+.container{
+  border:2px solid rgb(25, 30, 66);
+   background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
+ border-radius:10px;
+}
+
+.coll{
+  font-weight:bold;
+}
+
+
+</style>
+
+
+<form>
+<div class="container border text-light text-monospace col-md-6 my-2">
+<h1 class="my-4 text-center" >Decimal converters</h1>
+<p class="my-4">First up all what is decimal number System?So,it is an number System that we use daily while doing any calculations counting n all
+but it is an system which has a base of 10.As most modern computer systems or other system that uses the binary,octal & hexadecimal logic for their operation.
+That's why calcont has a software which converts decimal to binary,octal,hexadecimal numbers which you can see in below..</p>
+<hr class="bg-light">
+<div class="container">
+<h2 class="my-4  text-light" >Decimal to Binary</h2>
+</div>
+<p class="text-light my-4 mx-2">How one can convert decimal number sytem to binary which is easily understandable to computers manually
+?First up all,one has to divide the integer part if given decimal number by the base and note down the remainder then continue to divide the quotient by the
+base until there is nothing left,nothing the remainders from each step and finally list the remainder values in reverseorder from bottom to top to find 
+equivalent Binary number.These is some algortihm from which you can learn and you'll get an idea.But it'll  be ofcourse time consuming so you can convert it 
+from here by just entering valid decimal number. </p>
+  <div class="form-row">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="number"  placeholder="Enter The Decimal No. " class="form-control coll my-4" id="bin" required>
+    </div>
+  </div>
+  <div class="form-row">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary sub my-4" type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="DectoBinHead"></h4>
+<h4 class="text-center text-light" id="DectoBinOut"></h4> 
+
+<hr class="bg-light">
+<div class="container">
+<h2 class="my-4" >Decimal to Octal</h2>
+</div>
+<p class="text-light my-4 mx-2">How one can convert decimal number sytem to octal manually
+?First up all,one has to divide the integer part if given decimal number by the base and note down the remainder then continue to divide the quotient by the
+base until there is nothing left,nothing the remainders from each step and finally list the remainder values in reverseorder from bottom to top to find 
+equivalent octal number.Still its a manual procees ..so,you can convert it from here by just entering  proper decimal number,but its always good to have a knowledge  </p>
+  <div class="form-row">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="number"  placeholder="Enter The Decimal No." class="form-control coll my-4" id="bina" required>
+    </div>
+  </div>
+  <div class="form-row">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary subm my-4" type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="DectoOctHead"></h2>
+<h4 class="text-center text-light" id="DectoOctOut"></h4> 
+
+<hr class="bg-light"> 
+<div class="container">
+<h2 class="my-2 " >Decimal to Hexadecimal</h2>
+</div>
+<p class="text-light my-4 mx-2">How one can convert decimal number sytem to hexadecimal manually
+?First up all,one has to divide the integer part if given decimal number by the base and note down the remainder then continue to divide the quotient by the
+base until there is nothing left,nothing the remainders from each step and finally list the remainder values in reverseorder from bottom to top to find 
+equivalent hexadecimal number.These is some algortihm from which you can learn and you'll get an idea.But it'll be ofcourse time consuming so you can convert it 
+from here by just entering valid decimal number.</p>
+  <div class="form-row">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="number"  placeholder="Enter The Decimal No." class="form-control coll my-4" id="binar" required>
+    </div>
+  </div>
+  <div class="form-row">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary submi my-4" type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="DectoHexaHead"></h2>
+<h4 class="text-center text-light" id="DectoHexaOut"></h4> 
+<hr class="bg-light"> 
+<p class="text-center">you can check <a href="/Conversion/BinaryConverter/">Binary converters</a> also</p>
+</div>
+</form>
+
+
+</div>
+
+{% endblock %}
+{% block JS %}
+<script>
+$('.sub').click(function (e) {
+    // DECIMAL to Binary
+    
+      var val = document.getElementById('bin').value;
+      
+      var quo,rem,ans="";
+      if (val==""){
+      x=""
+      var stri="Enter Decimal no. first"
+    }
+    else{
+      while (val!="0"){
+          rem=parseInt(val)%2;
+          val=parseInt(val)/2;
+          ans=ans.concat(rem)    
+        }
+        stri="Binary no. is..."
+    }
+       var answer=ans.split('').reverse().join('') 
+      document.getElementById('DectoBinOut').innerHTML =answer.slice(1,);
+      document.getElementById('DectoBinHead').innerHTML =stri;
+    e.preventDefault();
+
+});
+$('.subm').click(function (e) {
+    // DECIMAL to Binary
+    
+      var val = document.getElementById('bina').value;
+      
+      var quo,rem,ans="";
+      if (val==""){
+      x=""
+      var stri="Enter Decimal no. first"
+    }
+    else{
+      while (val!="0"){
+          rem=parseInt(val)%8;
+          val=parseInt(val)/8;
+          ans=ans.concat(rem)    
+        }
+        stri="Octal no. is..."
+    }
+       var answer=ans.split('').reverse().join('') 
+      document.getElementById('DectoOctOut').innerHTML =answer.slice(1,);
+      document.getElementById('DectoOctHead').innerHTML =stri;
+    e.preventDefault();
+
+});
+$('.submi').click(function (e) {
+    // DECIMAL to Binary
+     
+      var val = document.getElementById('binar').value;
+      
+      var quo,rem,ans="";
+      var hexad={"A":10,"B":11,"C":12,"D":13,"E":14,"F":15}
+     function hexa(s){
+       for (var [key, value] of Object.entries(hexad)) {
+         if (s==value){
+           return key;
+           break;
+         }
+      }
+  }
+      
+     
+    if (val==""){
+     document.getElementById('DectoHexaOut').innerHTML ="";
+      var stri="Enter Decimal no. first"
+    }
+    else{
+      
+      while (val!="0"){
+          rem=parseInt(val)%16;
+          val=parseInt(val)/16;
+          if (rem>9){
+            rem=hexa(rem);
+          }
+          ans=ans.concat(rem)    
+        }
+        stri="Hexadecimal no. is..."
+        var answer=ans.split('').reverse().join('')
+        document.getElementById('DectoHexaOut').innerHTML =answer.slice(1,);
+    }
+    document.getElementById('DectoHexaHead').innerHTML =stri;
+    e.preventDefault();
+
+});
+
+</script>
+{% endblock %}

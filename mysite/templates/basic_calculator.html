@@ -1,0 +1,208 @@
+{% extends 'main_index.html' %}
+{% block title %}- Basic Calculator
+{% endblock  %}
+{% block body %} 
+<style>
+.frame{
+    background-color:rgb(0,0,0);
+    border:2px solid rgb(255,255,255);
+    border-radius:20px;
+    
+}
+.form-group{
+    width:50vh;
+}
+#Text{
+  width:230px;
+}
+.btns{
+  background-color:rgb(0,0,0);
+  
+}
+</style>
+<body>
+<div class=" my-5 container  col-md-4 mb-4 ">
+<div class="container frame ">
+    <h1 class="display-4 text-light text-center mx--2">Calculator</h1>
+    
+    
+
+<div class=" container-center">
+<form>
+  
+  <div class="form-group my-4">
+    <textarea id="Text" class="form-control"  rows="2" ></textarea>
+  </div>
+</form>
+<div class="btn-toolbar text-dark" role="toolbar" aria-label="Toolbar with button groups">
+<div class="btn-group mr-2  text-dark" role="group" aria-label="First group">
+    <button type="button" id="OP" class=" btn-lg text-light btns">(</button>
+    <button type="button" id="CP" class="mx-3  btn-lg text-light btns">)</button>
+     <button type="button" id="c" class="mx-1  btn-lg text-light btns">C</button>
+     <button type="button" id="divide" class="mx-2  btn-lg text-light btns">/</button>
+
+  </div>
+</div>
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2 my-2" role="group" aria-label="First group">
+   
+    <button type="button" id="7" class=" btns btn-lg text-light">7</button>
+    <button type="button" id="8" class="mx-2 btns btn-lg text-light">8</button>
+    <button type="button" id="9" class="mx-2 btns btn-lg text-light">9</button>
+    <button type="button" id="mul" class="mx-2 btns btn-lg text-light">*</button>
+
+  </div>
+  
+</div>
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+  <div class="btn-group mr-2 my-2" role="group" aria-label="First group">
+    <button type="button" id="4" class=" btns btn-lg text-light">4</button>
+   <button type="button" id="5" class="mx-2 btns btn-lg text-light">5</button>
+    <button type="button" id="6" class="mx-2 btns btn-lg text-light">6</button>
+    <button type="button" id="SUB" class="mx-2 btns btn-lg text-light">-</button>
+    
+    
+  </div>
+  
+</div>
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+<div class="btn-group mr-2 my-2" role="group" aria-label="First group">
+    <button type="button" id="1" class=" btns btn-lg text-light">1</button>
+    <button type="button" id="2" class="mx-2 btns btn-lg text-light">2</button>
+    <button type="button" id="3" class="mx-2 btns btn-lg text-light">3</button>
+    <button type="button" id="plus" class="mx-2 btns btn-lg text-light">+</button>
+    
+  </div>
+</div>
+<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+<div class="btn-group mr-2 my-2 mb-4" role="group" aria-label="First group">
+    <button type="button" id="0" class=" btns btn-lg text-light">0</button>
+    <button type="button" id="mod" class="mx-2 btns btn-lg text-light">%</button>
+    <button type="button" id="pnt" class="mx-2 btns btn-lg text-light">.</button>
+    
+    <button type="button" id="ANS" class="mx-2 btns btn-lg text-light">=</button>
+    
+   
+  </div>
+</div>
+
+</div>
+  </div>  
+</div>
+</body>
+{% endblock %}
+{% block JS %}
+<script>
+
+var str="";
+  $('#1').click(function (e) {
+    str+="1"
+    e.preventDefault();
+  document.getElementById("Text").innerHTML=str;
+  });
+  $('#2').click(function (e) {
+    str+="2"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+  });
+  $('#3').click(function (e) {
+    str+="3"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+  });
+  $('#4').click(function (e) {
+    str+="4"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+  });
+  $('#5').click(function (e) {
+    str+="5"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+  });
+  $('#6').click(function (e) {
+    str+="6"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+  });
+  $('#7').click(function (e) {
+    str+="7"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+  });
+  $('#8').click(function (e) {
+    str+="8"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+  });
+  $('#9').click(function (e) {
+    str+="9"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+    });
+  $('#0').click(function (e) {
+    str+="0"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+    });
+  $('#pnt').click(function (e) {
+    str+="."
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+    });
+  $('#mod').click(function (e) {
+    str+="%"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+    });
+  $('#plus').click(function (e) {
+    str+="+"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+    });
+  $('#SUB').click(function (e) {
+    str+="-"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+    });
+  $('#divide').click(function (e) {
+    str+="/"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+    });
+  $('#mul').click(function (e) {
+    str+="*"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+    });
+  $('#OP').click(function (e) {
+    str+="("
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+    });
+  $('#CP').click(function (e) {
+    str+=")"
+  document.getElementById("Text").innerHTML=str;
+    e.preventDefault();
+    });
+  $('#ANS').click(function (e) {
+    try{
+  document.getElementById("Text").innerHTML=eval(str);
+  str=""
+    }
+catch(err){
+  document.getElementById("Text").innerHTML="INVALID INPUT";
+str=""
+}
+    e.preventDefault();
+    });
+  $('#c').click(function (e) {
+    str=""
+  document.getElementById("Text").innerHTML=str;
+  
+    e.preventDefault();
+    });
+
+
+</script>
+{% endblock  %}
