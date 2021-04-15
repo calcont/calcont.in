@@ -9,17 +9,17 @@ from language_tool_python import LanguageTool as LT
 # Create your views here.
 #username Amar pass:Amar123
 def index(request):
-    title=Headlines.objects.all()
-    Text=Headlines.objects.values('text')
-    # print(title)
-    # print(text)
-    n=len(title)
-    alltitle=[]
-    alltitle.append([Text,n])
-    params={"ALL":alltitle}
+    # title=Headlines.objects.all()
+    # Text=Headlines.objects.values('text')
+    # # print(title)
+    # # print(text)
+    # n=len(title)
+    # alltitle=[]
+    # alltitle.append([Text,n])
+    # params={"ALL":alltitle}
     # print(n)
     # print(params)
-    return render(request,'index.html',params)
+    return render(request,'index.html')
 #Analyzer
 #Text analyzer
 def text(request):
