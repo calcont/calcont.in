@@ -5,7 +5,7 @@ from datetime import datetime
 from .models import Headlines,Contact
 from googletrans import Translator
 import speech_recognition as sr
-from language_tool_python import LanguageTool as LT
+# from language_tool_python import LanguageTool as LT
 # Create your views here.
 #username Amar pass:Amar123
 def index(request):
@@ -71,48 +71,48 @@ def analyze(request):
         parms={'Text':analysed,'IsEnter':IsEnter,'OrText':tex}
     return render(request,'text.html',parms)
 def Grammar_correction(request):
-    tool = LT('en-US')
-    if request.method=='POST':
-        IsEnter=True
-        text=request.POST.get('text','default')
-        matches = tool.check(text)
-        my_mistakes = []
-        my_corrections = []
-        start_positions = []
-        end_positions = []
-        for rules in matches:
-            if len(rules.replacements)>0:
-                start_positions.append(rules.offset)
-                end_positions.append(rules.errorLength+rules.offset)
-                my_mistakes.append(text[rules.offset:rules.errorLength+rules.offset])
-                my_corrections.append(rules.replacements[0])
-        my_new_text = list(text)
-        for m in range(len(start_positions)):
-            for i in range(len(text)):
-                my_new_text[start_positions[m]] = my_corrections[m]
-                if (i>start_positions[m] and i<end_positions[m]):
-                    my_new_text[i]=""
+    # tool = LT('en-US')
+    # if request.method=='POST':
+    #     IsEnter=True
+    #     text=request.POST.get('text','default')
+    #     matches = tool.check(text)
+    #     my_mistakes = []
+    #     my_corrections = []
+    #     start_positions = []
+    #     end_positions = []
+    #     for rules in matches:
+    #         if len(rules.replacements)>0:
+    #             start_positions.append(rules.offset)
+    #             end_positions.append(rules.errorLength+rules.offset)
+    #             my_mistakes.append(text[rules.offset:rules.errorLength+rules.offset])
+    #             my_corrections.append(rules.replacements[0])
+    #     my_new_text = list(text)
+    #     for m in range(len(start_positions)):
+    #         for i in range(len(text)):
+    #             my_new_text[start_positions[m]] = my_corrections[m]
+    #             if (i>start_positions[m] and i<end_positions[m]):
+    #                 my_new_text[i]=""
             
-        my_new_text = "".join(my_new_text)
-        a=[]
-        i=0
-        while i<(len(text)):
-            if i in start_positions: 
-                for j in range(i,len(text)):
-                    if text[j]==" ":
-                        break
-                a.append("\u0332".join(text[i:j+1]))
-                # print("\u0332".join(text[i]))
-                i=j
-            else:
-                a.append(text[i])
-            i+=1 
-        Text=""
-        for i in a:
-            Text+=i
-        param={'NewText':my_new_text,"text":Text,"IsEnter":IsEnter}
-        print(my_new_text)
-        return render(request,'Grammar_correction.html',param)
+    #     my_new_text = "".join(my_new_text)
+    #     a=[]
+    #     i=0
+    #     while i<(len(text)):
+    #         if i in start_positions: 
+    #             for j in range(i,len(text)):
+    #                 if text[j]==" ":
+    #                     break
+    #             a.append("\u0332".join(text[i:j+1]))
+    #             # print("\u0332".join(text[i]))
+    #             i=j
+    #         else:
+    #             a.append(text[i])
+    #         i+=1 
+    #     Text=""
+    #     for i in a:
+    #         Text+=i
+    #     param={'NewText':my_new_text,"text":Text,"IsEnter":IsEnter}
+    #     print(my_new_text)
+    #     return render(request,'Grammar_correction.html',param)
     return render(request,'Grammar_correction.html')
         
 
