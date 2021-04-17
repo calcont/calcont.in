@@ -71,48 +71,42 @@ def analyze(request):
         parms={'Text':analysed,'IsEnter':IsEnter,'OrText':tex}
     return render(request,'text.html',parms)
 def Grammar_correction(request):
-    # tool = LT('en-US')
-    # if request.method=='POST':
-    #     IsEnter=True
-    #     text=request.POST.get('text','default')
-    #     matches = tool.check(text)
-    #     my_mistakes = []
-    #     my_corrections = []
-    #     start_positions = []
-    #     end_positions = []
-    #     for rules in matches:
-    #         if len(rules.replacements)>0:
-    #             start_positions.append(rules.offset)
-    #             end_positions.append(rules.errorLength+rules.offset)
-    #             my_mistakes.append(text[rules.offset:rules.errorLength+rules.offset])
-    #             my_corrections.append(rules.replacements[0])
-    #     my_new_text = list(text)
-    #     for m in range(len(start_positions)):
-    #         for i in range(len(text)):
-    #             my_new_text[start_positions[m]] = my_corrections[m]
-    #             if (i>start_positions[m] and i<end_positions[m]):
-    #                 my_new_text[i]=""
-            
-    #     my_new_text = "".join(my_new_text)
-    #     a=[]
-    #     i=0
-    #     while i<(len(text)):
-    #         if i in start_positions: 
-    #             for j in range(i,len(text)):
-    #                 if text[j]==" ":
-    #                     break
-    #             a.append("\u0332".join(text[i:j+1]))
-    #             # print("\u0332".join(text[i]))
-    #             i=j
-    #         else:
-    #             a.append(text[i])
-    #         i+=1 
-    #     Text=""
-    #     for i in a:
-    #         Text+=i
-    #     param={'NewText':my_new_text,"text":Text,"IsEnter":IsEnter}
-    #     print(my_new_text)
-    #     return render(request,'Grammar_correction.html',param)
+    
+    if request.method=='POST':
+        IsEnter=True
+        text=request.POST.get('text','default')
+        
+        from gingerit.gingerit import GingerIt
+        result = GingerIt().parse(text)
+        
+        n=len(list(result['corrections']))
+        d=[]
+        a=[]
+        for i in range(n):
+            dash=list(result['corrections'][i].items())
+            d.append(dash[0][1])
+        d.reverse()
+        i=0
+        while i<(len(text)):
+            if i in d: 
+                for j in range(i,len(text)):
+                    if text[j]==" ":
+                        break
+                a.append("\u0332".join(text[i:j+1]))
+                # print("\u0332".join(text[i]))
+                i=j
+            else:
+                a.append(text[i])
+            i+=1 
+        Text=""
+        for i in a:
+            Text+=i
+
+
+
+        param={'NewText':result['result'],"text":Text,"IsEnter":IsEnter}
+        
+        return render(request,'Grammar_correction.html',param)
     return render(request,'Grammar_correction.html')
         
 
