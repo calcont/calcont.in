@@ -1,100 +1,15 @@
-{% extends 'main_index.html' %}
-{% block MDesc %}
-It is an tool/software which analyzes your text and check various possibilities of words that matches
-    with your previous/next word and correct your text.It has huge amount backend that's why it could take some time according to length of 
-    text.
-{% endblock  %}
-{% block MKW %}
-Text,paragraph,Grammar,corrector,suggestor.
-{% endblock  %}
-{% block Mr %}
-13/02/2021
-{% endblock  %}
-{% block MAut %}
-Amar khamkar
-{% endblock  %}
-{% block title %}- Grammar corrector,Correct the text in proper grammtical way.
-{% endblock  %}
-{% block body %}
-
-<style>
-  .jumbotron {
-    background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
-  }
-  #overlay{
-    display:block;
-  width: 50%;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Problem!!</title>
+  <h3 class="container">Page your looking for is having some issue.We"ll fix those as soon as possible,till a time you can
+    visit our other pages<a href="/" >calcont</a>
+  </h3>
+</head>
+<body>
   
-  }
-  .corrtxt{
-    margin-top:70px
-  }
-
-  
-</style>
-<div class="container text-monospace col-md-6">
-  <div class="jumbotron my-2 text-light">
-    <h1 class="display-4">Grammar corrector</h1>
-    <hr class="my-4 bg-white">
-    <h3 class="my-2">What is Grammar corrector?</h1>
-    <p class="my-4">It is an tool/software which analyzes your text and check various possibilities of words that matches
-    with your previous/next word and correct your text.It has huge amount backend that's why it could take some time according to length of 
-    text. </p>
-    <p class="my-2">CalConT has these tool which will be helpful to you all.And words which are not matching or incorrect will be underlined below
-    text field only.</p>
-    <hr class="my-4 bg-white">
-    <form id="form" action="/Analyzer/Grammar_correction/" method='POST'>{% csrf_token %}
-    {% if not IsEnter%}
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Enter text</label>
-    <textarea class="form-control" id="Text" name='text' placeholder="Enter your text" rows="3"></textarea>
-  </div>
-  {% endif %}
-  {% if IsEnter%}
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Enter text</label>
-    <textarea class="form-control" id="Text" name='text'  rows="3">{{text}}</textarea>
-  </div>
-  {% endif %}
-   <div class="mb-3" id="overlay" role="status">
-   <img class ="my-3 float-sm-right "   alt="Correcting.." src="/static/64x64.gif">
-   
-   
-</div>
-  <div  class="my-4 form-group">
-    <label class="corrtxt" for="exampleFormControlTextarea1">Corrected text</label>
-    <textarea class="form-control"   rows="3">{{NewText}}</textarea>
-  </div>
-   <button type="submit" class="btn btn-primary correct my-4">Correct</button>
-</form>
-    <hr class="my-4 bg-white">
-    <h3 class="my-2">What is use of Grammar corrector?</h1>
-    <p class="my-2">Grammar corrector is very useful in every aspect and has various reasons how can it would be useful.Some of those are 
-    as follows.
-1) Ofcourse it Saves time<br>
-2) Saves nerves<br>
-3) Since it tries many possibilities it has better feedback<br>
-4) It increased target audience<br>
-5) People are not well at english can practice here.</p>
-<p class="text-monospace mb-2 my-4">You can also try <a href="/Analyzer/name_sorting/" >Name Sorting 
-    </a><a href="/Analyzer/TextAnalyzer/" >Text Analyzer
-    </a> </p>
-  </div>
-
-</div>
-{% endblock  %}
-{% block JS %}
-<script>
-
-window.onload = function () {
-        $("#overlay").hide();
-    };
-
-    $(document).ready(function () {
-        $("#form").submit(function () {
-            $("#overlay").show();
-
-        });
-    });
-</script>
-{% endblock  %}
+</body>
+</html>
