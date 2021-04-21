@@ -126,3 +126,4 @@ STATICFILES_DIRS = [
     
 ]
 django_heroku.settings(locals())
+SECURE_SSL_REDIRECT=True
