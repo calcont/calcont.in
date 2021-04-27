@@ -66,7 +66,8 @@ def text(request):
 
         
         parms={'Text':analysed,'IsEnter':IsEnter,'OrText':tex}
-    return render(request,'text.html',parms)
+        return render(request,'text.html',parms)
+    return render(request,'text.html')
 def Grammar_correction(request):
     
     if request.method=='POST':
