@@ -21,11 +21,8 @@ def index(request):
     # print(params)
     return render(request,'index.html')
 #Analyzer
-#Text analyzer
+
 def text(request):
-    return render(request,'text.html')
-    #return HttpResponse("Home")
-def analyze(request):
     if request.method=="POST":
         tex=request.POST.get('text','default')
         removepunc=request.POST.get('removepunc','off')

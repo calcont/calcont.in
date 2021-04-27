@@ -1,102 +1,143 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-Convert your text to upper case or remove newline if there ,remove extraspace except one space between two words ,remove punctuations.
-{% endblock  %}
+Convert your text to upper case or remove newline if there ,remove extraspace except one space between two words ,remove
+punctuations.
+{% endblock %}
 {% block MKW %}
 remove punctuations,extraspace,newline,to uppercase,italic
-{% endblock  %}
+{% endblock %}
 {% block Mr %}
 24/12/2020
-{% endblock  %}
+{% endblock %}
 {% block MAut %}
 Amar khamkar
-{% endblock  %}
+{% endblock %}
 {% block title %}- Remove punctuations,convert text into Upper case ,Remove newline,Remove extraspace
-{% endblock  %}
+{% endblock %}
 {% block body %}
 <style>
-.jumbotron {
+  .jumbotron {
     background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
   }
-body{
-  background-color:black;
-}
-.ui{
-  color:rgb(255,255,255);
-}
+
+  body {
+    background-color: black;
+  }
+
+  .ui {
+    color: rgb(255, 255, 255);
+  }
 </style>
-   <div class="container col-md-6 text-light">
-   <div class="jumbotron my-2 text-light">
-<h1 class="text-center font-weight-bold text-light">Text Analyzer</h1>
-<hr class="bg-light my-2">
-
-<p class="my-4 mx-2 text-monospace">Text Analyzer is software which is helpful in many aspect,in these user only has to write text whether its wrong or right
-and has to choose what changes user want to do with the text and then Analyzer will analyze the text and make changes as user want.These will not be always completely right
-,there will be the possibility of some percent of error but that won't be major.</p>
-
-  
-  <form action="/Analyzer/TextAnalyzer/Analyze/" method='POST'>{% csrf_token %}
-  
+<div class="container text-light">
+  <div class="row ">
+    <div class="col-md-6 ">
+      <div class=" my-4 ">
+        <h3 class="mx-4 font-weight-bold">Text Analyzer</h3>
     
-    {% if IsEnter %}
-    <div class="form-group ">
-     
-      <textarea class="form-control my-4"  name='text' placeholder="Enter your text" rows="6">{{OrText}}</textarea>
-    </div>
-    <div class="form-group text-light">
-      <label for="exampleInputPassword1">Analyzed text</label>
-      <textarea type="text" class="form-control"  placeholder="Analysed text is..." rows="5" readonly>{{Text}}</textarea>
-    </div>
-    {% endif %}
-    {% if not IsEnter %}
-    <div class="form-group">
-     
-      <textarea class="form-control" name='text' placeholder="Enter your text" rows="6"></textarea>
-    </div>
-    <div class="form-group text-light">
-      <label for="exampleInputPassword1">Analyzed text</label>
-      <textarea type="text" class="form-control"  placeholder="Analysed text is..." rows="5" readonly></textarea>
-    </div>
-    {% endif %}
-  
-  <div class="custom-control custom-switch">
-    <input type="checkbox"  name='removepunc' class="custom-control-input " id="customSwitch1">
-    <label class="custom-control-label ui my-2" for="customSwitch1">Remove punctuations</label><br>
-    </div>
-      <div class="custom-control custom-switch">
-    <input type="checkbox" name='fullcaps'  class="custom-control-input " id="customSwitch2">
-    <label class="custom-control-label ui my-2" for="customSwitch2">Upper case</label><br>
-      </div>
-      <div class="custom-control custom-switch">
-    <input type="checkbox" name='newlineremover' class="custom-control-input " id="customSwitch3">
-    <label class="custom-control-label ui my-2"  for="customSwitch3">Remove newline</label><br>
-      </div>
-      <div class="custom-control custom-switch">
-    <input type="checkbox" name='xtraspaceremover' class="custom-control-input " id="customSwitch4">
-    <label class="custom-control-label ui my-2" for="customSwitch4">Remove extraspace</label><br>
+
+        <p class="my-4 mx-2 text-monospace">Text Analyzer is software which is helpful in many aspect,in these user only
+          has to write text whether its wrong or right
+          and has to choose what changes user want to do with the text and then Analyzer will analyze the text and make
+          changes as user want.These will not be always completely right
+          ,there will be the possibility of some percent of error but that won't be major.</p>
+
+
+        <form action="/Analyzer/TextAnalyzer/" method='POST'>{% csrf_token %}
+
+
+          {% if IsEnter %}
+          <div class="form-group ">
+
+            <textarea class="form-control my-4" name='text' placeholder="Enter your text" rows="6">{{OrText}}</textarea>
+          </div>
+          <div class="form-group text-light">
+            <label for="exampleInputPassword1">Analyzed text</label>
+            <textarea type="text" class="form-control" placeholder="Analysed text is..." rows="5"
+              readonly>{{Text}}</textarea>
+          </div>
+          {% endif %}
+          {% if not IsEnter %}
+          <div class="form-group">
+
+            <textarea class="form-control" name='text' placeholder="Enter your text" rows="6"></textarea>
+          </div>
+          <div class="form-group text-light">
+            <label for="exampleInputPassword1">Analyzed text</label>
+            <textarea type="text" class="form-control" placeholder="Analysed text is..." rows="5" readonly></textarea>
+          </div>
+          {% endif %}
+
+          <div class="custom-control custom-switch">
+            <input type="checkbox" name='removepunc' class="custom-control-input " id="customSwitch1">
+            <label class="custom-control-label ui my-2" for="customSwitch1">Remove punctuations</label><br>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" name='fullcaps' class="custom-control-input " id="customSwitch2">
+            <label class="custom-control-label ui my-2" for="customSwitch2">Upper case</label><br>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" name='newlineremover' class="custom-control-input " id="customSwitch3">
+            <label class="custom-control-label ui my-2" for="customSwitch3">Remove newline</label><br>
+          </div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" name='xtraspaceremover' class="custom-control-input " id="customSwitch4">
+            <label class="custom-control-label ui my-2" for="customSwitch4">Remove extraspace</label><br>
+          </div>
+
+
+          <button type="submit" class="btn btn-outline-dark my-2 text-light">Analysed text</button>
+        </form>
+        <hr class="bg-light my-2">
+        <h3 class="text-center text-light my-4">When user can use these?</h3>
+        <p class="my-4 text-monospace mx-2 "> There are lot of application of these software.Like,<br>
+        <p class="my-2">1) If user has some text in capital or small letters then user can
+          convert whole the text in
+          upper case or lower case</p> <br>
+        <p class="my-2">2) If user don't want new line in paragraph then user can remove the newline from these.</p><br>
+        3)If text has unbalance spaces and user also don't those extraspace in text then user can remove extra space
+        between two words and also these will
+        make text much neat and clean.
+        <br>
+        <p class="my-4">4) And one of important thing that user can do by using such software is user can remove
+          punctuations from text and make the whole text punctuateless text..</p>
+        <br>So,all these above text analyzer techinques are available in these website and all these combine changes
+        also user can do with their text in above... in which you only want to enter the text
+        and those changes user want to make he/she just has to switch on the switch for the same .
+        <br>By using such analyzer user can make beautiful essays,letters etc.And problems that writer/blogger faced
+        while writing some articles can be sort out from here and they can
+        write articles in very clean way without wasting any time.So,if those all the techinques are available in these
+        website so you definitely use it once.</p>
+        <hr class="bg-light my-2">
+        
       </div>
       
-     
-  <button type="submit" class="btn btn-outline-dark my-2 text-light">Analysed text</button>
-  </form>  
-<hr class="bg-light my-2">
-  <h3 class="text-center text-light my-4">When  user can use these?</h3>
-<p class="my-4 text-monospace mx-2 "> There are lot of application of these software.Like,<br>1) If user has some text in capital or small letters then user can 
-convert whole the text in 
- upper case or lower case <br>2) If user don't want new line in paragraph then user can remove the newline from these.<br>
-3)If text has unbalance spaces and user also don't  those extraspace in text then user can remove extra space between two words and also these will
- make text much neat and clean
-<br>4) And one of important thing that user can do by using such software is user can remove punctuations from text and make the whole text punctuateless text..
-<br>So,all these above text analyzer techinques are available in these website and all these combine changes also user can do with their text in above... in which you only want to enter the text 
-and those changes user want to make he/she just has to switch on the switch for the same .
-<br>By using such analyzer user can make beautiful essays,letters etc.And problems that writer/blogger faced while writing some articles can be sort out from here and they can
-write articles in very clean way without wasting any time.So,if those all the techinques are available in these website so you definitely use it once.</p>
-<hr class="bg-light my-2">
-  <p class="text-monospace mb-2 my-4">You can also try <a href="/Analyzer/name_sorting/" >Name Sorting
-    <a> in which you can arrange/sort names in alphabetical order..</p>
-  </div>
-  </div>
-   {% endblock %}
-   {% block JS %}
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4 my-2 ">
+      
+      <div class="col p-4 d-flex flex-column position-static ">
+        
+      
+        <h4 class="mb-2 ">Translators</h3>
+          
+          <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Marathi/">English to Marathi</a></li>
+          <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
+          <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
+          <h4 class="my-4">Other Analyzers</h3>
+            <li class="my-2"><a href="/Analyzer/name_sorting/" class="my-2">Name Sorting</a></li>
+            <li class="my-2"><a href="/Analyzer/Grammar_correction/" class="my-2">Grammar Corrector</a></li>
+            
+          </div>
+          
+       
+        </div>
+      </div>
+      
+</div>
 
-   {% endblock  %}
+{% endblock %}
+{% block JS %}
+
+{% endblock %}
