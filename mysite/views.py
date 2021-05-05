@@ -260,8 +260,7 @@ def EnglishToArabian(request):
     return render(request,'EnglishToArabian_Transl.html')
 
 #calculator
-def Basic_calculator(request):
-    return render(request,'basic_calculator.html')
+
 def Loan_calculator(request):
     return render(request,'loan_calculator.html')
 def GCD_calculator(request):

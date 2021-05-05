@@ -56,7 +56,7 @@ urlpatterns = [
     # path('Translator/English_to_hindi', views.EnglishToHindi),
     # path('Translator/English_to_hindi', views.EnglishToHindi),
 #calculator
-    path('Calculator/Basic_calculator/', views.Basic_calculator),
+  
     #Loancalculator
     path('Calculator/EMI_calculator/', views.Loan_calculator),
     #gcd calculator
