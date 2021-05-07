@@ -19,9 +19,9 @@ Amar khamkar
 
 <style>
 
-.container{
+.contain{
   border:2px solid rgb(25, 30, 66);
-   background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
+
  border-radius:10px;
 }
 
@@ -34,14 +34,17 @@ Amar khamkar
 
 
 <form>
-<div class="container border text-light text-monospace col-md-6 my-2">
-<h1 class="my-4 text-center" >Decimal converters</h1>
+  <div class="container text-light">
+    <div class="row ">
+      <div class="col-md-6 ">
+    <div class="my-4 ">
+<h1 class="my-4 text-center contain" >Decimal converters</h1>
 <p class="my-4">First up all what is decimal number System?So,it is an number System that we use daily while doing any calculations counting n all
 but it is an system which has a base of 10.As most modern computer systems or other system that uses the binary,octal & hexadecimal logic for their operation.
 That's why calcont has a software which converts decimal to binary,octal,hexadecimal numbers which you can see in below..</p>
 <hr class="bg-light">
-<div class="container">
-<h2 class="my-4  text-light" >Decimal to Binary</h2>
+<div class="contain">
+<h2 class="my-4  text-light " >Decimal to Binary</h2>
 </div>
 <p class="text-light my-4 mx-2">How one can convert decimal number sytem to binary which is easily understandable to computers manually
 ?First up all,one has to divide the integer part if given decimal number by the base and note down the remainder then continue to divide the quotient by the
@@ -67,8 +70,8 @@ from here by just entering valid decimal number. </p>
 <h4 class="text-center text-light" id="DectoBinOut"></h4> 
 
 <hr class="bg-light">
-<div class="container">
-<h2 class="my-4" >Decimal to Octal</h2>
+<div class="contain">
+<h2 class="my-4 " >Decimal to Octal</h2>
 </div>
 <p class="text-light my-4 mx-2">How one can convert decimal number sytem to octal manually
 ?First up all,one has to divide the integer part if given decimal number by the base and note down the remainder then continue to divide the quotient by the
@@ -93,8 +96,8 @@ equivalent octal number.Still its a manual procees ..so,you can convert it from 
 <h4 class="text-center text-light" id="DectoOctOut"></h4> 
 
 <hr class="bg-light"> 
-<div class="container">
-<h2 class="my-2 " >Decimal to Hexadecimal</h2>
+<div class="contain">
+<h2 class="my-4  " >Decimal to Hexadecimal</h2>
 </div>
 <p class="text-light my-4 mx-2">How one can convert decimal number sytem to hexadecimal manually
 ?First up all,one has to divide the integer part if given decimal number by the base and note down the remainder then continue to divide the quotient by the
@@ -119,11 +122,36 @@ from here by just entering valid decimal number.</p>
  <h2 class="text-center text-light" id="DectoHexaHead"></h2>
 <h4 class="text-center text-light" id="DectoHexaOut"></h4> 
 <hr class="bg-light"> 
-<p class="text-center">you can check <a href="/Conversion/BinaryConverter/">Binary converters</a> also</p>
+
 </div>
 </form>
 
 
+</div>
+<div class="col-md-2"></div>
+    <div class="col-md-4 my-2 ">
+      
+      <div class="col p-4 d-flex flex-column position-static ">
+        
+      
+        <h4 class="mb-2 ">Other Converters</h3>
+          <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
+          <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
+          <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
+          <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
+          <li class="my-2"><a href="/Conversion/infix_to_postfix">infix to postfix converter</a></li>
+          <h4 class="my-4">Calculators</h3>
+            <li class="my-2"><a href="/Calculator/EMI_calculator/">EMI Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/GCD_calculator/">GCD Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/Postfix_calculator">Postfix Calculator</a></li>
+            
+          </div>
+          
+       
+        </div>
+      </div>
+</div>
 </div>
 
 {% endblock %}
