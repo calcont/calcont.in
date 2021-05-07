@@ -8,7 +8,7 @@ It is an tool/software which analyzes your text and check various possibilities 
 Text,paragraph,Grammar,corrector,suggestor.
 {% endblock  %}
 {% block Mr %}
-17/04/2021
+13/02/2021
 {% endblock  %}
 {% block MAut %}
 Amar khamkar
@@ -18,9 +18,7 @@ Amar khamkar
 {% block body %}
 
 <style>
-  .jumbotron {
-    background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
-  }
+ 
   #overlay{
     display:block;
   width: 50%;
@@ -32,15 +30,17 @@ Amar khamkar
 
   
 </style>
-<div class="container text-monospace col-md-6">
-  <div class="jumbotron my-2 text-light">
-    <h1 class="display-4">Grammar corrector</h1>
+<div class="container text-light">
+  <div class="row ">
+    <div class="col-md-6 ">
+  <div class="my-4 ">
+    <h3 class="mx-4 font-weight-bold">Grammar corrector</h3>
     <hr class="my-4 bg-white">
-    <h3 class="my-2">What is Grammar corrector?</h1>
+    <h3 class="my-4 text-monospace">What is Grammar corrector?</h3>
     <p class="my-4">It is an tool/software which analyzes your text and check various possibilities of words that matches
     with your previous/next word and correct your text.It has huge amount backend that's why it could take some time according to length of 
     text. </p>
-    <p class="my-2">CalConT has these tool which will be helpful to you all.And words which are not matching or incorrect will be underlined below
+    <p class="my-4">CalConT has these tool which will be helpful to you all.And words which are not matching or incorrect will be underlined below
     text field only.</p>
     <hr class="my-4 bg-white">
     <form id="form" action="/Analyzer/Grammar_correction/" method='POST'>{% csrf_token %}
@@ -68,19 +68,44 @@ Amar khamkar
    <button type="submit" class="btn btn-primary correct my-4">Correct</button>
 </form>
     <hr class="my-4 bg-white">
-    <h3 class="my-2">What is use of Grammar corrector?</h1>
-    <p class="my-2">Grammar corrector is very useful in every aspect and has various reasons how can it would be useful.Some of those are 
+    <h3 class="my-4 text-monospace">What is use of Grammar corrector?</h1>
+    <p class="my-4">Grammar corrector is very useful in every aspect and has various reasons how can it would be useful.Some of those are 
     as follows.
-1) Ofcourse it Saves time<br>
-2) Saves nerves<br>
-3) Since it tries many possibilities it has better feedback<br>
-4) It increased target audience<br>
-5) People are not well at english can practice here.</p>
-<p class="text-monospace mb-2 my-4">You can also try <a href="/Analyzer/name_sorting/" >Name Sorting 
-    </a><a href="/Analyzer/TextAnalyzer/" >Text Analyzer
-    </a> </p>
+    <br>
+
+<p class="my-1">1. Ofcourse it Saves time</p><br>
+<p class="my-1">2. Saves nerves</p><br>
+<p class="my-1">3. Since it tries many possibilities it has better feedback</p><br>
+<p class="my-1">4. It increased target audience</p><br>
+<p class="my-1">5. People are not well at english can practice here.</p></p>
+<hr class="bg-light my-2">
   </div>
 
+</div>
+<div class="col-md-2"></div>
+    <div class="col-md-4 my-2 ">
+      
+      <div class="col p-4 d-flex flex-column position-static ">
+        
+      
+        <h4 class="mb-2 ">Translators</h3>
+          
+          <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Marathi/">English to Marathi</a></li>
+          <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
+          <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
+          <h4 class="my-4">Other Analyzers</h3>
+            <li class="my-2"><a href="/Analyzer/name_sorting/" class="my-2">Name Sorting</a></li>
+            <li class="my-2"><a href="/Analyzer/TextAnalyzer/" >Text Analyzer
+            </a></li>
+            
+          </div>
+          
+       
+        </div>
+      </div>
+</div>
 </div>
 {% endblock  %}
 {% block JS %}
