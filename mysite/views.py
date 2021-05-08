@@ -121,8 +121,6 @@ def Decimalconversion(request):
     return render(request,'DecimalCon.html')
 def Hexadecimalconversion(request):
     return render(request,'HexaCon.html')
-def cgpa_to_percentage(request):
-    return render(request,'DecimalCon.html')
 def Unitconversion(request):
     return render(request,'UnitCon.html')
 #metr
@@ -180,32 +178,7 @@ def EnglishToHindi(request):
         return render(request,'EnglishToHindi_Transl.html',param)
         # print(text)
     return render(request,'EnglishToHindi_Transl.html')
-# def voice_recognition(request):
-#     data = request.POST.get('data')
-#     if int(data)==0:
-
-#         print(data)
-# # get audio from the microphone                                                                       
-#         r = sr.Recognizer()                                                                                   
-#         with sr.Microphone() as source:                                                                       
-                                                                                              
-#             audio = r.listen(source)   
-
-#         try:
-#             reply= r.recognize_google(audio)
-#             success=True
-#         except sr.UnknownValueError:
-#             print("Could not understand audio")
-#             success=False
-#             reply="Could not understand audio"
-#         except sr.RequestError as e:
-#             reply="Could not request results; {0}".format(e)
-        
-#         params={"recognize":reply,"done":success}
-#         print(params)
-#         return render(request,'EnglishToHindi_Transl.html',params)
-        
-#     return render(request,'EnglishToHindi_Transl.html')    
+ 
 def EnglishToMarathi(request):
     if request.method=="POST":
         text=request.POST.get('text','default')
@@ -267,8 +240,6 @@ def GCD_calculator(request):
     return render(request,'GCD_calculator.html')
 def BMI_calculator(request):
     return render(request,'BMI_calculator.html')
-def TAX_calculator(request):
-    return render(request,'TAX_calculator.html')
 def Postfix_calculator(request):
     return render(request,'Postfix_calculator.html')
 #contact
@@ -285,3 +256,5 @@ def ContactMe(request):
     return render(request,'Contact_me.html')
 def Aboutme(request):
     return render(request,'Aboutme.html')
+def PrivacyPolicy(request):
+    return render(request,'PrivacyPolicy.html')

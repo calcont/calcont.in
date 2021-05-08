@@ -37,8 +37,7 @@ urlpatterns = [
     path('Conversion/UnitsConverter/cm_to_angstrom', views.Unit_cmtoangstrom_conversion),
     #infix to postfix
     path('Conversion/infix_to_postfix', views.infix_to_postfix),
-    #Cgpa to percentage
-    path('Conversion/cgpa_to_percentage', views.cgpa_to_percentage),
+ 
 
    
 
@@ -64,9 +63,10 @@ urlpatterns = [
     #BMI calculator
     path('Calculator/BMI_calculator/', views.BMI_calculator),
     #tax calculator
-    path('Calculator/TAX_calculator/', views.TAX_calculator),
+
     path('Calculator/Postfix_calculator/', views.Postfix_calculator),
-    
+    #PrivacyPolicy
+    path('Privacy_policy/', views.PrivacyPolicy),
 
 
 
