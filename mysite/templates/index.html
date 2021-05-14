@@ -178,14 +178,14 @@ Amar khamkar
 {% block JS %}
 <script>
 var i = 0;
-var txt = 'Conversions ,various calculators ,text Analyzer ,Translator, arranging all thenames in alphabetical order.All these softwares are available in these website which reduces the humans work and send the result in a seconds.These types of calculators,converters are always in a need in day today life because we generally do these manually or it takes time/effort instead you can use these software when you in a need and give a feedback or some suggestion to improve these web/webpages in' 
+var txt = 'Conversions ,various calculators ,text Analyzer ,Translator, arranging all the names in alphabetical order.All these softwares are available in these website which reduces the humans work and send the result in a seconds.These types of calculators,converters are always in a need in day today life because we generally do these manually or it takes time/effort instead you can use these software when you in a need and give a feedback or some suggestion to improve these web/webpages in' 
 
 var speed = 300;
 setInterval ("typeWriter()", 1000);
 function typeWriter() {
   if (i <= txt.length) {
     if (i==txt.length){
-       document.getElementById("homext").innerHTML += "<a href='/Contact_me'>Contact me</a>";
+       document.getElementById("homext").innerHTML += "<a href='/Contact_me'> Contact me</a>";
     }
     else{
     document.getElementById("homext").innerHTML += txt.charAt(i);

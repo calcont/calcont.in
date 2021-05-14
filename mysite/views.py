@@ -73,37 +73,37 @@ def Grammar_correction(request):
     if request.method=='POST':
         IsEnter=True
         text=request.POST.get('text','default')
-        
         from gingerit.gingerit import GingerIt
-        result = GingerIt().parse(text)
-        
-        n=len(list(result['corrections']))
-        d=[]
-        a=[]
-        for i in range(n):
-            dash=list(result['corrections'][i].items())
-            d.append(dash[0][1])
-        d.reverse()
-        i=0
-        while i<(len(text)):
-            if i in d: 
-                for j in range(i,len(text)):
-                    if text[j]==" ":
-                        break
-                a.append("\u0332".join(text[i:j+1]))
-                # print("\u0332".join(text[i]))
-                i=j
-            else:
-                a.append(text[i])
-            i+=1 
-        Text=""
-        for i in a:
-            Text+=i
+        length_text=len(text)
+        if length_text<200:
+            result = GingerIt().parse(text)
+            n=len(list(result['corrections']))
+            d=[]
+            a=[]
+            for i in range(n):
+                dash=list(result['corrections'][i].items())
+                d.append(dash[0][1])
+            d.reverse()
+            i=0
+            while i<(len(text)):
+                if i in d: 
+                    for j in range(i,len(text)):
+                        if text[j]==" ":
+                            break
+                    a.append("\u0332".join(text[i:j+1]))
+                    # print("\u0332".join(text[i]))
+                    i=j
+                else:
+                    a.append(text[i])
+                i+=1 
+            Text=""
+            for i in a:
+                Text+=i
 
 
-
-        param={'NewText':result['result'],"text":Text,"IsEnter":IsEnter}
-        
+            param={'NewText':result['result'],"text":Text,"IsEnter":IsEnter,"length_text":length_text}
+        else:
+            param={'NewText':" ","text":text,"IsEnter":IsEnter,"length_text":length_text}
         return render(request,'Grammar_correction.html',param)
     return render(request,'Grammar_correction.html')
         
@@ -247,9 +247,9 @@ def ContactMe(request):
     if request.method == "POST":
         name=request.POST.get("name")
         email=request.POST.get("email")
-        phone=request.POST.get("phone")
+       
         desc=request.POST.get("desc")
-        contact=Contact(name=name,email=email,phone=phone,desc=desc,date=datetime.today())
+        contact=Contact(name=name,email=email,desc=desc,date=datetime.today())
         contact.save()
         than=True
         return render(request,'Contact_me.html',{"than":than})
