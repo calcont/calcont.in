@@ -47,13 +47,13 @@ Amar khamkar
     {% if not IsEnter%}
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Enter text  (<lablel class="text-danger">300 words only*</label>)</label>
-    <textarea class="form-control" id="Text" name='text' placeholder="Enter your text" rows="3"></textarea>
+    <textarea class="form-control" id="Text" name='text' placeholder="Enter your text" rows="7"></textarea>
   </div>
   {% endif %}
   {% if IsEnter%}
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Enter text  (<lablel class="text-danger">300 words only*</label>)</label>
-    <textarea class="form-control" id="Text" name='text'  rows="3">{{text}}</textarea>
+    <textarea class="form-control" id="Text" name='text'  rows="7">{{text}}</textarea>
   <p id="exceed" class="text-light"></p>
   </div>
   {% endif %}
@@ -66,7 +66,7 @@ Amar khamkar
 </div>
   <div  class=" form-group">
     <label class="corrtxt" for="exampleFormControlTextarea1">Corrected text</label>
-    <textarea class="form-control"   rows="3">{{NewText}}</textarea>
+    <textarea class="form-control"   rows="7">{{NewText}}</textarea>
   </div>
    <button type="submit" class="btn btn-primary correct my-4">Correct</button>
 </form>
@@ -113,18 +113,18 @@ Amar khamkar
 {% endblock  %}
 {% block JS %}
 <script>
-  {% if length_text > 300 %}
-   document.getElementById("exceed").innerHTML="Text size exceeded than a limit."
-   window.scrollTo(0,300);
-    {% else %}
-   window.scrollTo(0,300);
-   //document.getElementById("exceed").style.display="none"
-
-    {% endif %}
+  
     
 window.onload = function () {
         $("#overlay").hide();
-        
+        {% if length_text > 300 %}
+   document.getElementById("exceed").innerHTML="Text size exceeded than a limit."
+   window.scrollTo(0,450);
+    {% else %}
+   window.scrollTo(0,450);
+   document.getElementById("exceed").innerHTML=" "
+
+    {% endif %}
     };
 
     $(document).ready(function () {

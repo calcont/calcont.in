@@ -18,7 +18,7 @@
     <title> CalConT {% block title %}
     {% endblock title %}  </title>
     <link rel="shortcut icon" type="image/x-icon" href="/static/CalConT_logo.png">
-
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-T6P40QX3XC"></script>
 <script>
@@ -32,7 +32,9 @@
 async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 <style>
-@import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
+html{
+  scroll-behavior: smooth;
+}
     body{
       background-color:black;
     }
@@ -41,7 +43,13 @@ async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></scr
     
 }
 
-    
+#baktop{
+
+  right: 10px;
+  margin-top: 500px;
+  position: fixed;
+ 
+}    
 .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -144,7 +152,9 @@ async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></scr
     </ul>
   </div>
 </nav>
-    
+<a type="button" href="#" id="baktop" class=" mb-2 float-right btn btn-outline-primary">
+  <i class="fa fa-arrow-up fa-2x bg-" style="" aria-hidden="true"></i>
+</a> 
     {% block body  %}
     
     {% endblock  %}
@@ -157,9 +167,7 @@ async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></scr
 
   </footer> -->
   <footer class="container-fluid text-light my-4">
-    <a type="button" href="#" class=" mb-2 float-right btn btn-outline-primary">
-        <i class="fa fa-arrow-up fa-2x " style="" aria-hidden="true"></i>
-    </a>
+    
 
         <p class="">&copy;2020-2021 CalConT.in | <a href="/About/">  About  </a> | <a href="/Privacy_policy/">Privacy Policy</a></p>
 
@@ -177,6 +185,26 @@ async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></scr
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
+        <script>
+          var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+var mybutton=document.getElementById("baktop")
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+        </script>
     {% block JS %}
     {% endblock  %}
 </body>
