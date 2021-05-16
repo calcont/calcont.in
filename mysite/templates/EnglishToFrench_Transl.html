@@ -6,40 +6,45 @@ english they only speak france .
 For all those people they can enter the English text here  and can translate it into in french,it"ll really helps you all
 to improve your skills easily.
 {% endblock  %}
-{% block MKW %}English,french,translator{% endblock  %}
+{% block MKW %}English,french,translator,voice recognition{% endblock  %}
 {% block Mr %}
 30/12/2020
 {% endblock  %}
 {% block MAut %}
 Amar khamkar
 {% endblock  %}
-{% block title %}-English to french Translator
+{% block title %}-English to french Translator,voice recognition
 {% endblock  %}
 {% block body %}
 <style>
+#speech{
+  display: block;
+  position: absolute;
 
-.container{
-  border:2px solid rgb(25, 30, 66);
-  background-image:linear-gradient(to right,rgb(5, 33, 46) 100%, rgb(100,100,100) 70%);
- border-radius:10px;
+   height: 50px; 
+  border-radius: 40px;
+ outline:none;
+  cursor: pointer;
+  border-color: rgb(255, 94, 0);
 }
-
-.text-info{
-  
+.french{
+  margin-top:60px;
 }
+ #speech :hover{
+   background-color: rgb(0, 255, 251);
+  border-radius: 40px;
+  height:43px;
+ width:100px;
+ } 
 
 
 </style>
-{% if alt %}
-<div class="alert alert-secondary alert-dismissible fade show" role="alert">
-  <strong>Hey!</strong> Your English text is converted to French.
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-{% endif %}
-<div class="container border  mb-5 col-md-6 my-5">
-<h1 class="my-3 text-center text-light" >English to French</h2>
+
+<div class="container text-light">
+  <div class="row ">
+    <div class="col-md-6 ">
+  <div class="my-4 ">
+<h2 class="my-3 text-center text-light" >English to French</h2>
   <hr class="bg-light my-2">
 
   <h3 class="my-4 text-light">Why we need translation?</h3>
@@ -64,7 +69,12 @@ Since it is an tradtional language of France and its been spoken since from long
       <label for="" class='ui text-secondary text-light my-3'>Enter the text in english</label>
       <input class="form-control" name='text' id="EText" placeholder="Enter the english text" rows="9" required>
     </div>
-<div class="form-group">
+    <div class=" mb-4" >
+      <button type="submit" class="speak " id="speech" style="filter: invert();" >
+              <i class="fa fa-microphone fa-2x " style="width:60px;"  aria-hidden="true"></i>
+            </button>
+            </div>
+<div class="form-group french">
    
       <label for="Hindi" class='ui text-secondary text-light my-3'>French</label>
       <textarea class="form-control"  placeholder="To French.." id="Tohind"   rows="6"></textarea>
@@ -75,8 +85,12 @@ Since it is an tradtional language of France and its been spoken since from long
       <label for="" class='ui text-secondary text-light my-3'>Enter the text in english</label>
       <input class="form-control" name='text' id="EText"  value="{{ortext}}" rows="9" required>
     </div>
-
-<div class="form-group">
+    <div class=" mb-4" >
+      <button type="submit" class="speak " id="speech" style="filter: invert();" >
+              <i class="fa fa-microphone fa-2x " style="width:60px;"  aria-hidden="true"></i>
+            </button>
+            </div>
+<div class="form-group french">
       <label for="Hindi" class='ui text-secondary text-light my-3'>French</label>
       <textarea class="form-control"   id="Tohind"   rows="6">{{text}}</textarea>
       </div>
@@ -92,22 +106,78 @@ not french but they live in France for some reason.For all those people they can
 to improve your skills easily. </p>
 <hr class="bg-light my-2">
 <h3 class="text-light my-4">How can it will be helpful?</h3>
-<p class="text-monospace text-light my-3">1)You can try to write english text by your own and can check whether its gramatically or in any aspect right or not
-  and still you can practice more.<br>2)People who dont know the meaning of english word/sentence will be helpful for those. and many more..
-</p>
+<p class="text-monospace text-light my-3"><p class="my-2">1.You can try to write english text by your own and can check whether its gramatically or in any aspect right or not
+  and still you can practice more.</p><br><p class="my-2">2.People who dont know the meaning of english word/sentence will be helpful for those. and many more..
+  </p><br><p class="my-2">3.You can use voice recogniton feature too avoid writing.</p>
 <hr class="bg-light my-2">
-   <h4 class="text-center text-light my-4">Can check other Translator>></h4>
-<p class="text-center my-2 mb-4  text-light"><a  href="/Translator/English_to_hindi/">English to Hindi</a>
-        <a class="mx-2" href="/Translator/English_to_Marathi/">English to Marathi</a>
-        <a class="mx-2" href="/Translator/English_to_German/">English to German</a>
-        <a class="mx-2" href="/Translator/English_to_Arabian/">English to Arabian</a>
+ 
+</div>
+</div>
+<div class="col-md-2"></div>
+    <div class="col-md-4 my-2 ">
+      
+      <div class="col p-4 d-flex flex-column position-static ">
         
-        </p>
+      
+  <h4 class="mb-2 ">Other Translators</h3>
+          
+          <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
+        
+          <li class="my-1"><a href="/Translator/English_to_Marathi/">English to marathi</a></li>
+          <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
+          <h4 class="my-4">Analyzers</h3>
+          <li class="my-2"><a href="/Analyzer/TextAnalyzer/">Text Analyzer</a></li>
+            <li class="my-2"><a href="/Analyzer/name_sorting/" class="my-2">Name Sorting</a></li>
+            <li class="my-2"><a href="/Analyzer/Grammar_correction/" class="my-2">Grammar Corrector</a></li>
+            
+          </div>
+          
+       
+        </div>
+      </div>
+</div>
 </div>
 {% endblock  %}
 {% block JS %}
 <script>
+{% if alt %}
+window.scrollTo(0,450);
+{% endif %}
 
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      window.SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+      const grammar = '#JSGF V1.0'
+      const recognition = new SpeechRecognition();
+    const speechRecognitionList = new SpeechGrammarList();
+      speechRecognitionList.addFromString(grammar, 1);
+      recognition.grammars = speechRecognitionList;
+
+      recognition.lang = 'en-US';
+      recognition.interimResults = true;
+      recognition.onresult = function(event) {
+    const UserMsg = event.results[0][0].transcript;
+      // console.log(UserMsg)
+      document.getElementById("EText").value=UserMsg
+     
+
+}
+      //OnEndingSpeech
+        recognition.onspeechend = function() {
+        recognition.stop();
+        document.getElementById("speech").style.backgroundColor="white";
+      }
+      //ErrorHanling
+      recognition.onerror = function(event) {
+      // message.textContent = 'Error occurred in recognition: ' + event.error;
+    }
+    $('.speak').click(function (e) {
+      e.preventDefault();
+     
+      document.getElementById("speech").style.backgroundColor="#00fbff";
+      recognition.start();
+
+    });
 
 </script>
 {% endblock  %}
