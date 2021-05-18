@@ -6,6 +6,11 @@ urlpatterns = [
     path('', views.index,name='index'),
     path('Contact_me/', views.ContactMe,name='text'),
     path('About/',views.Aboutme),
+
+#Authentication
+    path('login/',views.Login),
+    path('signin/',views.Signin),
+    path('logout/',views.Logout),
     # path('', views.index,name='')),
     # path('conversion', views.convesion,name='conversion'),
     #Analyzer
