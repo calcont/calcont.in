@@ -1,120 +1,280 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-Since,english is a global language but in india percentage of people who can speak/write english is less.Since mumbai is well known city
-which is in a maharashtra state and there most of people speaks marathi only but people from other side find diffculty to understand these language or to speak these 
-language.For all those people they can enter the English text here  and can translate it into in hindi,it"ll really helps you all
-to improve your skills easily. 
+Convert Hexadecimal number to Decimal,
+Hexadecimal number to Hexadecimal,
+Hexadecimal number to Octal.
 {% endblock  %}
-{% block MKW %}English,Marathi,translator{% endblock  %}
+{% block MKW %}
+Hexadecimal,Decimal,octal,Binary,converter
+{% endblock  %}
 {% block Mr %}
-30/12/2020
+27/03/2021
 {% endblock  %}
 {% block MAut %}
 Amar khamkar
 {% endblock  %}
-{% block title %}-English to Marathi Translator
+{% block title %} - Convert Hexadecimal number to Decimal ,Octal,hexadecimal
 {% endblock  %}
 {% block body %}
+
 <style>
+
+.container{
+  border:2px solid rgb(25, 30, 66);
+  background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
+  border-radius:10px;
+}
+.coll{
+  
+  font-weight:bold;
+}
+
 
 
 
 
 </style>
 
-<div class="container text-light">
-  <div class="row ">
-    <div class="col-md-6 ">
-  <div class="my-4 ">
-<h1 class="my-3 text-center text-light" >English to Marathi</h2>
-<hr class="bg-light my-2">
 
-  <h3 class="my-4 text-light">Why we need translation?</h3>
-  <p class="text-light text-monospace my-4 mx-2">The skills of translation are becoming ever more important and desirable. 
-    Today’s multicultural and multilingual society demands effective, efficient,
-     and empathetic communication between languages and cultures. That’s important for various reasons, which we’ll now explore</p>
-  <hr class="bg-light my-2">
-<h3 class="my-4 text-light">Marathi language?</h3>
-<p class="text-light text-monospace my-4 mx-2">As we all know English is global language but Marathi is a language which is very famous and it is 
-an language which is spoken in maharashtra state which is the loacated in  india.Mumbai is an economical capital of india and its city which is 
-loacted in Maharashtra state.
-Since it is and tradtional language of maharashtra and its been spoken since from long time ago.And people over there are very pride of their language and <b>SHIVAJI MAHARAJ</b> </p>
-
-
-<hr class="bg-light my-2">
-
-<form action="/Translator/English_to_Marathi/" class="tra" method='POST'>{% csrf_token %}
-     {% if not alt %}
-      <div class="form-group">
-      <label for="" class='ui text-secondary text-light my-3'>Enter the text in english</label>
-      <input class="form-control" name='text' id="EText" placeholder="Enter the english text" rows="9" required>
+<form>
+<div class="container border  text-light text-monospace col-md-6 my-2">
+<h1 class="my-4 text-center">Hexadecimal Converters</h1>
+<p class="my-4">First up all what is Hexadecimal number System?So,it is an number System with a radix 16.In thes number System
+we have 0-15 numbers where 0-9 are represnt normally as decimal format but 10-15 are represnt by alphabets which is from A-F.Wide application of 
+such number system can be seen in microprocessor which stores 16 bit of data and so on. </p>
+  <hr class="bg-light">
+<div class="container">
+<h2 class="my-4  text-light" >Hexadecimal to Decimal</h2>
+</div>
+<p class="text-light my-4 mx-2">how can one convert Hexadecimal number to decimal?First up all, one has to write down weights corresponding 
+to different positions then multiply each
+digit in given number with corresponding weight to obtain product numbers and then add all the product numbers to get decimal equivalent.
+But,stil  most humans only knows decimal number.So,it is necessary to have an software which can convert hexdecimal number to respective decimal number 
+.So,calcont have that in which you have to just enter hexdecimal number in below and click to convert..</p>
+  <div class="form-row my-4">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="text"  placeholder="Enter The hexadecimal No." class="form-control coll" id="HextoDec" required>
     </div>
-<div class="form-group">
-   
-      <label for="Hindi" class='ui text-secondary text-light my-3'>Marathi</label>
-      <textarea class="form-control"  placeholder="To Marathi.." id="Tohind"   rows="6"></textarea>
-    </div>
-      {% endif %}
-    {% if alt%}
-<div class="form-group">
-      <label for="" class='ui text-secondary text-light my-3'>Enter the text in english</label>
-      <input class="form-control" name='text' id="EText"  value="{{ortext}}" rows="9" required>
-    </div>
+  </div>
+  <div class="form-row">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary subm " type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="HextoDecHead"></h4>
+<h4 class="text-center text-light" id="HextoDecOut"></h4> 
 
-<div class="form-group">
-      <label for="Hindi" class='ui text-secondary text-light my-3'>Marathi</label>
-      <textarea class="form-control"   id="Tohind"   rows="6">{{text}}</textarea>
-      </div>
-      {% endif %}
-      <button type="submit" class="btn btn-outline-primary trae my-2">Translate</button>
+
+<hr class="bg-light">
+<div class="container">
+<h2 class="my-4  text-light" >Hexadecimal to binary</h2>
+</div>
+<p class="text-light my-4 mx-2">how can one convert Hexadecimal number to binary manually?We just write binary equivalent of each hexadecimal number one 
+by one and then combine all those binary number.For Binary numbers you can see our <a href="/Conversion/BinaryConverter/">Binary Converters</a></p>
+  <div class="form-row my-4">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="text"  placeholder="Enter The Hexadecimal No." class="form-control coll" id="Hexa" >
+    </div>
+  </div>
+  <div class="form-row my-4">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary sub" type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="HextoBinHead"></h2>
+<h4 class="text-center text-light" id="HextoBinOut"></h4> 
+
+<hr class="bg-light">
+<div class="container">
+<h2 class="my-4  text-light" >Hexadecimal to Octal</h2>
+</div>
+<p class="text-light my-4 mx-2">how can one convert hexadecimal number to octal manually?We just write binary equivalent of each hexadecimal number one 
+by one and then combine all those binary number.And then again
+we convert those binary to octal.For Binary numbers you can see our <a href="/Conversion/BinaryConverter/">Binary Converters</a></p>
+  <div class="form-row">
+  <div class="col-md-2 mb-3"></div>
+  
+    <div class="col-md-8 mb-3">
+      
+      <input type="text"  placeholder="Enter The Hexadecimal No." class="form-control coll" id="Hexade" required>
+    </div>
+  </div>
+  <div class="form-row">
+ <div class="col-md-2 mb-3">
+  </div> 
+   <div class="col-md-1 mb-3">
+  <button class="btn btn-outline-primary submi my-4" type="submit">Convert</button> 
+  </div> 
+  </div> 
+ <h2 class="text-center text-light" id="HextoOctHead"></h2>
+<h4 class="text-center text-light" id="HextoOctOut"></h4> 
+<hr class="my-2 bg-white">
+<p class="text-center">you can check <a href="/Conversion/DecimalConverter/">decimal converters  </a>
+ & <a href="/Conversion/BinaryConverter/">Binary converters </a> also</p>
+
+</div>
 </form>
-<hr class="bg-light my-2">
-<h3 class="my-4 text-light">For whom these will be helpul?</h3>
-<p class="text-light text-monospace my-4 mx-2">Since there are rural areas or many areas in maharashtra who speaks only Marathi but there very less people who speaks English
-.And People around world/India loves to learn Marathi and those who know english but 
-not Marathi but they live in Maharashtra for some reason.For all those people they can enter the English text here  and can translate it into in Marathi
-,it"ll really helps you all
-to improve your skills easily. </p>
-<hr class="bg-light my-2">
-<h3 class="text-light my-4">How can it will be helpful?</h3>
-<p class="text-monospace text-light my-3">1)You can try to write english text by your own and can check whether its gramatically or in any aspect right or not
-  and still you can practice more.<br>2)People who dont know the meaning of english word/sentence will be helpful for those. and many more..
-</p>
-<hr class="bg-light my-2">
 
 </div>
-</div>
-<div class="col-md-2"></div>
-    <div class="col-md-4 my-2 ">
-      
-      <div class="col p-4 d-flex flex-column position-static ">
-        
-      
-  <h4 class="mb-2 ">Other Translators</h3>
-          
-          <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
-          <li class="my-1"><a href="/Translator/English_to_Marathi/">English to Marathi</a></li>
-          <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
-          <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
-          <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
-          <h4 class="my-4">Analyzers</h3>
-          <li class="my-2"><a href="/Analyzer/TextAnalyzer/">Text Analyzer</a></li>
-            <li class="my-2"><a href="/Analyzer/name_sorting/" class="my-2">Name Sorting</a></li>
-            <li class="my-2"><a href="/Analyzer/Grammar_correction/" class="my-2">Grammar Corrector</a></li>
-            
-          </div>
-          
-       
-        </div>
-      </div>
-</div>
-</div>
-{% endblock  %}
+
+{% endblock %}
 {% block JS %}
 <script>
-{% if alt %}
-window.scrollTo(0,450);
-{% endif %}
+ 
+ var hexaVal={"0":"0000","1":"0001","2":"0010","3":"0011","4":"0100","5":"0101","6":"0110","7":"0111","8":"1000","9":"1001",
+ "A":"1010","B":"1011","C":"1100","D":"1101","E":"1110","F":"1111"};
+ $('.sub').click(function (e) {
+   var ans,ans="",num;
+var hex = document.getElementById("Hexa").value;
+hex=hex.toUpperCase()
+if (hex==""){
+      ans=""
+      var stri="Enter hexadecimal no. first"
+    }
+else{
+function ToGetVal(num){
+for (var [key, value] of Object.entries(hexaVal)){
+if(num==key){
+return value;
+}
+}
+}
+//for(var i=0;i<hex.length;i++){
+var i=0;
+  while(i<hex.length){
+
+if(ToGetVal(hex[i])){
+  
+  ans+=ToGetVal(hex[i]);
+}
+else{
+
+  stri="Enter Valid hexadecimal no"
+  ans=""
+  break
+}
+if (i==hex.length-1){
+  stri="Binary no is"
+}
+i++;
+}
+
+}
+document.getElementById('HextoBinHead').innerHTML=stri;
+document.getElementById('HextoBinOut').innerHTML=ans;
+e.preventDefault();
+});
+ $('.subm').click(function (e) {
+   var hexaVal={"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9",
+   "A":"10","B":"11","C":"12","D":"13","E":"14","F":"15"};
+   
+   var hexd=document.getElementById('HextoDec').value,ans=0,num,num1;
+   hexd=hexd.toUpperCase();
+  var splitString = hexd.split(""); 
+    var reverseArray = splitString.reverse();
+    hexd= reverseArray.join(""); 
+
+   if(hexd==""){
+     ans=""
+      var stri="Enter hexadecimal no. first"
+   }
+   else{
+function ToGetVal(num){
+for (var [key, value] of Object.entries(hexaVal)){
+if(num==key){
+return value;
+}
+}
+}
+   var i=0;
+   while(i<hexd.length){
+
+     if(ToGetVal(hexd[i])){
+       ans+=parseInt(ToGetVal(hexd[i]))*(16**i);
+   }
+else{
+
+  stri="Enter Valid hexadecimal no"
+  ans=""
+  break
+}
+if (i==hexd.length-1){
+  stri="Decimal no is"
+}
+
+     i++;
+   }
+   
+   }
+   document.getElementById('HextoDecHead').innerHTML=stri;
+   document.getElementById('HextoDecOut').innerHTML=ans;
+e.preventDefault();
+});
+ $('.submi').click(function (e) {
+   var hexaVal={"0":"0","1":"1","2":"2","3":"3","4":"4","5":"5","6":"6","7":"7","8":"8","9":"9",
+   "A":"10","B":"11","C":"12","D":"13","E":"14","F":"15"};
+   
+   var hexde=document.getElementById('Hexade').value,ans=0,val,rem,answ="",num,num1;
+   hexde=hexde.toUpperCase();
+  var splitString = hexde.split(""); 
+    var reverseArray = splitString.reverse();
+    hexde= reverseArray.join(""); 
+
+   if(hexde==""){
+     ans=""
+      var stri="Enter hexadecimal no. first"
+   }
+   else{
+function ToGetVal(num){
+    
+for (var [key, value] of Object.entries(hexaVal)){
+if(num==key){
+return value;
+}
+}
+}
+   var i=0;
+   while(i<hexde.length){
+
+     if(ToGetVal(hexde[i])){
+       ans+=parseInt(ToGetVal(hexde[i]))*(16**i);
+   }
+else{
+ var bool=0;
+  stri="Enter Valid hexadecimal no"
+  ans=""
+  break
+}
+
+
+     i++;
+   }
+     while (ans!="0" && bool!=0){
+          rem=parseInt(ans)%8;
+          ans=parseInt(ans)/8;
+          answ=answ.concat(rem)    
+        //console.log(answ)
+        }
+        if(bool!=0){
+        stri="Octal no. is..."
+        }
+    }
+       var answer=answ.split('').reverse().join('') 
+      document.getElementById('HextoOctOut').innerHTML =answer.slice(1,);
+      document.getElementById('HextoOctHead').innerHTML =stri;
+
+e.preventDefault();
+});
 
 </script>
 {% endblock  %}
