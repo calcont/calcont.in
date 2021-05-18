@@ -1,0 +1,267 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Signin
+{% endblock  %}
+{% block MKW %}
+Signin
+{% endblock  %}
+{% block Mr %}
+20/05/21
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Sigin
+{% endblock  %}
+{% block body %}
+<style>
+
+
+.form-signin {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group input,
+.form-label-group label {
+  height: 3.125rem;
+  padding: .75rem;
+}
+
+.form-label-group label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0; /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: #495057;
+  pointer-events: none;
+  cursor: text; /* Match the input under the label */
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+  color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::placeholder {
+  color: transparent;
+}
+
+.form-label-group input:not(:-moz-placeholder-shown) {
+  padding-top: 1.25rem;
+  padding-bottom: .25rem;
+}
+
+.form-label-group input:not(:-ms-input-placeholder) {
+  padding-top: 1.25rem;
+  padding-bottom: .25rem;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+  padding-top: 1.25rem;
+  padding-bottom: .25rem;
+}
+
+.form-label-group input:not(:-moz-placeholder-shown) ~ label {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: 12px;
+  color: #777;
+}
+
+.form-label-group input:not(:-ms-input-placeholder) ~ label {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: 12px;
+  color: #777;
+}
+
+.form-label-group input:not(:placeholder-shown) ~ label {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+@supports (-ms-ime-align: auto) {
+  .form-label-group {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+
+  .form-label-group label {
+    position: static;
+  }
+
+  .form-label-group input::-ms-input-placeholder {
+    color: #777;
+  }
+}
+.container{
+ 
+    /* height:500px; */
+    
+}
+body{
+    background-color: rgb(21, 20, 19);
+}
+</style>
+{% if messages %}
+ {% for message  in messages  %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+{% endif %} 
+<div class="mb-4 container text-light   col-md-6" >
+    <h1 class="my-3 text-center">Signup here</h1>
+   
+    <form class="form-signin my-2" method="post" action="/signin/">
+
+        {% csrf_token %}
+        
+        <div class="form-label-group my-3">
+            
+            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
+            <label for="inputEmail">Username</label>
+          <small class="my-3">
+            *Your username should be of less than 10 characters and it should contain only numbers and characters.
+          </small>
+        </div>
+        
+        
+       
+       
+        
+        <div class="form-label-group my-2">
+            
+            <input type="email" id="emailsign" name="emailsign" class="form-control" placeholder="Email" required autofocus>
+            <label for="inputEmail">Email</label>
+       
+        </div>
+        <p class="my-2" id="email_entered" style="display:none;">Please provide email first!</p>
+        <button class="btn btn-outline-primary my-2" id="otpLoad" style="display:none;" type="button" disabled >
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            sending...
+        
+          </button>
+                <button class="btn btn-outline-primary my-2"  id="otp" type="button" >
+           
+            Send Otp
+          </button>
+          <p class="my-2" id="otpsuccess" style="display:none;">Otp sent successfully!</p>
+         
+          <div class="form-label-group my-2">
+              <input type="text" class="form-control" id="OTPd" name="OTPd" placeholder="OTP"  disabled>
+              <label for="iputotp">OTP</label>
+           
+          </div>
+                <div class="form-label-group my-2 " >
+                   
+            <input type="text" class="form-control" id="OTP" name="OTP" placeholder="OTP" style="display:none;"  required>
+           
+          <label for="inputPassword">OTP</label>
+           
+          </div>
+       
+      
+        <div class="form-label-group my-3">
+          <input type="password" id="Password1" name="password1" class="form-control" placeholder="Password" required>
+          <label for="inputPassword">Password</label>
+          <small>
+            *Your password must be 5-10 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+          </small>
+        </div>
+       
+        
+ 
+        <div class="form-label-group my-3">
+          <input type="password" id="password2" name="password2" class="form-control" placeholder="Password" required>
+          <label for="inputPassword">Confirm Password</label>
+        </div>
+      
+        <div class="checkbox my-3">
+          <label>
+            Already registerd?Please <a href="/login">Login </a> here.
+          </label>
+        </div>
+        <button class="btn btn-outline-primary my-2" type="submit">Signup</button>
+       
+      </form>
+</div>
+{% endblock  %}
+{% block JS %}
+<script>
+
+
+
+$('#otp').click(function (e) {
+if(document.getElementById('emailsign').value!=""){
+document.getElementById("email_entered").style.display="none"
+  document.getElementById("otp").style.display="none"
+  document.getElementById("otpLoad").style.display="block"
+  setTimeout(function()
+  { 
+ // document.getElementById("otp").style.display="none"
+  document.getElementById("otpLoad").style.display="none"
+  document.getElementById("OTPd").style.display="none"
+  document.getElementById("OTP").style.display="block"
+
+  document.getElementById("otpsuccess").style.display="block"
+
+  }, 3000);
+$.ajax({
+         type:'POST',
+         url: "/",
+         
+                  data: {
+                user_data: 0,
+                'username': $('input[name=username]').val(),
+
+                'email': $('input[name=emailsign]').val(),
+                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
+                },
+       
+
+        
+     });
+     
+}
+else{
+document.getElementById("email_entered").style.display="block"
+}
+});
+
+</script>
+{% endblock  %}

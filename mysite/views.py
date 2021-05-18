@@ -1,24 +1,37 @@
 import speech_recognition as sr  
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from datetime import datetime
 from .models import Headlines,Contact
 from googletrans import Translator
 import speech_recognition as sr
+from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login,logout
+from django.contrib import messages
+import os
+import math
+import random
+import smtplib
+from django.views.decorators.csrf import csrf_exempt
 # from language_tool_python import LanguageTool as LT
 # Create your views here.
 #username Amar pass:Amar123
 def index(request):
-    # title=Headlines.objects.all()
-    # Text=Headlines.objects.values('text')
-    # # print(title)
-    # # print(text)
-    # n=len(title)
-    # alltitle=[]
-    # alltitle.append([Text,n])
-    # params={"ALL":alltitle}
-    # print(n)
-    # print(params)
+    if request.method=="POST":
+        global OTP
+        OTP=""
+        username=request.POST.get('username','')
+        email=request.POST.get('email','')
+        digits="0123456789"
+        for i in range(6):
+            OTP+=digits[math.floor(random.random()*10)]
+        
+        msg=f"Hello {username} and Welcome to CalConT! Your otp is {OTP}.Thanks for registering in our website. "
+        s = smtplib.SMTP('smtp.gmail.com', 587)
+        s.starttls()
+        s.login("calcont.in01@gmail.com", "calcont.in@19")
+        
+        s.sendmail('&&&&&&&&&&&',email,msg)
     return render(request,'index.html')
 #Analyzer
 
@@ -258,3 +271,82 @@ def Aboutme(request):
     return render(request,'Aboutme.html')
 def PrivacyPolicy(request):
     return render(request,'PrivacyPolicy.html')
+#authentication
+def Login(request):
+    if request.method == "POST":
+        #getting parameters
+       
+        usernamelogin=request.POST["usernamelog"]
+        passw=request.POST["password"]
+        user=authenticate(request,username=usernamelogin,password=passw)
+        if user is not None:
+            login(request,user)
+            
+            
+            messages.success(request,"Successfully login.")
+            Login=True
+            
+            return redirect('/')
+        else:
+            messages.warning(request,"Invalid Credentials.")
+            
+            return render(request, "Login.html")
+            
+       
+    
+    return render(request, "Login.html")
+def Signin(request):
+    if request.method == "POST":
+        #getting parameters
+        
+        username=request.POST["username"]        
+        email=request.POST["emailsign"]
+        pass1=request.POST["password1"]
+        pass2=request.POST["password2"]
+        otp=request.POST["OTP"]
+
+        global OTP
+        print(OTP)
+        print(otp)
+     
+        x=User.objects.filter(is_active=True).values_list('email',flat=True)
+        if email  in x:
+            
+            messages.warning(request,"Email Exist!Please try with other username or email.")
+            
+            return render(request,"Signin.html")
+        
+        #create user
+        # if user is  None:
+        if len(username) >10:
+            messages.warning(request,"Username should be greater than 10 characters")
+            
+            return render(request,"Signin.html")
+        if not username.isalnum():
+            messages.warning(request,"Username should only contain letters and numbers")
+           
+            return render(request,"Signin.html")
+        if len(pass1)<5 or len(pass1)>10 or not pass1.isalnum():
+            messages.warning(request,"Invalid Password.")
+            return render(request,"Signin.html")
+
+        if pass1!=pass2:
+            messages.warning(request,"Passwords are not matching")
+            return render(request,"Signin.html")
+        if OTP!=otp:
+            messages.warning(request,"Invalid Otp")
+            return render(request,"Signin.html")
+
+        myuser=User.objects.create_user(username,email,pass1)
+        myuser.save()
+        messages.success(request,"Accout has been created successfully")
+     
+        return render(request,"index.html",{"canlogin":True})
+        # return render(request,"index.html",param)
+    
+    return render(request,"Signin.html")
+def Logout(request):
+    if request.user.is_authenticated:
+        logout(request)
+        messages.success(request,"Logged out successfully")
+        return redirect("/")

@@ -1,0 +1,181 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Login
+{% endblock  %}
+{% block MKW %}
+Login
+{% endblock  %}
+{% block Mr %}
+20/05/21
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Login
+{% endblock  %}
+{% block body %}
+<style>
+
+
+.form-signin {
+  width: 100%;
+  max-width: 420px;
+  padding: 15px;
+  margin: auto;
+}
+
+.form-label-group {
+  position: relative;
+  margin-bottom: 1rem;
+}
+
+.form-label-group input,
+.form-label-group label {
+  height: 3.125rem;
+  padding: .75rem;
+}
+
+.form-label-group label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  margin-bottom: 0; /* Override default `<label>` margin */
+  line-height: 1.5;
+  color: #495057;
+  pointer-events: none;
+  cursor: text; /* Match the input under the label */
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  transition: all .1s ease-in-out;
+}
+
+.form-label-group input::-webkit-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-moz-placeholder {
+  color: transparent;
+}
+
+.form-label-group input:-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::-ms-input-placeholder {
+  color: transparent;
+}
+
+.form-label-group input::placeholder {
+  color: transparent;
+}
+
+.form-label-group input:not(:-moz-placeholder-shown) {
+  padding-top: 1.25rem;
+  padding-bottom: .25rem;
+}
+
+.form-label-group input:not(:-ms-input-placeholder) {
+  padding-top: 1.25rem;
+  padding-bottom: .25rem;
+}
+
+.form-label-group input:not(:placeholder-shown) {
+  padding-top: 1.25rem;
+  padding-bottom: .25rem;
+}
+
+.form-label-group input:not(:-moz-placeholder-shown) ~ label {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: 12px;
+  color: #777;
+}
+
+.form-label-group input:not(:-ms-input-placeholder) ~ label {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: 12px;
+  color: #777;
+}
+
+.form-label-group input:not(:placeholder-shown) ~ label {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+  font-size: 12px;
+  color: #777;
+}
+
+/* Fallback for Edge
+-------------------------------------------------- */
+@supports (-ms-ime-align: auto) {
+  .form-label-group {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column-reverse;
+    flex-direction: column-reverse;
+  }
+
+  .form-label-group label {
+    position: static;
+  }
+
+  .form-label-group input::-ms-input-placeholder {
+    color: #777;
+  }
+}
+.container{
+ 
+    height:500px;
+    
+}
+body{
+    background-color: rgb(21, 20, 19);
+}
+</style>
+{% if messages %}
+ {% for message  in messages  %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    {{message}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+{% endif %} 
+<div class="mb-4 container text-light my-4  col-md-6" style="">
+    <h1 class="my-4 text-center">Login here</h1>
+   
+    <form class="form-signin my-3" action="/login/" method="post">
+        {% csrf_token %}
+        <p class="my-2">Username</p>
+        
+        <div class="form-label-group my-4">
+            
+            <input type="text" id="username" name="usernamelog" class="form-control" placeholder="Username" required autofocus>
+            <label for="inputEmail">Username</label>
+        </div>
+        <p class="my-2">Password</p>
+      
+        <div class="form-label-group my-4">
+          <input type="password" id="Password" name="password" class="form-control" placeholder="Password" required>
+          <label for="inputPassword">Password</label>
+        </div>
+      
+        <div class="checkbox my-3">
+          <label>
+            Don't have account yet?Please <a href="/signin">Sign up </a> here.
+          </label>
+        </div>
+        <button class="btn btn-outline-primary my-3" type="submit">Log in</button>
+       
+      </form>
+</div>
+{% endblock  %}
+{% block JS %}
+<script>
+document.getElementById('baktop').style.display="none";
+
+</script>
+{% endblock  %}
