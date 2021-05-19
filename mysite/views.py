@@ -302,12 +302,11 @@ def Signin(request):
         username=request.POST["username"]        
         email=request.POST["emailsign"]
         pass1=request.POST["password1"]
-        pass2=request.POST["password2"]
+        
         otp=request.POST["OTP"]
 
         global OTP
-        print(OTP)
-        print(otp)
+     
      
         x=User.objects.filter(is_active=True).values_list('email',flat=True)
         if email  in x:
@@ -318,21 +317,12 @@ def Signin(request):
         
         #create user
         # if user is  None:
-        if len(username) >10:
-            messages.warning(request,"Username should be greater than 10 characters")
-            
-            return render(request,"Signin.html")
-        if not username.isalnum():
-            messages.warning(request,"Username should only contain letters and numbers")
-           
-            return render(request,"Signin.html")
+        
         if len(pass1)<5 or len(pass1)>10 or not pass1.isalnum():
             messages.warning(request,"Invalid Password.")
             return render(request,"Signin.html")
 
-        if pass1!=pass2:
-            messages.warning(request,"Passwords are not matching")
-            return render(request,"Signin.html")
+        
         if OTP!=otp:
             messages.warning(request,"Invalid Otp")
             return render(request,"Signin.html")
