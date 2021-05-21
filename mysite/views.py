@@ -16,6 +16,7 @@ from django.views.decorators.csrf import csrf_exempt
 # from language_tool_python import LanguageTool as LT
 # Create your views here.
 #username Amar pass:Amar123
+global OTP
 def index(request):
     if request.method=="POST":
         global OTP
