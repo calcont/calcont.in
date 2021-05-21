@@ -168,30 +168,7 @@ body{
             <label for="inputEmail">Email</label>
        
         </div>
-        <p class="my-2" id="email_entered" style="display:none;">Please provide email first!</p>
-        <button class="btn btn-outline-primary my-2" id="otpLoad" style="display:none;" type="button" disabled >
-            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-            sending...
-        
-          </button>
-                <button class="btn btn-outline-primary my-2"  id="otp" type="button" >
-           
-            Send Otp
-          </button>
-          <p class="my-2" id="otpsuccess" style="display:none;">Otp sent successfully!</p>
-         
-          <div class="form-label-group my-2">
-              <input type="text" class="form-control" id="OTPd" name="OTPd" placeholder="OTP"  disabled>
-              <label for="iputotp">OTP</label>
-           
-          </div>
-                <div class="form-label-group my-2 " >
-                   
-            <input type="text" class="form-control" id="OTP" name="OTP" placeholder="OTP" style="display:none;"  required>
-           
-          <label for="inputPassword">OTP</label>
-           
-          </div>
+       
        
       
         <div class="form-label-group my-3">
@@ -221,42 +198,6 @@ body{
 
 
 
-$('#otp').click(function (e) {
-if(document.getElementById('emailsign').value!=""){
-document.getElementById("email_entered").style.display="none"
-  document.getElementById("otp").style.display="none"
-  document.getElementById("otpLoad").style.display="block"
-  setTimeout(function()
-  { 
- // document.getElementById("otp").style.display="none"
-  document.getElementById("otpLoad").style.display="none"
-  document.getElementById("OTPd").style.display="none"
-  document.getElementById("OTP").style.display="block"
-
-  document.getElementById("otpsuccess").style.display="block"
-
-  }, 3000);
-$.ajax({
-         type:'POST',
-         url: "/",
-         
-                  data: {
-                user_data: 0,
-                'username': $('input[name=username]').val(),
-
-                'email': $('input[name=emailsign]').val(),
-                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val()
-                },
-       
-
-        
-     });
-     
-}
-else{
-document.getElementById("email_entered").style.display="block"
-}
-});
 
 </script>
 {% endblock  %}

@@ -16,23 +16,8 @@ from django.views.decorators.csrf import csrf_exempt
 # from language_tool_python import LanguageTool as LT
 # Create your views here.
 #username Amar pass:Amar123
-global OTP
+
 def index(request):
-    if request.method=="POST":
-        global OTP
-        OTP=""
-        username=request.POST.get('username','')
-        email=request.POST.get('email','')
-        digits="0123456789"
-        for i in range(6):
-            OTP+=digits[math.floor(random.random()*10)]
-        
-        msg=f"Hello {username} and Welcome to CalConT! Your otp is {OTP}.Thanks for registering in our website. "
-        s = smtplib.SMTP('smtp.gmail.com', 587)
-        s.starttls()
-        s.login("calcont.in01@gmail.com", "calcont.in@19")
-        
-        s.sendmail('&&&&&&&&&&&',email,msg)
     return render(request,'index.html')
 #Analyzer
 
@@ -303,31 +288,30 @@ def Signin(request):
         username=request.POST["username"]        
         email=request.POST["emailsign"]
         pass1=request.POST["password1"]
-        
-        otp=request.POST["OTP"]
+       
+        if username in User.objects.filter(is_active=True).values_list('username',flat=True):
 
-        global OTP
-     
+            messages.warning(request,"Username is already taken!Please try with other username.")
+            
+            return render(request,"Signin.html")
+        
      
         x=User.objects.filter(is_active=True).values_list('email',flat=True)
         if email  in x:
             
-            messages.warning(request,"Email Exist!Please try with other username or email.")
+            messages.warning(request,"Email Exist!Please try with other  email.")
             
             return render(request,"Signin.html")
         
         #create user
-        # if user is  None:
-        
+       
+           
         if len(pass1)<5 or len(pass1)>10 or not pass1.isalnum():
             messages.warning(request,"Invalid Password.")
             return render(request,"Signin.html")
 
-        
-        if OTP!=otp:
-            messages.warning(request,"Invalid Otp")
-            return render(request,"Signin.html")
 
+        
         myuser=User.objects.create_user(username,email,pass1)
         myuser.save()
         messages.success(request,"Accout has been created successfully")
