@@ -77,6 +77,25 @@
 </style>
 
 <body>
+  <div class="modal fade text-light" id="DoLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" >
+      <div class="modal-content" style="background-color:rgb(21, 20, 19);">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLabel">Do register</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+         <p class="">After registering in calcont you will be notfied about our recently added tools/activities.</p>
+          <a type="button" href="/signin" class="signin my-2 btn btn-outline-primary">Sign In</a>
+        </div>
+     
+          
+        
+      </div>
+    </div>
+  </div>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black;">
     <a class="navbar-brand" href="/">
       <img src="/static/CalConT_logo.png" class="brand" width="60" height="60" alt="" loading="lazy">
@@ -233,6 +252,34 @@
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
     }
+    if(sessionStorage.getItem('DoLogin')==null){
+  var Justpop=new Array();
+setTimeout(function(){ 
+if(Justpop.length==0){
+  {% if not user.is_authenticated %}
+  $('#DoLogin').modal('show')
+
+{% endif %} 
+} 
+}, 30000);
+  var i=0;
+}
+$(".close").click(function(e){
+
+
+  i+=1;
+  Justpop[i]=1;
+sessionStorage.setItem("DoLogin",Justpop);
+console.log(Justpop)
+});
+$(".signin").click(function(e){
+
+
+  i+=1;
+  Justpop[i]=1;
+sessionStorage.setItem("DoLogin",Justpop);
+{% comment %} console.log(Justpop) {% endcomment %}
+});
   </script>
   {% block JS %}
   {% endblock %}
