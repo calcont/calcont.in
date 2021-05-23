@@ -26,91 +26,118 @@ Amar khamkar
 </style>
 
  
-    <div class="container my-5 mb-5">
+    <div class="container my-3 mb-5">
       <div class="row">
         <div class="col-md-6 mx-auto calculate-form">
-          <div class="card card-body bg-light text-center ">
-            <h1 class="text-dark text-center">EMI Calculator</h1>
-            <hr class="bg-dark my-2">
+          <div class="card card-body text-light " style="background-color: black;">
+            <h1 class=" text-center">EMI Calculator</h1>
+            <hr class="bg-light my-2">
             <h3 class="my-4">What is EMI?</h3>
             <p class="text-monospace">It is Equated Monthly Income which is a fixed payment amount made by a borrower to a lender at a specified date each calendar month.
               Equated monthly installments are used to pay off both interest and principal each month so that over a specified number of years, the loan is paid off in full. With most common types of loans—such
               as real estate mortgages, auto loans, and stude
               loans—the borrower makes fixed periodic payments to the lender over the course of several years with the goal of retiring the loan.</p>
-              <hr class="bg-dark my-2">
+              <hr class="bg-light my-2">
+              <form id="loan-form">
+                <div class="form-group my-3">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">$</span>
+                    </div>
+                    <input type="number" class="form-control" id="amount" placeholder="Loan Amount" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">%</span>
+                    </div>
+                    <input type="text" class="form-control" id="interest" placeholder="Interest" required>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="number" id="years" class="form-control" placeholder="Years To Repay" required>
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Calculate" class="btn btn-outline-primary"/>
+                </div>
+              </form>
+              <!-- Loader -->
+              <div id="loading">
+                <img src="https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif" alt="loading"/>
+              </div>
+              <!-- Result -->
+              <div id="result">
+                <h5>Results</h5>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Monthly Payment</span>
+                    </div>
+                    <input type="number" class="form-control" id="monthly-payment"
+   disabled
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Total Payment</span>
+                    </div>
+                    <input type="number" class="form-control" id="total-payment"
+   disabled
+                    />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Total Interest</span>
+                    </div>
+                    <input
+    type="number"
+   class="form-control"
+   id="total-interest"
+   disabled
+                    />
+                  </div>
+                </div>
+              </div>
+              <hr class="bg-light my-2">
               <h3 class="my-4">How to calculate it?</h3>
-            <p class="text-monospace">Formula to calculate EMI is simple, EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P stands for the loan amount or principal, 
-            R is the interest rate per month [if the interest rate per annum is 11%, then the rate of interest will be 11/(12 x 100)], 
-            and N is the number of monthly installments.</p>
-            <p class="text-monospace">So you can calculate these by entering loan amount,% of interest and time period (yrs) and calculate EMI to be given with how 
-            much extra interest have to give ,in below.</p>
-            <hr class="bg-dark">
-            <form id="loan-form">
-              <div class="form-group my-3">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">$</span>
+              <p class="text-monospace">Formula to calculate EMI is simple, EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P stands for the loan amount or principal, 
+                R is the interest rate per month [if the interest rate per annum is 11%, then the rate of interest will be 11/(12 x 100)], 
+                and N is the number of monthly installments.</p>
+                <p class="text-monospace">So you can calculate these by entering loan amount,% of interest and time period (yrs) and calculate EMI to be given with how 
+                  much extra interest have to give ,in below.</p>
+                  <hr class="bg-light">
+                  <h3 class="my-4">Applicatons</h3>
+                  <p class="text-monospace">What can be the application of such online loan calculator?
+                    Since many mathematical student/expert,employee who works in bak usualy calculates EMI in calculator by applying the formula.But why
+                    to waste time if we have such kind of calculators.It can be used to calculate any kind of loan such as car,home etc.By just enering few credentials.</p>
+                    <hr class="bg-light my-2">
                   </div>
-                  <input type="number" class="form-control" id="amount" placeholder="Loan Amount" required>
-                </div>
+          
+        </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <div class="col p-4 text-light d-flex flex-column position-static ">
+            <h4 class="my-4">Other Calculators</h3>
+              
+            <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
+            <li class="my-2"><a href="/Calculator/GCD_calculator/">GCD Calculator</a></li>
+            <li class="my-2"><a href="/Calculator/Postfix_calculator">Postfix Calculator</a></li>
+
+            <h4 class="my-4 ">Converters</h3>
+              <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
+              <li class="my-2"><a href="/Conversion/BinaryConverter/">Binary converters</a></li>
+              <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
+              <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
+              <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
+              <li class="my-2"><a href="/Conversion/infix_to_postfix">infix to postfix converter</a></li>
+                
               </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">%</span>
-                  </div>
-                  <input type="text" class="form-control" id="interest" placeholder="Interest" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <input type="number" id="years" class="form-control" placeholder="Years To Repay" required>
-              </div>
-              <div class="form-group">
-                <input type="submit" value="Calculate" class="btn btn-outline-dark btn-block"/>
-              </div>
-            </form>
-            <!-- Loader -->
-            <div id="loading">
-              <img src="https://media.giphy.com/media/swhRkVYLJDrCE/giphy.gif" alt="loading"/>
-            </div>
-            <!-- Result -->
-            <div id="result">
-              <h5>Results</h5>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Monthly Payment</span>
-                  </div>
-                  <input type="number" class="form-control" id="monthly-payment"
- disabled
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Total Payment</span>
-                  </div>
-                  <input type="number" class="form-control" id="total-payment"
- disabled
-                  />
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Total Interest</span>
-                  </div>
-                  <input
-  type="number"
- class="form-control"
- id="total-interest"
- disabled
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

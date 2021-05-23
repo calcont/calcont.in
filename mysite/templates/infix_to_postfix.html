@@ -16,35 +16,43 @@ Amar khamkar
 {% block body %}
 <style>
 
-.container{
-  border:2px solid rgb(25, 30, 66);
-  background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
- border-radius:10px;
-}
-
-.text-info{
-  
-}
-
 
 </style>
 
 
-<div class="container border  col-md-6 my-4">
+<div class="container text-light">
+  <div class="row ">
+    <div class="col-md-6 ">
+      <div class="my-4 ">
 <h1 class="my-2 text-center text-light" >Infix to postfix</h1>
 <hr class="bg-light">
 <h3 class="text-center text-light my-2">What is infix/postfix expression?</h3>
 <p class="text-light text-monospace my-4 mx-2">An infix expression is expression which is used by us in day today life
-An infix expression is a single letter, or an operator, proceeded by one infix string and followed by another infix string.
-e.g. <b>A,A + B,(A + B) + (C – D)</b>.So,in which we have operators between operands.And postfix expression (also called Reverse Polish Notation)
- is a single letter or an operator, preceded by two postfix strings. Every postfix string longer than a single variable contains first and 
- second operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b></p>
-<hr class="bg-light my-2">
-<h3 class="text-center text-light my-4">Conversion from infix to postfix expressions.</h3>
-<p class="text-light text-monospace my-4 mx-2">To convert infix expression to postfix expression, computers usually use the stack data structure.
- By scanning the infix expression from left to right, when we will get any operand,
- simply add them to the postfix form, and for the operator and parenthesis, add them in the stack maintaining the precedence of them.So,
- here you can convert infix expression to postfix by just entering infix expression.Checkout examples that are mention below in table.</p>
+  An infix expression is a single letter, or an operator, proceeded by one infix string and followed by another infix string.
+  e.g. <b>A,A + B,(A + B) + (C – D)</b>.So,in which we have operators between operands.And postfix expression (also called Reverse Polish Notation)
+  is a single letter or an operator, preceded by two postfix strings. Every postfix string longer than a single variable contains first and 
+  second operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b></p>
+  <hr class="bg-light my-2">
+  <form>
+    <div class="form-group text-light my-4">
+      <label for="exampleInputEmail1">Infix expression</label>
+      <input type="text" class="form-control" placeholder="Enter infix expression" id="Infix" required>
+     
+    </div>
+    <div class="form-group text-light">
+      <label for="exampleInputPassword1">Postfix expression</label>
+      <input type="text" class="form-control" placeholder="Postfix expression is..." id="Postfix" readonly>
+    </div>
+   <div>
+    <button type="submit" class="btn btn-primary con my-3">Convert</button>
+   </div>
+  </form>
+  <hr class="bg-light my-2">
+  <h3 class="text-center text-light my-4">Conversion from infix to postfix expressions.</h3>
+  <p class="text-light text-monospace my-4 mx-2">To convert infix expression to postfix expression, computers usually use the stack data structure.
+    By scanning the infix expression from left to right, when we will get any operand,
+    simply add them to the postfix form, and for the operator and parenthesis, add them in the stack maintaining the precedence of them.So,
+    here you can convert infix expression to postfix by just entering infix expression.Checkout examples that are mention below in table.</p>
     <div class="container col-md-8 mt-4">
     <table class="table text-light">
   <thead>
@@ -85,21 +93,6 @@ e.g. <b>A,A + B,(A + B) + (C – D)</b>.So,in which we have operators between op
   </tbody>
 </table>
 </div>
-<hr class="bg-light my-2">
-<form>
-  <div class="form-group text-light my-4">
-    <label for="exampleInputEmail1">Infix expression</label>
-    <input type="text" class="form-control" placeholder="Enter infix expression" id="Infix" required>
-   
-  </div>
-  <div class="form-group text-light">
-    <label for="exampleInputPassword1">Postfix expression</label>
-    <input type="text" class="form-control" placeholder="Postfix expression is..." id="Postfix" readonly>
-  </div>
- <div>
-  <button type="submit" class="btn btn-primary con my-3">Convert</button>
- </div>
-</form>
 <hr class="bg-light my-3">
 <h3 class="text-center text-light">Applications</h3>
 <p class="text-light text-monospace my-2 mx-2">Infix expressions are readable and solvable by humans. We can easily 
@@ -108,8 +101,34 @@ The computer cannot differentiate the operators
  and parenthesis easily, that’s why postfix conversion is needed.Compilers or command editor in computer and some calculators also convert expression
  to postfix first and then solve those expression to evaluate answer for the same.</p>
 <hr class="bg-light my-3">
- <p class="my-4 text-light">You can also evaluate     <a href="/Calculator/Postfix_calculator">Postfix expression</a> here.</p>
 
+
+</div>
+</div>
+
+<div class="col-md-2"></div>
+    <div class="col-md-4 my-4 ">
+      
+      <div class="col p-4 d-flex flex-column position-static ">
+
+        <h4 class="mb-2 ">Other Converters</h3>
+          <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
+          <li class="my-2"><a href="/Conversion/BinaryConverter/">Binary converters</a></li>
+          <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
+          <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
+          <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
+          <h4 class="my-4">Calculators</h3>
+            <li class="my-2"><a href="/Calculator/EMI_calculator/">EMI Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/GCD_calculator/">GCD Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/Postfix_calculator">Postfix Calculator</a></li>
+            
+          </div>
+          
+       
+        </div>
+      </div>
+</div>
 </div>
 {% endblock %}
 {% block JS %}

@@ -23,20 +23,22 @@ Pound to rs,usd,euros,rand,yen..
     margin-right: -15px;
     height: 38px;
   }
-  .container{
-    background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%)
-  }
+ 
 </style>
 
-<div class="jumbotron text-light text-monospace container col-md-6 my-2">
+<div class="container text-light">
+  <div class="row ">
+    <div class="col-md-6 ">
+      <div class="my-4 ">
   <h2 class="text-center">Currency Converter</h2>
   <hr class="my-4 bg-dark">
-  <p class="my-2"><h5>Convert <b>indian rs</b> to usd ,pound,euros,rand,yen...,
+  <p class="my-2">Convert <b>indian rs</b> to usd ,pound,euros,rand,yen...,
     <b>usd</b> to rs,pound,euros,rand,yen..
     <b>Pound</b> to rs,usd,euros,rand,yen..
     As,many of us dont know what currency rates are there around the world.But while travelling around the globe or importing/exporting materials 
     from other countries,these type of software is in need from which we can convert currency rate from by just entering the amount or compare the currency strcuture.
-    You can use the below converter to get idea about currencies around the globe.</p>
+    You can use the below converter to get idea about currencies around the globe.<p class="text-danger">*It is not perfect converter since values of these currencies changes daily.These is just to give 
+      approximate idea to users. </p></p>
   <hr class="my-4 bg-dark">
   <h3 id="HeadRs" class="text-center">Indian Rupees to Usd</h3>
   <p class="my-4">Convert indian rupees to all top currencies by just entering the Rs amount.As india is populated nation from which people from other country 
@@ -83,7 +85,8 @@ Pound to rs,usd,euros,rand,yen..
     This is because the central banks of most countries keep their foreign exchange assets in US securities. US being the largest and the most open economy,
     the bonds issued by the US government is seen as a safe asset in the event of a financial crisis. As a result most countries are willing to accept payments for 
    their exports in dollars. Also cross-currency rates are determined as relative value of each currency toward US dollar,that's why US dollar always compared 
-   universally with other currencies.So,all the people should know the USD comparision for their countries,and that you can get from here.</p>
+   universally with other currencies.So,all the people should know the USD comparision for their countries,and that you can get 
+   from here.</p>
   <form>
     <div class="row my-2">
       <div class="input-group mb-3">
@@ -153,17 +156,42 @@ Pound to rs,usd,euros,rand,yen..
     <a class="btn btn-outline-secondary btn-lg  ConEuro" href="#" role="button">Convert</a>
   </div>
   <form>
-  <h3 class="text-danger text-center" id="Euroconv"></h3>
-    <hr class="my-4 bg-dark">
-    <h5 class="text-center  my-4">Can check some Translators>></h5>
-    <a class="text-center" href="/Translator/English_to_hindi/"><p>English to Hindi</p></a>
-    <a class="text-center" href="/Translator/English_to_Marathi/"><p>English to Marathi</p></a>
-    <a class="text-center" href="/Translator/English_to_French/"><p>English to French</p></a>
-    <a class="text-center" href="/Translator/English_to_German/"><p>English to German</p></a>
-    <a class="text-center" href="/Translator/English_to_Arabian/"><p>English to Arab</p></a>
+ 
   <hr class="my-4 bg-dark">
 
 
+</div>
+</div>
+
+<div class="col-md-2"></div>
+    <div class="col-md-4 my-4 ">
+      
+      <div class="col p-4 d-flex flex-column position-static ">
+
+        <h4 class="mb-2 ">Other Converters</h3>
+          <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
+          <li class="my-2"><a href="/Conversion/BinaryConverter/">Binary converters</a></li>
+          <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
+          <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
+          <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
+          <h4 class="my-4">Calculators</h3>
+            <li class="my-2"><a href="/Calculator/EMI_calculator/">EMI Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/GCD_calculator/">GCD Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/Postfix_calculator">Postfix Calculator</a></li>
+          <h4 class="my-4">Translators</h3>
+              
+          <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi</a></li>
+          <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Marathi/">English to marathi</a></li>
+          <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
+          </div>
+          
+       
+        </div>
+      </div>
+</div>
 </div>
 {% endblock %}
 {% block JS %}
