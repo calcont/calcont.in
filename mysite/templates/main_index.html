@@ -39,7 +39,7 @@
   }
 
   body {
-    background-color: black;
+    background-color: rgb(25,25,25);
   }
 
   navbar {
@@ -96,7 +96,7 @@
       </div>
     </div>
   </div>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: black;">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(20,20,20);">
     <a class="navbar-brand" href="/">
       <img src="/static/CalConT_logo.png" class="brand" width="60" height="60" alt="" loading="lazy">
       CalConT
@@ -200,9 +200,7 @@
      
     </div>
   </nav>
-  <a type="button" href="" id="baktop" class=" mb-2 float-right btn btn-outline-primary">
-    <i class="fa fa-arrow-up fa-2x bg-" style="" aria-hidden="true"></i>
-  </a>
+
   {% block body %}
 
   {% endblock %}
@@ -234,29 +232,7 @@
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
   <script>
-    var mybutton = document.getElementById("myBtn");
 
-    // When the user scrolls down 20px from the top of the document, show the button
-    window.onscroll = function () { scrollFunction() };
-    var mybutton = document.getElementById("baktop")
-    function scrollFunction() {
-      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-        mybutton.style.display = "block";
-      } else {
-        mybutton.style.display = "none";
-      }
-    }
-    $(document).ready(function() {
-$('#baktop').click(function(){ 
-        $("html, body").animate({ scrollTop: 0 },60); 
-        return false; 
-    }); 
-    }); 
-    // When the user clicks on the button, scroll to the top of the document
-    function topFunction() {
-      document.body.scrollTop = 0;
-      document.documentElement.scrollTop = 0;
-    }
     if(sessionStorage.getItem('DoLogin')==null){
   var Justpop=new Array();
 setTimeout(function(){ 
