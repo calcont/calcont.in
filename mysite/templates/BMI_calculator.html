@@ -16,17 +16,24 @@ Amar khamkar
 {% endblock %}
 {% block body %}
 <style>
-  .jumbotron {
-    border-radius: 10px;
 
-  }
+
 </style>
 <div class="container text-light">
   <div class="row ">
-    <div class="col-md-6 ">
+  <div class="col-md-2 ">
+    <iframe style="width:120px;height:240px;" 
+    marginwidth="0" marginheight="0" scrolling="no" 
+    frameborder="0"
+     src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=IN&source=ac&ref=qf_sp_asin_til&ad_type=product_link&tracking_id=amar054-21&marketplace=amazon&amp;region=IN&placement=B073VNX8XG&asins=B073VNX8XG&linkId=1f7ea1b2c604a5e0dfe88a996b25c102&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff">
+    </iframe>
+
+  </div>
+    <div class="col-md-6 my-4 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
       <div class="my-4 ">
         <h1 class="text-center my-3">BMI calculator & Suggestor</h1>
-        <hr class='bg-white my-2'>
+        <hr class='bg-dark my-2'>
         <p class="text-monospace my-3">Body mass index (BMI) is a value derived from the mass (weight) and height of a
           person. The BMI is defined as the body mass divided by the square
           of the body height, and is universally expressed in units of kg/m2, resulting from mass in kilograms and
@@ -39,7 +46,7 @@ Amar khamkar
           distance from the 20–25 range.
 
           . </p>
-        <hr class='bg-white my-2'>
+        <hr class='bg-dark my-2'>
         <form>
           <div class="form-group  ">
             <label for="">Weight</label>
@@ -64,6 +71,8 @@ Amar khamkar
           
           <button type="submit" class="btn btn-outline-primary cal">Calculate</button>
           <p class="text-center my-3" id="ans"></p>
+          
+              <div class="col-md-2"></div>
 
         </form>
         <hr class='bg-white my-2'>
@@ -118,7 +127,7 @@ Amar khamkar
           Calculate your BMI by entering weight and mass as your input.And check what is your bmi and how much bmi you
           required to get normal.
         </p>
-        <hr class='bg-white my-2'>
+        <hr class='bg-dark my-2'>
         
       </div>
   
@@ -131,22 +140,25 @@ Amar khamkar
           plan.
         </p>
       </div>
-      <hr class='bg-light my-4'>
+      <hr class='bg-dark my-4'>
 
 
     </div>
 
-    <div class="col-md-2"></div>
     <div class="col-md-4 my-5 ">
   
-      <div class="col p-4 d-flex flex-column position-static ">
-  
-        <h4 class="mb-2 ">Other Converters</h3>
+      <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        
+        <h4 class="mb-2 ">Converters</h3>
           <li class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
           <li class="my-2"><a href="/Conversion/BinaryConverter/">Binary converters</a></li>
           <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
           <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
           <li class="my-2"><a href="/Conversion/infix_to_postfix">infix to postfix converter</a></li>
+        </div>
+        <div class="col p-4 d-flex flex-column position-static my-4"  style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
           <h4 class="my-4">Calculators</h3>
             <li class="my-2"><a href="/Calculator/EMI_calculator/">EMI Calculator</a></li>
             <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
