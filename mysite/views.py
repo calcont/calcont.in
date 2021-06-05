@@ -325,3 +325,5 @@ def Logout(request):
         logout(request)
         messages.success(request,"Logged out successfully")
         return redirect("/")
+def cgpa_to_percentage(request):
+    return render(request,'cgtopercent.html')

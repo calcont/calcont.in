@@ -1,0 +1,145 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Convert cgpa to percentage according mumbai university rule.So it has basic formula 7.1*cgpa+11 was given by mu official.
+{% endblock  %}
+{% block MKW %}cgpa to percentage converter,cgpa to percentage converter mu,cgpa to percentage converter mumbai university,cgpa to percentage calculator,how to convert cgpa to percentage?{% endblock  %}
+{% block Mr %}
+05/06/2021
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- cgpa to percentage converter mu
+{% endblock  %}
+{% block body %}
+<style>
+  .jumbotron {
+    background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
+  }
+</style>
+<div class="container mb-3 text-light">
+  <div class="row ">
+    <div class="col-md-1"></div>
+      <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+  <div class="my-4 ">
+    <h1 class="my-2">cgpa to percentage converter mu</h1>
+    <hr class="my-4 bg-white">
+    <h3 class="text-monospace my-2">What is cgpa?</h3>
+    <p class="text-monospace my-4">cgpa is cumulative Grade Point Average which is an global educational grading system.
+
+        It is used in schools/colleges to measure overall academic performance of a student. 
+        
+        GPA ( Grade Point Average): It is also a grading average but, it is used to specify only for one term.
+    And cgpa is an average of all term sgpa.</p>
+     <hr class="my-2 bg-dark">
+     <form>
+         <div class="form-group text-light my-4">
+             <label for="exampleInputEmail1">CGPA</label>
+             <input type="number" class="form-control" placeholder="Enter cgpa " id="cgpa" required>
+             
+            </div>
+            <div class="form-group text-light">
+                <label for="exampleInputPassword1">To percentage</label>
+                <input type="number" class="form-control" placeholder="Postfix expression is..." id="percentage" readonly>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-outline-primary con my-3">Convert</button>
+            </div>
+        </form>
+        <hr class="my-2 bg-dark">
+        <h3 class="text-monospace my-2">How to convert cgpa to percentage according to mu?</h3>
+        <p class="text-monospace my-4">To convert cgpa to percentage mu has specified or given formula which is <strong>7.1*cgpa+11</strong> 
+            where cgpa is grading pointer that you have got.
+        </p>
+        <p class="my-2">Some examples of some cgpa's to percentage</p>
+
+    <table class="table table-md text-light my-3 container">
+        <thead>
+          <tr>
+            
+            <th scope="col">#</th>
+            <th scope="col">cgpa</th>
+            <th scope="col">percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>7.5</td>
+            <td>64.25</td>
+         
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>9.8</td>
+            <td>80.58</td>
+           
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td >5.6</td>
+            <td >50.76</td>
+            
+          </tr>
+          <tr>
+            <th scope="row">4</th>
+            <td >8.5</td>
+            <td >71.35</td>
+            
+          </tr>
+        </tbody>
+      </table>
+  
+    <hr class="my-4 bg-dark">
+    <h3 class="text-monospace my-4">What is the use of such converters?</h3>
+    <p class="text-monospace my-4">There are a lot application like,<br>
+      <p class="my-1"> 1.Since everyone don't know the formula,these converter can be helpful.</p><br>
+    <p class="my-1"> 2.Those who know the formula they can use these to get result instantly.</p><br>
+    <p class="my-1"> 3.For all mu students formula remains same irrespective of branch,so it can be helpful for all of those.</p></p>
+  
+
+  </div>
+
+</div>
+
+    <div class="col-md-4 my-4 ">
+      
+        <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+  
+          <h4 class="mb-2 ">Converters</h3>
+            <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
+            <li class="my-2"><a href="/Conversion/BinaryConverter/">Binary converters</a></li>
+            <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
+            <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
+            <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
+        
+          </div>
+          <div class="col p-4 d-flex flex-column position-static my-3"  style="background-color:rgb(30,30,30);
+          box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <h4 class="my-4">Calculators</h3>
+              <li class="my-2"><a href="/Calculator/EMI_calculator/">EMI Calculator</a></li>
+            <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
+            <li class="my-2"><a href="/Calculator/GCD_calculator/">GCD Calculator</a></li>
+            <li class="my-2"><a href="/Calculator/Postfix_calculator">Postfix Calculator</a></li>
+              
+            </div>
+          
+       
+        </div>
+      </div>
+</div>
+</div>
+{% endblock %}
+{% block JS %}
+<script>
+$(".con").click(function(e){
+const cgpa=document.getElementById("cgpa").value;
+const percentage=document.getElementById('percentage');
+percentage.value=7.1*cgpa+11;
+e.preventDefault();
+});
+</script>
+
+{% endblock %}
