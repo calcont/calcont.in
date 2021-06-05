@@ -44,6 +44,8 @@ class StaticViewsSitemap(Sitemap):
             "mysite:BMI_calculator",
             "mysite:Postfix_calculator",
             "mysite:PrivacyPolicy",
+            "mysite:infix_to_postfix",
+            "mysite:cgpa_to_percentage",
         ]
     def location(self, item):
         return reverse(item)
