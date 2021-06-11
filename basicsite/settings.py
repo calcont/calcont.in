@@ -33,13 +33,14 @@ INSTALLED_APPS = [
     'mysite.apps.MysiteConfig',
     
     'django.contrib.sitemaps',
-    'social_django',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'social_django',
+    'social.apps.django_app.default',
 ]
 SITE_ID=1
 MIDDLEWARE = [
