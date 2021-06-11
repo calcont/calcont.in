@@ -131,7 +131,7 @@ Amar khamkar
     
 }
 body{
-    background-color: rgb(21, 20, 19);
+   
 }
 </style>
 {% if messages %}
@@ -144,8 +144,9 @@ body{
   </div>
   {% endfor %}
 {% endif %} 
-<div class="mb-4 container text-light   col-md-6" >
-    <h1 class="my-3 text-center">Signup here</h1>
+<div class="mb-4 my-3 container text-light   col-md-6" style="background-color:rgb(30,30,30);
+box-shadow:13px 4px 19px 7px rgb(19 17 17); border-radius: 10px;">
+    <h1 class="my-2 text-center">Signup here</h1>
    
     <form class="form-signin my-2" method="post" action="/signin/">
 
@@ -175,10 +176,9 @@ body{
           <input type="password" id="Password1" name="password1" class="form-control" placeholder="Password" required>
           <label for="inputPassword">Password</label>
           <small>
-            *Your password must be 5-10 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.
+            *Your password must be 5-10 characters long, contain letters and numbers.
           </small>
         </div>
-       
         <div class="form-group my-2">
           <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
@@ -187,19 +187,24 @@ body{
             </label>
           </div>
         </div>
+        
  
      
-        <hr class="bg-light my-2">
+        <hr class="bg-dark my-2">
+        <button class="btn btn-outline-secondary text-light btn-md btn-block my-2" type="submit">Signup</button>
+        <p class="text-center my-3">OR</p>
+        
+        <a class="btn btn-outline-secondary text-light google btn-md btn-block my-2" href="{% url 'social:begin' 'google-oauth2' %}"><img src="https://img.icons8.com/bubbles/50/000000/google-logo.png"/>Signin with Google</a><br>
+        <hr class="bg-dark my-2">
         <div class="checkbox my-3">
           <label>
             Already registerd?Please <a href="/login">Login </a> here.
           </label>
         </div>
-        <button class="btn btn-outline-primary my-2" type="submit">Signup</button>
-       
       </form>
 </div>
 {% endblock  %}
+
 {% block JS %}
 <script>
 

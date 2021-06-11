@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('sitemap.xml/',sitemap,{'sitemaps':sitemaps}),
     path('', include("mysite.urls")),
-    
+    path('oauth/', include('social_django.urls', namespace='social')),
     
    
     

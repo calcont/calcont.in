@@ -264,7 +264,7 @@ def Login(request):
        
         usernamelogin=request.POST["usernamelog"]
         passw=request.POST["password"]
-        user=authenticate(request,username=usernamelogin,password=passw)
+        user=authenticate(request,email=usernamelogin,password=passw)
         if user is not None:
             login(request,user)
             

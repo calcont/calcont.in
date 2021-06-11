@@ -127,11 +127,11 @@ Amar khamkar
 }
 .container{
  
-    height:500px;
+    /* height:500px; */
     
 }
 body{
-    background-color: rgb(21, 20, 19);
+   
 }
 </style>
 {% if messages %}
@@ -144,17 +144,18 @@ body{
   </div>
   {% endfor %}
 {% endif %} 
-<div class="mb-4 container text-light my-4  col-md-6" style="">
+<div class="mb-4 my-2 container text-light my-4  col-md-6" style="background-color:rgb(30,30,30);
+box-shadow:13px 4px 19px 7px rgb(19 17 17); border-radius: 10px;">
     <h1 class="my-4 text-center">Login here</h1>
    
     <form class="form-signin my-3" action="/login/" method="post">
         {% csrf_token %}
-        <p class="my-2">Username</p>
+        <p class="my-2">Email</p>
         
         <div class="form-label-group my-4">
             
-            <input type="text" id="username" name="usernamelog" class="form-control" placeholder="Username" required autofocus>
-            <label for="inputEmail">Username</label>
+            <input type="email" id="email" name="usernamelog" class="form-control" placeholder="Email" required autofocus>
+            <label for="inputEmail">Email</label>
         </div>
         <p class="my-2">Password</p>
       
@@ -162,20 +163,24 @@ body{
           <input type="password" id="Password" name="password" class="form-control" placeholder="Password" required>
           <label for="inputPassword">Password</label>
         </div>
-      
+        <hr class="bg-dark my-2">
+        
+        <button class="btn btn-outline-secondary text-light btn-md btn-block my-2" type="submit">Log in</button>
+        <p class="text-center my-3">OR</p>
+        
+        <a class="btn btn-outline-secondary text-light btn-md btn-block my-2" href="{% url 'social:begin' 'google-oauth2' %}"><img src="https://img.icons8.com/bubbles/50/000000/google-logo.png"/>Login with Google</a><br>
+        <hr class="bg-dark my-2">
         <div class="checkbox my-3">
           <label>
             Don't have account yet?Please <a href="/signin">Sign up </a> here.
           </label>
         </div>
-        <button class="btn btn-outline-primary my-3" type="submit">Log in</button>
-       
       </form>
 </div>
 {% endblock  %}
 {% block JS %}
 <script>
-document.getElementById('baktop').style.display="none";
+
 
 </script>
 {% endblock  %}
