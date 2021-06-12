@@ -4,7 +4,7 @@ from . import views
 app_name="mysite"
 urlpatterns = [
      
-    path('oauth/', include('social_django.urls', namespace='social')),
+  
     path('', views.index,name='index'),
     path('Contact_me/', views.ContactMe,name='contact'),
     path('About/',views.Aboutme,name="about"),

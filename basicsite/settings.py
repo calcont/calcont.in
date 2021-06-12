@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django',
+ 
    
     
 ]
@@ -53,7 +53,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'social_django.middleware.SocialAuthExceptionMiddleware',
+
     
 ]
 
@@ -70,8 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'social_django.context_processors.backends',
-                'social_django.context_processors.login_redirect',
+            
             ],
         },
     },
@@ -79,13 +78,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'basicsite.wsgi.application'
 
-AUTHENTICATION_BACKENDS = [
-   
-   
 
-
-     'social_core.backends.google.GoogleOAuth2',
-]
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -141,9 +134,3 @@ STATICFILES_DIRS = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 django_heroku.settings(locals())
 SECURE_SSL_REDIRECT=True
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY    = '475883331625-he2ege0iciojh5n85j95rprd6gdqalcu.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET  = 'ExytHUSGY0ougL1ppv9haEXI'
-
-LOGIN_URL = '/auth/login/google-oauth2/'
-LOGOUT_URL = '/'
-LOGIN_REDIRECT_URL = "/"
