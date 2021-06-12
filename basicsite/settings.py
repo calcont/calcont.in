@@ -79,7 +79,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'basicsite.wsgi.application'
 
+AUTHENTICATION_BACKENDS = [
+   
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
 
+
+
+     'social_core.backends.google.GoogleOAuth2',
+]
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
