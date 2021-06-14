@@ -3,7 +3,7 @@
 Words Alphabetizer is a online tool helps to arrange list of names in alphabaetical order.List of names mean it can be
 any text
 {% endblock %}
-{% block MKW %}Names arranger,words arranger,alphabetize names,alphabaetical order,alphabetizer{% endblock %}
+{% block MKW %}Names arranger,words arranger,alphabetize names,list,alphabaetical order,alphabetizer{% endblock %}
 {% block Mr %}
 7/01/2021
 {% endblock %}
@@ -14,133 +14,141 @@ Amar khamkar
 {% endblock %}
 {% block body %}
 <style>
-  .jumbotron {
-    background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
-  }
+::placeholder { /* Most modern browsers support this now. */
+   color:    #909;
+}
 </style>
-<div class="container mb-3 text-light">
+<div class="container text-light">
   <div class="row ">
-    <div class="col-md-6 ">
-  <div class="my-4 ">
-    <h1 class="mx-4 font-weight-bold">Arrange words in alphabetical order</h1>
-    <hr class="my-4 bg-white">
-    <h3 class="text-monospace my-2">Sorting?</h3>
-    <p class="text-monospace my-4">So,what is sorting  &#129300 ?Sorting is a techinque in which we arrange numbers in their ascending/descending order or we arrange letter
-    in alphabetical order	if we want to sort we check each numbers/alphabets with each other and according to that we arrange that.But in computer we have some algorithms
-     for that which sort these in very efficient way and in less time.</p>
-     <hr class="my-4 bg-white">
-     <form>
-       <li><label for="exampleFormControlTextarea1">Names</label></li>
-       <div class="row">
-         <div class="col-8">
-           <input type="text" class="form-control" id="Namess" placeholder="Enter name">
-         </div>
- 
-       </div>
-       
-       <div>
- 
-         <a class="btn btn-outline-primary btn-lg my-4 AddName"  role="button">Add</a>
-         <a class="mx-4 btn btn-outline-primary btn-lg SortAll" role="button">Sort</a>
-         <a class="mx-4 btn btn-outline-primary btn-lg reset" role="button">Reset</a>
-       </div>
-       <br>
-       <div class="form-group">
-         <li><label for="exampleFormControlTextarea1">Sorted sequence</label></li>
-         <textarea class="form-control" id="Textarea1" rows="3"></textarea>
-       </div>
- <a class="btn btn-outline-primary btn-lg my-4 Copy"  role="button">Copy</a>
-     </form>
-    <h3 class="text-monospace my-2">sorting in web</h3>
-    <p class="text-monospace my-4">As every individual in these world  don't do the coding.So,people like them who cant code for those there should be an software
-    which sort the names in alphabetical order and can decrease their manual work.So,<a href="/"><b>calcont</b><a/> has these software to sort the names which uses some 
-    basic sort function had written in JAVASCRIPT.</p>
-    <h3 class="text-monospace my-2">How can you use?</h3>
-    <p class="text-monospace my-4">You just have to write the names one by one and add them by clicking add button , if you want an sorted sequence you can click on sort
-    ,if you want to reset names or clear all data can click on reset button and to copy sequence just click on copy sorted sequence button.</p>
-    <hr class="my-4 bg-white">
-    <h3 class="text-monospace my-4">Where can we use these?</h3>
-    <p class="text-monospace my-4">There are a lot application like,<br>
-      <p class="my-1"> 1.School/colleges can use these software to arrange their students name in alphabetical order and 
-    according to that they can assign roll no/marks.</p><br>
-    <p class="my-1"> 2.To keep customers names record in alphabetical order.</p><br>
-    <p class="my-1"> 3.Helpful for those who has big data of names and want to
-    create some document.</p></p>
-    <hr class="bg-light my-4">
-
-  </div>
-
-</div>
-<div class="col-md-2"></div>
-    <div class="col-md-4 my-4 ">
-      
-      <div class="col p-4 d-flex flex-column position-static ">
-        
-      
-        <h4 class="mb-2 ">Translators</h3>
+    <div class="col-md-1"></div>
+    <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <div class="my-4 ">
+        <h1 class="mx-4 font-weight-bold">Arrange words in alphabetical order</h1>
+        <hr class="my-4 bg-dark">
+        <h3 class="text-monospace my-2">How can you use?</h3>
+        <p class="text-monospace my-4">You just have to write the names one by one and add them by clicking add button ,
+          if you want an sorted sequence you can click on sort
+          ,if you want to reset names or clear all data can click on reset button and to copy sequence just click on
+          copy sorted sequence button.</p>
+        <hr class="my-4 bg-dark">
+        <form>
+          <label for="">Enter Words</label>
           
-          <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
-          <li class="my-1"><a href="/Translator/English_to_Marathi/">English to Marathi</a></li>
-          <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
-          <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
-          <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
-          <h4 class="my-4">Other Analyzers</h3>
-            <li class="my-2"><a class="my-2" href="/Analyzer/TextAnalyzer/">Text Editor</a></li>
-            <li class="my-2"><a href="/Analyzer/Grammar_correction/" class="my-2">Grammar Checker</a></li>
+        
+            <input type="text" class="form-control" id="Namess"  placeholder="Enter word" style="background-color: hsl(0, 0%, 8%);" >
+            <!-- <pre class="language-Texttile"  onPaste="setTimeout(function() {onPaste();}, 0)" id="editable" contenteditable><code id="Namess">
+            </code></pre> -->
+          
+          
+          
+          
+          
+            <a class="mx-2 my-4 btn btn-outline-secondary btn-md AddName" role="button">Add</a>
+          
+          <br>
+          
+          <div class="form-group ">
+            <label for="">Sorted sequence</label>
             
+            <pre class="language-Texttile"  ><code id="Textarea1">
+            </code></pre>
           </div>
           
-       
-        </div>
-      </div>
+          
+          
+         
+          <a class="mx-2 btn btn-outline-secondary btn-md SortAll" role="button">Sort</a>
+          <a class="mx-2 btn btn-outline-secondary btn-md reset" role="button">Reset</a>
+        
+          
+        </form>
+        <hr class="my-4 bg-dark">
+        <h3 class="text-monospace my-2">Sorting?</h3>
+        <p class="text-monospace my-4">So,what is sorting &#129300 ?Sorting is a techinque in which we arrange numbers
+          in
+          their ascending/descending order or we arrange letter
+          in alphabetical order if we want to sort we check each numbers/alphabets with each other and according to that
+          we arrange that.But in computer we have some algorithms
+          for that which sort these in very efficient way and in less time.</p>
+          <hr class="bg-dark my-4">
+      <h3 class="text-monospace my-2">sorting in web</h3>
+      <p class="text-monospace my-4">As every individual in these world don't do the coding.So,people like them who
+        cant
+        code for those there should be an software
+        which sort the names in alphabetical order and can decrease their manual work.So,<a href="/"><b>calcont</b><a />
+          has these software to sort the names which uses some
+          basic sort function had written in JAVASCRIPT.</p>
+      <hr class="my-4 bg-dark">
+      <h3 class="text-monospace my-4">Where can we use these?</h3>
+      <p class="text-monospace my-4">There are a lot application like,<br>
+      <p class="my-1"> 1.School/colleges can use these software to arrange their students name in alphabetical order
+        and
+        according to that they can assign roll no/marks.</p><br>
+      <p class="my-1"> 2.To keep customers names record in alphabetical order.</p><br>
+      <p class="my-1"> 3.Helpful for those who has big data of names and want to
+        create some document.</p>
+      </p>
+
+    </div>
+
+  </div>
+  <div class="col-md-4 my-4 ">
+
+    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+      <h4 class="mb-2 ">Translators</h3>
+
+        <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
+        <li class="my-1"><a href="/Translator/English_to_Marathi/">English to Marathi</a></li>
+        <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
+        <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
+        <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
+    </div>
+    <div class="col my-2 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+          box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <h4 class="my-2">Other Analyzers</h3>
+        <li class="my-2"><a class="my-2" href="/Analyzer/TextAnalyzer/">Text Editor</a></li>
+        <li class="my-2"><a href="/Analyzer/Grammar_correction/" class="my-2">Grammar Checker</a></li>
+
+    </div>
+
+
+  </div>
+</div>
 </div>
 </div>
 {% endblock %}
 {% block JS %}
 <script>
-  var names=[],text=""
+  var names = [], text = ""
   $('.AddName').click(function (e) {
 
     var val = document.getElementById('Namess').value;
     names.push(val);
-    document.getElementById('Namess').value="";
+    document.getElementById('Namess').value = "";
     
-    
+
 
     e.preventDefault();
   });
   $('.SortAll').click(function (e) {
     names.sort();
-    for(i=0;i<names.length;i++){
-      text+=names[i];
+    for (i = 0; i < names.length; i++) {
+      text += names[i];
       text+="\r\n"
     }
-      document.getElementById('Textarea1').innerHTML=text;
+    document.getElementById('Textarea1').innerHTML = text;
     e.preventDefault();
   });
   $('.reset').click(function (e) {
-    names=[],text="";
-    document.getElementById('Textarea1').innerHTML=text;
+    names = [], text = "";
+    document.getElementById('Textarea1').innerHTML = text;
     e.preventDefault();
   });
-  $('.Copy').click(function (e) {
-  var copyText=document.getElementById("Textarea1");
-  var seq=document.getElementById("Textarea1").value;
-  if (seq==""){
-    alert("Your sequence has nothing to copy")
-  }
-  else{
-  copyText.select();
-  copyText.setSelectionRange(0, 99999); /* For mobile devices */
 
-  /* Copy the text inside the text field */
-  document.execCommand("copy");
-
-  /* Alert the copied text */
-  alert("Text is copied");
-  }
-    e.preventDefault();
-  });
 </script>
 
 {% endblock %}
