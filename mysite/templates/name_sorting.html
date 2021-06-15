@@ -36,7 +36,7 @@ Amar khamkar
           <label for="">Enter Words</label>
           
         
-            <input type="text" class="form-control" id="Namess"  placeholder="Enter word"  >
+            <input type="text" class="form-control" id="Namess"  placeholder="Enter word" " >
             <!-- <pre class="language-Texttile"  onPaste="setTimeout(function() {onPaste();}, 0)" id="editable" contenteditable><code id="Namess">
             </code></pre> -->
           
@@ -51,6 +51,7 @@ Amar khamkar
           <div class="form-group ">
             <label for="">Sorted sequence</label>
             <textarea class="form-control" id="Textarea1" rows="3"></textarea>
+            
             <!-- <pre class="language-Texttile"  ><code id="Textarea1">
             </code></pre> -->
           </div>
@@ -60,6 +61,7 @@ Amar khamkar
          
           <a class="mx-2 btn btn-outline-secondary btn-md SortAll" role="button">Sort</a>
           <a class="mx-2 btn btn-outline-secondary btn-md reset" role="button">Reset</a>
+          <a class="mx-2 btn btn-outline-secondary btn-md copy" role="button">Copy</a>
         
           
         </form>
@@ -109,7 +111,7 @@ Amar khamkar
     </div>
     <div class="col my-2 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
           box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-      <h4 class="my-2">Other Analyzers</h3>
+      <h4 class="my-2">Text Analyzers</h3>
         <li class="my-2"><a class="my-2" href="/Analyzer/TextAnalyzer/">Text Editor</a></li>
         <li class="my-2"><a href="/Analyzer/Grammar_correction/" class="my-2">Grammar Checker</a></li>
 
@@ -134,6 +136,23 @@ Amar khamkar
 
     e.preventDefault();
   });
+  $('.copy').click(function (e) {
+  /* Get the text field */
+
+  var copyText = document.getElementById("Textarea1");
+  console.log(copyText)
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Sequence is copied");
+
+});
   $('.SortAll').click(function (e) {
     names.sort();
     for (i = 0; i < names.length; i++) {
