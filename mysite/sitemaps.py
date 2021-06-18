@@ -46,6 +46,7 @@ class StaticViewsSitemap(Sitemap):
             "mysite:PrivacyPolicy",
             "mysite:infix_to_postfix",
             "mysite:cgpa_to_percentage",
+            "mysite:postfix_to_infix",
         ]
     def location(self, item):
         return reverse(item)

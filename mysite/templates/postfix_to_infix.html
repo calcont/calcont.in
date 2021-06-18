@@ -1,0 +1,158 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+.Postfix notation, also known as reverse Polish notation, is a syntax for mathematical expressions in which the mathematical operator is always placed after the operands.
+Convert postfix expression to infix expression by entering postfix expression
+{% endblock  %}
+{% block MKW %}Postfix to infix calculator,postfix to infix conversion,how to convert postfix to infix?,postfix to infix evaluator,postfix to infix converter,postfix expression converter{% endblock  %}
+{% block Mr %}
+16/06/2021
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Postfix to infix converter
+{% endblock  %}
+{% block body %}
+<style>
+.input{
+
+    border: 1px solid rgb(38, 35, 35);
+    border-radius: 10px;
+    
+}
+</style>
+
+
+<div class="container text-light">
+  <div class="row ">
+  <!-- <div class="col-md-1"></div> -->
+  <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <div class="my-4 ">
+<h1 class="my-2 text-center text-light" >Postfix to infix calculator</h1>
+<hr class="bg-dark">
+<h3 class="text-center text-light my-2">What is postfix and infix expression?</h3>
+<p class="text-light text-monospace my-4 mx-2">An infix expression is expression which is used by us in day today life
+  An infix expression is a single letter, or an operator, proceeded by one infix string and followed by another infix string.
+  e.g. <b>A,A + B,(A + B) + (C – D)</b>.So,in which we have operators between operands.And postfix expression (also called Reverse Polish Notation)
+  is a single letter or an operator, preceded by two postfix strings. Every postfix string longer than a single variable contains first and 
+  second operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b></p>
+  <hr class="bg-dark my-2">
+  <form>
+    <div class="form-group text-light my-4">
+      <label for="exampleInputEmail1">postfix expression</label>
+      <input type="text" class="form-control input" placeholder="Enter postfix expression" id="Postfix" required>
+     
+    </div>
+    <div class="form-group text-light">
+      <label for="exampleInputPassword1">Infix expression</label>
+      <input type="text" class="form-control input" placeholder="Infix expression is..." id="Infix" readonly>
+    </div>
+   <div>
+    <button type="button" class="btn btn-outline-primary con my-3">Convert</button>
+   </div>
+  </form>
+  <hr class="bg-dark my-2">
+  
+
+  <h3 class="text-center text-light my-4">Conversion from postfix to infix expressions.</h3>
+  <p class="text-light text-monospace my-4 mx-2">To convert postfix expression to infix expression, computers usually use the stack data structure.
+   We start with scanning the equation from left to right and
+if the symbol is an operand then Push it onto the stack.
+or else,
+if  the symbol is an operator then,
+<br>
+1. Pop the top 2 values from the stack.
+<br>
+2. Put the operator, with the values as arguments and form a string.
+<br>
+3. Push the resulted string back to stack.
+<br>
+4. If there is only one value in the stack
+That value in the stack is the desired infix string..Checkout examples that are mention below.</p>
+    <div class="container  mt-4" style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
+   1) Postfix Expression: abc++ <br>
+    Infix Expression: (a + (b + c))<br><br>
+   2) Postfix Expression: abc++ <br>
+   Infix Expression: (a + (b + c))
+</div>
+<hr class="bg-dark my-3">
+<h3 class="text-center text-light">Applications</h3>
+<p class="text-light text-monospace my-2 mx-2">Infix expressions are readable and solvable by humans. We can easily 
+distinguish the order of operators, and also can use the parenthesis to solve that part first during solving mathematical expressions. 
+The computer cannot differentiate the operators
+ and parenthesis easily, that’s why postfix conversion is needed.Compilers or command editor in computer and some calculators also convert expression
+ to postfix first and then solve those expression to evaluate answer for the same.</p>
+
+
+
+</div>
+</div>
+
+
+    <div class="col-md-4 my-4 ">
+     
+      <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+        <h4 class="mb-2 ">Converters</h3>
+          <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
+          <li class="my-2"><a href="/Conversion/BinaryConverter/">Binary converters</a></li>
+          <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
+          <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
+          <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
+          <li class="my-2"><a href="/Conversion/infix_to_postfix">Infix to Postfix converters</a></li>
+          <li class="my-2"><a href="/Conversion/cgpa_to_percentage/">Cgpa to percentage converters</a></li>
+        </div>
+        <div class="col p-4 d-flex flex-column position-static my-3"  style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+          <h4 class="my-2">Calculators</h3>
+            <li class="my-2"><a href="/Calculator/EMI_calculator/">EMI Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/GCD_calculator/">GCD Calculator</a></li>
+          <li class="my-2"><a href="/Calculator/Postfix_calculator">Postfix Calculator</a></li>
+            
+          </div>
+          
+       
+        </div>
+      </div>
+</div>
+</div>
+{% endblock %}
+{% block JS %}
+<script>
+  $(".con").click(function(e){
+
+    var x=document.getElementById("Postfix").value,s=[],y;
+    function isoperand(y){
+      return ((y >= 'a' && y <= 'z') || (y >= 'A' && y <= 'Z')) 
+}
+for(var i=0;i<x.length;i++){
+  if(isoperand(x[i])){
+s.unshift(x[i]);
+}
+
+else{
+  var op1 = s[0] 
+  s.shift();
+  var op2 = s[0] 
+  s.shift();
+  
+  s.unshift("(" + op2 + x[i] + op1 + ")")
+  
+}
+}
+
+if (typeof s[0] == 'undefined') {
+ 
+  document.getElementById("Infix").value="Invalid Input";
+}
+else{
+  document.getElementById("Infix").value=s[0];
+
+}
+e.preventDefault();
+});
+</script>
+{% endblock  %}

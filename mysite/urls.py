@@ -42,6 +42,8 @@ urlpatterns = [
     path('Conversion/UnitsConverter/cm_to_angstrom', views.Unit_cmtoangstrom_conversion,name="Unit_cmtoangstrom_conversion"),
     #infix to postfix
     path('Conversion/infix_to_postfix', views.infix_to_postfix,name="infix_to_postfix"),
+    #postfix to infix
+    path('Conversion/postfix_to_infix', views.postfix_to_infix,name="postfix_to_infix"),
     #Cgpa to percentage
     path('Conversion/cgpa_to_percentage/', views.cgpa_to_percentage,name="cgpa_to_percentage"),
  

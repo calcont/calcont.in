@@ -327,3 +327,6 @@ def Logout(request):
         return redirect("/")
 def cgpa_to_percentage(request):
     return render(request,'cgtopercent.html')
+##PostfixtoInfix
+def postfix_to_infix(request):
+    return render(request,'postfix_to_infix.html')
