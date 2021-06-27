@@ -16,23 +16,15 @@ Amar khamkar
 {% endblock %}
 {% block body %}
 <style>
-  .jumbotron {
-    background-image: linear-gradient(to right, rgb(0, 0, 51) 100%, rgb(100, 100, 100) 70%);
-  }
 
-  body {
-    background-color: black;
-  }
-
-  .ui {
-    color: rgb(255, 255, 255);
-  }
 </style>
 <div class="container text-light">
   <div class="row ">
-    <div class="col-md-6 ">
-      <div class=" my-4 ">
-        <h3 class="mx-4 font-weight-bold">Text editor</h3>
+
+    <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <div class="my-4 ">
+        <h1 class="mx-4 font-weight-bold">Text editor</h1>
     
 
         <p class="my-4 mx-2 text-monospace">Text editor is software which is helpful in many aspect,in these user only
@@ -87,7 +79,7 @@ Amar khamkar
 
           <button type="submit" class="btn btn-outline-dark my-2 text-light">Analysed text</button>
         </form>
-        <hr class="bg-light my-2">
+        <hr class="bg-dark my-2">
         <h3 class="text-center text-light my-4">When user can use these?</h3>
         <p class="my-4 text-monospace mx-2 "> There are lot of application of these software.Like,<br>
         <p class="my-2">1) If user has some text in capital or small letters then user can
@@ -107,15 +99,15 @@ Amar khamkar
         while writing some articles can be sort out from here and they can
         write articles in very clean way without wasting any time.So,if those all the techinques are available in these
         website so you definitely use it once.</p>
-        <hr class="bg-light my-2">
+        <hr class="bg-dark my-2">
         
       </div>
       
     </div>
-    <div class="col-md-2"></div>
-    <div class="col-md-4 my-2 ">
+    <div class="col-md-4 my-4 ">
       
-      <div class="col p-4 d-flex flex-column position-static ">
+      <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
         
       
         <h4 class="mb-2 ">Translators</h3>
@@ -125,7 +117,10 @@ Amar khamkar
           <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
           <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
           <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
-          <h4 class="my-4">Other Analyzers</h3>
+          </div>
+          <div class="col my-3 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+          box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+          <h4 class="my-2">Analyzers</h3>
             <li class="my-2"><a href="/Analyzer/name_sorting/" class="my-2">Words Alphabetizer</a></li>
             <li class="my-2"><a href="/Analyzer/Grammar_correction/" class="my-2">Grammar Checker</a></li>
             

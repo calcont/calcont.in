@@ -14,17 +14,21 @@ Amar khamkar
 {% endblock %}
 {% block body %}
 <style>
-::placeholder { /* Most modern browsers support this now. */
-   color:    #909;
+.input{
+
+border: 1px solid rgb(38, 35, 35);
+border-radius: 10px;
+
+}
 }
 </style>
 <div class="container text-light">
   <div class="row ">
-  
+   
     <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
     box-shadow:13px 4px 19px 7px rgb(19 17 17);">
       <div class="my-4 ">
-        <h1 class="mx-4 font-weight-bold">Arrange words in alphabetical order</h1>
+        <h2 class="mx-4 ">Arrange words in alphabetical order</h2>
         <hr class="my-4 bg-dark">
         <h3 class="text-monospace my-2">How can you use?</h3>
         <p class="text-monospace my-4">You just have to write the names one by one and add them by clicking add button ,
@@ -32,11 +36,15 @@ Amar khamkar
           ,if you want to reset names or clear all data can click on reset button and to copy sequence just click on
           copy sorted sequence button.</p>
         <hr class="my-4 bg-dark">
+        <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
         <form>
-          <label for="">Enter Words</label>
+          <label class="my-2 " for="">Enter Words</label>
           
         
-            <input type="text" class="form-control" id="Namess"  placeholder="Enter word" " >
+            <input type="text" class="input form-control" id="Namess"  placeholder="Enter word" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px;" >
             <!-- <pre class="language-Texttile"  onPaste="setTimeout(function() {onPaste();}, 0)" id="editable" contenteditable><code id="Namess">
             </code></pre> -->
           
@@ -50,21 +58,25 @@ Amar khamkar
           
           <div class="form-group ">
             <label for="">Sorted sequence</label>
-            <textarea class="form-control" id="Textarea1" rows="3"></textarea>
+            <textarea class="form-control input" id="Textarea1" rows="3" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px;"></textarea>
             
             <!-- <pre class="language-Texttile"  ><code id="Textarea1">
             </code></pre> -->
           </div>
           
           
-          
+          <div class="mb-2">
          
           <a class="mx-2 btn btn-outline-secondary btn-md SortAll" role="button">Sort</a>
           <a class="mx-2 btn btn-outline-secondary btn-md reset" role="button">Reset</a>
           <a class="mx-2 btn btn-outline-secondary btn-md copy" role="button">Copy</a>
         
-          
+        </div>
         </form>
+      </div>
         <hr class="my-4 bg-dark">
         <h3 class="text-monospace my-2">Sorting?</h3>
         <p class="text-monospace my-4">So,what is sorting &#129300 ?Sorting is a techinque in which we arrange numbers
