@@ -5,7 +5,7 @@ convert indian and other countries currencies to other currency.
 {% block MKW %}
 Convert indian rs to usd ,pound,euros,rand,yen,
 usd to rs,pound,euros,rand,yen
-Pound to rs,usd,euros,rand,yen,indian currency converter,usd currency converter,british currency converter
+Pound to rs,usd,euros,rand,yen
 {% endblock  %}
 {% block Mr %}
 24/12/2020
@@ -26,9 +26,11 @@ Amar khamkar
 
 <div class="container text-light">
   <div class="row ">
-    <div class="col-md-6 ">
+  <!-- <div class="col-md-1"></div> -->
+  <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
       <div class="my-4 ">
-  <h1 class="text-center">Currency Converter</h1>
+  <h2 class="text-center">Currency Converter</h2>
   <hr class="my-4 bg-dark">
   <p class="my-2">Convert <b>indian rs</b> to usd ,pound,euros,rand,yen...,
     <b>usd</b> to rs,pound,euros,rand,yen..
@@ -38,23 +40,27 @@ Amar khamkar
     You can use the below converter to get idea about currencies around the globe.<p class="text-danger">*It is not perfect converter since values of these currencies changes daily.These is just to give 
       approximate idea to users. </p></p>
   <hr class="my-4 bg-dark">
-  <h3 id="HeadRs" class="text-center">Indian Rupees to Usd</h3>
+  <h4 id="HeadRs" class="text-center">Indian Rupees to Usd</h4>
   <p class="my-4">Convert indian rupees to all top currencies by just entering the Rs amount.As india is populated nation from which people from other country 
     visited india are of huge amount.So,for all those these conversion will be helpful.</p> 
   <form>
     <div class="row my-2">
       <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">RS</span>
-        </div>
+        
         <div class="col">
 
-          <input type="number" id="Rs" class="form-control" placeholder="Enter Rs" aria-label="Amount (to the nearest dollar)">
+          <input type="number" id="Rs"  style="    color: white;
+          background-color: #191717;
+          border: 3px solid black;
+          border-radius: 15px;" class="form-control" placeholder="Enter Rs" aria-label="Amount (to the nearest dollar)">
         </div>
 
         <div class="form-group col-md-5">
 
-          <select id="inputCurrencyRs" class="form-control">
+          <select id="inputCurrencyRs"  style="    color: white;
+          background-color: #191717;
+          border: 3px solid black;
+          border-radius: 15px;" class="form-control">
             
             <option value="1">Indian Rs to Usd</option>
             <option value="2">Indian Rs to Pound</option>
@@ -69,7 +75,7 @@ Amar khamkar
          
        
       </div>
-    <a class="btn btn-outline-secondary btn-lg  ConRs" href="#" role="button">Convert</a>
+    <a class="btn btn-outline-secondary mx-4 ConRs" href="#" role="button">Convert</a>
     
     
     
@@ -88,17 +94,21 @@ Amar khamkar
   <form>
     <div class="row my-2">
       <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">$</span>
-        </div>
+    
         <div class="col">
 
-          <input type="number" id="dollar" class="form-control" placeholder="Enter $" aria-label="Amount (to the nearest dollar)">
+          <input type="number"  style="    color: white;
+          background-color: #191717;
+          border: 3px solid black;
+          border-radius: 15px;" id="dollar" class="form-control" placeholder="Enter $" aria-label="Amount (to the nearest dollar)">
         </div>
 
         <div class="form-group col-md-5">
 
-          <select id="inputCurrencyDollar" class="form-control">
+          <select id="inputCurrencyDollar"  style="    color: white;
+          background-color: #191717;
+          border: 3px solid black;
+          border-radius: 15px;" class="form-control">
             
             <option value="1">USD to Indian Rupees</option>
             <option value="2">USD to Pound</option>
@@ -113,7 +123,7 @@ Amar khamkar
          
        
       </div>
-    <a class="btn btn-outline-secondary btn-lg  ConDollar" href="#" role="button">Convert</a>
+    <a class="btn btn-outline-secondary mx-4 text-light ConDollar" href="#" role="button">Convert</a>
   </div>
   <form>
   <h3 class="text-danger text-center" id="Dollarconv"></h3>
@@ -126,17 +136,21 @@ Amar khamkar
 <form>
     <div class="row my-2">
       <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <span class="input-group-text">€</span>
-        </div>
+        
         <div class="col">
 
-          <input type="number" id="euro" class="form-control" placeholder="Enter €" aria-label="Amount (to the nearest dollar)">
+          <input type="number"  style="    color: white;
+          background-color: #191717;
+          border: 3px solid black;
+          border-radius: 15px;" id="euro" class="form-control" placeholder="Enter €" aria-label="Amount (to the nearest dollar)">
         </div>
 
         <div class="form-group col-md-5">
 
-          <select id="inputCurrencyEuro" class="form-control">
+          <select id="inputCurrencyEuro"  style="    color: white;
+          background-color: #191717;
+          border: 3px solid black;
+          border-radius: 15px;" class="form-control">
             
             <option value="1">Euros to Indian Rupees</option>
             <option value="2">Euro to Pound</option>
@@ -151,7 +165,7 @@ Amar khamkar
          
        
       </div>
-    <a class="btn btn-outline-secondary btn-lg  ConEuro" href="#" role="button">Convert</a>
+    <a class="btn btn-outline-secondary mx-4 text-light  ConEuro" href="#" role="button">Convert</a>
   </div>
   <form>
  
@@ -161,22 +175,31 @@ Amar khamkar
 </div>
 </div>
 
-<div class="col-md-2"></div>
-    <div class="col-md-4 my-4 ">
-      
-      <div class="col p-4 d-flex flex-column position-static ">
+<div class="col-md-4 my-4 ">
+     
+  <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
 
-        <h4 class="mb-2 ">Other Converters</h3>
+        <h4 class="mb-2 ">Converters</h3>
           <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
           <li class="my-2"><a href="/Conversion/BinaryConverter/">Binary converters</a></li>
           <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
           <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
           <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
+          <li class="my-2"><a href="/Conversion/infix_to_postfix">Infix to Postfix converters</a></li>
+          <li class="my-2"><a href="/Conversion/postfix_to_infix">Postfix to infix converters</a></li>
+          <li class="my-2"><a href="/Conversion/cgpa_to_percentage/">Cgpa to percentage converters</a></li>
+        </div>
+        <div class="col p-4 d-flex flex-column position-static my-3"  style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
           <h4 class="my-4">Calculators</h3>
             <li class="my-2"><a href="/Calculator/EMI_calculator/">EMI Calculator</a></li>
           <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
           <li class="my-2"><a href="/Calculator/GCD_calculator/">GCD Calculator</a></li>
           <li class="my-2"><a href="/Calculator/Postfix_calculator">Postfix Calculator</a></li>
+        </div>
+        <div class="col p-4 d-flex flex-column position-static my-3"  style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
           <h4 class="my-4">Translators</h3>
               
           <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi</a></li>

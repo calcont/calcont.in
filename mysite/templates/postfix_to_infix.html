@@ -14,12 +14,7 @@ Amar khamkar
 {% endblock  %}
 {% block body %}
 <style>
-.input{
 
-    border: 1px solid rgb(38, 35, 35);
-    border-radius: 10px;
-    
-}
 </style>
 
 
@@ -41,15 +36,21 @@ Amar khamkar
   <form>
     <div class="form-group text-light my-4">
       <label for="exampleInputEmail1">postfix expression</label>
-      <input type="text" class="form-control input" placeholder="Enter postfix expression" id="Postfix" required>
+      <input type="text" class="form-control input" style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" placeholder="Enter postfix expression" id="Postfix" required>
      
     </div>
     <div class="form-group text-light">
       <label for="exampleInputPassword1">Infix expression</label>
-      <input type="text" class="form-control input" placeholder="Infix expression is..." id="Infix" readonly>
+      <input type="text" class="form-control input" style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" placeholder="Infix expression is..." id="Infix" readonly>
     </div>
    <div>
-    <button type="button" class="btn btn-outline-primary con my-3">Convert</button>
+    <button type="button" class="btn btn-outline-secondary text-light con my-3">Convert</button>
    </div>
   </form>
   <hr class="bg-dark my-2">
@@ -102,6 +103,7 @@ The computer cannot differentiate the operators
           <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
           <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
           <li class="my-2"><a href="/Conversion/infix_to_postfix">Infix to Postfix converters</a></li>
+          <li class="my-2"><a href="/Conversion/postfix_to_infix">Postfix to Infix converters</a></li>
           <li class="my-2"><a href="/Conversion/cgpa_to_percentage/">Cgpa to percentage converters</a></li>
         </div>
         <div class="col p-4 d-flex flex-column position-static my-3"  style="background-color:rgb(30,30,30);

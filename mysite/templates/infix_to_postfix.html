@@ -20,13 +20,13 @@ Amar khamkar
 
 <div class="container text-light">
   <div class="row ">
- 
+
   <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
   box-shadow:13px 4px 19px 7px rgb(19 17 17);">
       <div class="my-4 ">
 <h1 class="my-2 text-center text-light" >Infix to postfix calculator</h1>
 <hr class="bg-dark">
-<h3 class="text-center text-light my-2">What is infix and postfix expression</h3>
+<h3 class="text-center text-light my-2">What is infix and postfix expression?</h3>
 <p class="text-light text-monospace my-4 mx-2">An infix expression is expression which is used by us in day today life
   An infix expression is a single letter, or an operator, proceeded by one infix string and followed by another infix string.
   e.g. <b>A,A + B,(A + B) + (C – D)</b>.So,in which we have operators between operands.And postfix expression (also called Reverse Polish Notation)
@@ -36,28 +36,33 @@ Amar khamkar
   <form>
     <div class="form-group text-light my-4">
       <label for="exampleInputEmail1">Infix expression</label>
-      <input type="text" class="form-control" placeholder="Enter infix expression" id="Infix" required>
+      <input type="text" class="form-control" placeholder="Enter infix expression" style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" id="Infix" required>
      
     </div>
     <div class="form-group text-light">
       <label for="exampleInputPassword1">Postfix expression</label>
-      <input type="text" class="form-control" placeholder="Postfix expression is..." id="Postfix" readonly>
+      <input type="text" class="form-control" placeholder="Postfix expression is..." style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" id="Postfix" readonly>
     </div>
    <div>
-    <button type="submit" class="btn btn-outline-primary con my-3">Convert</button>
+    <button type="submit" class="btn btn-outline-secondary text-light con my-3">Convert</button>
    </div>
   </form>
   <hr class="bg-dark my-2">
-  <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=IN&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=amar054-21&marketplace=amazon&region=IN&placement=B08R9YCMN7&asins=B08R9YCMN7&linkId=c3f4d388aa74860716674806960f4c44&show_border=true&link_opens_in_new_window=true"></iframe>
-  <iframe style="width:120px;height:240px;" class="mx-3" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=IN&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=amar054-21&marketplace=amazon&region=IN&placement=B073QQR2H2&asins=B073QQR2H2&linkId=ca02a63a9df0387eff67971bf68d79ae&show_border=true&link_opens_in_new_window=true"></iframe>
+  
 
   <h3 class="text-center text-light my-4">Conversion from infix to postfix expressions.</h3>
   <p class="text-light text-monospace my-4 mx-2">To convert infix expression to postfix expression, computers usually use the stack data structure.
     By scanning the infix expression from left to right, when we will get any operand,
     simply add them to the postfix form, and for the operator and parenthesis, add them in the stack maintaining the precedence of them.So,
-    here you can convert infix expression to postfix by just entering infix expression.
-    Checkout examples that are mention below in table.And you can also check
-    <a href="/Conversion/infix_to_postfix"> infix to postfix Converter</a> and <a href="/Calculator/Postfix_calculator/">Postfix Calculator</a></p>
+    here you can convert infix expression to postfix by just entering infix expression.Checkout examples that are mention below in table.And you can also check
+    <a href="/Conversion/postfix_to_infix"> Postfix to infix Converter</a> and <a href="/Calculator/Postfix_calculator/">Postfix Calculator</a></p>
+    
     <div class="container col-md-8 mt-4">
     <table class="table text-light">
   <thead>
@@ -113,7 +118,7 @@ The computer cannot differentiate the operators
 
 
     <div class="col-md-4 my-4 ">
-      <iframe style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=IN&source=ss&ref=as_ss_li_til&ad_type=product_link&tracking_id=amar054-21&marketplace=amazon&region=IN&placement=B08D5F4B6M&asins=B08D5F4B6M&linkId=4c6ed2f342016d3daf08bb5e60ef96de&show_border=true&link_opens_in_new_window=true"></iframe>
+     
       <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
       box-shadow:13px 4px 19px 7px rgb(19 17 17);">
 
@@ -187,13 +192,13 @@ for(var i=0;i<infix.length;i++){
     if (isOperand(infix[i])){
         j++;
         postfix[j]=infix[i];
-   
+       
         
       }
       else if (top==-1){
         top++;
         stack[top]=infix[i];
-    
+ 
       }
       else if(infix[i]==')'){
 while(stack[top]!='('){
@@ -207,14 +212,14 @@ while(stack[top]!='('){
       else if (precedence(infix[i])>precedence(stack[top])){
           top++;
           stack[top]=infix[i];
-   
+        
         }
       else{
         while (precedence(infix[i])<=precedence(stack[top]) && top!=-1 && stack[top]!='('){
          j++;
           postfix[j]=stack[top];
           top--;
-       
+   
           
         }
         top++;
@@ -230,7 +235,7 @@ while(stack[top]!='('){
       top--;
         
       }
-  
+
       
 
 var strPost=postfix.toString();
