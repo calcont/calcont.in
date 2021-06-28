@@ -17,128 +17,126 @@ Amar khamkar
 
 <style>
 
-.contain{
-  border:2px solid rgb(25, 30, 66);
-
-  border-radius:10px;
-}
-.coll{
-  
-  font-weight:bold;
-}
-
-
-
-
-
 </style>
 
 
 <form>
   <div class="container text-light">
     <div class="row ">
-      <div class="col-md-6 ">
-    <div class="my-4 ">
-<h1 class="my-4 text-center ">Binary Converters</h1>
+
+      <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <div class="my-4 ">
+<h2 class="my-4 text-center ">Binary Converters</h2>
 
 <p class="my-4">First up all what is binary number System?So,it is an number System with a radix 2.As most modern computer systems use the binary logic for their operation.
 A computer cannot operate on the decimal number system.A binary number system uses only two digits namely 0 and 1.So,we can convert these to decimal,hexadecimal and octal
 number system.That you can see in below..</p>
-  <hr class="bg-light">
+  <hr class="bg-dark">
 <div class="contain">
-<h2 class="my-4  text-light" >Binary to Decimal</h2>
+<h4 class="my-4  text-light" >Binary to Decimal</h4>
 </div>
 <p class="text-light my-4 mx-2">how can one convert binary number to decimal manually?First up all, one has to write down weights corresponding to different positions then multiply each
 digit in given number with corresponding weight to obtain product numbers and then add all the product numbers to get decimal equivalent.
 But,stil  most humans only knows decimal number.So,it is necessary to have an software which can convert longest binary number to respective decimal number 
 .So,calcont have that in which you have to just enter binary number in below and click to convert..</p>
   <div class="form-row my-4">
-  <div class="col-md-2 mb-3"></div>
+  <div class="col-md-1 mb-3"></div>
   
-    <div class="col-md-8 mb-3">
+    <div class="col-md-10 mb-3">
       
-      <input type="text"  placeholder="Enter The Binary No." class="form-control coll" id="bin" required>
+      <input type="text"  placeholder="Enter The Binary No." style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" class="form-control coll" id="bin" required>
     </div>
   </div>
-  <div class="form-row">
- <div class="col-md-2 mb-3">
+  <div class="form-row mx-4">
+
+   
+  
+  <button class="btn mx-4 btn-outline-secondary text-light sub " type="submit">Convert</button> 
   </div> 
-   <div class="col-md-1 mb-3">
-  <button class="btn btn-outline-primary sub " type="submit">Convert</button> 
-  </div> 
-  </div> 
- <h2 class="text-center text-light" id="BintoDecHead"></h4>
-<h4 class="text-center text-light" id="BintoDecOut"></h4> 
+ <h5 class="text-center text-light" id="BintoDecHead"></h5>
+<h5 class="text-center text-light" id="BintoDecOut"></h5> 
 
 
-<hr class="bg-light">
+<hr class="bg-dark">
 <div class="contain">
-<h2 class="my-4  text-light" >Binary to Octal</h2>
+<h4 class="my-4  text-light" >Binary to Octal</h4>
 </div>
 <p class="text-light my-4 mx-2">how can one convert binary number to octal manually?First up all one has to write down weights corresponding to different positions then multiply each
 digit in given number with corresponding weight to obtain product numbers and then add all the product numbers to get octal equivalent.
 But,stil it is necessary to have an software which can convert longest bytes to respective octal number 
 .So,calcont have that in which you have to just enter binary number in below and click to convert.. </p>
   <div class="form-row my-4">
-  <div class="col-md-2 mb-4"></div>
+  <div class="col-md-1 mb-4"></div>
   
-    <div class="col-md-8 mb-3">
+    <div class="col-md-10 mb-3">
       
-      <input type="text"  placeholder="Enter The Binary No." class="form-control coll" id="bina" required>
+      <input type="text"  placeholder="Enter The Binary No."  style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" class="form-control coll" id="bina" required>
     </div>
   </div>
-  <div class="form-row my-4">
- <div class="col-md-2 mb-3">
-  </div> 
-   <div class="col-md-1 mb-3">
-  <button class="btn btn-outline-primary subm " type="submit">Convert</button> 
-  </div> 
-  </div> 
- <h2 class="text-center text-light" id="BintoOctHead"></h2>
-<h4 class="text-center text-light" id="BintoOctOut"></h4> 
+  <div class="form-row mx-4">
+ 
 
-<hr class="bg-light">
+  <button class="btn mx-4 btn-outline-secondary text-light subm " type="submit">Convert</button> 
+ 
+  </div> 
+ <h5 class="text-center text-light" id="BintoOctHead"></h5>
+<h5 class="text-center text-light" id="BintoOctOut"></h5> 
+
+<hr class="bg-dark">
 <div class="contain">
-<h2 class="my-4  text-light" >Binary to Hexadecimal</h2>
+<h4 class="my-4  text-light" >Binary to Hexadecimal</h4>
 </div>
 <p class="text-light my-4 mx-2">how can one convert binary number to hexadecimal manually?First up all one has to write down weights corresponding to different positions then multiply each
 digit in given number with corresponding weight to obtain product numbers and then add all the product numbers to get hexadecimal equivalent.
 But,stil it is necessary to have an software which can convert longest bytes to respective hexadecimal number 
 .So,calcont have that in which you have to just enter binary number in below and click to convert.. </p>
   <div class="form-row">
-  <div class="col-md-2 mb-3"></div>
+  <div class="col-md-1 mb-3"></div>
   
-    <div class="col-md-8 mb-3">
+    <div class="col-md-10 mb-3">
       
-      <input type="text"  placeholder="Enter The Binary No." class="form-control coll" id="binar" required>
+      <input type="text"  placeholder="Enter The Binary No." style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" class="form-control coll" id="binar" required>
     </div>
   </div>
-  <div class="form-row">
- <div class="col-md-2 mb-3">
+  <div class="form-row mx-4">
+
+  <button class="btn btn-outline-secondary text-light submi my-4 mx-4" type="submit">Convert</button> 
+ 
   </div> 
-   <div class="col-md-1 mb-3">
-  <button class="btn btn-outline-primary submi my-4" type="submit">Convert</button> 
-  </div> 
-  </div> 
- <h2 class="text-center text-light" id="BintoHexaHead"></h2>
-<h4 class="text-center text-light" id="BintoHexaOut"></h4> 
-<hr class="bg-light my-2">
+ <p class="text-center text-light" id="BintoHexaHead"></p>
+<p class="text-center text-light" id="BintoHexaOut"></p> 
+
 </div>
 </form>
 
 </div>
-<div class="col-md-2"></div>
-    <div class="col-md-4 my-2 ">
+<div class="col-md-4 my-4 ">
       
-      <div class="col p-4 d-flex flex-column position-static ">
+  <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
         
       
-        <h4 class="mb-2 ">Other Converters</h3>
+        <h4 class="mb-2 ">Converters</h3>
           <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
           <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
           <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
           <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
           <li class="my-2"><a href="/Conversion/infix_to_postfix">infix to postfix converter</a></li>
+          <li class="my-2"><a href="/Conversion/postfix_to_infix">postfix to infix converter</a></li>
+          <li class="my-2"><a  href="/Conversion/cgpa_to_percentage/">Cgpa to percentage converter</a></li>
+        </div>
+        <div class="col p-4 d-flex flex-column position-static my-3"  style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
           <h4 class="my-4">Calculators</h3>
             <li class="my-2"><a href="/Calculator/EMI_calculator/">EMI Calculator</a></li>
           <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>

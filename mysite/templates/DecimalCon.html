@@ -20,15 +20,7 @@ Amar khamkar
 
 <style>
 
-.contain{
-  border:2px solid rgb(25, 30, 66);
 
- border-radius:10px;
-}
-
-.coll{
-  font-weight:bold;
-}
 
 
 </style>
@@ -37,110 +29,121 @@ Amar khamkar
 <form>
   <div class="container text-light">
     <div class="row ">
-      <div class="col-md-6 ">
-    <div class="my-4 ">
-<h1 class="my-4 text-center contain" >Decimal converters</h1>
-<p class="my-4">First up all what is decimal number System?So,it is an number System that we use daily while doing any calculations counting n all
+
+      <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <div class="my-4 ">
+<h2 class="my-4 text-center contain" >Decimal converters</h2>
+<p class="my-4">First up all what is decimal number System?So,it is an number System that we use daily while doing any calculations counting and all
 but it is an system which has a base of 10.As most modern computer systems or other system that uses the binary,octal & hexadecimal logic for their operation.
 That's why calcont has a software which converts decimal to binary,octal,hexadecimal numbers which you can see in below..</p>
-<hr class="bg-light">
+<hr class="bg-dark">
 <div class="contain">
-<h2 class="my-4  text-light " >Decimal to Binary</h2>
+<h4 class="my-4  text-light " >Decimal to Binary</h4>
 </div>
 <p class="text-light my-4 mx-2">How one can convert decimal number sytem to binary which is easily understandable to computers manually
 ?First up all,one has to divide the integer part if given decimal number by the base and note down the remainder then continue to divide the quotient by the
 base until there is nothing left,nothing the remainders from each step and finally list the remainder values in reverseorder from bottom to top to find 
 equivalent Binary number.These is some algortihm from which you can learn and you'll get an idea.But it'll  be ofcourse time consuming so you can convert it 
 from here by just entering valid decimal number. </p>
-  <div class="form-row">
-  <div class="col-md-2 mb-3"></div>
+  <div class="form-row my-4">
+  <div class="col-md-1 mb-3"></div>
   
-    <div class="col-md-8 mb-3">
+    <div class="col-md-10 mb-3">
       
-      <input type="number"  placeholder="Enter The Decimal No. " class="form-control coll my-4" id="bin" required>
+      <input type="number"  placeholder="Enter The Decimal No. " style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" class="form-control coll" id="bin" required>
     </div>
   </div>
-  <div class="form-row">
- <div class="col-md-2 mb-3">
-  </div> 
-   <div class="col-md-1 mb-3">
-  <button class="btn btn-outline-primary sub my-4" type="submit">Convert</button> 
-  </div> 
-  </div> 
- <h2 class="text-center text-light" id="DectoBinHead"></h4>
-<h4 class="text-center text-light" id="DectoBinOut"></h4> 
+  <div class="form-row mx-4">
+ 
 
-<hr class="bg-light">
+  <button class="btn btn-outline-secondary sub text-light mx-4" type="submit">Convert</button> 
+
+  </div> 
+ <h5 class="text-center text-light" id="DectoBinHead"></h5>
+<h5 class="text-center text-light" id="DectoBinOut"></h5> 
+
+<hr class="bg-dark">
 <div class="contain">
-<h2 class="my-4 " >Decimal to Octal</h2>
+<h4 class="my-4 " >Decimal to Octal</h4>
 </div>
 <p class="text-light my-4 mx-2">How one can convert decimal number sytem to octal manually
 ?First up all,one has to divide the integer part if given decimal number by the base and note down the remainder then continue to divide the quotient by the
 base until there is nothing left,nothing the remainders from each step and finally list the remainder values in reverseorder from bottom to top to find 
 equivalent octal number.Still its a manual procees ..so,you can convert it from here by just entering  proper decimal number,but its always good to have a knowledge  </p>
-  <div class="form-row">
-  <div class="col-md-2 mb-3"></div>
+  <div class="form-row my-2">
+  <div class="col-md-1 mb-3"></div>
   
-    <div class="col-md-8 mb-3">
+    <div class="col-md-10 mb-3">
       
-      <input type="number"  placeholder="Enter The Decimal No." class="form-control coll my-4" id="bina" required>
+      <input type="number"  placeholder="Enter The Decimal No." style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" class="form-control coll " id="bina" required>
     </div>
   </div>
-  <div class="form-row">
- <div class="col-md-2 mb-3">
-  </div> 
-   <div class="col-md-1 mb-3">
-  <button class="btn btn-outline-primary subm my-4" type="submit">Convert</button> 
-  </div> 
-  </div> 
- <h2 class="text-center text-light" id="DectoOctHead"></h2>
-<h4 class="text-center text-light" id="DectoOctOut"></h4> 
+  <div class="form-row mx-4">
 
-<hr class="bg-light"> 
+  <button class="btn btn-outline-secondary text-light subm my-4 mx-4" type="submit">Convert</button> 
+  </div> 
+  
+ <h5 class="text-center text-light" id="DectoOctHead"></h5>
+<h5 class="text-center text-light" id="DectoOctOut"></h5> 
+
+<hr class="bg-dark"> 
 <div class="contain">
-<h2 class="my-4  " >Decimal to Hexadecimal</h2>
+<h4 class="my-4  " >Decimal to Hexadecimal</h4>
 </div>
 <p class="text-light my-4 mx-2">How one can convert decimal number sytem to hexadecimal manually
 ?First up all,one has to divide the integer part if given decimal number by the base and note down the remainder then continue to divide the quotient by the
 base until there is nothing left,nothing the remainders from each step and finally list the remainder values in reverseorder from bottom to top to find 
 equivalent hexadecimal number.These is some algortihm from which you can learn and you'll get an idea.But it'll be ofcourse time consuming so you can convert it 
 from here by just entering valid decimal number.</p>
-  <div class="form-row">
-  <div class="col-md-2 mb-3"></div>
+  <div class="form-row my-3">
+  <div class="col-md-1 mb-3"></div>
   
-    <div class="col-md-8 mb-3">
+    <div class="col-md-10 mb-3">
       
-      <input type="number"  placeholder="Enter The Decimal No." class="form-control coll my-4" id="binar" required>
+      <input type="number" style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" placeholder="Enter The Decimal No." class="form-control coll " id="binar" required>
     </div>
   </div>
-  <div class="form-row">
- <div class="col-md-2 mb-3">
+  <div class="form-row mx-4">
+
+  <button class="btn btn-outline-secondary text-light submi mx-4" type="submit">Convert</button> 
+
   </div> 
-   <div class="col-md-1 mb-3">
-  <button class="btn btn-outline-primary submi my-4" type="submit">Convert</button> 
-  </div> 
-  </div> 
- <h2 class="text-center text-light" id="DectoHexaHead"></h2>
-<h4 class="text-center text-light" id="DectoHexaOut"></h4> 
-<hr class="bg-light"> 
+ <h5 class="text-center text-light" id="DectoHexaHead"></h5>
+<h5 class="text-center text-light" id="DectoHexaOut"></h5> 
+
 
 </div>
 </form>
 
 
 </div>
-<div class="col-md-2"></div>
-    <div class="col-md-4 my-2 ">
+<div class="col-md-4 my-4 ">
       
-      <div class="col p-4 d-flex flex-column position-static ">
+  <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
         
       
-        <h4 class="mb-2 ">Other Converters</h3>
+        <h4 class="mb-2 ">Converters</h3>
           <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
           <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
           <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
           <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
           <li class="my-2"><a href="/Conversion/infix_to_postfix">infix to postfix converter</a></li>
+          <li class="my-2"><a href="/Conversion/postfix_to_infix">postfix to infix converter</a></li>
+          <li class="my-2"><a  href="/Conversion/cgpa_to_percentage/">Cgpa to percentage converter</a></li>
+        </div>
+        <div class="col p-4 d-flex flex-column position-static my-3"  style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
           <h4 class="my-4">Calculators</h3>
             <li class="my-2"><a href="/Calculator/EMI_calculator/">EMI Calculator</a></li>
           <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
