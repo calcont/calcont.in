@@ -16,17 +16,9 @@ Amar khamkar
 {% block title %} - Hexadecimal number converter 
 {% endblock  %}
 {% block body %}
+
 <style>
 
-.contain{
-  border:2px solid rgb(25, 30, 66);
-  
-  border-radius:10px;
-}
-.coll{
-  
-  font-weight:bold;
-}
 
 
 
@@ -38,15 +30,17 @@ Amar khamkar
 <form>
   <div class="container text-light">
     <div class="row ">
-      <div class="col-md-6 ">
-    <div class="my-4 ">
-<h1 class="my-4 text-center c">Hexadecimal Converters</h1>
+
+      <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <div class="my-4 ">
+<h2 class="my-4 text-center c">Hexadecimal Converters</h2>
 <p class="my-4">First up all what is Hexadecimal number System?So,it is an number System with a radix 16.In thes number System
 we have 0-15 numbers where 0-9 are represnt normally as decimal format but 10-15 are represnt by alphabets which is from A-F.Wide application of 
 such number system can be seen in microprocessor which stores 16 bit of data and so on. </p>
-  <hr class="bg-light">
+  <hr class="bg-dark">
 <div class="contain">
-<h2 class="my-4  text-light" >Hexadecimal to Decimal</h2>
+<h3 class="my-4  text-light" >Hexadecimal to Decimal</h3>
 </div>
 <p class="text-light my-4 mx-2">how can one convert Hexadecimal number to decimal?First up all, one has to write down weights corresponding 
 to different positions then multiply each
@@ -54,91 +48,96 @@ digit in given number with corresponding weight to obtain product numbers and th
 But,stil  most humans only knows decimal number.So,it is necessary to have an software which can convert hexdecimal number to respective decimal number 
 .So,calcont have that in which you have to just enter hexdecimal number in below and click to convert..</p>
   <div class="form-row my-4">
-  <div class="col-md-2 mb-3"></div>
+  <div class="col-md-1 mb-3"></div>
   
-    <div class="col-md-8 mb-3">
+    <div class="col-md-10 mb-3">
       
-      <input type="text"  placeholder="Enter The hexadecimal No." class="form-control coll" id="HextoDec" required>
+      <input type="text"  style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" placeholder="Enter The hexadecimal No." class="form-control coll" id="HextoDec" required>
     </div>
   </div>
-  <div class="form-row">
- <div class="col-md-2 mb-3">
+  <div class="form-row mx-4">
+ 
+  <button class="btn btn-outline-secondary subm mx-4" type="submit">Convert</button> 
   </div> 
-   <div class="col-md-1 mb-3">
-  <button class="btn btn-outline-primary subm " type="submit">Convert</button> 
-  </div> 
-  </div> 
- <h2 class="text-center text-light" id="HextoDecHead"></h4>
-<h4 class="text-center text-light" id="HextoDecOut"></h4> 
+
+ <h5 class="text-center text-light" id="HextoDecHead"></h5>
+<h5 class="text-center text-light" id="HextoDecOut"></h5> 
 
 
-<hr class="bg-light">
+<hr class="bg-dark">
 <div class="contain">
-<h2 class="my-4  text-light" >Hexadecimal to binary</h2>
+<h3 class="my-4  text-light" >Hexadecimal to binary</h3>
 </div>
 <p class="text-light my-4 mx-2">how can one convert Hexadecimal number to binary manually?We just write binary equivalent of each hexadecimal number one 
 by one and then combine all those binary number.For Binary numbers you can see our <a href="/Conversion/BinaryConverter/">Binary Converters</a></p>
   <div class="form-row my-4">
-  <div class="col-md-2 mb-3"></div>
+  <div class="col-md-1 mb-3"></div>
   
-    <div class="col-md-8 mb-3">
+    <div class="col-md-10 mb-3">
       
-      <input type="text"  placeholder="Enter The Hexadecimal No." class="form-control coll" id="Hexa" >
+      <input type="text"  style="color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" placeholder="Enter The Hexadecimal No." class="form-control coll" id="Hexa" >
     </div>
   </div>
-  <div class="form-row my-4">
- <div class="col-md-2 mb-3">
-  </div> 
-   <div class="col-md-1 mb-3">
-  <button class="btn btn-outline-primary sub" type="submit">Convert</button> 
-  </div> 
-  </div> 
- <h2 class="text-center text-light" id="HextoBinHead"></h2>
-<h4 class="text-center text-light" id="HextoBinOut"></h4> 
+  <div class="form-row mx-4">
 
-<hr class="bg-light">
+  <button class="btn  mx-4 btn-outline-secondary sub" type="submit">Convert</button> 
+  </div> 
+ 
+ <h5 class="text-center text-light" id="HextoBinHead"></h5>
+<h5 class="text-center text-light" id="HextoBinOut"></h5> 
+
+<hr class="bg-dark">
 <div class="contain">
-<h2 class="my-4  text-light" >Hexadecimal to Octal</h2>
+<h3 class="my-4  text-light" >Hexadecimal to Octal</h3>
 </div>
 <p class="text-light my-4 mx-2">how can one convert hexadecimal number to octal manually?We just write binary equivalent of each hexadecimal number one 
 by one and then combine all those binary number.And then again
 we convert those binary to octal.For Binary numbers you can see our <a href="/Conversion/BinaryConverter/">Binary Converters</a></p>
   <div class="form-row">
-  <div class="col-md-2 mb-3"></div>
+  <div class="col-md-1 mb-3"></div>
   
-    <div class="col-md-8 mb-3">
+    <div class="col-md-10 mb-3">
       
       <input type="text"  placeholder="Enter The Hexadecimal No." class="form-control coll" id="Hexade" required>
     </div>
   </div>
-  <div class="form-row">
- <div class="col-md-2 mb-3">
+  <div class="form-row mx-4">
+
+  <button class="btn mx-4 btn-outline-secondary submi my-4" type="submit">Convert</button> 
+ 
   </div> 
-   <div class="col-md-1 mb-3">
-  <button class="btn btn-outline-primary submi my-4" type="submit">Convert</button> 
-  </div> 
-  </div> 
- <h2 class="text-center text-light" id="HextoOctHead"></h2>
-<h4 class="text-center text-light" id="HextoOctOut"></h4> 
-<hr class="my-2 bg-white">
+ <h5 class="text-center text-light" id="HextoOctHead"></h5>
+<h5 class="text-center text-light" id="HextoOctOut"></h5> 
+
 
 
 </div>
 </form>
 
 </div>
-<div class="col-md-2"></div>
-    <div class="col-md-4 my-2 ">
+<div class="col-md-4 my-4 ">
       
-      <div class="col p-4 d-flex flex-column position-static ">
-        
-      
-        <h4 class="mb-2 ">Other Converters</h3>
+  <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+        <h4 class="mb-2 ">Converters</h3>
           <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
           <li class="my-2"><a href="/Conversion/BinaryConverter/">Binary converters</a></li>
           <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
           <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
           <li class="my-2"><a href="/Conversion/infix_to_postfix">infix to postfix converter</a></li>
+          <li class="my-2"><a href="/Conversion/postfix_to_infix">postfix to infix converter</a></li>
+          <li class="my-2"><a  href="/Conversion/cgpa_to_percentage/">Cgpa to percentage converter</a></li>
+        </div>
+            
+  <div class="col p-4 d-flex flex-column position-static my-4 "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
           <h4 class="my-4">Calculators</h3>
             <li class="my-2"><a href="/Calculator/EMI_calculator/">EMI Calculator</a></li>
           <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
