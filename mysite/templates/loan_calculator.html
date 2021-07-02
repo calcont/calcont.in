@@ -18,7 +18,6 @@ Amar khamkar
 <style>
 
 
-
 #loading,
 #result {
   display: none;
@@ -26,41 +25,60 @@ Amar khamkar
 
 </style>
 
- 
-    <div class="container my-3 text-light mb-5">
-      <div class="row">
-        <div class="col-md-6 mx-auto calculate-form">
+<div class="container text-light">
+
+  <div class="row ">
+
+    <div class="col-md-7 my-4 calculate-form " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <div class="my-4 ">
          
             <h1 class=" text-center">EMI Calculator</h1>
-            <hr class="bg-light my-2">
+            <hr class="bg-dark my-2">
             <h3 class="my-4">What is EMI?</h3>
             <p class="text-monospace">It is Equated Monthly Income which is a fixed payment amount made by a borrower to a lender at a specified date each calendar month.
               Equated monthly installments are used to pay off both interest and principal each month so that over a specified number of years, the loan is paid off in full. With most common types of loans—such
               as real estate mortgages, auto loans, and stude
               loans—the borrower makes fixed periodic payments to the lender over the course of several years with the goal of retiring the loan.</p>
-              <hr class="bg-light my-2">
-              <form id="loan-form">
+              
+              <div class="my-3 container" style="border:3px solid #2b2929;border-radius: 10px;">
+              <form id="loan-form" class="my-4">
                 <div class="form-group my-3">
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">$</span>
+                      <span style="color: white;
+                      background-color: #352e2e;
+                      border: 3px solid black;
+                      border-radius: 15px;" class="input-group-text">$</span>
                     </div>
-                    <input type="number" class="form-control" id="amount" placeholder="Loan Amount" required>
+                    <input type="number" style="color: white;
+                    background-color: #191717;
+                    border: 3px solid black;
+                    border-radius: 15px;" class="form-control" id="amount" placeholder="Loan Amount" required>
                   </div>
                 </div>
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">%</span>
+                      <span style="color: white;
+                      background-color: #352e2e;
+                      border: 3px solid black;
+                      border-radius: 15px;" class="input-group-text">%</span>
                     </div>
-                    <input type="text" class="form-control" id="interest" placeholder="Interest" required>
+                    <input type="text" style="color: white;
+                    background-color: #191717;
+                    border: 3px solid black;
+                    border-radius: 15px;" class="form-control" id="interest" placeholder="Interest" required>
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="number" id="years" class="form-control" placeholder="Years To Repay" required>
+                  <input type="number" style="color: white;
+                  background-color: #191717;
+                  border: 3px solid black;
+                  border-radius: 15px;" id="years" class="form-control" placeholder="Years To Repay" required>
                 </div>
                 <div class="form-group">
-                  <input type="submit" value="Calculate" class="btn btn-outline-primary"/>
+                  <input type="submit"  value="Calculate" class="btn btn-outline-secondary text-light"/>
                 </div>
               </form>
               <!-- Loader -->
@@ -73,9 +91,15 @@ Amar khamkar
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Monthly Payment</span>
+                      <span style="color: white;
+                      background-color: #352e2e;
+                      border: 3px solid black;
+                      border-radius: 15px;" class="input-group-text">Monthly Payment</span>
                     </div>
-                    <input type="number" class="form-control" id="monthly-payment"
+                    <input type="number"style="color: white;
+                    background-color: #191717;
+                    border: 3px solid black;
+                    border-radius: 15px;"  class="form-control" id="monthly-payment"
    disabled
                     />
                   </div>
@@ -83,9 +107,15 @@ Amar khamkar
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Total Payment</span>
+                      <span style="color: white;
+                      background-color: #352e2e;
+                      border: 3px solid black;
+                      border-radius: 15px;" class="input-group-text">Total Payment</span>
                     </div>
-                    <input type="number" class="form-control" id="total-payment"
+                    <input type="number" style="color: white;
+                    background-color: #191717;
+                    border: 3px solid black;
+                    border-radius: 15px;" class="form-control" id="total-payment"
    disabled
                     />
                   </div>
@@ -93,10 +123,17 @@ Amar khamkar
                 <div class="form-group">
                   <div class="input-group">
                     <div class="input-group-prepend">
-                      <span class="input-group-text">Total Interest</span>
+                      <span style="color: white;
+                      background-color: #352e2e;
+                      border: 3px solid black;
+                      border-radius: 15px;" class="input-group-text">Total Interest</span>
                     </div>
                     <input
     type="number"
+    style="color: white;
+              background-color: #191717;
+              border: 3px solid black;
+              border-radius: 15px;"
    class="form-control"
    id="total-interest"
    disabled
@@ -104,40 +141,48 @@ Amar khamkar
                   </div>
                 </div>
               </div>
-              <hr class="bg-light my-2">
+            </div>
+            
               <h3 class="my-4">How to calculate it?</h3>
               <p class="text-monospace">Formula to calculate EMI is simple, EMI = [P x R x (1+R)^N]/[(1+R)^N-1], where P stands for the loan amount or principal, 
                 R is the interest rate per month [if the interest rate per annum is 11%, then the rate of interest will be 11/(12 x 100)], 
                 and N is the number of monthly installments.</p>
                 <p class="text-monospace">So you can calculate these by entering loan amount,% of interest and time period (yrs) and calculate EMI to be given with how 
                   much extra interest have to give ,in below.</p>
-                  <hr class="bg-light">
+                  <hr class="bg-dark">
                   <h3 class="my-4">Applicatons</h3>
                   <p class="text-monospace">What can be the application of such online loan calculator?
                     Since many mathematical student/expert,employee who works in bak usualy calculates EMI in calculator by applying the formula.But why
                     to waste time if we have such kind of calculators.It can be used to calculate any kind of loan such as car,home etc.By just enering few credentials.</p>
-                    <hr class="bg-light my-2">
+               
+                  </div>
                   </div>
           
        
-        <div class="col-md-2"></div>
-        <div class="col-md-4">
-          <div class="col p-4 text-light d-flex flex-column position-static ">
-            <h4 class="my-4">Other Calculators</h3>
+      
+    <div class="col-md-4 my-4 ">
+    
+              <div class="col p-4 d-flex flex-column position-static my-2"  style="background-color:rgb(30,30,30);
+              box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="">Converters</h3>
+                  <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
+                  <li class="my-2"><a href="/Conversion/BinaryConverter/">Binary converters</a></li>
+                  <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
+                  <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
+                  <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
+                  <li class="my-2"><a href="/Conversion/infix_to_postfix">infix to postfix converter</a></li>
+                  <li class="my-2"><a  href="/Conversion/cgpa_to_percentage/">Cgpa to percentage converter</a></li>
+                  <li class="my-2"><a  href="/Conversion/postfix_to_infix">Postfix to infix converter</a>
+                  </div>
+      <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <h4 class="my-4">Calculators</h3>
               
             <li class="my-2"><a href="/Calculator/BMI_calculator/">BMI Calculator</a></li>
             <li class="my-2"><a href="/Calculator/GCD_calculator/">GCD Calculator</a></li>
             <li class="my-2"><a href="/Calculator/Postfix_calculator">Postfix Calculator</a></li>
 
-            <h4 class="my-4 ">Converters</h3>
-              <li  class="my-2"><a href="/Conversion/DecimalConverter/">Decimal converters</a></li>
-              <li class="my-2"><a href="/Conversion/BinaryConverter/">Binary converters</a></li>
-              <li class="my-2"><a href="/Conversion/HexadecimalConverter/">Hexadecimal converters</a></li>
-              <li class="my-2"><a href="/Conversion/UnitsConverter/">Units converters</a></li>
-              <li class="my-2"><a href="/Conversion/CurrencyConverter/">Currency converters</a></li>
-              <li class="my-2"><a href="/Conversion/infix_to_postfix">infix to postfix converter</a></li>
-                
-              </div>
+          </div>
 
         </div>
       </div>
