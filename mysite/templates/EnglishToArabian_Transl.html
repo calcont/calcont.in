@@ -40,61 +40,85 @@ Amar khamkar
 
 <div class="container text-light">
   <div class="row ">
-    <div class="col-md-6 ">
-  <div class="my-4 ">
+    
+        <div class="col-md-7 my-4 " style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+          <div class="my-4 ">
 
-<h1 class="my-3 text-center text-light" >English to Arabian</h1>
-  <hr class="bg-light my-2">
+<h2 class="my-3 text-center text-light" >English to Arabian</h2>
+  <hr class="bg-dark my-2">
+<h3 class="my-4 text-light">Arabian language?</h3>
+<p class="text-light text-monospace my-4 mx-2">As we all know English is global language but Arabian is  ( العربية)  a Arabic Semitic language,
+ like Hebrew and Aramaic. Around 260 million people use it as their first language. Many more
+ people can also understand it as a second language. It is written with the Arabic alphabet, which is written from right to left, like Hebrew.
+ </p>
 
+<hr class="bg-dark my-2">
+<div class="container">
+  <h3 class="my-4 text-monospace text-center">English to Arabian translator tool</h3>
+  <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+    <div class="btn-group btn-group-toggle my-3 col-md-8" data-toggle="buttons">
+      <label class="btn btn-warning active" id="Etext">
+        <input type="radio" name="options" id="option1" checked> Entered Text
+      </label>
+      <label class="btn btn-secondary" id="Ctext">
+        <input type="radio" name="options" id="option2"> Translated Text
+      </label>
+    </div>
+<form action="/Translator/English_to_Arabian/" class="tra" method='POST'>{% csrf_token %}
+     {% if not alt %}
+     <div class="form-group">
+      <textarea class="form-control input" id="EText" name='text' placeholder="Enter your text" rows="10" style="    color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;"></textarea>
+    </div>
+    <div class="form-group" >
+      <textarea class="form-control input" id="Tohind" style="display: none;color: white;
+      background-color: #191717;
+      border: 3px solid black;
+      border-radius: 15px;" rows="10"></textarea>
+    </div>
+    
+    {% endif %}
+    {% if alt%}
+    <div class="form-group">
+     <textarea class="form-control input" id="EText" name='text' style="display: none;color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10">{{ortext}}</textarea>
+  </div>
+  <div class="form-group" >
+    <textarea class="form-control input" id="Tohind" style="color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10">{{text}}</textarea>
+  </div>
+  {% endif %}
+  <div class="row">
+    <div class="col-2">
+  <div class=" mb-4" >
+    <button type="submit" class="speak " id="speech" style="filter: invert();" >
+            <i class="fa fa-microphone fa-2x " style="width:60px;"  aria-hidden="true"></i>
+          </button>
+          </div>
+        </div>
+        <div class="col-2">
+      <button type="submit" class="btn btn-primary text-light trae my-2">Translate</button>
+    </div>
+    </div>
+    </form>
+</div>
+</div>
+<hr class="bg-dark my-2">
   <h3 class="my-4 text-light">Why we need translation?</h3>
   <p class="text-light text-monospace my-4 mx-2">The skills of translation are becoming ever more important and desirable. 
     Today’s multicultural and multilingual society demands effective, efficient,
      and empathetic communication between languages and cultures. That’s important for various reasons, which we’ll now explore</p>
-<hr class="bg-light my-2">
-
-<h3 class="my-4 text-light">Arabian language?</h3>
-<p class="text-light text-monospace my-4 mx-2">As we all know English is global language but Arabian is aArabic ( العربية) is a Semitic language,
- like Hebrew and Aramaic. Around 260 million people use it as their first language. Many more
- people can also understand it as a second language. It is written with the Arabic alphabet, which is written from right to left, like Hebrew.</p>
 
 
-<hr class="bg-light my-2">
 
-<form action="/Translator/English_to_Arabian/" class="tra" method='POST'>{% csrf_token %}
-     {% if not alt %}
-      <div class="form-group">
-      <label for="" class='ui text-secondary text-light my-3'>Enter the text in english</label>
-      <input class="form-control" name='text' id="EText" placeholder="Enter the english text" rows="9" required>
-    </div>
-    <div class=" mb-4" >
-      <button type="submit" class="speak " id="speech" style="filter: invert();" >
-              <i class="fa fa-microphone fa-2x " style="width:60px;"  aria-hidden="true"></i>
-            </button>
-            </div>
-<div class="form-group arabian">
-   
-      <label for="Hindi" class='ui text-secondary text-light my-3'>Arabic</label>
-      <textarea class="form-control"  placeholder="To Arabic.." id="Tohind"   rows="6"></textarea>
-    </div>
-      {% endif %}
-    {% if alt%}
-<div class="form-group">
-      <label for="" class='ui text-secondary text-light my-3'>Enter the text in english</label>
-      <input class="form-control" name='text' id="EText"  value="{{ortext}}" rows="9" required>
-    </div>
-    <div class=" mb-4" >
-      <button type="submit" class="speak " id="speech" style="filter: invert();" >
-              <i class="fa fa-microphone fa-2x " style="width:60px;"  aria-hidden="true"></i>
-            </button>
-            </div>
-<div class="form-group arabian">
-      <label for="Hindi" class='ui text-secondary text-light my-3'>Arabic</label>
-      <textarea class="form-control"   id="Tohind"   rows="6">{{text}}</textarea>
-      </div>
-      {% endif %}
-      <button type="submit" class="btn btn-outline-primary trae my-2">Translate</button>
-</form>
-<hr class="bg-light my-2">
+<hr class="bg-dark my-2">
 <h3 class="my-4 text-light">For whom these will be helpul?</h3>
 <p class="text-light text-monospace my-4 mx-2">Since there are  many arabian countries who speaks only Arabic but there  are less people who can speak
 english
@@ -102,30 +126,33 @@ english
 not arabic but they live in  arabian countries for some reason.For all those people they can enter the English text here  and can translate it into in  arabic
 ,it"ll really helps you all
 to improve your skills easily. </p>
-<hr class="bg-light my-2">
+<hr class="bg-dark my-2">
 <h3 class="text-light my-4">How can it will be helpful?</h3>
 <p class="text-monospace text-light my-3"><p class="my-2">1.You can try to write english text by your own and can check whether its gramatically or in any aspect right or not
   and still you can practice more.</p><br><p class="my-2">2.People who dont know the meaning of english word/sentence will be helpful for those. and many more..
   </p><br><p class="my-2">3.You can use voice recogniton feature too avoid writing.</p>
 </p>
-<hr class="bg-light my-2">
+
 
 </div>
 </div>
-<div class="col-md-2"></div>
-    <div class="col-md-4 my-2 ">
-      
-      <div class="col p-4 d-flex flex-column position-static ">
+<div class="col-md-4 my-4 ">
+    
+  <div class="col my-2 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
         
       
-  <h4 class="mb-2 ">Other Translators</h3>
+  <h4 class="mb-2 ">Translators</h3>
           
-          <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
+          <li class="my-2"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
         
-          <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
-          <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
-          <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
-          <h4 class="my-4">Analyzers</h3>
+          <li class="my-2"><a href="/Translator/English_to_French/">English to French</a></li>
+          <li class="my-2"><a href="/Translator/English_to_German/">English to German</a></li>
+          <li class="my-2"><a href="/Translator/English_to_Marathi/">English to Marathi</a></li>
+        </div>
+        <div class="col p-4 my-3 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+          <h4 class="my-2">Analyzers</h3>
           <li class="my-2"><a href="/Analyzer/TextAnalyzer/">Text Analyzer</a></li>
             <li class="my-2"><a href="/Analyzer/name_sorting/" class="my-2">Name Sorting</a></li>
             <li class="my-2"><a href="/Analyzer/Grammar_correction/" class="my-2">Grammar Corrector</a></li>
@@ -177,6 +204,20 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
       recognition.start();
 
     });
+    $('#option1').click(function(e){
 
+document.getElementById("EText").style.display="block"
+document.getElementById("Tohind").style.display="none"
+e.preventDefault();
+})
+
+
+$('#option2').click(function(e)
+{
+
+document.getElementById("EText").style.display="none"
+document.getElementById("Tohind").style.display="block"
+e.preventDefault();
+});
 </script>
 {% endblock  %}
