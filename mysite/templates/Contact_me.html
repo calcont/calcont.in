@@ -7,36 +7,52 @@
 </style>
 
 
-<div class="container text-light col-md-6 mb-3 py-10">
+<div class="container text-light my-3 col-md-5  py-10" style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);"> 
 
-<h1 class="text-center text-light">Contact me</h1>
-        
-
+<h1 class="my-4">Contact Me</h1>
+        <hr class="bg-dark">
+<p class="text-light">These Contact page is to share your problems or issues regarding these website.
+  And if you have any suggestions regarding designing or any tools that you expect from these website,please do share with us via these page ..that would
+  be really appreciable!
+</p>
 <form method="post" action="/Contact_me/">
   {% csrf_token %}
   <div class="form-group">
     <label for="validationDefault01"><label class="text-danger">*</label> Name</label>
     <input type="text" class="form-control my-2" id="name" 
-    name="name" placeholder='Enter your name' required>
+    name="name" placeholder='Enter your name' style="color: white;
+    background-color: #191818;
+    border: 2px solid #848484;
+    border-radius: 15px;"  required>
   </div>
  <div class="form-group">
     <label for="4"><label class="text-danger">*</label> Email</label>
     <input type="text" class="form-control" id="email" 
-    name="email" placeholder='Enter your email address' required>
+    name="email"  style="color: white;
+    background-color: #191818;
+    border: 2px solid #848484;
+    border-radius: 15px;" placeholder='Enter your email address' required>
   </div>
   <div class="form-group">
     <label for="validationDefault03"><label class="text-danger">*</label> Any suggestions or else?</label>
     
-    <textarea class="form-control" id="address" name="desc" rows='4' required></textarea> 
+    <textarea class="form-control" id="address"  style="color: white;
+    background-color: #191818;
+    border: 2px solid #848484;
+    border-radius: 15px;" name="desc" rows='4' required></textarea> 
     
   </div>
     <div class="form-group">
     <label for="validationDefault02"> phone no.</label>
     <input type="text" class="form-control" id="phone no." 
-    name="phone" placeholder='Enter your phone no.' >
+    name="phone" placeholder='Enter your phone no.'  style="color: white;
+    background-color: #191818;
+    border: 2px solid #848484;
+    border-radius: 15px;" >
   </div>
 
-   <button class="btn btn-outline-primary my-4" type="submit">Submit</button>
+   <button class="btn btn-outline-secondary text-light my-4" type="submit">Submit</button>
 </form>
 </div>
 {% endblock  %}
