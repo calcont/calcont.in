@@ -16,123 +16,6 @@ Amar khamkar
 {% block body %}
 <style>
 
-
-.form-signin {
-  width: 100%;
-  max-width: 420px;
-  padding: 15px;
-  margin: auto;
-}
-
-.form-label-group {
-  position: relative;
-  margin-bottom: 1rem;
-}
-
-.form-label-group input,
-.form-label-group label {
-  height: 3.125rem;
-  padding: .75rem;
-}
-
-.form-label-group label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: block;
-  width: 100%;
-  margin-bottom: 0; /* Override default `<label>` margin */
-  line-height: 1.5;
-  color: #495057;
-  pointer-events: none;
-  cursor: text; /* Match the input under the label */
-  border: 1px solid transparent;
-  border-radius: .25rem;
-  transition: all .1s ease-in-out;
-}
-
-.form-label-group input::-webkit-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::-moz-placeholder {
-  color: transparent;
-}
-
-.form-label-group input:-ms-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::-ms-input-placeholder {
-  color: transparent;
-}
-
-.form-label-group input::placeholder {
-  color: transparent;
-}
-
-.form-label-group input:not(:-moz-placeholder-shown) {
-  padding-top: 1.25rem;
-  padding-bottom: .25rem;
-}
-
-.form-label-group input:not(:-ms-input-placeholder) {
-  padding-top: 1.25rem;
-  padding-bottom: .25rem;
-}
-
-.form-label-group input:not(:placeholder-shown) {
-  padding-top: 1.25rem;
-  padding-bottom: .25rem;
-}
-
-.form-label-group input:not(:-moz-placeholder-shown) ~ label {
-  padding-top: .25rem;
-  padding-bottom: .25rem;
-  font-size: 12px;
-  color: #777;
-}
-
-.form-label-group input:not(:-ms-input-placeholder) ~ label {
-  padding-top: .25rem;
-  padding-bottom: .25rem;
-  font-size: 12px;
-  color: #777;
-}
-
-.form-label-group input:not(:placeholder-shown) ~ label {
-  padding-top: .25rem;
-  padding-bottom: .25rem;
-  font-size: 12px;
-  color: #777;
-}
-
-/* Fallback for Edge
--------------------------------------------------- */
-@supports (-ms-ime-align: auto) {
-  .form-label-group {
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column-reverse;
-    flex-direction: column-reverse;
-  }
-
-  .form-label-group label {
-    position: static;
-  }
-
-  .form-label-group input::-ms-input-placeholder {
-    color: #777;
-  }
-}
-.container{
- 
-    /* height:500px; */
-    
-}
-body{
-   
-}
 </style>
 {% if messages %}
  {% for message  in messages  %}
@@ -144,38 +27,41 @@ body{
   </div>
   {% endfor %}
 {% endif %} 
-<div class="mb-4 my-3 container text-light   col-md-6" style="background-color:rgb(30,30,30);
-box-shadow:13px 4px 19px 7px rgb(19 17 17); border-radius: 10px;">
-    <h1 class="my-2 text-center">Signup here</h1>
-   
+<div class="container  text-light my-3 col-md-4  py-10" style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);"> 
+
+<h2 class="my-4 text-center ">Signup</h2>
+<hr class="bg-dark">
     <form class="form-signin my-2" method="post" action="/signin/">
 
         {% csrf_token %}
-        
-        <div class="form-label-group my-3">
-            
-            <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
-            <label for="inputEmail">Username</label>
-          
+       
+        <div class="form-group">
+          <label for="validationDefault01"><label class="text-danger">*</label>Username</label>
+          <input type="text" class="form-control my-2" id="username" name="username" 
+          name="name" placeholder='Username' style="color: white;
+          background-color: #191818;
+          border: 2px solid #848484;
+          border-radius: 15px;"  required>
         </div>
         
-        
-       
-       
-        
-        <div class="form-label-group my-2">
-            
-            <input type="email" id="emailsign" name="emailsign" class="form-control" placeholder="Email" required autofocus>
-            <label for="inputEmail">Email</label>
-       
+        <div class="form-group">
+          <label for="validationDefault01"><label class="text-danger">*</label>Email</label>
+          <input type="email" class="form-control my-2" id="email" name="emailsign" 
+          name="name" placeholder='Email' style="color: white;
+          background-color: #191818;
+          border: 2px solid #848484;
+          border-radius: 15px;"  required>
         </div>
        
-       
-      
-        <div class="form-label-group my-3">
-          <input type="password" id="Password1" name="password1" class="form-control" placeholder="Password" required>
-          <label for="inputPassword">Password</label>
-          <small>
+        <div class="form-group">
+          <label for="validationDefault01"><label class="text-danger">*</label>Password</label>
+          <input type="password" class="form-control my-2" id="password" name="password1" 
+         placeholder='Password' style="color: white;
+          background-color: #191818;
+          border: 2px solid #848484;
+          border-radius: 15px;"  required>
+           <small>
             *Your password must be 5-10 characters long, contain letters and numbers.
           </small>
         </div>
@@ -191,11 +77,12 @@ box-shadow:13px 4px 19px 7px rgb(19 17 17); border-radius: 10px;">
  
      
         <hr class="bg-dark my-2">
-        <button class="btn btn-outline-secondary text-light btn-md btn-block my-2" type="submit">Signup</button>
-        <p class="text-center my-3">OR</p>
+       
+        <button class="btn btn-outline-secondary btn-md text-light my-2" type="submit">Signup</button>
+        OR
         
-        <a class="btn btn-outline-secondary text-light google btn-md btn-block my-2" href="{% url 'social:begin' 'google-oauth2' %}"><img src="https://img.icons8.com/bubbles/50/000000/google-logo.png"/>Signin with Google</a><br>
-        <hr class="bg-dark my-2">
+        <a type="button" href="{% url 'social:begin' 'google-oauth2' %}">
+          <img src="https://img.icons8.com/bubbles/50/000000/google-logo.png"/></a><br>
         <div class="checkbox my-3">
           <label>
             Already registerd?Please <a href="/login">Login </a> here.
