@@ -3,7 +3,7 @@
 This is a simple meter to centimeter/centimeter to meter converter,where meter and centimeter are a part of length units.
 So, 1 standard unit meter is equal to 100 times of milimeter and 1 standard unit centimeter is 1/100 times of meter.
 {% endblock  %}
-{% block MKW %}mtr to cm,m to cm{% endblock  %}
+{% block MKW %}mtr to cm,m to cm,meter to cm{% endblock  %}
 {% block Mr %}
 24/12/2020
 {% endblock  %}
@@ -14,20 +14,43 @@ Amar khamkar
 {% endblock  %}
 {% block body %}
 <style>
-.jumbotron{
-    background-image:linear-gradient(to right,rgb(25, 30, 30) 100%, rgb(100,100,100) 70%);
-}
+
 </style>
-<div class="container col-md-6 my-4">
-<div class="jumbotron my-2 text-light">
+<div class="col-md-6 my-3 container text-light" style="background-color:rgb(30,30,30);
+box-shadow:13px 4px 19px 7px rgb(19 17 17);">
   <h1 class="my-4 text-center">meter to cm/cm to meter</h1>
 
-  <hr class="my-4 bg-white">
+  <hr class="my-4 bg-dark">
   <h4>Conversion from m to cm/m to cm</h4>
    <p class="text-monospace my-4"> How to convert meter to centimeter?So, 1 standard unit
     meter is equal to 100 times of centimeter and 1 standard unit centimeter is 1/100 times of meter.Like 1 meter=100centimeter
     ,for any number formula would be x meter=100x centimeter.lets see some more examples..</p>
-    <hr class="bg-light">
+    <hr class="bg-dark">
+      <form>
+      <div class="form-row mt-4">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">cm</label>
+          <input type="number" class="form-control" id="centm">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">to mtr..</label>
+          <input class="form-control" type="number" id="centom" readonly>
+        </div>
+      </div>
+      <a class="btn btn-outline-secondary text-light Conmt" role="button">Convert</a>
+      <div class="form-row my-4">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Mtr</label>
+          <input type="number" class="form-control" id="mt">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">to cm..</label>
+          <input class="form-control"  id="mtocm" readonly>
+        </div>
+      </div>
+      <a class="btn btn-outline-secondary text-light Concm" href="#" role="button">Convert</a>
+    </form>
+    <hr class="bg-dark">
 <h4 class="my-2 text-center">m to cm</h4>
     <div class="container col-md-8 mt-4">
     <table class="table text-light">
@@ -74,7 +97,7 @@ Amar khamkar
   </tbody>
 </table>
 </div>
-<hr class="bg-light">
+<hr class="bg-dark">
 <h4 class="my-2 text-center">cm to m</h4>
     <div class="container col-md-8 mt-4">
     <table class="table text-light">
@@ -124,38 +147,13 @@ Amar khamkar
 <p class="text monospace my-4">So from above examples you would have get an idea about how to convert m to cm.Since its an simple Conversion
 but for some big calculation you will need an software which convert quickly from m to cm.CalConT has these,in below you just have to enter 
 meter or centimetr value.
-<hr class="bg-light">
-  <form>
-  <div class="form-row mt-4">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">cm</label>
-      <input type="number" class="form-control" id="centm">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">to mtr..</label>
-      <input class="form-control" type="number" id="centom" readonly>
-    </div>
-  </div>
-  <a class="btn btn-primary btn-lg Conmt" role="button">Convert</a>
-  <div class="form-row my-4">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Mtr</label>
-      <input type="number" class="form-control" id="mt">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">to cm..</label>
-      <input class="form-control"  id="mtocm" readonly>
-    </div>
-  </div>
-  <a class="btn btn-primary btn-lg Concm" href="#" role="button">Convert</a>
-</form>
-<hr class="bg-light">
+<hr class="bg-dark">
 <h3 class="my-4 text-center">Applications?</h3>
 <p class="text-monospace">As meter to centimeter or vice versa conversion is so important beacause it has lot of application
    in mathematical, in science & technolgical world. examples will be..<br>1)To count <a href="/Calculator/BMI_calculator/">BMI</a> if you know your height in m but 
    you only know how to calculate it in cm.In these you will need an converter for these<br>2)Calculating speed of light in m which is 3 x 10^8 in m/s but just multiplying
    it with 100 we'll get it in centimeter/s </p> 
-<hr class="bg-light">
+<hr class="bg-dark">
 <h4 class="text-monospace text-center">Can checkout some other meter converter..</h4>
 <p class="text-center my-4  text-light"><a  href="/Conversion/UnitsConverter/m_to_mm">m to mm</a>
         <a class="mx-2" href="/Conversion/UnitsConverter/m_to_inch">m to inch</a>

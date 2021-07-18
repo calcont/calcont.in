@@ -3,7 +3,7 @@
 This is a simple meter to angstrom/angstrom to meter converter,where meter and angstrom are a part of length units.
 So, 1 standard unit meter is equal to 10^10 times of angstrom and 1 standard unit angstrom is 10^-10 times of meter.
 {% endblock  %}
-{% block MKW %}mtr to angstrom,m to angstrom{% endblock  %}
+{% block MKW %}mtr to angstrom,meter to angstrom{% endblock  %}
 {% block Mr %}
 24/12/2020
 {% endblock  %}
@@ -14,20 +14,42 @@ Amar khamkar
 {% endblock  %}
 {% block body %}
 <style>
-.jumbotron{
-    background-image:linear-gradient(to right,rgb(25, 30, 30) 100%, rgb(100,100,100) 70%);
-}
+
 </style>
-<div class="container col-md-6 my-4">
-<div class="jumbotron my-2 text-light">
+<div class="col-md-6 my-3 container text-light" style="background-color:rgb(30,30,30);
+box-shadow:13px 4px 19px 7px rgb(19 17 17);">
   <h3 class="my-4 text-center">meter to angstrom/angstrom to meter</h3>
 
-  <hr class="my-4 bg-white">
+  <hr class="my-4 bg-dark">
   <h5>Conversion from m to angstrom/angstrom to m</h5>
    <p class="text-monospace my-4"> How to convert meter to angstrom?So, 1 standard unit
     meter is equal to 10^10 times of mm and 1 standard unit mm is 10^-10 times of meter.Like 1 meter=10^10angstrom
     ,for any number formula would be x meter=10^10*x mm.lets see some more examples..</p>
-    <hr class="bg-light">
+    <hr class="bg-dark">
+      <form>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">mtr</label>
+          <input type="number" class="form-control" id="mt">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">to angstrom..</label>
+          <input class="form-control" type="text" id="mtoangstrom" readonly>
+        </div>
+      </div>
+      <a class="btn btn-outline-secondary text-light Conang" role="button">Convert</a>
+      <div class="form-row my-4">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Angstrom</label>
+          <input type="number" class="form-control" id="angstrom">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">to mtr..</label>
+          <input class="form-control" type="text" id="angtomt" readonly>
+        </div>
+      </div>
+      <a class="btn btn-outline-secondary text-light Conm" href="#" role="button">Convert</a>
+    <hr class="bg-dark">
 <h4 class="my-2 text-center">m to angstrom</h4>
     <div class="container col-md-8 mt-4">
     <table class="table text-light">
@@ -74,7 +96,7 @@ Amar khamkar
   </tbody>
 </table>
 </div>
-    <hr class="bg-light">
+    <hr class="bg-dark">
 <h4 class="my-2 text-center">angstrom to m</h4>
     <div class="container col-md-8 mt-4">
     <table class="table text-light">
@@ -124,37 +146,13 @@ Amar khamkar
 <p class="text monospace my-4">So from above examples you would have get an idea about how to convert m to angstrom.Since its an simple Conversion
 but for some complex calculation you will need an software which convert quickly from m to angstrom.CalConT has these,in below you just have to enter 
 meter or angstrom value.
-<hr class="bg-light">
-  <form>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">mtr</label>
-      <input type="number" class="form-control" id="mt">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">to angstrom..</label>
-      <input class="form-control" type="text" id="mtoangstrom" readonly>
-    </div>
-  </div>
-  <a class="btn btn-primary btn-lg Conang" role="button">Convert</a>
-  <div class="form-row my-4">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Angstrom</label>
-      <input type="number" class="form-control" id="angstrom">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">to mtr..</label>
-      <input class="form-control" type="text" id="angtomt" readonly>
-    </div>
-  </div>
-  <a class="btn btn-primary btn-lg Conm" href="#" role="button">Convert</a>
-  <hr class="bg-light">
+  <hr class="bg-dark">
 <h3 class="my-4 text-center">Applications?</h3>
 <p class="text-monospace">As meter to angstrom or vice versa conversion is so important beacause it has lot of application
    in mathematical, in science & technolgical world. examples will be..<br>Angstrom unit in a use in atomic world i.e to calculate
    size or volume of an atom and wavelength of light is always calculate in angstrom.But its not part of SI unit that's why it is 
    necessary to convert it into meter. </p> 
-<hr class="bg-light">
+<hr class="bg-dark">
 <h4 class="text-monospace text-center">Can checkout some other meter converter..</h4>
 </form>
 <p class="text-center my-2  text-light"><a  href="/Conversion/UnitsConverter/m_to_cm">mtr to cm</a>

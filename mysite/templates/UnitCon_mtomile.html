@@ -3,7 +3,7 @@
 This is a simple meter to mile/mile to meter converter,where meter and mile are a part of length units.
 So, 1 standard unit meter is equal to 0.00062137 times of miles and 1 standard unit mile is 1609.344 times of meter.
 {% endblock  %}
-{% block MKW %}mtr to mile,m to mile{% endblock  %}
+{% block MKW %}mtr to mile,m to mile,meter to mile{% endblock  %}
 {% block Mr %}
 24/12/2020
 {% endblock  %}
@@ -14,12 +14,10 @@ Amar khamkar
 {% endblock  %}
 {% block body %}
 <style>
-.jumbotron{
-    background-image:linear-gradient(to right,rgb(25, 30, 30) 100%, rgb(100,100,100) 70%);
-}
+
 </style>
-<div class="container col-md-6 my-4">
-<div class="jumbotron my-2 text-light">
+<div class="col-md-6 my-3 container text-light" style="background-color:rgb(30,30,30);
+box-shadow:13px 4px 19px 7px rgb(19 17 17);">
   <h1 class="my-4 text-center">meter to mile/mile to meter</h1>
 
   <hr class="my-4 bg-white">
@@ -27,7 +25,32 @@ Amar khamkar
    <p class="text-monospace my-4"> How to convert meter to centimeter?So, 1 standard unit
     meter is equal to 0.00062137 times of miles and 1 standard unit miles is 1609.344 times of meter.Like 1 meter=0.00062137miles
     ,for any number formula would be x meter=0.0006213x centimeter.lets see some more examples..</p>
-    <hr class="bg-light">
+    <hr class="bg-dark">
+      <form>
+      <div class="form-row my-2">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">mtr</label>
+          <input type="number" class="form-control" id="mt">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">to miles..</label>
+          <input class="form-control" type="number" id="mtomile" readonly>
+        </div>
+      </div>
+      <a class="btn btn-outline-secondary Conmile" role="button">Convert</a>
+      <div class="form-row my-4">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">mile</label>
+          <input type="number" class="form-control" id="mile">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">to mtr..</label>
+          <input class="form-control"  id="miletom" readonly>
+        </div>
+      </div>
+      <a class="btn btn-outline-secondary Conm"  role="button">Convert</a>
+    </form>
+    <hr class="bg-dark">
 <h4 class="my-2 text-center">m to miles</h4>
     <div class="container col-md-8 mt-4">
     <table class="table text-light">
@@ -74,7 +97,7 @@ Amar khamkar
   </tbody>
 </table>
 </div>
-    <hr class="bg-light">
+    <hr class="bg-dark">
 <h4 class="my-2 text-center">miles to m</h4>
     <div class="container col-md-8 mt-4">
     <table class="table text-light">
@@ -124,38 +147,13 @@ Amar khamkar
 <p class="text monospace my-4">So from above examples you would have get an idea about how to convert m to mile.Since its an simple Conversion
 but for some big calculation you will need an software which convert quickly from m to mile.CalConT has these,in below you just have to enter 
 meter or mile value.
-<hr class="bg-light">
-  <form>
-  <div class="form-row my-2">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">mtr</label>
-      <input type="number" class="form-control" id="mt">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">to miles..</label>
-      <input class="form-control" type="number" id="mtomile" readonly>
-    </div>
-  </div>
-  <a class="btn btn-primary btn-lg Conmile" role="button">Convert</a>
-  <div class="form-row my-4">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">mile</label>
-      <input type="number" class="form-control" id="mile">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">to mtr..</label>
-      <input class="form-control"  id="miletom" readonly>
-    </div>
-  </div>
-  <a class="btn btn-primary btn-lg Conm"  role="button">Convert</a>
-</form>
-<hr class="bg-light">
+<hr class="bg-dark">
 <h3 class="my-4 text-center">Applications?</h3>
 <p class="text-monospace">As meter to miles or vice versa conversion is so important beacause it has lot of application
    in mathematical, in science & technolgical world. examples will be..<br>Mile unit are generally use in longest route 
   vehicle runnning status is calculated using miles but not everyone knows mile unit.That's why  mile to m converter can userful,which
   is easily understandble to everyone. </p> 
-<hr class="bg-light">
+<hr class="bg-dark">
 <h4 class="text-monospace text-center">Can checkout some other meter converter..</h4>
 <p class="text-center my-2  text-light"><a  href="/Conversion/UnitsConverter/m_to_mm">mtr to mm</a>
         <a class="mx-2" href="/Conversion/UnitsConverter/m_to_cm">m to cm</a>

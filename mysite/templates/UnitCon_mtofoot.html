@@ -14,21 +14,44 @@ Amar khamkar
 {% endblock  %}
 {% block body %}
 <style>
-.jumbotron{
-    background-image:linear-gradient(to right,rgb(25, 30, 30) 100%, rgb(100,100,100) 70%);
-}
+
 </style>
-<div class="container col-md-6 my-4">
-<div class="jumbotron my-2 text-light">
+<div class="col-md-6 my-3 container text-light" style="background-color:rgb(30,30,30);
+box-shadow:13px 4px 19px 7px rgb(19 17 17);">
   <h3 class="my-4 text-center">meter to foot/foot to meter</h3>
 
-  <hr class="my-4 bg-white">
+  <hr class="my-4 bg-dark">
   <h5>Conversion from m to foot/foot to m</h5>
    <p class="text-monospace my-4"> How to convert meter to foot?So, 1 standard unit
     meter is equal to 3.2808399 times of foot and 1 standard unit foot is 0.3048 times of meter.Like 1 meter=3.2808399 foot
     ,for any number formula would be x meter=3.2808399x foot.lets see some more examples..</p>
-    <hr class="bg-light">
-<h4 class="my-2 text-center">m to foot</h4>
+    <hr class="bg-dark">
+    
+      <form>
+      <div class="form-row my-2">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">mtr</label>
+          <input type="number" class="form-control" id="mt">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">to foot..</label>
+          <input class="form-control" type="number" id="mtofoot" readonly>
+        </div>
+      </div>
+      <a class="btn btn-outline-secondary text-light Confoot" role="button">Convert</a>
+      <div class="form-row my-4">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">foot</label>
+          <input type="number" class="form-control" id="foot">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">to mtr..</label>
+          <input class="form-control"  id="foottom" readonly>
+        </div>
+      </div>
+      <a class="btn btn-outline-secondary text-light Conm" href="#" role="button">Convert</a>
+    <hr class="bg-dark">
+    <h4 class="my-2 text-center">m to foot</h4>
     <div class="container col-md-8 mt-4">
     <table class="table text-light">
   <thead>
@@ -74,7 +97,7 @@ Amar khamkar
   </tbody>
 </table>
 </div>
-    <hr class="bg-light">
+    <hr class="bg-dark">
 <h4 class="my-2 text-center">foot to m</h4>
     <div class="container col-md-8 mt-4">
     <table class="table text-light">
@@ -124,38 +147,13 @@ Amar khamkar
 <p class="text monospace my-4">So from above examples you would have get an idea about how to convert m to foot.Since its an simple Conversion
 but for some complex calculation you will need an software which convert quickly from m to foot.CalConT has these,in below you just have to enter 
 meter or foot value.
-<hr class="bg-light">
-
-  <form>
-  <div class="form-row my-2">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">mtr</label>
-      <input type="number" class="form-control" id="mt">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">to foot..</label>
-      <input class="form-control" type="number" id="mtofoot" readonly>
-    </div>
-  </div>
-  <a class="btn btn-primary btn-lg Confoot" role="button">Convert</a>
-  <div class="form-row my-4">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">foot</label>
-      <input type="number" class="form-control" id="foot">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">to mtr..</label>
-      <input class="form-control"  id="foottom" readonly>
-    </div>
-  </div>
-  <a class="btn btn-primary btn-lg Conm" href="#" role="button">Convert</a>
-   <hr class="bg-light">
+   <hr class="bg-dark">
 <h3 class="my-4 text-center">Applications?</h3>
 <p class="text-monospace">As meter to foot or vice versa conversion is so important beacause it has lot of application
    in mathematical, in science & technolgical world. examples will be..<br>Foot is a unit which majorly use to calculate
    living beings height,but if we want to calculate other measurements like BMI etc..in these calculation will be lot easier
    if we calculate it into meters. </p> 
-<hr class="bg-light">
+<hr class="bg-dark">
 </form>
 <p class="text-center my-2  text-light"><a  href="/Conversion/UnitsConverter/m_to_mm">mtr to mm</a>
         <a class="mx-2" href="/Conversion/UnitsConverter/m_to_cm">m to cm</a>
