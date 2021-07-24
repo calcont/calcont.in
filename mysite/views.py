@@ -330,3 +330,5 @@ def cgpa_to_percentage(request):
 ##PostfixtoInfix
 def postfix_to_infix(request):
     return render(request,'postfix_to_infix.html')
+def infix_to_prefix(request):
+    return render(request,'infix_to_prefix.html')

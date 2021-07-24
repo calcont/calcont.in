@@ -45,6 +45,7 @@ class StaticViewsSitemap(Sitemap):
             "mysite:Postfix_calculator",
             "mysite:PrivacyPolicy",
             "mysite:infix_to_postfix",
+            "mysite:infix_to_prefix",
             "mysite:cgpa_to_percentage",
             "mysite:postfix_to_infix",
         ]
