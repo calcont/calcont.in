@@ -70,6 +70,8 @@ urlpatterns = [
     #tax calculator
 
     path('Calculator/Postfix_calculator/', views.Postfix_calculator,name="Postfix_calculator"),
+    #Prefix calculator
+    path('Calculator/Prefix_calculator/', views.Prefix_calculator,name="Prefix_calculator"),
 #PrivacyPolicy
     path('Privacy_policy/', views.PrivacyPolicy,name="PrivacyPolicy"),
 

@@ -48,6 +48,7 @@ class StaticViewsSitemap(Sitemap):
             "mysite:infix_to_prefix",
             "mysite:cgpa_to_percentage",
             "mysite:postfix_to_infix",
+            "mysite:Prefix_calculator",
         ]
     def location(self, item):
         return reverse(item)

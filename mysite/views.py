@@ -155,6 +155,15 @@ def Currencyconversion(request):
     return render(request,'CurrencyCon.html')
 def infix_to_postfix(request):
     return render(request,'infix_to_postfix.html')
+def cgpa_to_percentage(request):
+    return render(request,'cgtopercent.html')
+##PostfixtoInfix
+def postfix_to_infix(request):
+    return render(request,'postfix_to_infix.html')
+
+##InfixtoPrefix
+def infix_to_prefix(request):
+    return render(request,'infix_to_prefix.html')
 def Language_Translator(request):
     return render(request,'Language_Translator.html')
 
@@ -241,6 +250,8 @@ def BMI_calculator(request):
     return render(request,'BMI_calculator.html')
 def Postfix_calculator(request):
     return render(request,'Postfix_calculator.html')
+def Prefix_calculator(request):
+    return render(request,'Prefix_calculator.html')
 #contact
 def ContactMe(request):
     if request.method == "POST":
@@ -325,10 +336,3 @@ def Logout(request):
         logout(request)
         messages.success(request,"Logged out successfully")
         return redirect("/")
-def cgpa_to_percentage(request):
-    return render(request,'cgtopercent.html')
-##PostfixtoInfix
-def postfix_to_infix(request):
-    return render(request,'postfix_to_infix.html')
-def infix_to_prefix(request):
-    return render(request,'infix_to_prefix.html')
