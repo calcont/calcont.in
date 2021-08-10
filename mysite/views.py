@@ -164,6 +164,10 @@ def postfix_to_infix(request):
 ##InfixtoPrefix
 def infix_to_prefix(request):
     return render(request,'infix_to_prefix.html')
+##prefixtoInfix
+def prefix_to_infix(request):
+    return render(request,'prefix_to_infix.html')
+
 def Language_Translator(request):
     return render(request,'Language_Translator.html')
 

@@ -46,6 +46,8 @@ urlpatterns = [
     path('Conversion/infix_to_prefix', views.infix_to_prefix,name="infix_to_prefix"),
     #postfix to infix
     path('Conversion/postfix_to_infix', views.postfix_to_infix,name="postfix_to_infix"),
+     #prefix to infix
+    path('Conversion/prefix_to_infix', views.prefix_to_infix,name="prefix_to_infix"),
     #Cgpa to percentage
     path('Conversion/cgpa_to_percentage/', views.cgpa_to_percentage,name="cgpa_to_percentage"),
  
