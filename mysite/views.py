@@ -164,6 +164,9 @@ def postfix_to_infix(request):
 ##InfixtoPrefix
 def infix_to_prefix(request):
     return render(request,'infix_to_prefix.html')
+##prefixtopostfix
+def prefix_to_postfix(request):
+    return render(request,'prefix_to_postfix.html')
 ##prefixtoInfix
 def prefix_to_infix(request):
     return render(request,'prefix_to_infix.html')
