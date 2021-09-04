@@ -45,18 +45,6 @@
     background-color: rgb(25,25,25);
   }
 
-  navbar {
-    background-color: black;
-
-  }
-
-  #baktop {
-
-    right: 10px;
-    margin-top: 500px;
-    position: fixed;
-
-  }
 
   .bd-placeholder-img {
     font-size: 1.125rem;
@@ -89,7 +77,6 @@
   .footer{
   position: absolute;
     
-    height: 100px;
  
  }
 </style>
@@ -123,7 +110,7 @@
     </div>
   </div>
 </div>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(20,20,20);">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: rgb(20,20,20);">
     <a class="navbar-brand" href="/">
       <img src="/static/CalConT_logo1.png" class="brand" width="60" height="60" alt="" loading="lazy">
       CalConT
@@ -244,11 +231,23 @@
     </p>
 
   </footer> -->
-  <footer class="container-fluid footer  py-3 text-center text-light my-5" style="background-color: rgb(21, 20, 19);">
-    <p class="my-3">&copy;2020-2021 CalConT.in | <a href="/About/">  About  </a> | <a href="/Privacy_policy/">Privacy Policy</a></p>
+  <footer class="container-fluid footer   py-3 text-center text-light my-5" style="background-color: rgb(21, 20, 19);">
+    <div class="row">
+      <div class="col-md-6 order-md-2">
+    <p class="my-3">&copy;2020-2021 CalConT.in | <a href="/About/"> About </a> | <a href="/Privacy_policy/">Privacy
+        Policy</a>
+      </p>
+    </div>
+    <div class="col-md-6 order-md-1">
+      <div class="container">
+      <p class="mx-auto mb-2" style="color: #6c859a;"><span class="text-light" style="font-size: 15px;">Contact on : </span> calcont.in01@gmail</p>
+      <p class="mx-auto ">Follow On : <a href="https://www.linkedin.com/company/calcont-in/ "><img src="/static/ln.png" width="20px" height="20px" alt=""></a></p>
+    </div>
+    </div>
+    </div> 
 
 
-</footer>
+  </footer>
   <!-- Optional avaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
