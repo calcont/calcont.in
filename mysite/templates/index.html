@@ -18,7 +18,7 @@ Amar khamkar
 {% block body %}
 
 <style>
-  h1,
+h1,
   h2 {
     font-family: 'Ubuntu Mono', monospace;
     color: #c6cace;
@@ -75,7 +75,20 @@ Amar khamkar
   p {
     color: #c6cace;
   }
-
+  @media only screen and (max-width: 370px) and (min-width: 100px) {
+  
+    .imge{
+      width: 250px;
+      height: 200px;
+  }
+  }
+  @media only screen and (max-width: 768px) and (min-width: 100px) {
+  
+  .imge{
+      width: 350px;
+      height: 300px;
+  }
+  }
   @media only screen and (max-width: 988px) and (min-width: 100px) {
 
     h1
@@ -95,14 +108,10 @@ Amar khamkar
     .contact {
       font-size: 15px;
     }
-    .imge{
-      width: 350px;
-      height: 350px;
-    }
     .imge1{
      
-      width: 250px;
-      height: 250px;
+      width: 300px;
+      height: 300px;
     }
 
   }
