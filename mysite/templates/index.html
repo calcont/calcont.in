@@ -18,7 +18,7 @@ Amar khamkar
 {% block body %}
 
 <style>
-h1,
+  h1,
   h2 {
     font-family: 'Ubuntu Mono', monospace;
     color: #c6cace;
@@ -76,6 +76,9 @@ h1,
     color: #c6cace;
   }
   @media only screen and (max-width: 370px) and (min-width: 100px) {
+    
+  }
+  @media only screen and (max-width: 370px) and (min-width: 100px) {
   
     .imge{
       width: 250px;
@@ -111,7 +114,7 @@ h1,
     .imge1{
      
       width: 300px;
-      height: 300px;
+      height: 220px;
     }
 
   }
@@ -147,8 +150,12 @@ h1,
       <div class="col-12 col-md-5 col-lg-6 order-md-2">
 
         <!-- Image -->
+        <!-- <img src="/static/2.svg" class="img-fluid imge mw-md-150 mw-lg-130 mb-6 mb-md-0 " alt="..." > -->
         <embed src="/static/2.svg" class="img-fluid imge mw-md-150 mw-lg-130 mb-6 mb-md-0 ">
-        <!-- <a href="https://www.freepik.com/vectors/money" class="mx-5" style="font-size: 10px;" >Image Credits: vectorjuice-freepik</a> -->
+        <div class="container">
+          <a href="https://www.freepik.com/vectors/money" class="mx-5 Credits" style="font-size: 10px;" >Image Credits: freepik</a>
+        </div>
+        
       </div>
       <div class="col-12 col-md-6 col-lg-6 order-md-1 " 
         style="margin-top: 130px;">
@@ -227,7 +234,7 @@ h1,
 
         <!-- Icon -->
         <div class="icon text-primary mb-3">
-          <img src="/static/Transico.png" width="50" height="50" alt="">
+          <img src="/static/transico.png" width="50" height="50" alt="">
         </div>
 
         <!-- Heading -->
@@ -253,7 +260,10 @@ h1,
   
       <div class="w-md-150 w-lg-130 position-relative ">
   
-          <embed src="/static/3.svg" class="img-fluid imge1" width="400px" height="400px">
+        <embed src="/static/3.svg" class="img-fluid imge1" width="400px" height="400px">
+        <div class="container">
+          <a href="https://www.freepik.com/vectors/money" class="Credits mx-3" style="font-size: 10px;" >Image Credits: freepik</a>
+        </div>
      </div>
   
     </div>
