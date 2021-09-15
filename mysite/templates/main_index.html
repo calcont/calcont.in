@@ -94,33 +94,38 @@
 
 <body>
  <!-- Modal -->
- <div class="modal fade text-light" id="DoLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content" style="background-color: rgb(25, 25, 25);border-radius: 40px;">
-      <div class="modal-header" style="border-bottom: 1px solid rgb(41 40 40);">
-        <h4 class="modal-title" id="exampleModalLabel">Create Account?</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+<div class="modal fade text-light" id="DoLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color: rgb(25, 25, 25);border-radius: 40px;">
+        <div class="modal-header" style="border-bottom: 1px solid rgb(41 40 40);">
+          <h4 class="modal-title" id="exampleModalLabel">Create Account?</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p class="modalText" >After registering in <a type="button" href="/" class="">CalConT</a> you will be notified about our
+            recently added tools,and you will be always connected with us.Through this
+            you can also help us to improve. </p>
+          <br>
+          <p class="modalText">If you have any query about how your details stored after registering then you should read our <a href="\Privacy_policy">Privacy Policy.</a></p>
+          <!-- <div class=" text-md-start ">
+            <a href="/login/" class="btn btn-secondary-outline log shadow lift my-2 ">
+              Contact Me <i class="fe fe-arrow-right d-none d-md-inline ms-3"></i>
+            </a> -->
+            <a class="btn btn-secondary my-4 signin" href="\signin">Sign Up</a>
+            Or
+            <a  type="button"
+      
+         href="{% url 'social:begin' 'google-oauth2' %}">
+          <img src="https://img.icons8.com/bubbles/50/000000/google-logo.png"/></a><br>
+        </div>
+
+
+
       </div>
-      <div class="modal-body">
-        <p class="modalText" >After registering in <a type="button" href="/" class="">CalConT</a> you will be notified about our
-          recently added tools,and you will be always connected with us.Through this
-          you can also help us to improve. </p>
-        <br>
-        <p class="modalText">If you have any query about how your details stored after registering then you should read our <a href="\Privacy_policy">Privacy Policy.</a></p>
-        <!-- <div class=" text-md-start ">
-          <a href="/login/" class="btn btn-secondary-outline log shadow lift my-2 ">
-            Contact Me <i class="fe fe-arrow-right d-none d-md-inline ms-3"></i>
-          </a> -->
-          <a class="btn btn-secondary my-4 signin" href="\login">Log In</a>
-      </div>
-
-
-
     </div>
   </div>
-</div>
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgb(20,20,20);">
     <a class="navbar-brand" href="/">
       <img src="/static/CalConT_logo1.png" class="brand" width="60" height="60" alt="" loading="lazy">
