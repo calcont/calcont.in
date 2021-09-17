@@ -40,22 +40,34 @@ Amar khamkar
           {% if IsEnter %}
           <div class="form-group ">
 
-            <textarea class="form-control my-4" name='text' placeholder="Enter your text" rows="6">{{OrText}}</textarea>
+            <textarea class="form-control my-4" name='text' placeholder="Enter your text" rows="6"  style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px;">{{OrText}}</textarea>
           </div>
           <div class="form-group text-light">
             <label for="exampleInputPassword1">Analyzed text</label>
             <textarea type="text" class="form-control" placeholder="Analysed text is..." rows="5"
-              readonly>{{Text}}</textarea>
+            style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px;" readonly>{{Text}}</textarea>
           </div>
           {% endif %}
           {% if not IsEnter %}
           <div class="form-group">
 
-            <textarea class="form-control" name='text' placeholder="Enter your text" rows="6"></textarea>
+            <textarea class="form-control" name='text' placeholder="Enter your text"  style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px;" rows="6"></textarea>
           </div>
           <div class="form-group text-light">
             <label for="exampleInputPassword1">Analyzed text</label>
-            <textarea type="text" class="form-control" placeholder="Analysed text is..." rows="5" readonly></textarea>
+            <textarea type="text" class="form-control" placeholder="Analysed text is..." rows="5"  style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px;" readonly></textarea>
           </div>
           {% endif %}
 

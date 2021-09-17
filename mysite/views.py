@@ -120,36 +120,6 @@ def Decimalconversion(request):
     return render(request,'DecimalCon.html')
 def Hexadecimalconversion(request):
     return render(request,'HexaCon.html')
-def Unitconversion(request):
-    return render(request,'UnitCon.html')
-#metr
-def Unit_mtocm_conversion(request):
-    return render(request,'UnitCon_mtocm.html')
-def Unit_mtomm_conversion(request):
-    return render(request,'UnitCon_mtomm.html')
-def Unit_mtoinch_conversion(request):
-    return render(request,'UnitCon_mtoinch.html')
-def Unit_mtomile_conversion(request):
-    return render(request,'UnitCon_mtomile.html')
-def Unit_mtofoot_conversion(request):
-    return render(request,'UnitCon_mtofoot.html')
-def Unit_mtoyard_conversion(request):
-    return render(request,'UnitCon_mtoyard.html')
-def Unit_mtoangstrom_conversion(request):
-    return render(request,'UnitCon_mtoangstrom.html')
-#cm
-def Unit_cmtomm_conversion(request):
-    return render(request,'UnitCon_cmtomm.html')
-def Unit_cmtoinch_conversion(request):
-    return render(request,'UnitCon_cmtoinch.html')
-def Unit_cmtomile_conversion(request):
-    return render(request,'UnitCon_cmtomile.html')
-def Unit_cmtofoot_conversion(request):
-    return render(request,'UnitCon_cmtofoot.html')
-def Unit_cmtoyard_conversion(request):
-    return render(request,'UnitCon_cmtoyard.html')
-def Unit_cmtoangstrom_conversion(request):
-    return render(request,'UnitCon_cmtoangstrom.html')
 #currency
 def Currencyconversion(request):
     return render(request,'CurrencyCon.html')

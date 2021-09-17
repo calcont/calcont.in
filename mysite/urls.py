@@ -24,23 +24,6 @@ urlpatterns = [
 #Conversion
     #CurrencyConverter
     path('Conversion/CurrencyConverter/', views.Currencyconversion,name="Currencyconversion"),
-    path('Conversion/UnitsConverter/', views.Unitconversion,name="Unitconversion"),
-    #meter
-    path('Conversion/UnitsConverter/m_to_cm', views.Unit_mtocm_conversion,name="Unit_mtocm_conversion"),
-    path('Conversion/UnitsConverter/m_to_mm', views.Unit_mtomm_conversion,name="Unit_mtomm_conversion"),
-    path('Conversion/UnitsConverter/m_to_inch', views.Unit_mtoinch_conversion,name="Unit_mtoinch_conversion"),
-    path('Conversion/UnitsConverter/m_to_foot', views.Unit_mtofoot_conversion,name="Unit_mtofoot_conversion"),
-    path('Conversion/UnitsConverter/m_to_mile', views.Unit_mtomile_conversion,name="Unit_mtomile_conversion"),
-    path('Conversion/UnitsConverter/m_to_yard', views.Unit_mtoyard_conversion,name="Unit_mtoyard_conversion"),
-    path('Conversion/UnitsConverter/m_to_angstrom', views.Unit_mtoangstrom_conversion,name="Unit_mtoangstrom_conversion"),
-    #cm
-    path('Conversion/UnitsConverter/cm_to_mm', views.Unit_cmtomm_conversion,name="Unit_cmtomm_conversion"),
-    path('Conversion/UnitsConverter/cm_to_inch', views.Unit_cmtoinch_conversion,name="Unit_cmtoinch_conversion"),
-    path('Conversion/UnitsConverter/cm_to_foot', views.Unit_cmtofoot_conversion,name="Unit_cmtofoot_conversion"),
-    path('Conversion/UnitsConverter/cm_to_mile', views.Unit_cmtomile_conversion,name="Unit_cmtomile_conversion"),
-    path('Conversion/UnitsConverter/cm_to_yard', views.Unit_cmtoyard_conversion,name="Unit_cmtoyard_conversion"),
-    path('Conversion/UnitsConverter/cm_to_angstrom', views.Unit_cmtoangstrom_conversion,name="Unit_cmtoangstrom_conversion"),
-    #infix to postfix
     path('Conversion/infix_to_postfix', views.infix_to_postfix,name="infix_to_postfix"),
     #infix to prefix
     path('Conversion/infix_to_prefix', views.infix_to_prefix,name="infix_to_prefix"),
