@@ -38,15 +38,15 @@ Amar khamkar
       box-shadow:13px 4px 19px 7px rgb(19 17 17);">
         <div class="my-4 ">
     <h2 class="mx-4">Grammar checker</h2>
-    <hr class="my-4 bg-dark">
-    <h3 class="my-4 text-monospace">What is Grammar corrector?</h3>
-    <p class="my-4">It is an tool/software which analyzes your text and check various possibilities of words that matches
-      with your previous/next word and correct your text.It has huge amount backend that's why it could take some time according to length of 
-      text. </p>
-      <p class="my-4">CalConT has these tool which will be helpful to you all.And words which are not matching or incorrect will be underlined below
-        text field only.</p>
-        <hr class="my-4 bg-dark">
-        <div class="container">
+    <hr class="bg-dark my-2">
+    <h3 class="my-4 text-monospace">How to use this tool?</h3>
+<p class="my-4">You can see the tool in below which has two section <strong>Entered text </strong> and <strong>Corrected text</strong>.
+You have to write or copy your text in entered text section then just press the translate button.Now, you can see the corrected text 
+in which wrong words are underlined.</p>
+<p>You can also compare it by seeing corrected and entered text.And lastly make sure your text is not too long.</p>
+
+      <hr class="my-4 bg-dark">
+      <div class="container">
         <h3 class="my-4 text-monospace text-center">Grammar Checker Tool</h3>
         <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
           <div class="btn-group btn-group-toggle my-3 col-md-8" data-toggle="buttons">
@@ -57,10 +57,10 @@ Amar khamkar
               <input type="radio" name="options" id="option2"> Corrrected Text
             </label>
           </div>
-    <form id="form" action="/Analyzer/Grammar_correction/" method='POST'>{% csrf_token %}
-    {% if not IsEnter%}
-  <div class="form-group">
-    <textarea class="form-control input" id="Text" name='text' placeholder="Enter your text" rows="10" style="    color: white;
+          <form id="form" action="/Analyzer/Grammar_correction/" method='POST'>{% csrf_token %}
+            {% if not IsEnter%}
+            <div class="form-group">
+              <textarea class="form-control input" id="Text" name='text' placeholder="Enter your text" rows="10" style="    color: white;
     background-color: #191717;
     border: 3px solid black;
     border-radius: 15px;"></textarea>
@@ -74,7 +74,7 @@ Amar khamkar
   {% endif %}
   {% if IsEnter%}
   <div class="form-group">
-
+    
     <textarea class="form-control input" id="Text" name='text' style="color: white;
     background-color: #191717;
     border: 3px solid black;
@@ -94,22 +94,27 @@ Amar khamkar
     
     
   </div>
-  <p id="exceed" class="text-light"></p>
- 
-   <button type="submit" class="btn btn-outline-secondary correct text-light my-2">Correct</button>
+  <p id="exceed" class="text-danger">*Text limit:300 words.</p>
+  
+  <button type="submit" class="btn btn-outline-secondary correct text-light my-2">Correct</button>
 </form>
 </div>
 </div>
-    <hr class="my-4 bg-dark">
-    <h3 class="my-4 text-monospace">What is use of Grammar corrector?</h1>
-    <p class="my-4">Grammar corrector is very useful in every aspect and has various reasons how can it would be useful.Some of those are 
+<hr class="my-4 bg-dark">
+<h3 class="my-4 text-monospace">Grammar corrector?</h3>
+<p class="my-4">It is an tool/software which analyzes your text and check various possibilities of words that matches
+  with your previous/next word and correct your text.It has huge amount backend that's why it could take some time according to length of 
+  text. </p>
+<hr class="my-4 bg-dark">
+<h3 class="my-4 text-monospace">Use of Grammar corrector?</h1>
+  <p class="my-4">Grammar corrector is very useful in every aspect and has various reasons how can it would be useful.Some of those are 
     as follows.
     <br>
 
-<p class="my-1">1. Ofcourse it Saves time</p><br>
-<p class="my-1">2. Saves nerves</p><br>
-<p class="my-1">3. Since it tries many possibilities it has better feedback</p><br>
-<p class="my-1">4. It increased target audience</p><br>
+<p class="my-1">1. Of course it Saves time</p>
+<p class="my-1">2. Saves nerves</p>
+<p class="my-1">3. Since it tries many possibilities it has better feedback</p>
+<p class="my-1">4. It increased target audience</p>
 <p class="my-1">5. People are not well at english can practice here.</p></p>
 
   </div>
@@ -155,7 +160,7 @@ window.onload = function () {
    window.scrollTo(0,450);
     {% else %}
    window.scrollTo(0,450);
-   document.getElementById("exceed").innerHTML=" "
+   document.getElementById("exceed").innerHTML="Text Limit:300 characters"
 
     {% endif %}
     };
@@ -168,7 +173,6 @@ window.onload = function () {
     });
     $('#option1').click(function(e){
 
-      
       document.getElementById("Text").style.display="block"
       document.getElementById("correcttext").style.display="none"
       e.preventDefault();
@@ -177,7 +181,385 @@ window.onload = function () {
     
     $('#option2').click(function(e)
     {
-     
+      
+      document.getElementById("Text").style.display="none"
+      document.getElementById("correcttext").style.display="block"
+      e.preventDefault();
+    });
+  </script>
+{% endblock  %}{% extends 'main_index.html' %}
+{% block MDesc %}
+It is an tool/software which analyzes your text and check various possibilities of words that matches
+    with your previous/next word and correct your text.It has huge amount backend that's why it could take some time according to length of 
+    text.
+{% endblock  %}
+{% block MKW %}
+Grammar corrector,grammar checker,free online,spell checker,grammar corrector of text
+{% endblock  %}
+{% block Mr %}
+13/02/2021
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Grammar checker and grammar corrector
+{% endblock  %}
+{% block body %}
+
+<style>
+ 
+  #overlay{
+    display:block;
+  width: 50%;
+  
+  }
+  .corrtxt{
+    margin-top:70px
+  }
+ 
+
+  
+</style>
+<div class="container text-light">
+<div class="row ">
+  
+      <div class="col-md-7 my-4 " style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <div class="my-4 ">
+    <h2 class="mx-4">Grammar checker</h2>
+    <hr class="bg-dark my-2">
+    <h3 class="my-4 text-monospace">How to use this tool?</h3>
+<p class="my-4">You can see the tool in below which has two section <strong>Entered text </strong> and <strong>Corrected text</strong>.
+You have to write or copy your text in entered text section then just press the translate button.Now, you can see the corrected text 
+in which wrong words are underlined.</p>
+<p>You can also compare it by seeing corrected and entered text.And lastly make sure your text is not too long.</p>
+
+      <hr class="my-4 bg-dark">
+      <div class="container">
+        <h3 class="my-4 text-monospace text-center">Grammar Checker Tool</h3>
+        <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+          <div class="btn-group btn-group-toggle my-3 col-md-8" data-toggle="buttons">
+            <label class="btn btn-warning active" id="Etext">
+              <input type="radio" name="options" id="option1" checked> Entered Text
+            </label>
+            <label class="btn btn-secondary" id="Ctext">
+              <input type="radio" name="options" id="option2"> Corrrected Text
+            </label>
+          </div>
+          <form id="form" action="/Analyzer/Grammar_correction/" method='POST'>{% csrf_token %}
+            {% if not IsEnter%}
+            <div class="form-group">
+              <textarea class="form-control input" id="Text" name='text' placeholder="Enter your text" rows="10" style="    color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;"></textarea>
+  </div>
+  <div class="form-group" >
+    <textarea class="form-control input" id="correcttext" style="display: none;color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10"></textarea>
+  </div>
+  {% endif %}
+  {% if IsEnter%}
+  <div class="form-group">
+    
+    <textarea class="form-control input" id="Text" name='text' style="color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10">{{text}}</textarea>
+  </div>
+  <div class="form-group" >
+    <textarea class="form-control input" id="correcttext" style="display: none;color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10">{{NewText}}</textarea>
+  </div>
+  {% endif %}
+  <div class="text-center" id="overlay" role="status">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    
+    
+  </div>
+  <p id="exceed" class="text-danger">*Text limit:300 words.</p>
+  
+  <button type="submit" class="btn btn-outline-secondary correct text-light my-2">Correct</button>
+</form>
+</div>
+</div>
+<hr class="my-4 bg-dark">
+<h3 class="my-4 text-monospace">Grammar corrector?</h3>
+<p class="my-4">It is an tool/software which analyzes your text and check various possibilities of words that matches
+  with your previous/next word and correct your text.It has huge amount backend that's why it could take some time according to length of 
+  text. </p>
+<hr class="my-4 bg-dark">
+<h3 class="my-4 text-monospace">Use of Grammar corrector?</h1>
+  <p class="my-4">Grammar corrector is very useful in every aspect and has various reasons how can it would be useful.Some of those are 
+    as follows.
+    <br>
+
+<p class="my-1">1. Of course it Saves time</p>
+<p class="my-1">2. Saves nerves</p>
+<p class="my-1">3. Since it tries many possibilities it has better feedback</p>
+<p class="my-1">4. It increased target audience</p>
+<p class="my-1">5. People are not well at english can practice here.</p></p>
+
+  </div>
+
+</div>
+<div class="col-md-4 my-4 ">
+    
+  <div class="col my-2 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        
+      
+        <h4 class="mb-2 ">Translators</h3>
+          
+          <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Marathi/">English to Marathi</a></li>
+          <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
+          <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
+        </div>
+  <div class="col p-4 my-3 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+          <h4 class="my-4">Text Analyzers</h3>
+            <li class="my-2"><a href="/Analyzer/name_sorting/" class="my-2">Words alphabetizer</a></li>
+            <li class="my-2"><a href="/Analyzer/TextAnalyzer/" >Text Editor
+            </a></li>
+            
+          </div>
+          
+       
+        </div>
+      </div>
+</div>
+</div>
+{% endblock  %}
+{% block JS %}
+<script>
+  
+    
+window.onload = function () {
+        $("#overlay").hide();
+        {% if length_text > 300 %}
+   document.getElementById("exceed").innerHTML="Text size exceeded than a limit."
+   window.scrollTo(0,450);
+    {% else %}
+   window.scrollTo(0,450);
+   document.getElementById("exceed").innerHTML="Text Limit:300 characters"
+
+    {% endif %}
+    };
+
+    $(document).ready(function () {
+        $("#form").submit(function () {
+            $("#overlay").show();
+
+        });
+    });
+    $('#option1').click(function(e){
+
+      document.getElementById("Text").style.display="block"
+      document.getElementById("correcttext").style.display="none"
+      e.preventDefault();
+    })
+    
+    
+    $('#option2').click(function(e)
+    {
+      
+      document.getElementById("Text").style.display="none"
+      document.getElementById("correcttext").style.display="block"
+      e.preventDefault();
+    });
+  </script>
+{% endblock  %}{% extends 'main_index.html' %}
+{% block MDesc %}
+It is an tool/software which analyzes your text and check various possibilities of words that matches
+    with your previous/next word and correct your text.It has huge amount backend that's why it could take some time according to length of 
+    text.
+{% endblock  %}
+{% block MKW %}
+Grammar corrector,grammar checker,free online,spell checker,grammar corrector of text
+{% endblock  %}
+{% block Mr %}
+13/02/2021
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}- Grammar checker and grammar corrector
+{% endblock  %}
+{% block body %}
+
+<style>
+ 
+  #overlay{
+    display:block;
+  width: 50%;
+  
+  }
+  .corrtxt{
+    margin-top:70px
+  }
+ 
+
+  
+</style>
+<div class="container text-light">
+<div class="row ">
+  
+      <div class="col-md-7 my-4 " style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <div class="my-4 ">
+    <h2 class="mx-4">Grammar checker</h2>
+    <hr class="bg-dark my-2">
+    <h3 class="my-4 text-monospace">How to use this tool?</h3>
+<p class="my-4">You can see the tool in below which has two section <strong>Entered text </strong> and <strong>Corrected text</strong>.
+You have to write or copy your text in entered text section then just press the translate button.Now, you can see the corrected text 
+in which wrong words are underlined.</p>
+<p>You can also compare it by seeing corrected and entered text.And lastly make sure your text is not too long.</p>
+
+      <hr class="my-4 bg-dark">
+      <div class="container">
+        <h3 class="my-4 text-monospace text-center">Grammar Checker Tool</h3>
+        <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+          <div class="btn-group btn-group-toggle my-3 col-md-8" data-toggle="buttons">
+            <label class="btn btn-warning active" id="Etext">
+              <input type="radio" name="options" id="option1" checked> Entered Text
+            </label>
+            <label class="btn btn-secondary" id="Ctext">
+              <input type="radio" name="options" id="option2"> Corrrected Text
+            </label>
+          </div>
+          <form id="form" action="/Analyzer/Grammar_correction/" method='POST'>{% csrf_token %}
+            {% if not IsEnter%}
+            <div class="form-group">
+              <textarea class="form-control input" id="Text" name='text' placeholder="Enter your text" rows="10" style="    color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;"></textarea>
+  </div>
+  <div class="form-group" >
+    <textarea class="form-control input" id="correcttext" style="display: none;color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10"></textarea>
+  </div>
+  {% endif %}
+  {% if IsEnter%}
+  <div class="form-group">
+    
+    <textarea class="form-control input" id="Text" name='text' style="color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10">{{text}}</textarea>
+  </div>
+  <div class="form-group" >
+    <textarea class="form-control input" id="correcttext" style="display: none;color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10">{{NewText}}</textarea>
+  </div>
+  {% endif %}
+  <div class="text-center" id="overlay" role="status">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    
+    
+  </div>
+  <p id="exceed" class="text-danger">*Text limit:300 words.</p>
+  
+  <button type="submit" class="btn btn-outline-secondary correct text-light my-2">Correct</button>
+</form>
+</div>
+</div>
+<hr class="my-4 bg-dark">
+<h3 class="my-4 text-monospace">Grammar corrector?</h3>
+<p class="my-4">It is an tool/software which analyzes your text and check various possibilities of words that matches
+  with your previous/next word and correct your text.It has huge amount backend that's why it could take some time according to length of 
+  text. </p>
+<hr class="my-4 bg-dark">
+<h3 class="my-4 text-monospace">Use of Grammar corrector?</h1>
+  <p class="my-4">Grammar corrector is very useful in every aspect and has various reasons how can it would be useful.Some of those are 
+    as follows.
+    <br>
+
+<p class="my-1">1. Of course it Saves time</p>
+<p class="my-1">2. Saves nerves</p>
+<p class="my-1">3. Since it tries many possibilities it has better feedback</p>
+<p class="my-1">4. It increased target audience</p>
+<p class="my-1">5. People are not well at english can practice here.</p></p>
+
+  </div>
+
+</div>
+<div class="col-md-4 my-4 ">
+    
+  <div class="col my-2 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        
+      
+        <h4 class="mb-2 ">Translators</h3>
+          
+          <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Marathi/">English to Marathi</a></li>
+          <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
+          <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
+          <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
+        </div>
+  <div class="col p-4 my-3 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+          <h4 class="my-4">Text Analyzers</h3>
+            <li class="my-2"><a href="/Analyzer/name_sorting/" class="my-2">Words alphabetizer</a></li>
+            <li class="my-2"><a href="/Analyzer/TextAnalyzer/" >Text Editor
+            </a></li>
+            
+          </div>
+          
+       
+        </div>
+      </div>
+</div>
+</div>
+{% endblock  %}
+{% block JS %}
+<script>
+  
+    
+window.onload = function () {
+        $("#overlay").hide();
+        {% if length_text > 300 %}
+   document.getElementById("exceed").innerHTML="Text size exceeded than a limit."
+   window.scrollTo(0,450);
+    {% else %}
+   window.scrollTo(0,450);
+   document.getElementById("exceed").innerHTML="Text Limit:300 characters"
+
+    {% endif %}
+    };
+
+    $(document).ready(function () {
+        $("#form").submit(function () {
+            $("#overlay").show();
+
+        });
+    });
+    $('#option1').click(function(e){
+
+      document.getElementById("Text").style.display="block"
+      document.getElementById("correcttext").style.display="none"
+      e.preventDefault();
+    })
+    
+    
+    $('#option2').click(function(e)
+    {
+      
       document.getElementById("Text").style.display="none"
       document.getElementById("correcttext").style.display="block"
       e.preventDefault();
