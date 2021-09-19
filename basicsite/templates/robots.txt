@@ -1,4 +1,5 @@
 User-agent: *
 Disallow: /admin
-Disallow:  /* .png$
+Disallow:  /*.png$
+Disallow: /static/
 Sitemap:https://www.calcont.in/sitemap.xml
