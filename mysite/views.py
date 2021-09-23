@@ -266,7 +266,8 @@ def Login(request):
             
             return render(request, "Login.html")
             
-       
+    if request.user.is_authenticated:
+        return HttpResponse("400 bad request")    
     
     return render(request, "Login.html")
 def Signin(request):
@@ -306,6 +307,8 @@ def Signin(request):
      
         return render(request,"index.html",{"canlogin":True})
         # return render(request,"index.html",param)
+    if request.user.is_authenticated:
+        return HttpResponse("400 bad request") 
     
     return render(request,"Signin.html")
 def Logout(request):

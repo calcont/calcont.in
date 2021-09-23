@@ -11,7 +11,7 @@ Signin
 {% block MAut %}
 Amar khamkar
 {% endblock  %}
-{% block title %}Sigin
+{% block title %}Sigin | CalConT
 {% endblock  %}
 {% block body %}
 <style>
@@ -78,11 +78,18 @@ Amar khamkar
      
         <hr class="bg-dark my-2">
        
-        <button class="btn btn-outline-secondary btn-md text-light my-2" type="submit">Signup</button>
-        OR
+        <div class="container ">
+          <div class="signUp  ">
+          <button class="btn btn-lg btn-block  my-4  text-light btn-outline-secondary" type="submit">Sign Up</button>
+        </div>
+        <p class="text-center mb-2 mt-2">OR</p>
         
-        <a type="button" href="{% url 'social:begin' 'google-oauth2' %}">
-          <img src="https://img.icons8.com/bubbles/50/000000/google-logo.png"/></a><br>
+        
+          <a  type="button" class="btn  text-light btn-outline-secondary btn-md btn-block "
+    
+       href="{% url 'social:begin' 'google-oauth2' %}">Sign Up With   <img class="mx-2" src="/static/google.png"/></a><br>
+    
+      </div>
         <div class="checkbox my-3">
           <label>
             Already registerd?Please <a href="/login">Login </a> here.

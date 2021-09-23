@@ -3,14 +3,14 @@
 Words Alphabetizer is a online tool helps to arrange list of names in alphabaetical order.List of names mean it can be
 any text
 {% endblock %}
-{% block MKW %}Names arranger,words arranger,alphabetize names,list,alphabaetical order,alphabetizer,sorting words{% endblock %}
+{% block MKW %}Names arranger,words arranger,alphabetize names,list,alphabaetical order,alphabetizer,words sort{% endblock %}
 {% block Mr %}
 7/01/2021
 {% endblock %}
 {% block MAut %}
 Amar khamkar
 {% endblock %}
-{% block title %}Online Words Sort in alphabetical order
+{% block title %} Online Words Sort in alphabetical order
 {% endblock %}
 {% block body %}
 <style>
@@ -20,7 +20,10 @@ border: 1px solid rgb(38, 35, 35);
 border-radius: 10px;
 
 }
+.AddName{
+  background-color: #3671ab;
 }
+
 </style>
 <div class="container text-light">
   <div class="row ">
@@ -52,7 +55,7 @@ border-radius: 10px;
           
           
           
-            <a class="mx-2 my-4 btn btn-outline-secondary btn-md AddName" role="button">Add</a>
+            <a class="mx-2 my-4 btn btn-primary btn-md AddName" role="button">Add</a>
           
           <br>
           
@@ -71,7 +74,7 @@ border-radius: 10px;
           <div class="mb-2">
          
           <a class="mx-2 btn btn-outline-secondary btn-md SortAll" role="button">Sort</a>
-          <a class="mx-2 btn btn-outline-secondary btn-md reset" role="button">Reset</a>
+          <a class="mx-2 btn btn-outline-secondary btn-md  reset" role="button">Reset</a>
           <a class="mx-2 btn btn-outline-secondary btn-md copy" role="button">Copy</a>
         
         </div>
