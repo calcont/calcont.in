@@ -1,7 +1,2 @@
-popular
-stopwords
 wordnet
-punkt
-pros_cons
-reuters 
 rake
