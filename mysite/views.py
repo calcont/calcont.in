@@ -4,7 +4,6 @@ from django.shortcuts import render,redirect
 from datetime import datetime
 from .models import Headlines,Contact
 from googletrans import Translator
-from rake_nltk import Rake
 import speech_recognition as sr
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login,logout
@@ -116,16 +115,16 @@ def Grammar_correction(request):
 def name_sorting(request):
     return render(request,'name_sorting.html')
 #KeywordsExtractionFromText
-def KeywordsExtraction(request):
-    if request.method == "POST":
-        text =request.POST['text']
-        rake_nltk_var = Rake()
-        rake_nltk_var.extract_keywords_from_text(text)
-        keyword_extracted = rake_nltk_var.get_ranked_phrases()
-        response=json.dumps({'Keyword': keyword_extracted,'keywordLen':len(keyword_extracted)},default=str)
-        return HttpResponse(response) 
+# def KeywordsExtraction(request):
+#     if request.method == "POST":
+#         text =request.POST['text']
+#         rake_nltk_var = Rake()
+#         rake_nltk_var.extract_keywords_from_text(text)
+#         keyword_extracted = rake_nltk_var.get_ranked_phrases()
+#         response=json.dumps({'Keyword': keyword_extracted,'keywordLen':len(keyword_extracted)},default=str)
+#         return HttpResponse(response) 
 
-    return render(request,'KeywwordsExtraction.html')
+#     return render(request,'KeywwordsExtraction.html')
 #Conversion
 def Binaryconversion(request):
     return render(request,'Binarycon.html')
