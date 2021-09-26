@@ -1,5 +1,0 @@
-popular
-stopwords
-wordnet
-punkt
-pros_cons
