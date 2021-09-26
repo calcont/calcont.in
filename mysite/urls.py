@@ -18,6 +18,7 @@ urlpatterns = [
     # path('Analyzer/TextAnalyzer/Analyze/', views.analyze,name='analyze'),
     path('Analyzer/name_sorting/', views.name_sorting,name="name_sorting"),
     path('Analyzer/Grammar_correction/',views.Grammar_correction,name="grammar"),    
+    path('Analyzer/Online-Keywords-extractor-from-text/',views.KeywordsExtraction,name="KeywordsExtraction"),
     path('Conversion/BinaryConverter/', views.Binaryconversion,name='Binaryconversion'),
     path('Conversion/DecimalConverter/', views.Decimalconversion,name="Decimalconversion"),
     path('Conversion/HexadecimalConverter/', views.Hexadecimalconversion,name="Hexadecimalconversion"),

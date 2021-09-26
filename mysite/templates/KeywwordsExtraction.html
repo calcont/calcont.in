@@ -1,0 +1,172 @@
+{% extends 'main_index.html' %}
+rKeywords extractor is a tool which really helps to extract important words from para,sentences.It can really reduce peoples time.
+any text
+{% endblock %}
+{% block MKW %}keywords,extractor,keywords extractor,keywords extraction,text,Online Keywords extractor from text{% endblock %}
+{% block Mr %}
+24/09/2021
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %} Online Keywords extractor from text
+{% endblock %}
+{% block body %}
+<style>
+.input{
+
+border: 1px solid rgb(38, 35, 35);
+border-radius: 10px;
+
+}
+.AddName{
+  background-color: #3671ab;
+}
+
+</style>
+<div class="container text-light">
+  <div class="row ">
+   
+    <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <div class="my-4 ">
+        <h2 class="mx-4 ">Keywords Extractor</h2>
+        <hr class="my-4 bg-dark">
+        <h3 class="text-monospace my-2">Keyword Extractor?</h3>
+        <p class="text-monospace my-4">It is a tool which extracts or generate important words i.e keywords from text.
+        It is an AI based tool which analyse the text and then process it to find best keywords.It uses concepts called NLP(natural language processing) to process the text , remove the stop words,punctuation and then tries out various possibilities to find optimal solution.
+        </p>
+          <hr class="bg-dark my-2">
+        <h3 class="my-4 mb-4 text-monospace text-center">Keywords Extraction Tool</h3>
+        <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+        <form id="post-form" > 
+        {% csrf_token %}   
+          <div class="form-group mb-4">
+            <textarea class="form-control input my-4" name="text" placeholder="Enter the text" id="text" rows="10" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " required></textarea>
+          </div>
+          
+          
+          <div class="mb-2">
+         <div class="row">
+         <div class="col-8">
+          <button class="mx-2  btn btn-outline-secondary btn-md extract text-light" type="submit" >Extract</button>
+          </div>
+           
+          <div class="col-4">
+          <a class="mx-2  btn btn-outline-secondary btn-md clear" >Clear</a>
+          </div>
+          
+        </div>
+        </div>
+        </form>
+      </div>
+      <div class=" my-4 mb-4" id="OutTable" style="border:3px solid #2b2929;border-radius: 10px;display:none;">
+      
+      <div class="container col-md-11" style='height:400px;overflow-y:auto;'>
+      <h3 class="text-center text-monospace my-3 mb-3">Output</h3>
+      <table class="table table-borderless text-light my-4 mb-4"   >
+  <thead  >
+    <tr>
+      <th class="rounded-lg" scope="col">Extracted KeyWord</th>
+      <th class="rounded-lg"  scope="col">Word No.(acc. to weightage)</th>
+    </tr>
+
+  </thead>
+  <tbody id="content">
+    
+  </tbody>
+</table>
+</div>
+</div>
+        <hr class="my-4 bg-dark">
+        <h3 class="text-monospace my-2">Keyword Extractor in CalConT?</h3>
+        <p class="text-monospace my-4">So,to use keyword extractor in calcont ,<br>
+        1.First you have to write or paste the text on textarea. <br>
+        2.Press the extract button then the extracted words will be generated below the textarea. <br>
+        3.Now,extracted keywords are arrange according to their priority & weightage.
+        </p>
+      <hr class="my-4 bg-dark">
+      <h3 class="text-monospace my-4">Use of tool?</h3>
+      <p class=" my-4">There are a lot application like,<p>
+      <p class="my-2"> 1.As keyword is very essential part of SEO(search engine optimization) in which one has to
+      find the best keyword which is suitable for their content in website.
+      </p>
+      <p class="my-2"> 2.It can be helpful for any school/college work to mark importanat words in their write up.</p>
+      <p class="my-2"> 3.Also can be used to increase or enhance presentations.</p>
+      </p>
+
+    </div>
+
+  </div>
+  <div class="col-md-4 my-4 ">
+
+    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+      <h4 class="mb-2 ">Translators</h3>
+
+        <li class="my-1"><a href="/Translator/English_to_hindi/">English to Hindi.</a></li>
+        <li class="my-1"><a href="/Translator/English_to_Marathi/">English to Marathi</a></li>
+        <li class="my-1"><a href="/Translator/English_to_French/">English to French</a></li>
+        <li class="my-1"><a href="/Translator/English_to_German/">English to German</a></li>
+        <li class="my-1"><a href="/Translator/English_to_Arabian/">English to Arab</a></li>
+    </div>
+    <div class="col my-2 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+          box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <h4 class="my-2">Text Analyzers</h3>
+        <li class="my-2"><a class="my-2" href="/Analyzer/TextAnalyzer/">Text Editor</a></li>
+        <li class="my-2"><a class="my-2" href="/Analyzer/name_sorting/">Words Sorting</a></li>
+        <li class="my-2"><a href="/Analyzer/Grammar_correction/" class="my-2">Grammar Checker</a></li>
+
+    </div>
+
+
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}
+{% block JS %}
+<script>
+$('.clear').click(function(e){
+    document.getElementById('text').value = "";
+    e.preventDefault();
+})
+$(document).on('submit','#post-form',function(e){
+  $('#content').empty();
+    e.preventDefault();
+    $.ajax({
+        type:'POST',
+        url:'/Analyzer/Online-Keywords-extractor-from-text/',
+        data:{
+            text:$('#text').val(),
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+        encode:true,
+        success:function(response){
+          var GotRes=JSON.parse(response)
+          //console.log(x)
+          var keyword = GotRes['Keyword']
+          let uniquekeyword = [...new Set(keyword)];
+          document.getElementById('OutTable').style.display="block";
+          for(var i=0;i<uniquekeyword.length;i++){
+            tble=`<tr >
+                        <td class="rounded-lg">
+                        ${uniquekeyword[i]}
+                        </td>
+                        <td class="rounded-lg">
+                        ${i+1}
+                        </td>
+                      </tr>` ;
+             $('#content').append(tble);
+          }
+        }
+    })
+})
+</script>
+
+{% endblock %}

@@ -15,6 +15,7 @@ class StaticViewsSitemap(Sitemap):
             "mysite:text",
             "mysite:name_sorting",
             "mysite:grammar",
+            "mysite:KeywordsExtraction",
             "mysite:Binaryconversion",
             "mysite:Decimalconversion",
             "mysite:Hexadecimalconversion",
