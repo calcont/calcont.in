@@ -1,1 +1,1 @@
-corpora
+wordnet
