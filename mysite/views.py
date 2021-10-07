@@ -18,12 +18,57 @@ from django.views.decorators.csrf import csrf_exempt
 # from language_tool_python import LanguageTool as LT
 # Create your views here.
 #username Amar pass:Amar123
+urls = [
+    #[HREF_LINK,NAME_TO_BE_GIVEN,GRP_ID,SAME_GRP_IN_WEBPAGE,INDI_ID]
+    ['/Analyzer/TextAnalyzer/','Text editor',1,'AT',0],
+    ['/Analyzer/name_sorting/', 'Words Sorting',1,'AT',1],
+    ['/Analyzer/Grammar_correction/','Grammar Corrector',1,'AT',2],
+    ['/Analyzer/Online-Keywords-extractor-from-text/','Keyword Extractor',1,'AT',3],
 
+    ['/Conversion/BinaryConverter/','Binary Converter',2,'CC',0],
+    ['/Conversion/DecimalConverter/','Decimal Converter',2,'CC',1],
+    ['/Conversion/HexadecimalConverter/','Hexadecimal Converter',2,'CC',2],
+    ['/Conversion/CurrencyConverter/','Currency Converter',2,'CC',3],
+    [ '/Conversion/infix_to_postfix','Infix to Postfix Converter',2,'CC',4],
+    ['/Conversion/infix_to_prefix','Infix to Prefix Converter',2,'CC',5],
+    ['/Conversion/postfix_to_infix','Postfix to Infix Converter',2,'CC',6],
+    ['/Conversion/prefix_to_postfix','Prefix to Postfix Converter',2,'CC',7],
+    ['/Conversion/prefix_to_infix','Prefix to Infix Converter',2,'CC',8],
+    ['/Conversion/cgpa_to_percentage/','Cgpa to Percentage Converter',2,'CC',9],
+
+    ['/Translator/English_to_hindi/','English to Hindi Translator',3,'AT',0],
+    ['/Translator/English_to_Marathi/','English to Marathi Translator',3,'AT',1],
+    ['/Translator/English_to_German/','English to German Translator',3,'AT',2],
+    ['/Translator/English_to_French/','English to French Translator',3,'AT',3],
+    ['/Translator/English_to_Arabian/','English to Arabian Translator',3,'AT',4],
+
+    ['/Calculator/EMI_calculator/','EMI Calculator',4,'CC',0],
+    ['/Calculator/GCD_calculator/','GCD Calculator',4,'CC',1],
+    ['/Calculator/BMI_calculator/','BMI Calculator',4,'CC',2],
+    ['/Calculator/Postfix_calculator/','Postfix Calculator',4,'CC',3],
+    ['/Calculator/Prefix_calculator/','Prefix Calculator',4,'CC',4]
+
+]
+
+def ArrangeSideMapLinksForWebPage(indi_id,grp_id,same_grps_id):
+    links_strings_1=[]
+    links_strings_2=[]
+    for link in range(len(urls)):
+
+        if urls[link][3] == same_grps_id:
+            if urls[link][2] == grp_id:
+                if urls[link][4]!= indi_id:
+                    links_strings_1.append([urls[link][0],urls[link][1]])
+                pass
+            else:
+                links_strings_2.append([urls[link][0],urls[link][1]])
+    return links_strings_1,links_strings_2
 def index(request):
     return render(request,'index.html')
 #Analyzer
 
 def text(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(0,1,'AT')
     if request.method=="POST":
         tex=request.POST.get('text','default')
         removepunc=request.POST.get('removepunc','off')
@@ -66,17 +111,18 @@ def text(request):
             analysed="PLEASE ENTER TEXT FIRST."
 
         
-        parms={'Text':analysed,'IsEnter':IsEnter,'OrText':tex}
+        parms={'Text':analysed,'IsEnter':IsEnter,'OrText':tex,'link_string1':link_string1,'link_string2':link_string2}
         return render(request,'text.html',parms)
-    return render(request,'text.html')
+    params={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'text.html',params)
 def Grammar_correction(request):
-    
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(2,1,'AT')
     if request.method=='POST':
         IsEnter=True
         text=request.POST.get('text','default')
         from gingerit.gingerit import GingerIt
         length_text=len(text)
-        if length_text<200:
+        if length_text<300:
             result = GingerIt().parse(text)
             n=len(list(result['corrections']))
             d=[]
@@ -102,11 +148,12 @@ def Grammar_correction(request):
                 Text+=i
 
 
-            param={'NewText':result['result'],"text":Text,"IsEnter":IsEnter,"length_text":length_text}
+            param={'NewText':result['result'],"text":Text,"IsEnter":IsEnter,"length_text":length_text,'link_string1':link_string1,'link_string2':link_string2}
         else:
-            param={'NewText':" ","text":text,"IsEnter":IsEnter,"length_text":length_text}
+            param={'NewText':" ","text":text,"IsEnter":IsEnter,"length_text":length_text,'link_string1':link_string1,'link_string2':link_string2}
         return render(request,'Grammar_correction.html',param)
-    return render(request,'Grammar_correction.html')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'Grammar_correction.html',param)
         
 
         
@@ -117,6 +164,7 @@ def name_sorting(request):
     return render(request,'name_sorting.html')
 #KeywordsExtractionFromText
 def KeywordsExtraction(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(3,1,'AT')
     if request.method == "POST":
         text =request.POST['text']
         rake_nltk_var = Rake()
@@ -124,8 +172,8 @@ def KeywordsExtraction(request):
         keyword_extracted = rake_nltk_var.get_ranked_phrases()
         response=json.dumps({'Keyword': keyword_extracted,'keywordLen':len(keyword_extracted)},default=str)
         return HttpResponse(response) 
-
-    return render(request,'KeywwordsExtraction.html')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'KeywwordsExtraction.html',param)
 #Conversion
 def Binaryconversion(request):
     return render(request,'Binarycon.html')
