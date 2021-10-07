@@ -161,7 +161,9 @@ def Grammar_correction(request):
     
 #namesorting
 def name_sorting(request):
-    return render(request,'name_sorting.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(1,1,'AT')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'name_sorting.html',param)
 #KeywordsExtractionFromText
 def KeywordsExtraction(request):
     link_string1,link_string2=ArrangeSideMapLinksForWebPage(3,1,'AT')
