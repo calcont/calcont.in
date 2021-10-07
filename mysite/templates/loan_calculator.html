@@ -164,17 +164,17 @@ Amar khamkar
     
               <div class="col p-4 d-flex flex-column position-static my-2"  style="background-color:rgb(30,30,30);
               box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-                      <h4 class="my-2">Calculators</h3>
-                        {% for link in link_string2 %}
-                        <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-                         {% endfor %}
-                        </div>
-                        <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
-                        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-                          <h4 class="mb-2 ">Converters</h3>
-                            {% for link in link_string1 %}
-                            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-                            {% endfor %}
+                        <h4 class="mb-2 ">Calculators</h3>
+                          {% for link in link_string1 %}
+                          <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                          {% endfor %}
+                          </div>
+                          <div class="col my-3 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+                      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                      <h4 class="my-2">Converters</h3>
+                      {% for link in link_string2 %}
+                      <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                       {% endfor %}
 
           </div>
 
