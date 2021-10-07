@@ -176,56 +176,72 @@ def KeywordsExtraction(request):
     return render(request,'KeywwordsExtraction.html',param)
 #Conversion
 def Binaryconversion(request):
-    return render(request,'Binarycon.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(0,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'Binarycon.html',param)
 def Decimalconversion(request):
-    return render(request,'DecimalCon.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(1,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'DecimalCon.html',param)
 def Hexadecimalconversion(request):
-    return render(request,'HexaCon.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(2,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'HexaCon.html',param)
 #currency
 def Currencyconversion(request):
-    return render(request,'CurrencyCon.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(3,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'CurrencyCon.html',param)
 def infix_to_postfix(request):
-    return render(request,'infix_to_postfix.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(4,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'infix_to_postfix.html',param)
+#cgpatopercent
 def cgpa_to_percentage(request):
-    return render(request,'cgtopercent.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(9,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'cgtopercent.html',param)
 ##PostfixtoInfix
 def postfix_to_infix(request):
-    return render(request,'postfix_to_infix.html')
-
-##InfixtoPrefix
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(6,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'postfix_to_infix.html',param)
+##Infixtoprefix
 def infix_to_prefix(request):
-    return render(request,'infix_to_prefix.html')
-##prefixtopostfix
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(5,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'infix_to_prefix.html',param)
+##prefixtoPostfix
 def prefix_to_postfix(request):
-    return render(request,'prefix_to_postfix.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(7,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'prefix_to_postfix.html',param)
 ##prefixtoInfix
 def prefix_to_infix(request):
-    return render(request,'prefix_to_infix.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(8,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'prefix_to_infix.html',param)
 
-def Language_Translator(request):
-    return render(request,'Language_Translator.html')
 
 
 #Translator
 def EnglishToHindi(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(0,3,'AT')
     if request.method=='POST':
-
-    
-    
         text=request.POST.get('text','default')
         trans=Translator()
         
         lang=trans.detect(text)
         t=trans.translate(text,dest='hi')
-      
-
         alt=True
-        param={"ortext":text,"text":t.text,"alt":alt}
+        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
         return render(request,'EnglishToHindi_Transl.html',param)
         # print(text)
-    return render(request,'EnglishToHindi_Transl.html')
- 
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'EnglishToHindi_Transl.html',param)
+
 def EnglishToMarathi(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(1,3,'AT')
     if request.method=="POST":
         text=request.POST.get('text','default')
         trans=Translator()
@@ -235,10 +251,12 @@ def EnglishToMarathi(request):
     
 
         alt=True
-        param={"ortext":text,"text":t_marathi.text,"alt":alt}
+        param={"ortext":text,"text":t_marathi.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
         return render(request,'EnglishToMarathi_Transl.html',param)
-    return render(request,'EnglishToMarathi_Transl.html')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'EnglishToMarathi_Transl.html',param)
 def EnglishToGerman(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(2,3,'AT')
     if request.method=="POST":
         text=request.POST.get('text','default')
         trans=Translator()
@@ -248,10 +266,12 @@ def EnglishToGerman(request):
       
 
         alt=True
-        param={"ortext":text,"text":t.text,"alt":alt}
+        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
         return render(request,'EnglishToGerman_Transl.html',param)
-    return render(request,'EnglishToGerman_Transl.html')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'EnglishToGerman_Transl.html',param)
 def EnglishToFrench(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(3,3,'AT')
     if request.method=="POST":
         text=request.POST.get('text','default')
         trans=Translator()
@@ -261,10 +281,12 @@ def EnglishToFrench(request):
       
 
         alt=True
-        param={"ortext":text,"text":t.text,"alt":alt}
+        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
         return render(request,'EnglishToFrench_Transl.html',param)
-    return render(request,'EnglishToFrench_Transl.html')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'EnglishToFrench_Transl.html',param)
 def EnglishToArabian(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(4,3,'AT')
     if request.method=="POST":
         text=request.POST.get('text','default')
         trans=Translator()
@@ -274,22 +296,33 @@ def EnglishToArabian(request):
       
 
         alt=True
-        param={"ortext":text,"text":t.text,"alt":alt}
+        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
         return render(request,'EnglishToArabian_Transl.html',param)
-    return render(request,'EnglishToArabian_Transl.html')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'EnglishToArabian_Transl.html',param)
 
 #calculator
 
 def Loan_calculator(request):
-    return render(request,'loan_calculator.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(0,4,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'loan_calculator.html',param)
 def GCD_calculator(request):
-    return render(request,'GCD_calculator.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(1,4,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'GCD_calculator.html',param)
 def BMI_calculator(request):
-    return render(request,'BMI_calculator.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(2,4,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'BMI_calculator.html',param)
 def Postfix_calculator(request):
-    return render(request,'Postfix_calculator.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(3,4,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'Postfix_calculator.html',param)
 def Prefix_calculator(request):
-    return render(request,'Prefix_calculator.html')
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(4,4,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'Prefix_calculator.html',param)
 #contact
 def ContactMe(request):
     if request.method == "POST":
