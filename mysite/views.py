@@ -41,6 +41,8 @@ urls = [
     ['/Translator/English_to_German/','English to German Translator',3,'AT',2],
     ['/Translator/English_to_French/','English to French Translator',3,'AT',3],
     ['/Translator/English_to_Arabian/','English to Arabian Translator',3,'AT',4],
+    ['/Translator/English_to_spanish/','English to Spanish Translator',3,'AT',5],
+    ['/Translator/English_to_thai/','English to Thai Translator',3,'AT',6],
 
     ['/Calculator/EMI_calculator/','EMI Calculator',4,'CC',0],
     ['/Calculator/GCD_calculator/','GCD Calculator',4,'CC',1],
@@ -302,6 +304,32 @@ def EnglishToArabian(request):
         return render(request,'EnglishToArabian_Transl.html',param)
     param={'link_string1':link_string1,'link_string2':link_string2}
     return render(request,'EnglishToArabian_Transl.html',param)
+def EnglishToSpanish(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(5,3,'AT')
+    if request.method=="POST":
+        text=request.POST.get('text','default')
+        trans=Translator()
+        
+        lang=trans.detect(text)
+        t=trans.translate(text,dest='es')
+        alt=True
+        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
+        return render(request,'EnglishToSpanish_Transl.html',param)
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'EnglishToSpanish_Transl.html',param)
+def EnglishTothai(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(6,3,'AT')
+    if request.method=="POST":
+        text=request.POST.get('text','default')
+        trans=Translator()
+        
+        lang=trans.detect(text)
+        t=trans.translate(text,dest='th')
+        alt=True
+        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
+        return render(request,'EnglishToThai_Transl.html',param)
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'EnglishToThai_Transl.html',param)
 
 #calculator
 

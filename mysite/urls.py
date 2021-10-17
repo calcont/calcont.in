@@ -46,6 +46,8 @@ urlpatterns = [
     path('Translator/English_to_German/', views.EnglishToGerman,name="EnglishToGerman"),
     path('Translator/English_to_French/', views.EnglishToFrench,name="EnglishToFrench"),
     path('Translator/English_to_Arabian/', views.EnglishToArabian,name="EnglishToArabian"),
+    path('Translator/English_to_spanish/', views.EnglishToSpanish,name="EnglishToSpanish"),
+    path('Translator/English_to_thai/', views.EnglishTothai,name="EnglishToThai"),
   
 #calculator
 

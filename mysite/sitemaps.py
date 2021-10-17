@@ -25,6 +25,8 @@ class StaticViewsSitemap(Sitemap):
             "mysite:EnglishToGerman",
             "mysite:EnglishToFrench",
             "mysite:EnglishToArabian",
+            "mysite:EnglishToSpanish",
+            "mysite:EnglishToThai",
             "mysite:Loan_calculator",
             "mysite:GCD_calculator",
             "mysite:BMI_calculator",
