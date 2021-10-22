@@ -154,7 +154,7 @@ a{
             <hr class="bg-dark">
             <div class="container ">
             <div class="signUp  ">
-            <a class="btn btn-lg btn-block  my-4  text-light btn-outline-secondary" href="\signin">Sign Up</a>
+            <a class="btn btn-lg btn-block  my-4  text-light btn-outline-secondary signin" href="\signin">Sign Up</a>
           </div>
           <p class="text-center mb-2 mt-2">OR</p>
           
@@ -337,7 +337,7 @@ function readCookie(name) {
 
 function setexpire(){
   var date = new Date();
-  date.setTime(new Date(date.getFullYear(), date.getMonth(), date.getDate() ,date.getHours(),date.getMinutes() + 5));
+  date.setTime(new Date(date.getFullYear(), date.getMonth(), date.getDate() ,date.getHours() + 24 ));
   
   console.log(date)
   var x = Math.floor((Math.random() * 1000) + 1);
@@ -353,7 +353,7 @@ if (myCookie==undefined){
      {% if not user.is_authenticated %} 
      $('#DoLogin').modal('show') 
      {% endif %}
-     }, 15000);
+     }, 45000);
    console.log(myCookie)
 }
     
