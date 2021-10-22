@@ -323,34 +323,48 @@ a{
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
   <script>
-if(sessionStorage.getItem('DoLogin')==null){
-  var Justpop=new Array();
-setTimeout(function(){ 
-if(Justpop.length==0){
-  {% if not user.is_authenticated %}
-  $('#DoLogin').modal('show')
-
-{% endif %} 
-} 
-}, 45000);
-  var i=0;
+function readCookie(name) {
+      console.log(name)
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
 }
-$(".close").click(function(e){
 
 
-  i+=1;
-  Justpop[i]=1;
-sessionStorage.setItem("DoLogin",Justpop);
-console.log(Justpop)
-});
-$(".signin").click(function(e){
+function setexpire(){
+  var date = new Date();
+  date.setTime(new Date(date.getFullYear(), date.getMonth(), date.getDate() ,date.getHours(),date.getMinutes() + 5));
+  
+  console.log(date)
+  var x = Math.floor((Math.random() * 1000) + 1);
+  document.cookie = 'PopCookie' + "=" + x + "; " + "expires="+date.toUTCString() + ";path=/";
+}
 
+var myCookie = readCookie('PopCookie');
+console.log(myCookie)
 
-  i+=1;
-  Justpop[i]=1;
-sessionStorage.setItem("DoLogin",Justpop);
-{% comment %} console.log(Justpop) {% endcomment %}
-});
+if (myCookie==undefined){
+   // code to show modal here 
+   setTimeout(function(){ 
+     {% if not user.is_authenticated %} 
+     $('#DoLogin').modal('show') 
+     {% endif %}
+     }, 15000);
+   console.log(myCookie)
+}
+    
+    $(".close").click(function (e) {
+      setexpire();
+
+    });
+    $(".signin").click(function (e) {
+      setexpire();
+
+    });
  
   </script>
   {% block JS %}
