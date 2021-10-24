@@ -113,62 +113,6 @@ to postfix first and then solve those expression to evaluate answer for the same
 {% endblock %}
 {% block JS %}
 <script>
-
-    $('.cal').click(function (e) {
-            var postfix = document.getElementById("Postfix").value;
-            var stack = [], top = -1;
-
-            var i, a, b, result, pEval, ch;
-
-            for (i = 0; i <= postfix.length; i++) {
-                ch = postfix[i];
-
-                if (!isNaN(parseInt(ch))) {
-
-
-                    stack[++top] = parseInt(ch);
-                }
-
-                else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
-                    b = stack[top];
-                    top--;
-                    a = stack[top];
-                    top--;
-
-
-                    if (ch == '+') {
-                        result = a + b;
-                    }
-
-                    else if (ch == '-') {
-                        result = a - b;
-                    }
-                    else if (ch == '*') {
-                        result = a * b;
-                    }
-
-
-                    else if (ch == '/') {
-                        result = a / b;
-                    }
-                    stack[++top] = result;
-                }
-
-            }
-
-            pEval = stack[top];
-
-            // top--;
-        
-
-            document.getElementById("Ans").value = pEval
-        
-    
-
-
-
-
-        e.preventDefault();
-    });
+$(".cal").click(function(e){var t,n,a,l,c,u,o=document.getElementById("Postfix").value,r=[],s=-1;for(t=0;t<=o.length;t++)u=o[t],isNaN(parseInt(u))?"+"!=u&&"-"!=u&&"*"!=u&&"/"!=u||(a=r[s],n=r[--s],s--,"+"==u?l=n+a:"-"==u?l=n-a:"*"==u?l=n*a:"/"==u&&(l=n/a),r[++s]=l):r[++s]=parseInt(u);c=r[s],document.getElementById("Ans").value=c,e.preventDefault()});
 </script>
 {% endblock %}

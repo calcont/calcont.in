@@ -115,62 +115,6 @@ Amar khamkar
 {% endblock %}
 {% block JS %}
 <script>
-
-    $('.cal').click(function (e) {
-            var prefix = document.getElementById("prefix").value;
-            var stack = [], top = -1;
-
-            var i, a, b, result, pEval, ch;
-
-            for (i = prefix.length; i >=0; i--) {
-                ch = prefix[i];
-
-                if (!isNaN(parseInt(ch))) {
-
-
-                    stack[++top] = parseInt(ch);
-                }
-
-                else if (ch == '+' || ch == '-' || ch == '*' || ch == '/') {
-                    b = stack[top];
-                    top--;
-                    a = stack[top];
-                    top--;
-
-
-                    if (ch == '+') {
-                        result = a + b;
-                    }
-
-                    else if (ch == '-') {
-                        result = a - b;
-                    }
-                    else if (ch == '*') {
-                        result = a * b;
-                    }
-
-
-                    else if (ch == '/') {
-                        result = a / b;
-                    }
-                    stack[++top] = result;
-                }
-
-            }
-
-            pEval = stack[top];
-
-            // top--;
-        
-
-            document.getElementById("Ans").value = pEval
-        
-    
-
-
-
-
-        e.preventDefault();
-    });
+$(".cal").click(function(e){var t,n,a,l,c,r,u=document.getElementById("prefix").value,d=[],f=-1;for(t=u.length;t>=0;t--)r=u[t],isNaN(parseInt(r))?"+"!=r&&"-"!=r&&"*"!=r&&"/"!=r||(a=d[f],n=d[--f],f--,"+"==r?l=n+a:"-"==r?l=n-a:"*"==r?l=n*a:"/"==r&&(l=n/a),d[++f]=l):d[++f]=parseInt(r);c=d[f],document.getElementById("Ans").value=c,e.preventDefault()});
 </script>
 {% endblock %}
