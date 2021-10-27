@@ -447,7 +447,6 @@ def Supportme(request):
     if request.method == "POST":
         amount = request.POST.get('amount')
         name = request.POST.get('name')
-        donater_name = name
         details = Donate(Donater_name = name)
         details.save()
         print(details.Donater_id)
