@@ -14,3 +14,6 @@ class Contact(models.Model):
     date=models.DateField()
     def __str__(self):
         return self.name
+class Donate(models.Model):
+    Donater_id=models.AutoField(primary_key=True)
+    Donater_name = models.CharField(max_length=122 ,default="")
