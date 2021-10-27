@@ -8,10 +8,13 @@ urlpatterns = [
     path('', views.index,name='index'),
     path('Contact_me/', views.ContactMe,name='contact'),
     path('About/',views.Aboutme,name="about"),
+    path('Supportme/',views.Supportme,name="support"),
+    path('HandlePayement/',views.handlerequest),
 #Authentication
     path('login/',views.Login,name="Login"),
     path('signin/',views.Signin,name="Signin"),
     path('logout/',views.Logout,name="Logout"),
+    
 
     #Analyzer
     path('Analyzer/TextAnalyzer/', views.text,name='text'),

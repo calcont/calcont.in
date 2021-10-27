@@ -24,6 +24,7 @@ joblib==1.0.1
 language-tool-python==2.5.2
 nltk==3.6.3
 oauthlib==3.1.1
+paytmchecksum==1.7.0
 psycopg2==2.8.6
 pycparser==2.20
 PyJWT==2.1.0

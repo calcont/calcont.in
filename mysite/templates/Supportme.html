@@ -1,0 +1,101 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Support Me 
+{% endblock  %}
+{% block MKW %}
+
+{% endblock  %}
+{% block Mr %}
+20/01/2021
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %} Support CalConT
+{% endblock  %}
+{% block body %}
+<style>
+section{
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+.paytm{
+  border: 8px solid rgb(49, 48, 48);
+  border-radius: 6px;
+  width:300px;
+  height:450px;
+}
+
+@media only screen and (max-width: 3000px) and (min-width: 768px) {
+    .paytm{
+      
+      margin-top: 10px;
+
+    }
+    .mobileView{
+      display: none;
+    }
+    .pfimg{
+      /* position: relative; */
+    }
+  }
+  @media only screen and (max-width: 767px) and (min-width: 400px) {
+
+    .mobileView{
+      display: block;
+    }
+    .paytm{
+      margin-left:90px;
+    }
+.txt{
+  font-size: 18px;
+}
+  }
+
+
+
+</style>
+<div class="container-fluid text-light">
+  <section>
+<div class="row ">
+  <div class="col-1"></div>
+  <div class="col-md-5 my-4 order-md-2 info">
+    
+      <h2>Support <span class="text-warning">CalConT</span></h2>
+  
+     <p class="lead txt  my-4">Hello , hope you are fine where ever you are!</p>
+      <p class="lead txt my-4">
+      As this is the free online tools website so it becomes very hard to pay hosting & maintainence amount for this website.<br>And from ads also I am not able to the 
+      earn significant amount of money.<br>So,that's why today I need your support as it requires a lot of efforts to make this tools.
+      <br>
+      You can just scan the PayTm QR code from any code scanner or enter amount below and donate the any amount as you wish.
+      <br>Besides that you can share CalConT to as many as possible.
+  </p>
+  <hr class=" bg-dark my-2">
+  <form action="/Supportme/" method="post" >{% csrf_token %}
+    <input type="text" class="form-control my-4" placeholder="Enter your name" style="    color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" id="name" name="name" required>
+    <input type="number" class="form-control my-4" placeholder="Enter amount(RS)" style="    color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" id="amount" name="amount" required>
+      <button class="btn btn-primary my-3" >Pay with paytm</button>
+    </form> 
+<div class="mobileView my-2">
+  {% comment %} <h4 class="text-light text-center mb-2 my-2">OR</h4> {% endcomment %}
+  <hr class="bg-dark">
+</div>
+</div>
+  <div class="col-md-5 order-md-1 pic">
+    <div class="pfimg  ">
+      <img src="/static/Offline Merchant.png" class="paytm"  alt="">
+    </div>
+  </div>
+ 
+</div>
+</section>
+</div>
+
+{% endblock %}

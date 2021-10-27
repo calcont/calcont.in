@@ -13,7 +13,9 @@ import os
 import math
 import random
 import smtplib
+import paytmchecksum as checksum
 import json
+MERCHANT_KEY="8XocnsgE0stV7ucv"
 from django.views.decorators.csrf import csrf_exempt
 # from language_tool_python import LanguageTool as LT
 # Create your views here.
@@ -440,3 +442,39 @@ def Logout(request):
         logout(request)
         messages.success(request,"Logged out successfully")
         return redirect("/")
+def Supportme(request):
+
+    if request.method == "POST":
+        amount = request.POST.get('amount')
+        name = request.POST.get('name')
+        donater_name = name
+        details = Donate(Donater_name = name)
+        details.save()
+        print(details.Donater_id)
+        paytmParam={
+                'MID':'oPsKqK89160486278896',
+                'ORDER_ID': str(details.Donater_id),
+                'TXN_AMOUNT': str(amount),
+                'CUST_ID': 'name',
+                'INDUSTRY_TYPE_ID': 'Retail',
+                'WEBSITE': 'WEBSTAGING',
+                'CHANNEL_ID': 'WEB',
+                'CALLBACK_URL':'http://127.0.0.1:8000/HandlePayement/',
+            
+        }
+
+        paytmParam['CHECKSUMHASH'] = checksum.generateSignature(paytmParam, MERCHANT_KEY)
+        return render(request,'paytm.html',{'param_dict':paytmParam})
+
+    return render(request,"SupportMe.html")
+
+@csrf_exempt
+def handlerequest(request):
+    if request.POST:
+        id = request.POST.get('ORDERID')
+        details = Donate.objects.values('Donater_id' , 'Donater_name').filter(Donater_id = id)
+        name = details[0]['Donater_name']
+        print(name)
+        return render(request,"HandleRequest.html",{'name':name})
+    else:
+        return HttpResponse("oops! there is some error .")
