@@ -2,7 +2,7 @@ import speech_recognition as sr
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
 from datetime import datetime
-from .models import Headlines,Contact
+from .models import Headlines,Contact,Donate
 from googletrans import Translator
 from rake_nltk import Rake
 import speech_recognition as sr
