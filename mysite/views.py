@@ -465,7 +465,7 @@ def Supportme(request):
         paytmParam['CHECKSUMHASH'] = checksum.generateSignature(paytmParam, MERCHANT_KEY)
         return render(request,'paytm.html',{'param_dict':paytmParam})
 
-    return render(request,"SupportMe.html")
+    return render(request,"Supportme.html")
 
 @csrf_exempt
 def handlerequest(request):
