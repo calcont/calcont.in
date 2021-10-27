@@ -4,7 +4,6 @@ cffi==1.14.5
 chardet==3.0.4
 click==8.0.1
 colorama==0.4.4
-crypto==1.4.1
 cryptography==3.4.7
 defusedxml==0.7.1
 dj-database-url==0.5.0
@@ -29,6 +28,7 @@ oauthlib==3.1.1
 paytmchecksum==1.7.0
 psycopg2==2.8.6
 pycparser==2.20
+pycryptodome==3.11.0
 PyJWT==2.1.0
 python3-openid==3.2.0
 pytz==2021.1
