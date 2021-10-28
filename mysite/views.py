@@ -454,11 +454,11 @@ def Supportme(request):
                 'MID':'oPsKqK89160486278896',
                 'ORDER_ID': str(details.Donater_id),
                 'TXN_AMOUNT': str(amount),
-                'CUST_ID': 'name',
+                'CUST_ID': str(name),
                 'INDUSTRY_TYPE_ID': 'Retail',
                 'WEBSITE': 'WEBSTAGING',
                 'CHANNEL_ID': 'WEB',
-                'CALLBACK_URL':'https://calcont.in/HandlePayement/',
+                'CALLBACK_URL':'calcont.in/HandlePayement/',
             
         }
 
