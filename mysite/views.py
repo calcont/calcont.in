@@ -13,6 +13,7 @@ import os
 import math
 import random
 import smtplib
+import base64
 import paytmchecksum as checksum
 import json
 MERCHANT_KEY="8XocnsgE0stV7ucv"
