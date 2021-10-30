@@ -26,6 +26,8 @@ urls = [
     ['/Analyzer/name_sorting/', 'Words Sorting',1,'AT',1],
     ['/Analyzer/Grammar_correction/','Grammar Corrector',1,'AT',2],
     ['/Analyzer/Online-Keywords-extractor-from-text/','Keyword Extractor',1,'AT',3],
+    ['/Analyzer/text-to-base64-converter/','text to base64 encoder',1,'AT',4],
+    ['/Analyzer/base64-to-text-converter/','base64 to text decoder',1,'AT',5],
 
     ['/Conversion/BinaryConverter/','Binary Converter',2,'CC',0],
     ['/Conversion/DecimalConverter/','Decimal Converter',2,'CC',1],
@@ -70,6 +72,13 @@ def ArrangeSideMapLinksForWebPage(indi_id,grp_id,same_grps_id):
 def index(request):
     return render(request,'index.html')
 #Analyzer
+def sitemaps(request):
+    text=[url for url in urls if url[2]==1]
+    converter=[url for url in urls if url[2]==2]
+    Translator=[url for url in urls if url[2]==3]
+    calculator=[url for url in urls if url[2]==4]
+
+    return render(request,'sitemaps.html',{'text':text,'converter':converter,'translator':Translator,'calculator':calculator})
 
 def text(request):
     link_string1,link_string2=ArrangeSideMapLinksForWebPage(0,1,'AT')
@@ -180,6 +189,32 @@ def KeywordsExtraction(request):
         return HttpResponse(response) 
     param={'link_string1':link_string1,'link_string2':link_string2}
     return render(request,'KeywwordsExtraction.html',param)
+
+#text to base64
+def texttobase64(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(4,1,'AT')
+    if request.method == "POST":
+        text =request.POST['text']
+        encoded_string = base64.b64encode(text.encode())
+        encoded_string = encoded_string.decode()
+        response=json.dumps({'Encoded': encoded_string},default=str)
+        return HttpResponse(response) 
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'text_to_base64.html',param)
+
+#base64 to text
+def base64totext(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(5,1,'AT')
+    if request.method == "POST":
+        text =request.POST['text']
+        decoded_string = base64.b64decode(text.encode())
+        decoded_string = decoded_string.decode()
+        response=json.dumps({'Decoded': decoded_string},default=str)
+        return HttpResponse(response) 
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'base64_to_text.html',param)
+
+
 #Conversion
 def Binaryconversion(request):
     link_string1,link_string2=ArrangeSideMapLinksForWebPage(0,2,'CC')
@@ -458,7 +493,7 @@ def Supportme(request):
                 'INDUSTRY_TYPE_ID': 'Retail',
                 'WEBSITE': 'WEBSTAGING',
                 'CHANNEL_ID': 'WEB',
-                'CALLBACK_URL':'calcont.in/HandlePayement/',
+                'CALLBACK_URL':'/calcont.in/HandlePayement/',
             
         }
 

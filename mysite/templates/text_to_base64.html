@@ -1,0 +1,150 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+online tool which encodes/converts simple text,string to base64 format.
+any text
+{% endblock %}
+{% block MKW %}Text to Base64 , Base64 Encoder,Base64 Converter,Base64,text to base64 converter{% endblock %}
+{% block Mr %}
+24/09/2021
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %} Text to Base64 | Base64 encoder | Base64 converter
+{% endblock %}
+{% block body %}
+<style>
+    .input {
+
+        border: 1px solid rgb(38, 35, 35);
+        border-radius: 10px;
+
+    }
+
+    .AddName {
+        background-color: #3671ab;
+    }
+</style>
+<div class="container text-light">
+    <div class="row ">
+
+        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4 ">
+                <h2 class="mx-4 ">Text to Base64</h2>
+                <hr class="my-4 bg-dark">
+                <h3 class="text-monospace my-2">base64 encoder?</h3>
+                <p class="text-monospace my-4">The “Text to Base64” converter is a simple encoder tool that allows you
+                    to convert online text to Base64 (that is, it encodes any textual characters into a basic ASCII
+                    string).If you want to to decode the base64 string to text then you can use
+                    <a href="/Analyzer/base64-to-text-converter/">Base64 to text decoder</a>.
+                </p>
+                <hr class="bg-dark my-2">
+                <h3 class="my-4 mb-4 text-monospace text-center">text to base64 encoder</h3>
+                <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+                    <form id="post-form">
+                        {% csrf_token %}
+                        <div class="form-group mb-4">
+                            <textarea class="form-control input my-4" name="text" placeholder="Enter the text" id="text"
+                                rows="7" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " required></textarea>
+                            <textarea class="form-control my-4" placeholder="Encoded text" id="output" rows="7" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " disabled></textarea>
+                        </div>
+
+
+                        <div class="mb-2">
+                            <div class="row">
+                                <div class="col-8">
+                                    <button class="mx-2  btn btn-outline-secondary btn-md extract text-light"
+                                        type="submit">Encode</button>
+                                </div>
+
+                                <div class="col-4">
+                                    <a class="mx-2  btn btn-outline-secondary btn-md clear">Clear</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-2">base64 encoder in CalConT?</h3>
+            <p class="text-monospace my-4">So,to use base64 encoder in calcont ,<br>
+                1.First you have to write or paste the text on textarea. <br>
+                2.Press the encode button then the base64 text will be encoded in output textarea. <br>
+                3.Now,you can check encoded text and also can copy that or if you wish to clear both text you can press
+                clear button.
+            </p>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-4">Use of tool?</h3>
+            <p class=" my-4">There are a lot application like,
+                <p>
+                    <p class="my-2"> 1.It uses to encode text while transfering some important information.</p>
+                    <p class="my-2"> 2.Use in Security or cryptography.</p>
+                    <p class="my-2"> 3.Uses in Computer networks.</p>
+                    <p class="my-2"> 3.Base64 is commonly used in a number of applications including email via MIME, and storing complex data in XML.</p>
+                    </p>
+        </div>
+                    
+
+
+
+<div class="col-md-4 my-4 ">
+    <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <h4 class="my-2">Analyzers</h3>
+            {% for link in link_string1 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+        <h4 class="my-2 ">Translators</h3>
+            {% for link in link_string2 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+{% block JS %}
+<script>
+    $('.clear').click(function (e) {
+        document.getElementById('text').value = "";
+        document.getElementById('output').value = "";
+        e.preventDefault();
+    })
+    $(document).on('submit', '#post-form', function (e) {
+        $('#content').empty();
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/Analyzer/text-to-base64-converter/',
+            data: {
+                text: $('#text').val(),
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            },
+            encode: true,
+            success: function (response) {
+                var GotRes = JSON.parse(response)
+                //console.log(x)
+                var keyword = GotRes['Encoded']
+                document.getElementById('output').value = keyword;
+            }
+        })
+    })
+</script>
+
+{% endblock %}

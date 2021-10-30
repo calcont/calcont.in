@@ -1,0 +1,155 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+online tool which decodes/converts base64 string to simple text.
+any text
+{% endblock %}
+{% block MKW %}Text to Base64 to Text, Base64 decoder,Base64 Converter,Base64,vase64 to text converter{% endblock %}
+{% block Mr %}
+24/09/2021
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %} Base64 to Text converter | Base64 to text decoder | Base64 converter
+{% endblock %}
+{% block body %}
+<style>
+    .input {
+
+        border: 1px solid rgb(38, 35, 35);
+        border-radius: 10px;
+
+    }
+
+    .AddName {
+        background-color: #3671ab;
+    }
+</style>
+<div class="container text-light">
+    <div class="row ">
+
+        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4 ">
+                <h2 class="mx-4 ">Base64 to Text</h2>
+                <hr class="my-4 bg-dark">
+                <h3 class="text-monospace my-2">base64 decoder?</h3>
+                <p class="text-monospace my-4">The “Base64 to Text” converter is a simple decoder tool that allows you
+                    to convert online Base64 to text(that is, it decodes any basic ASCII
+                    string to texttual string).If you want to to encode the text to Base64 then you can use
+                    <a href="/Analyzer/text-to-base64-converter/">Text to Base64 encoder</a>.
+                </p>
+                <hr class="bg-dark my-2">
+                <h3 class="my-4 mb-4 text-monospace text-center">Base64 to Text decoder</h3>
+                <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+                    <form id="post-form">
+                        {% csrf_token %}
+                        <div class="form-group mb-4">
+                            <textarea class="form-control input my-4" name="text" placeholder="Enter the base64 string" id="text"
+                                rows="7" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " required></textarea>
+                            <textarea class="form-control my-4" placeholder="Decoded text" id="output" rows="7" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " disabled></textarea>
+                        </div>
+
+
+                        <div class="mb-2">
+                            <div class="row">
+                                <div class="col-8">
+                                    <button class="mx-2  btn btn-outline-secondary btn-md extract text-light"
+                                        type="submit">Decode</button>
+                                </div>
+
+                                <div class="col-4">
+                                    <a class="mx-2  btn btn-outline-secondary btn-md clear">Clear</a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-2">base64 decoder in CalConT?</h3>
+            <p class="text-monospace my-4">So,to use base64 decoder in calcont ,<br>
+                1.First you have to write or paste the base64 string on textarea. <br>
+                2.Press the decode button then the base64 string will be decoded to text in output textarea. <br>
+                3.Now,you can check decoded text and also can copy that or if you wish to clear both text you can press
+                clear button.
+            </p>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-4">Use of tool?</h3>
+            <p class=" my-4">There are a lot application like,
+                <p>
+                    <p class="my-2"> 1.It can be used to decode text after receiving base64 format of some important information.</p>
+                    <p class="my-2"> 2.Use in Security or cryptography.</p>
+                    <p class="my-2"> 3.Uses in Computer networks.</p>
+                    <p class="my-2"> 3.Base64 is commonly used in a number of applications including email via MIME, and storing complex data in XML.</p>
+                    </p>
+        </div>
+                    
+
+
+
+<div class="col-md-4 my-4 ">
+    <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <h4 class="my-2">Analyzers</h3>
+            {% for link in link_string1 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+        <h4 class="my-2 ">Translators</h3>
+            {% for link in link_string2 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+{% block JS %}
+<script>
+    $('.clear').click(function (e) {
+        document.getElementById('text').value = "";
+        document.getElementById('output').value = "";
+        e.preventDefault();
+    })
+    $(document).on('submit', '#post-form', function (e) {
+        $('#content').empty();
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '/Analyzer/base64-to-text-converter/',
+            data: {
+                text: $('#text').val(),
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            },
+            encode: true,
+            success: function (response) {
+                var GotRes = JSON.parse(response)
+                console.log(GotRes)
+                //console.log(x)
+                var keyword = GotRes['Decoded']
+                document.getElementById('output').value = keyword;
+            },
+            error: function (response) {
+                document.getElementById('output').value = "invalid string";
+            },
+            
+        })
+    })
+</script>
+
+{% endblock %}

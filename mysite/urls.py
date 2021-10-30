@@ -10,6 +10,7 @@ urlpatterns = [
     path('About/',views.Aboutme,name="about"),
     path('Supportme/',views.Supportme,name="support"),
     path('HandlePayement/',views.handlerequest),
+    path('Sitemaps/',views.sitemaps),
 #Authentication
     path('login/',views.Login,name="Login"),
     path('signin/',views.Signin,name="Signin"),
@@ -22,6 +23,9 @@ urlpatterns = [
     path('Analyzer/name_sorting/', views.name_sorting,name="name_sorting"),
     path('Analyzer/Grammar_correction/',views.Grammar_correction,name="grammar"),    
     path('Analyzer/Online-Keywords-extractor-from-text/',views.KeywordsExtraction,name="KeywordsExtraction"),
+    path('Analyzer/text-to-base64-converter/',views.texttobase64,name="texttobase64"),
+    path('Analyzer/base64-to-text-converter/',views.base64totext,name="base64totext"),
+    
     path('Conversion/BinaryConverter/', views.Binaryconversion,name='Binaryconversion'),
     path('Conversion/DecimalConverter/', views.Decimalconversion,name="Decimalconversion"),
     path('Conversion/HexadecimalConverter/', views.Hexadecimalconversion,name="Hexadecimalconversion"),
