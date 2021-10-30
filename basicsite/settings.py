@@ -148,4 +148,4 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET  = 'ExytHUSGY0ougL1ppv9haEXI'
 
 LOGIN_URL = '/auth/login/google-oauth2/'
 LOGOUT_URL = '/'
-LOGIN_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = "/Sitemaps/"
