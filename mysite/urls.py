@@ -9,7 +9,6 @@ urlpatterns = [
     path('Contact_me/', views.ContactMe,name='contact'),
     path('About/',views.Aboutme,name="about"),
     path('Supportme/',views.Supportme,name="support"),
-    path('HandlePayement/',views.handlerequest),
     path('Sitemaps/',views.sitemaps),
 #Authentication
     path('login/',views.Login,name="Login"),
