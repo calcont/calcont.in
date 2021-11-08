@@ -18,7 +18,6 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 # from language_tool_python import LanguageTool as LT
 # Create your views here.
-
 urls = [
     #[HREF_LINK,NAME_TO_BE_GIVEN,GRP_ID,SAME_GRP_IN_WEBPAGE,INDI_ID]
     ['/Analyzer/TextAnalyzer/','Text editor',1,'AT',0],
