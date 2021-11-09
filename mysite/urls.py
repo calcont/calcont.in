@@ -2,6 +2,8 @@ from django.contrib import admin
 from django.urls import path,include
 from . import views
 app_name="mysite"
+handler404 = 'mysite.views.error_404'
+handler500 = 'mysite.views.error_500'
 urlpatterns = [
      
     path('oauth/', include('social_django.urls', namespace='social')),

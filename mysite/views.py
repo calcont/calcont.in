@@ -69,6 +69,12 @@ def ArrangeSideMapLinksForWebPage(indi_id,grp_id,same_grps_id):
     return links_strings_1,links_strings_2
 def index(request):
     return render(request,'index.html')
+    
+def error_404(request , exception):
+    return render(request,'404.html',status=404)
+
+def error_500(request):
+    return render(request,'500.html' ,status=500)
 #Analyzer
 def sitemaps(request):
     text=[url for url in urls if url[2]==1]
