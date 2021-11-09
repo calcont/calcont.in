@@ -88,6 +88,16 @@ a{
     box-shadow:13px 4px 19px 7px rgb(19 17 17);
     border-radius:20px;
 }
+#AlertS{
+  background-color: #3c3d3e;
+    border-color: #141414;
+  color: rgb(255, 255, 255);
+}
+@media only screen and (max-width: 500px) and (min-width: 300px) {
+#AlertS{
+ font-size: 12px;
+}
+}
 
   #baktop {
 
@@ -96,6 +106,16 @@ a{
     position: fixed;
 
   }
+  /* .signin,.google {
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
+    font-size: 15px;
+    background-color: #313233;
+  
+
+  } */
   .bd-placeholder-img {
     font-size: 1.125rem;
     text-anchor: middle;
@@ -266,6 +286,9 @@ a{
         <li class="nav-item">
           <a class="nav-link mx-3 font-weight-bolder" href="/Contact_me">Contact me</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link mx-3 font-weight-bolder"  href="/Supportme/">Support Me❤️</a>
+        </li>
       </ul>
       {% if not user.is_authenticated %}
       <div class="ml-auto my-2 ">
@@ -289,7 +312,12 @@ a{
      
     </div>
   </nav>
-
+  <div class="alert alert-dark alert-dismissible" id="AlertS" style="display: none;" role="alert">
+    Do <a class ="Supportt" href="/Supportme/">Support Me </a> people(only if you find it helpful) by donating some amount,it takes a lot of efforts to make these tools.
+    <button type="button" class="close" id="closeS" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
   {% block body %}
 
   {% endblock %}
@@ -329,7 +357,7 @@ a{
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
   <script>
-function readCookie(name) {
+ function readCookie(name) {
       console.log(name)
             var nameEQ = name + "=";
             var ca = document.cookie.split(';');
@@ -342,15 +370,25 @@ function readCookie(name) {
 
 
 function setexpire(){
-  var date = new Date();
-  date.setTime(new Date(date.getFullYear(), date.getMonth(), date.getDate() ,date.getHours() + 24 ));
+  var date1 = new Date();
   
-  console.log(date)
+  date1.setTime(new Date(date1.getFullYear(), date1.getMonth(), date1.getDate() ,date1.getHours() + 24));
+  
+  console.log(date1)
   var x = Math.floor((Math.random() * 1000) + 1);
-  document.cookie = 'PopCookie' + "=" + x + "; " + "expires="+date.toUTCString() + ";path=/";
+  
+  document.cookie = 'PopCookie' + "=" + x + "; " + "expires="+date1.toUTCString() + ";path=/";
+  
+}
+function setexpire1(){
+  var date2 = new Date();
+  date2.setTime(new Date(date2.getFullYear(), date2.getMonth(), date2.getDate() ,date2.getHours() + 24));
+  var x1 = Math.floor((Math.random() * 500) + 3);
+  document.cookie = 'SupportCookie' + "=" + x1 + "; " + "expires="+date2.toUTCString() + ";path=/";
 }
 
 var myCookie = readCookie('PopCookie');
+var myCookie1 = readCookie('SupportCookie');
 console.log(myCookie)
 
 if (myCookie==undefined){
@@ -362,16 +400,34 @@ if (myCookie==undefined){
      }, 45000);
    console.log(myCookie)
 }
+if (myCookie1==undefined){
+   // code to show modal here 
+   setTimeout(function(){ 
+     document.getElementById("AlertS").style.display = "block";
+    }, 25000);
+  }
+  
+  $("#closeP").click(function (e) {
+    setexpire();
     
-    $(".close").click(function (e) {
-      setexpire();
+  });
+  $(".signin").click(function (e) {
+    setexpire();
+    
+  });
+  $("#closeS").click(function (e) {
+    setexpire1();
+    document.getElementById("AlertS").style.display = "none";
 
     });
-    $(".signin").click(function (e) {
-      setexpire();
+  $(".Supportt").click(function (e) {
+    setexpire1();
+    document.getElementById("AlertS").style.display = "none";
 
     });
- 
+
+
+
   </script>
   {% block JS %}
   {% endblock %}
