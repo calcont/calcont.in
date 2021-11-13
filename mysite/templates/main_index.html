@@ -88,11 +88,7 @@ a{
     box-shadow:13px 4px 19px 7px rgb(19 17 17);
     border-radius:20px;
 }
-#AlertS{
-  background-color: #3c3d3e;
-    border-color: #141414;
-  color: rgb(255, 255, 255);
-}
+
 @media only screen and (max-width: 500px) and (min-width: 300px) {
 #AlertS{
  font-size: 12px;
@@ -312,8 +308,8 @@ a{
      
     </div>
   </nav>
-  <div class="alert alert-dark alert-dismissible" id="AlertS" style="display: none;" role="alert">
-    Do <a class ="Supportt" href="/Supportme/">Support Me </a> people(only if you find it helpful) by donating some amount,it takes a lot of efforts to make these tools.
+  <div class="alert alert-primary my-2 alert-dismissible " id="AlertS" style="display: none;" role="alert">
+    Do <a class ="Supportt alert-link" href="/Supportme/">Support Me </a> people(only if you find it helpful) by donating some amount,it takes a lot of efforts to make these tools.
     <button type="button" class="close" id="closeS" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -397,14 +393,12 @@ if (myCookie==undefined){
      {% if not user.is_authenticated %} 
      $('#DoLogin').modal('show') 
      {% endif %}
-     }, 45000);
+     }, 55000);
    console.log(myCookie)
 }
 if (myCookie1==undefined){
    // code to show modal here 
-   setTimeout(function(){ 
      document.getElementById("AlertS").style.display = "block";
-    }, 25000);
   }
   
   $("#closeP").click(function (e) {
