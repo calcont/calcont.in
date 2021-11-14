@@ -1,6 +1,7 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-About me
+
+Amar Khamkar ,creator & developer of this CalConT.
 {% endblock  %}
 {% block MKW %}
 
@@ -11,40 +12,157 @@ About me
 {% block MAut %}
 Amar khamkar
 {% endblock  %}
-{% block title %}  Amar Khamkar - Creator of CalConT
+{% block title %} Amar Khamkar - Creator of CalConT
 {% endblock  %}
 {% block body %}
 <style>
 
+  .img-fluid {
+  
+    opacity: 0.8;
+    box-shadow: 13px 4px 19px 7px rgb(19 17 17);;
+  }
+  h1{
+    font-size: 30px;
+  }
+@media only screen and (max-width: 3000px) and (min-width: 300px){
+    img-fluid {
+      width: 100vh;
+      height: 110vh;
+      opacity: 0.5;
+  }
+}
+  @media only screen and (max-width: 767px) and (min-width: 485px) {
+    .img-fluid {
+      width: 80vh;
+      height: 90vh;
+    }
+    h1{
+      font-size: 25px;
+    }
+  }
+  @media only screen and (max-width: 484px) and (min-width: 300px) {
+    .img-fluid {
+      width: 60vh;
+      height: 70vh;
+    }
+      h1{
+        font-size: 25px;
+      }
+    }
+  @media only screen and (max-width: 370px) and (min-width: 250px) {
+    .img-fluid {
+      width: 50vh;
+      height: 60vh;
+    }
+      h1{
+        font-size: 20px;
+      }
+  }
 
+#hero .hero-content {
+  height: 80vh;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.hero-content h1 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.hero-content p {
+  font-size: 13px;
+  letter-spacing: 3px;
+  margin-top: 0;
+  margin-bottom: 30px;
+  text-transform: capitalize;
+  color: #fff;
+  font-weight: 500;
+}
+
+.hero-content .list-social li {
+  float: left;
+  margin-right: 20px;
+}
+
+.hero-content .list-social li i {
+  color: #fff;
+  font-size: 15px;
+}
 </style>
-<div class="container  text-light my-3 col-md-6  py-10" style="background-color:rgb(30,30,30);
-        box-shadow:13px 4px 19px 7px rgb(19 17 17);"> 
- <h2 class="font-weight-bold my-4">About</h2>
- <hr class="bg-dark my-2">
- <p class=" text-monospace text-light my-4">Hello dear all,hope you are fine wherever you are.I am Amar Khamkar creator of this website want to share
-  few things like what motivated me
-to make such application and finally what is my goal throughout this website.</p>
- <hr class="bg-dark my-2">
- <h3 class="my-3 ">About Me?</h3>
-  <p class=" text-monospace text-light my-4">So,I am an third year engineering graduate student who has interest in developing website and solving real world problems.These is the website that i have developed
-  in 1-2 months and finally deployed it on JAN 21.When i have started working on these project i have vision to deploy it but not had the expectation
-  that these website should have huge traffic/visitors , I was only working on that and had the following moto and visions.</p>
- <hr class="bg-dark my-2">
- <h3 class="my-3 ">Why such website or motivation behind these?</h3>
-  <p class=" text-monospace text-light my-4">Personally,when i used to search for calculator or some translator i dont get any web which has all these ..Some has converters
-  & calculators ,some only have calculators and for translator we again have to search.And one of most important software you will get here is <a href="/Analyzer/name_sorting">Name sorting</a>
-  in which you can arrange names in alphabetical order.In many institution ,teachers has to do it with manually.So,these are some facts that motivated me to build such website.</p>
- <hr class="bg-dark my-2">
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-6">
+    <div id="carousel" class="carousel slide mx-4 my-4 " data-ride="carousel" >
+      <div class="carousel-inner" role="listbox">
+          <div class="carousel-item active bgimg">
+                    <img src="/static/amar1.png" alt="responsive image"class="img-fluid" style="border-radius: 20px;">
+            
+          </div>
+      </div>
+  </div>
 
- <h3 class="my-3 ">What is my mission/goal?</h3>
-  <p class=" text-monospace text-light my-4">My mission is to provide all the calculators which is in need in day today life and all converters.And to provide all language
-  translator
-  ,and many more software,some automation softwares will be coming soon that is essential to reduce the peoples effort and time.As everyone 
-  said "Time is money" ,so yes main moto is to provide all those software which can save your time .So,do visit thses website to see some future updates and all those 
-  software that we have.<a href="/">click here</a></p>
- <hr class="bg-dark my-2">
-  <p class="text-monospace my-4">If you have any query or have any suggestions for these website.Please <a href="/Contact_me/">Contact me</a></p>
+</div>
+<div class="col-md-6">
+  <div id="hero" class="home">
+
+    <div class="container">
+      <div class="hero-content">
+        <h3 class="text-warning text-bold text-monospace my-4">Hello,</h3>
+        <h1>I'm <span class="typed" data-typed-items="Amar Khamkar,creator of CalConT"></span></h1>
+        <p class="my-3">So,I am a third year engineering undergrad student who is an
+        Web Developer , Game Developer , AI enthusiast.Have a passion,interest to build things which can be deploy and have some in real-world.</p>
+        <p class="my-4">Follow me on:</p>
+
+        <ul class="list-unstyled list-social">
+          <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+          <li><a href="#"><img src="/static/linkedin.png" width="40px" height="40px" alt=""></a></li>
+          <li><a href="#"><img src="/static/insta.png" width="40px" height="40px" alt=""></a></li>
+          <li><a href="#"><img src="/static/github.png" width="40px" height="40px" alt=""></a></li>
+          <li><a href="#"><img src="/static/reddit.png" width="40px" height="40px" alt=""></a></li>
+      </div>
+    </div>
+  </div><!-- End Hero -->
   
 </div>
-{% endblock %}2
+</div>
+</div>
+
+
+
+
+
+
+{% block JS %}
+<script>
+    const select = (el, all = false) => {
+    el = el.trim()
+    if (all) {
+      return [...document.querySelectorAll(el)]
+    } else {
+      return document.querySelector(el)
+    }
+  }
+const typed = select('.typed')
+  if (typed) {
+    let typed_strings = typed.getAttribute('data-typed-items')
+    typed_strings = typed_strings.split(',')
+    new Typed('.typed', {
+      strings: typed_strings,
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 50,
+      backDelay: 2000
+    });
+  }
+
+</script>
+
+{% endblock %}
+{% endblock %}
