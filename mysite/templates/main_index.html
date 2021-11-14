@@ -355,7 +355,6 @@ a{
     crossorigin="anonymous"></script>
   <script>
  function readCookie(name) {
-      console.log(name)
             var nameEQ = name + "=";
             var ca = document.cookie.split(';');
             for(var i=0;i < ca.length;i++) {
@@ -386,7 +385,6 @@ function setexpire1(){
 
 var myCookie = readCookie('PopCookie');
 var myCookie1 = readCookie('SupportCookie');
-console.log(myCookie)
 
 if (myCookie==undefined){
    // code to show modal here 
@@ -395,7 +393,6 @@ if (myCookie==undefined){
      $('#DoLogin').modal('show') 
      {% endif %}
      }, 55000);
-   console.log(myCookie)
 }
 if (myCookie1==undefined){
    // code to show modal here 
