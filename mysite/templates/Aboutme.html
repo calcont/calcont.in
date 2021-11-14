@@ -17,48 +17,48 @@ Amar khamkar
 {% block body %}
 <style>
 
-  .img-fluid {
+.img-fluid {
   
-    opacity: 0.8;
-    box-shadow: 13px 4px 19px 7px rgb(19 17 17);;
+  opacity: 0.8;
+}
+h1{
+  font-size: 30px;
+}
+@media only screen and (max-width: 3000px) and (min-width: 300px){
+  .bgimg {
+    width: 100vh;
+    height: 110vh;
+    opacity: 0.5;
+}
+}
+@media only screen and (max-width: 767px) and (min-width: 485px) {
+  .bgimg {
+    width: 80vh;
+    height: 88vh;
+    margin-left: 50px;
   }
   h1{
-    font-size: 30px;
-  }
-@media only screen and (max-width: 3000px) and (min-width: 300px){
-    img-fluid {
-      width: 100vh;
-      height: 110vh;
-      opacity: 0.5;
+    font-size: 25px;
   }
 }
-  @media only screen and (max-width: 767px) and (min-width: 485px) {
-    .img-fluid {
-      width: 80vh;
-      height: 90vh;
-    }
+@media only screen and (max-width: 484px) and (min-width: 370px) {
+  .bgimg {
+    width: 75vh;
+    height: 73vh;
+  }
     h1{
       font-size: 25px;
     }
   }
-  @media only screen and (max-width: 484px) and (min-width: 300px) {
-    .img-fluid {
-      width: 60vh;
-      height: 70vh;
-    }
-      h1{
-        font-size: 25px;
-      }
-    }
-  @media only screen and (max-width: 370px) and (min-width: 250px) {
-    .img-fluid {
-      width: 50vh;
-      height: 60vh;
-    }
-      h1{
-        font-size: 20px;
-      }
+@media only screen and (max-width: 370px) and (min-width: 250px) {
+  .bgimg {
+    width: 60vh;
+    height: 58vh;
   }
+    h1{
+      font-size: 20px;
+    }
+}
 
 #hero .hero-content {
   height: 80vh;
