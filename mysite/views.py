@@ -27,7 +27,7 @@ urls = [
     ['/Analyzer/text-to-base64-converter/','text to base64 encoder',1,'AT',4],
     ['/Analyzer/base64-to-text-converter/','base64 to text decoder',1,'AT',5],
     ['/Analyzer/text-to-image-converter/','text to image converter',1,'AT',6],
-    ['/Analyzer/text-to-image-to-text-converter/','Image to text converter',1,'AT',7],
+    ['/Analyzer/image-to-text-converter/','Image to text converter',1,'AT',7],
 
     ['/Conversion/BinaryConverter/','Binary Converter',2,'CC',0],
     ['/Conversion/DecimalConverter/','Decimal Converter',2,'CC',1],
