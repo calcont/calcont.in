@@ -18,6 +18,8 @@ class StaticViewsSitemap(Sitemap):
             "mysite:KeywordsExtraction",
             "mysite:texttobase64",
             "mysite:base64totext",
+            "mysite:texttoimage",
+            "mysite:imagetotext",
             "mysite:Binaryconversion",
             "mysite:Decimalconversion",
             "mysite:Hexadecimalconversion",

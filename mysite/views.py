@@ -26,6 +26,8 @@ urls = [
     ['/Analyzer/Online-Keywords-extractor-from-text/','Keyword Extractor',1,'AT',3],
     ['/Analyzer/text-to-base64-converter/','text to base64 encoder',1,'AT',4],
     ['/Analyzer/base64-to-text-converter/','base64 to text decoder',1,'AT',5],
+    ['/Analyzer/text-to-image-converter/','text to image converter',1,'AT',6],
+    ['/Analyzer/text-to-image-to-text-converter/','Image to text converter',1,'AT',7],
 
     ['/Conversion/BinaryConverter/','Binary Converter',2,'CC',0],
     ['/Conversion/DecimalConverter/','Decimal Converter',2,'CC',1],
@@ -217,7 +219,19 @@ def base64totext(request):
         return HttpResponse(response) 
     param={'link_string1':link_string1,'link_string2':link_string2}
     return render(request,'base64_to_text.html',param)
+#text to image
+def texttoimage(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(6,1,'AT')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'texttoimage.html',param)
 
+#image to text
+@csrf_exempt
+def imagetotext(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(7,1,'AT')
+    
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'Imagetotext.html',param)
 
 #Conversion
 def Binaryconversion(request):

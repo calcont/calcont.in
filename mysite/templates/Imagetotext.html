@@ -1,0 +1,230 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Convert image to text, online and for free. You can convert and extract text from anytype of image such as jpg,png,jpeg..etc.
+any text
+{% endblock %}
+{% block MKW %}Image to text, image to text converter, convert image to text, from image to text, extract text from image,text extraction{% endblock %}
+{% block Mr %}
+24/09/2021
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %} image to text converter | online text extraction from image
+{% endblock %}
+{% block body %}
+<style>
+    .input {
+
+        border: 1px solid rgb(38, 35, 35);
+        border-radius: 10px;
+
+    }
+    .files input {
+    outline: 2px dashed #2ea591;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 120px 0px 85px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
+}
+/* .files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+ } */
+.files{ position:relative}
+.files:after {  pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    background-image: url('/static/drive_folder_upload_white_18dp.svg');
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.files:before {
+    position: absolute;
+    bottom: 10px;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 40px;
+    content: " or drag it here. ";
+    display: block;
+    margin: 0 auto;
+    color: #2ea591;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+    .AddName {
+        background-color: #3671ab;
+    }
+    .form-control {
+        background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px;
+        
+    }
+</style>
+<div class="container text-light">
+    <div class="row ">
+
+        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4 ">
+                <h2 class="mx-4 ">image to text converter</h2>
+                <hr class="my-4 bg-dark">
+                <h3 class="text-monospace my-2">Text extractor from Image?</h3>
+                <p class="text-monospace my-4">Text extractor is a tool which analyzes and process the image and extract the text from it.
+                    Any type of image such as jpg,png,jpeg..etc. it can extract.It tries out to extract all possible text from image but due to some
+                    different font style and unknown characters and all it can vomit some words from image.<br>
+                   You can also try <a href="/Analyzer/text-to-image-converter/"> text to image converter</a>.
+                </p>
+                <hr class="bg-dark my-2">
+                <h3 class="my-4 mb-4 text-monospace text-center">text to base64 encoder</h3>
+                <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+                    <form id="post-form"   enctype="multipart/form-data">
+                        <div class="form-group files">
+                            <label>Upload Your File </label>
+                            <input type="file" class="form-control" accept="image/*" id='img' name ="img" required>
+                          </div>
+                          <p class="text-warning" id="notify"></p>
+                        <div class="mb-2">
+                            
+                                    <button class="mx-2  btn btn-outline-secondary btn-md extract text-light"
+                                        type="submit">Convert</button>
+                               
+                        </div>
+                        <div class=" container " id="loading" style="display: none;">
+                        <img src="/static/Vp3L.gif"  style="margin-top: -100px;margin-bottom: -100px;margin-left: 100px;" width="50%" height="20%"   alt="">
+                        </div>
+                    </form>
+                    <textarea class="form-control input my-4" name="text" placeholder="Genrated text" id="text"
+                                rows="7" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " ></textarea>
+            <div class="col-4 mb-2">
+                <a class="mx-2  btn btn-outline-secondary btn-md clear">Clear</a>
+            </div>
+                </div>
+
+            </div>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-2">Image to text converter in CalConT?</h3>
+            <p class="text-monospace my-4">So,to use this tool in calcont ,<br>
+                1.You can click on upload button or can drag and drop image in above field. <br>
+                2.Press the convert button and wait for some seconds. <br>
+                3.Now,you can see the expected text in output textarea or if their is some error it'll also notifies you below image field.
+            </p>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-4">Use of tool?</h3>
+            <p class=" my-4">There are a lot application like,
+                <p>
+                    <p class="my-2"> 1.There are many such situation where we need to make some document and text to be written on it is on image.So,instead of writing all of those text we can use this tool</p>
+                    <p class="my-2"> 2.Can be used by students,employes,like almost everyone can use it.</p>
+                    <p class="my-2"> 3.Can be used in image editing.</p>
+                    <p class="my-2"> 4.To extract famous quotes,poetry and many more text which is on image.</p>
+                    </p>
+        </div>
+                    
+
+
+
+<div class="col-md-4 my-4 ">
+    <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <h4 class="my-2">Analyzers</h3>
+            {% for link in link_string1 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+        <h4 class="my-2 ">Translators</h3>
+            {% for link in link_string2 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+{% block JS %}
+<script>
+    $('.clear').click(function (e) {
+        document.getElementById('text').value = "";
+        document.getElementById('output').value = "";
+        e.preventDefault();
+    })
+    // var data = new FormData();
+    //     $('#post-form').submit(function (e) {
+    //     var image = $('#img')[0].files[0];
+    //     data.append('image', image)
+    //     e.preventDefault();
+    //     // console.log(data.append('image', image));
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '/Analyzer/image-to-text-converter/',
+    //         data:data,
+    //         cache: false,
+    //         contentType: false,
+    //         processData: false,
+    //         encode:true,
+    //         success: function (response) {
+    //             var GotRes = JSON.parse(response)
+    //             var text = GotRes['text']
+    //             document.getElementById('text').value = text;
+    //         },
+    //         error: function (response) {
+        //             document.getElementById('text').value = "Invalid Image format";
+        //         },
+        //     })
+        // })
+        $('.extract').click(function (e) {
+            var image = $('#img')[0].files[0];
+            var validImageTypes = ["image/gif", "image/jpeg", "image/png","image/jpg"];
+            var fileType = image["type"];
+            if ($.inArray(fileType, validImageTypes) < 0) {
+                document.getElementById('notify').innerHTML = "*Invalid Image format";
+            }
+            else{
+                document.getElementById('notify').innerHTML = "";
+                document.getElementById('loading').style.display = "block";
+                Tesseract.recognize(image).then(function(result){
+        // The result object of a text recognition contains detailed data about all the text
+        // recognized in the image, words are grouped by arrays etc
+        document.getElementById('text').value = result.data.text;
+        
+        // Show recognized text in the browser !
+        // alert(result.text);
+    }).catch(function(err){
+        document.getElementById('loading').style.display = "none";
+        document.getElementById('notify').innerHTML = "Error while processing image";
+    })
+    .finally(function(){
+        document.getElementById('loading').style.display = "none";
+        // Enable button once the text recognition finishes (either if fails or not)
+        // btn.disable = false;
+    });
+}
+e.preventDefault();
+});
+    
+</script>
+
+{% endblock %}
