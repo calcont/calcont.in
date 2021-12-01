@@ -225,6 +225,10 @@ def texttoimage(request):
     param={'link_string1':link_string1,'link_string2':link_string2}
     return render(request,'texttoimage.html',param)
 
+def texttoimage(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(6,1,'AT')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'texttoimage.html',param)
 #image to text
 @csrf_exempt
 def imagetotext(request):

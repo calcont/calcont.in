@@ -166,64 +166,7 @@ Amar khamkar
 {% endblock %}
 {% block JS %}
 <script>
-    $('.clear').click(function (e) {
-        document.getElementById('text').value = "";
-        document.getElementById('output').value = "";
-        e.preventDefault();
-    })
-    // var data = new FormData();
-    //     $('#post-form').submit(function (e) {
-    //     var image = $('#img')[0].files[0];
-    //     data.append('image', image)
-    //     e.preventDefault();
-    //     // console.log(data.append('image', image));
-    //     $.ajax({
-    //         type: 'POST',
-    //         url: '/Analyzer/image-to-text-converter/',
-    //         data:data,
-    //         cache: false,
-    //         contentType: false,
-    //         processData: false,
-    //         encode:true,
-    //         success: function (response) {
-    //             var GotRes = JSON.parse(response)
-    //             var text = GotRes['text']
-    //             document.getElementById('text').value = text;
-    //         },
-    //         error: function (response) {
-        //             document.getElementById('text').value = "Invalid Image format";
-        //         },
-        //     })
-        // })
-        $('.extract').click(function (e) {
-            var image = $('#img')[0].files[0];
-            var validImageTypes = ["image/gif", "image/jpeg", "image/png","image/jpg"];
-            var fileType = image["type"];
-            if ($.inArray(fileType, validImageTypes) < 0) {
-                document.getElementById('notify').innerHTML = "*Invalid Image format";
-            }
-            else{
-                document.getElementById('notify').innerHTML = "";
-                document.getElementById('loading').style.display = "block";
-                Tesseract.recognize(image).then(function(result){
-        // The result object of a text recognition contains detailed data about all the text
-        // recognized in the image, words are grouped by arrays etc
-        document.getElementById('text').value = result.data.text;
-        
-        // Show recognized text in the browser !
-        // alert(result.text);
-    }).catch(function(err){
-        document.getElementById('loading').style.display = "none";
-        document.getElementById('notify').innerHTML = "Error while processing image";
-    })
-    .finally(function(){
-        document.getElementById('loading').style.display = "none";
-        // Enable button once the text recognition finishes (either if fails or not)
-        // btn.disable = false;
-    });
-}
-e.preventDefault();
-});
+   $(".clear").click(function(e){document.getElementById("text").value="",document.getElementById("output").value="",e.preventDefault()}),$(".extract").click(function(e){var t=$("#img")[0].files[0],n=t.type;$.inArray(n,["image/gif","image/jpeg","image/png","image/jpg"])<0?document.getElementById("notify").innerHTML="*Invalid Image format":(document.getElementById("notify").innerHTML="",document.getElementById("loading").style.display="block",Tesseract.recognize(t).then(function(e){document.getElementById("text").value=e.data.text}).catch(function(e){document.getElementById("loading").style.display="none",document.getElementById("notify").innerHTML="Error while processing image"}).finally(function(){document.getElementById("loading").style.display="none"})),e.preventDefault()});
     
 </script>
 
