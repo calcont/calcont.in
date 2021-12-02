@@ -154,12 +154,12 @@ a{
 </style>
 
 <body>
- <!-- Modal -->
-<div class="modal fade text-light" id="DoLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <!-- Modal -->
+  <div class="modal fade text-light"  id="newtool" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content" style="background-color: rgb(25, 25, 25);border-radius: 40px;">
         <div class="modal-header" style="border-bottom: 1px solid rgb(41 40 40);">
-          <h4 class="modal-title" id="exampleModalLabel">Create Account?</h4>
+          <!-- <h4 class="modal-title" id="exampleModalLabel">Create Account?</h4>
           <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -170,11 +170,7 @@ a{
             you can also help us to improve. </p>
           <br>
           <p class="modalText">If you have any query about how your details stored after registering then you should read our <a href="\Privacy_policy">Privacy Policy.</a></p>
-          <!-- <div class=" text-md-start ">
-            <a href="/login/" class="btn btn-secondary-outline log shadow lift my-2 ">
-              Contact Me <i class="fe fe-arrow-right d-none d-md-inline ms-3"></i>
-            </a> -->
-            <hr class="bg-dark">
+         <hr class="bg-dark">
             <div class="container ">
             <div class="signUp  ">
             <a class="btn btn-lg btn-block  my-4  text-light btn-outline-secondary signin" href="\signin">Sign Up</a>
@@ -186,8 +182,19 @@ a{
       
          href="{% url 'social:begin' 'google-oauth2' %}">Sign Up With   <img class="mx-2" src="/static/google.png"/></a><br>
       
+        </div> -->
+          <h4 class="modal-title" id="exampleModalLabel">CheckOut new tool</h4>
+          <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        </div>
+        <div class="modal-body" id="mbdy">
+          <p class="modalText" >Checkout <a class="ntool" href="/Analyzer/text-to-image-converter/">Text to Image converter</a> where you can generate your own custom images from entered text and you can edit that too. 
+           <br><br> Also you can checkout <a class="ntool" href="/Analyzer/image-to-text-converter/">Image to text converter</a>  where you can extact text that is present on image.
+            <br>These are the tools really helpful for you people and can save your valuable time.
+          </p>
+          <br>
+      </div>
 
 
 
@@ -372,7 +379,6 @@ function setexpire(){
   
   date1.setTime(new Date(date1.getFullYear(), date1.getMonth(), date1.getDate() ,date1.getHours() + 24));
   
-  console.log(date1)
   var x = Math.floor((Math.random() * 1000) + 1);
   
   document.cookie = 'PopCookie' + "=" + x + "; " + "expires="+date1.toUTCString() + ";path=/";
@@ -388,24 +394,35 @@ function setexpire1(){
 var myCookie = readCookie('PopCookie');
 var myCookie1 = readCookie('SupportCookie');
 
+
 if (myCookie==undefined){
    // code to show modal here 
+  //  setTimeout(function(){ 
+  //    {% if not user.is_authenticated %} 
+  //    $('#DoLogin').modal('show') 
+  //    {% endif %}
+  //    }, 15000);
    setTimeout(function(){ 
-     {% if not user.is_authenticated %} 
-     $('#DoLogin').modal('show') 
-     {% endif %}
+     $('#newtool').modal('show') 
      }, 55000);
 }
 if (myCookie1==undefined){
    // code to show modal here 
+   
      document.getElementById("AlertS").style.display = "block";
+   
   }
   
   $("#closeP").click(function (e) {
     setexpire();
     
   });
-  $(".signin").click(function (e) {
+  $("#mbdy").click(function (e) {
+    window.location.href = "/Analyzer/text-to-image-converter/";
+    setexpire();
+    
+  });
+  $(".ntool").click(function (e) {
     setexpire();
     
   });
