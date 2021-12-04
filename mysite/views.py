@@ -237,7 +237,6 @@ def imagetotext(request):
     link_string1,link_string2=ArrangeSideMapLinksForWebPage(7,1,'AT')
     if request.method == "POST":
         image =request.FILES['image']
-        pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
         img = Image.open(image) 
         result = pytesseract.image_to_string(img) 
         response=json.dumps({'txt': result},default=str)
