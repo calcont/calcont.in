@@ -16,6 +16,7 @@ import smtplib
 import base64
 import json
 import pytesseract
+from PIL import Image
 from django.views.decorators.csrf import csrf_exempt
 # from language_tool_python import LanguageTool as LT
 # Create your views here.
@@ -236,6 +237,7 @@ def imagetotext(request):
     link_string1,link_string2=ArrangeSideMapLinksForWebPage(7,1,'AT')
     if request.method == "POST":
         image =request.FILES['image']
+        pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
         img = Image.open(image) 
         result = pytesseract.image_to_string(img) 
         response=json.dumps({'txt': result},default=str)
