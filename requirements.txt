@@ -25,11 +25,13 @@ language-tool-python==2.5.2
 Naked==0.1.31
 nltk==3.6.3
 oauthlib==3.1.1
+Pillow==8.4.0
 psycopg2==2.8.6
 pybase64==1.2.0
 pycparser==2.20
 pycryptodome==3.11.0
 PyJWT==2.1.0
+pytesseract==0.3.8
 python3-openid==3.2.0
 pytz==2021.1
 PyYAML==6.0
