@@ -87,7 +87,7 @@ Amar khamkar
                 <h3 class="text-monospace my-2">Text extractor from Image?</h3>
                 <p class="text-monospace my-4">Text extractor is a tool which analyzes and process the image and extract the text from it.
                     Any type of image such as jpg,png,jpeg..etc. it can extract.It tries out to extract all possible text from image but due to some
-                    different font style or unknown characters, it can omit some words from image.<br>
+                    different font style and unknown characters and all it can vomit some words from image.<br>
                    You can also try <a href="/Analyzer/text-to-image-converter/"> text to image converter</a>.
                 </p>
                 <hr class="bg-dark my-2">
@@ -102,12 +102,11 @@ Amar khamkar
                         <div class="mb-2">
                             
                                     <button class="mx-2  btn btn-outline-secondary btn-md extract text-light"
-                                        type="submit" style="display:block;" id="convert">Convert</button>
-                                        <button class="btn btn-outline-secondary btn-sm text-light" style="display:none;" id="loading" stytype="button" >
-                                            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                                            Loading...
-                                          </button>
+                                        type="submit">Convert</button>
                                
+                        </div>
+                        <div class=" container " id="loading" style="display: none;">
+                        <img src="/static/Vp3L.gif"  style="margin-top: -100px;margin-bottom: -100px;margin-left: 100px;" width="50%" height="20%"   alt="">
                         </div>
                     </form>
                     <textarea class="form-control input my-4" name="text" placeholder="Genrated text" id="text"
@@ -115,15 +114,9 @@ Amar khamkar
             background-color: #191717;
             border: 3px solid black;
             border-radius: 15px; " ></textarea>
-            <div class="row">
             <div class="col-4 mb-2">
-                <a class="mx-2  btn btn-outline-secondary btn-md clear "  >Clear</a>
+                <a class="mx-2  btn btn-outline-secondary btn-md clear">Clear</a>
             </div>
-            <div class="col-3 mb-2">
-                <a class="mx-2  btn btn-outline-secondary btn-md " id="copybtn">Copy</a>
-                <p class="mx-2" style="display: none;" id="copytxt">Text is copied!</p>
-            </div>
-                </div>
                 </div>
 
             </div>
@@ -173,60 +166,7 @@ Amar khamkar
 {% endblock %}
 {% block JS %}
 <script>
-    $('.clear').click(function (e) {
-        document.getElementById('text').value = "";
-        document.getElementById('output').value = "";
-        e.preventDefault();
-    })
-    $('#copybtn').click(function (e) {
-  var copyText = document.getElementById("text");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  document.getElementById("copybtn").style.display = "none";
-  document.getElementById("copytxt").style.display = "block";
-});
-    var data = new FormData();
-        $('#post-form').submit(function (e) {
-        var image = $('#img')[0].files[0];
-        console.log(image);     
-        var validImageTypes = ["image/gif", "image/jpeg", "image/png","image/jpg"];
-        var fileType = image["type"];
-        e.preventDefault();
-        if ($.inArray(fileType, validImageTypes) < 0) {
-            document.getElementById('notify').innerHTML = "*Invalid Image format";
-        }
-        else{
-        document.getElementById('notify').innerHTML = "";
-        data.append('image', image)
-        document.getElementById("convert").style.display = "none";
-                document.getElementById("loading").style.display = "block";
-        // console.log(data.append('image', image));
-        $.ajax({
-            type: 'POST',
-            url: '/Analyzer/image-to-text-converter/',
-            data:data,
-            cache: false,
-            contentType: false,
-            processData: false,
-            encode:true,
-            success: function (response) {
-                var GotRes = JSON.parse(response)
-                var text = GotRes['txt']
-                document.getElementById('text').value = text;
-                document.getElementById("convert").style.display = "block";
-                document.getElementById("loading").style.display = "none";
-                document.getElementById("copybtn").style.display = "block";
-                document.getElementById("copytxt").style.display = "none";
-            },
-            error: function (response) {
-                document.getElementById("convert").style.display = "block";
-                document.getElementById("loading").style.display = "none";
-                    document.getElementById('text').value = "Invalid Image format";
-                },
-            })
-        }
-        })
+   $(".clear").click(function(e){document.getElementById("text").value="",document.getElementById("output").value="",e.preventDefault()}),$(".extract").click(function(e){var t=$("#img")[0].files[0],n=t.type;$.inArray(n,["image/gif","image/jpeg","image/png","image/jpg"])<0?document.getElementById("notify").innerHTML="*Invalid Image format":(document.getElementById("notify").innerHTML="",document.getElementById("loading").style.display="block",Tesseract.recognize(t).then(function(e){document.getElementById("text").value=e.data.text}).catch(function(e){document.getElementById("loading").style.display="none",document.getElementById("notify").innerHTML="Error while processing image"}).finally(function(){document.getElementById("loading").style.display="none"})),e.preventDefault()});
     
 </script>
 
