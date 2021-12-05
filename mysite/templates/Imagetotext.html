@@ -1,9 +1,9 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
 Convert image to text, online and for free. You can convert and extract text from anytype of image such as jpg,png,jpeg..etc.
-any text
+You can also enter url of any image from online that too convert it into text.
 {% endblock %}
-{% block MKW %}Image to text, image to text converter, convert image to text, from image to text, extract text from image,text extraction{% endblock %}
+{% block MKW %}Image to text, image to text converter, convert image to text,image to text from from image to text, extract text from image,text extraction{% endblock %}
 {% block Mr %}
 24/09/2021
 {% endblock %}
@@ -102,8 +102,31 @@ Amar khamkar
                         <div class="mb-2">
                             
                                     <button class="mx-2  btn btn-outline-secondary btn-md extract text-light"
-                                        type="submit" style="display:block;" id="convert">Convert</button>
+                                        type="submit" style="display:block;" id="convert">Convert-FILE</button>
                                         <button class="btn btn-outline-secondary btn-sm text-light" style="display:none;" id="loading" stytype="button" >
+                                            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                            Loading...
+                                          </button>
+                               
+                        </div>
+                    </form>
+                    <p class="text-center font-weight-bold my-2">OR</p>
+                    <form id="post-form1"   enctype="multipart/form-data">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" style="    background-color: #191717;
+                              border-radius: 10px;
+                              color: white;
+                              border: 2px solid black;" id="basic-addon1">url</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter url" id="input-url" aria-label="Username" aria-describedby="basic-addon1" required>
+                          </div>
+                          <p class="text-warning" id="notify"></p>
+                        <div class="mb-2">
+                            
+                                    <button class="mx-2 my-2 btn btn-outline-secondary btn-md extract text-light"
+                                        type="submit" style="display:block;" id="convert-url">Convert-URL</button>
+                                        <button class="btn btn-outline-secondary btn-sm text-light" style="display:none;" id="loading-url" stytype="button" >
                                             <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
                                             Loading...
                                           </button>
@@ -119,7 +142,7 @@ Amar khamkar
             <div class="col-4 mb-2">
                 <a class="mx-2  btn btn-outline-secondary btn-md clear "  >Clear</a>
             </div>
-            <div class="col-3 mb-2">
+            <div class="col-4 mb-2">
                 <a class="mx-2  btn btn-outline-secondary btn-md " id="copybtn">Copy</a>
                 <p class="mx-2" style="display: none;" id="copytxt">Text is copied!</p>
             </div>
@@ -130,18 +153,19 @@ Amar khamkar
             <hr class="my-4 bg-dark">
             <h3 class="text-monospace my-2">Image to text converter in CalConT?</h3>
             <p class="text-monospace my-4">So,to use this tool in calcont ,<br>
-                1.You can click on upload button or can drag and drop image in above field. <br>
+                1.You can click on upload button or can drag and drop image in above field and other option is you can just enter the url of online image <br>
                 2.Press the convert button and wait for some seconds. <br>
-                3.Now,you can see the expected text in output textarea or if their is some error it'll also notifies you below image field.
+                3.Now,you can see the expected text in output textarea or if their is some error it'll also notifies you below in output field.
             </p>
             <hr class="my-4 bg-dark">
             <h3 class="text-monospace my-4">Use of tool?</h3>
             <p class=" my-4">There are a lot application like,
                 <p>
-                    <p class="my-2"> 1.There are many such situation where we need to make some document and text to be written on it is on image.So,instead of writing all of those text we can use this tool</p>
-                    <p class="my-2"> 2.Can be used by students,employes,like almost everyone can use it.</p>
-                    <p class="my-2"> 3.Can be used in image editing.</p>
-                    <p class="my-2"> 4.To extract famous quotes,poetry and many more text which is on image.</p>
+                    <p class="my-2 text-monospace"> <b>1</b>.There are many such situation where we need to make some document and text to be written on it is on image.So,instead of writing all of those text we can use this tool</p>
+                    <p class="my-2 text-monospace"> <b>2</b>.Can be used by students,employes,like almost everyone can use it.</p>
+                    <p class="my-2 text-monospace"> <b>3</b>.Can be used in image editing.</p>
+                    <p class="my-2 text-monospace"> <b>3</b>.If you don't want to save image from online then you can just enter it's url.</p>
+                    <p class="my-2 text-monospace"> <b>4</b>.To extract famous quotes,poetry and many more text which is on image.</p>
                     </p>
         </div>
                     
@@ -186,10 +210,10 @@ Amar khamkar
   document.getElementById("copybtn").style.display = "none";
   document.getElementById("copytxt").style.display = "block";
 });
-    var data = new FormData();
+    
         $('#post-form').submit(function (e) {
-        var image = $('#img')[0].files[0];
-        console.log(image);     
+            var data = new FormData();
+        var image = $('#img')[0].files[0];  
         var validImageTypes = ["image/gif", "image/jpeg", "image/png","image/jpg"];
         var fileType = image["type"];
         e.preventDefault();
@@ -201,7 +225,6 @@ Amar khamkar
         data.append('image', image)
         document.getElementById("convert").style.display = "none";
                 document.getElementById("loading").style.display = "block";
-        // console.log(data.append('image', image));
         $.ajax({
             type: 'POST',
             url: '/Analyzer/image-to-text-converter/',
@@ -214,51 +237,52 @@ Amar khamkar
                 var GotRes = JSON.parse(response)
                 var text = GotRes['txt']
                 document.getElementById('text').value = text;
-                document.getElementById("convert").style.display = "block";
-                document.getElementById("loading").style.display = "none";
+                document.getElementById('convert').style.display = "block";
+                document.getElementById('loading').style.display = "none";
                 document.getElementById("copybtn").style.display = "block";
                 document.getElementById("copytxt").style.display = "none";
             },
             error: function (response) {
-                document.getElementById("convert").style.display = "block";
-                document.getElementById("loading").style.display = "none";
+                document.getElementById('convert').style.display = "block";
+                document.getElementById('loading').style.display = "none";
                     document.getElementById('text').value = "Invalid Image format";
                 },
             })
         }
         })
-//         $('.extract').click(function (e) {
-//             var image = $('#img')[0].files[0];
-//             var validImageTypes = ["image/gif", "image/jpeg", "image/png","image/jpg"];
-//             var fileType = image["type"];
-//             if ($.inArray(fileType, validImageTypes) < 0) {
-//                 document.getElementById('notify').innerHTML = "*Invalid Image format";
-//             }
-//             else{
-//                 document.getElementById('notify').innerHTML = "";
-//                 document.getElementById('loading').style.display = "block";
-//                 Tesseract.recognize(image).then(function(result){
-//         // The result object of a text recognition contains detailed data about all the text
-//         // recognized in the image, words are grouped by arrays etc
-//         document.getElementById('text').value = result.data.text;
-        
-//         // Show recognized text in the browser !
-//         // alert(result.text);
-//     }).catch(function(err){
-//         document.getElementById('loading').style.display = "none";
-//         document.getElementById('notify').innerHTML = "Error while processing image";
-//     })
-//     .finally(function(){
-//         document.getElementById('loading').style.display = "none";
-//         document.getElementById("copybtn").style.display = "block";
-//   document.getElementById("copytxt").style.display = "none";
-//         // Enable button once the text recognition finishes (either if fails or not)
-//         // btn.disable = false;
-//     });
-// }
-// e.preventDefault();
-// });
-    
+        $('#post-form1').submit(function (e) {
+            var url=document.getElementById('input-url').value;
+            e.preventDefault();
+            document.getElementById("convert-url").style.display = "none";
+                document.getElementById("loading-url").style.display = "block";
+            data={'data1':url,'isurl':1};
+$.ajax({
+            type: 'POST',
+            url: '/Analyzer/image-to-text-converter/',
+            data:{
+            url:url,
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+            encode:true,
+            success: function (response) {
+                var GotRes = JSON.parse(response)
+                var text = GotRes['txt']
+                document.getElementById('text').value = text;
+                document.getElementById("convert-url").style.display = "block";
+                document.getElementById("loading-url").style.display = "none";
+                document.getElementById("copybtn").style.display = "block";
+                document.getElementById("copytxt").style.display = "none";
+            },
+            error: function (response) {
+                document.getElementById("convert-url").style.display = "block";
+                document.getElementById("loading-url").style.display = "none";
+                document.getElementById('text').value = "error occured";
+                },
+            })
+        })
+
+
+
 </script>
 
 {% endblock %}

@@ -16,8 +16,10 @@ import smtplib
 import base64
 from PIL import Image, ImageDraw
 import pytesseract
+from io import BytesIO
 import json
 from django.views.decorators.csrf import csrf_exempt
+pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 # from language_tool_python import LanguageTool as LT
 # Create your views here.
 urls = [
@@ -236,10 +238,21 @@ def texttoimage(request):
 def imagetotext(request):
     link_string1,link_string2=ArrangeSideMapLinksForWebPage(7,1,'AT')
     if request.method == "POST":
-        image =request.FILES['image']
-        img = Image.open(image)
-        pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'   
-        result = pytesseract.image_to_string(img) 
+        # if request.POST['isurl']=="1":
+        
+        # print(request.FILES)
+        try: 
+            image =request.FILES['image']
+            img = Image.open(image)
+               
+            result = pytesseract.image_to_string(img)
+        except:
+            
+            url = request.POST.get('url')
+            import requests
+            response = requests.get(url)
+            img = Image.open(BytesIO(response.content)) 
+            result = pytesseract.image_to_string(img)
         response=json.dumps({'txt': result},default=str)
         return HttpResponse(response)
     param={'link_string1':link_string1,'link_string2':link_string2}
