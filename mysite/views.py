@@ -14,6 +14,8 @@ import math
 import random
 import smtplib
 import base64
+from PIL import Image, ImageDraw
+import pytesseract
 import json
 from django.views.decorators.csrf import csrf_exempt
 # from language_tool_python import LanguageTool as LT
@@ -233,7 +235,13 @@ def texttoimage(request):
 @csrf_exempt
 def imagetotext(request):
     link_string1,link_string2=ArrangeSideMapLinksForWebPage(7,1,'AT')
-    
+    if request.method == "POST":
+        image =request.FILES['image']
+        img = Image.open(image)
+        pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'   
+        result = pytesseract.image_to_string(img) 
+        response=json.dumps({'txt': result},default=str)
+        return HttpResponse(response)
     param={'link_string1':link_string1,'link_string2':link_string2}
     return render(request,'Imagetotext.html',param)
 
