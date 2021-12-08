@@ -439,12 +439,11 @@ def ContactMe(request):
     if request.method == "POST":
         name=request.POST.get("name")
         email=request.POST.get("email")
-
+   
         desc=request.POST.get("desc")
-        import joblib
         import pickle as pk
-        models = joblib.load(f'spam.pkl')
-        v = joblib.load(f'vector.pickel')
+        models = pk.load(open(f'spam.pkl',"rb"))
+        v = pk.load(open(f'vector.pickel','rb'))
         spam = models.predict(v.transform([desc]))
         if spam[0]==0:
             pass
