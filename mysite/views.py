@@ -439,12 +439,11 @@ def ContactMe(request):
     if request.method == "POST":
         name=request.POST.get("name")
         email=request.POST.get("email")
-   
+
         desc=request.POST.get("desc")
         import joblib
-        PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-        models = joblib.load(f'{PROJECT_ROOT}/static/spam.pkl')
-        v = joblib.load(f'{PROJECT_ROOT}/static/vector.pickel')
+        models = joblib.load(f'spam.pkl')
+        v = joblib.load(f'vector.pickel')
         spam = models.predict(v.transform([desc]))
         if spam[0]==0:
             pass
