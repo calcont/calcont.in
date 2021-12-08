@@ -441,6 +441,7 @@ def ContactMe(request):
    
         desc=request.POST.get("desc")
         PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
+        import joblib
         models = joblib.load(f'{PROJECT_ROOT}/static/spam.pkl')
         v = joblib.load(f'{PROJECT_ROOT}/static/vector.pickel')
         spam = models.predict(v.transform([desc]))
