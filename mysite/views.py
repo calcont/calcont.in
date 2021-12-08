@@ -18,6 +18,7 @@ from PIL import Image, ImageDraw
 import pytesseract
 from io import BytesIO
 import json
+import joblib
 from django.views.decorators.csrf import csrf_exempt
 pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 # from language_tool_python import LanguageTool as LT
@@ -438,12 +439,11 @@ def ContactMe(request):
     if request.method == "POST":
         name=request.POST.get("name")
         email=request.POST.get("email")
-   
         desc=request.POST.get("desc")
         PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
         import joblib
-        models = joblib.load('static/spam.pkl')
-        v = joblib.load('static/vector.pickel')
+        models = joblib.load(f'./staticfiles/spam.pkl')
+        v = joblib.load(f'./staticfiles/vector.pickel')
         spam = models.predict(v.transform([desc]))
         if spam[0]==0:
             pass
@@ -453,7 +453,6 @@ def ContactMe(request):
         contact.save()
         than=True
         return render(request,'Contact_me.html',{"than":than})
-    return render(request,'Contact_me.html')
 def Aboutme(request):
     return render(request,'Aboutme.html')
 def PrivacyPolicy(request):
