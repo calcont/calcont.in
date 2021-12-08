@@ -45,7 +45,6 @@ scikit-learn==1.0.1
 scipy==1.7.3
 shellescape==3.8.1
 six==1.16.0
-sklearn==0.0
 sniffio==1.2.0
 social-auth-app-django==4.0.0
 social-auth-core==4.1.0
