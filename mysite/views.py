@@ -438,7 +438,7 @@ def ContactMe(request):
     if request.method == "POST":
         name=request.POST.get("name")
         email=request.POST.get("email")
-       
+        desc=request.POST.get("desc")
         PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
         import joblib
         models = joblib.load(f'{PROJECT_ROOT}/static/spam.pkl')
