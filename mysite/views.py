@@ -442,8 +442,9 @@ def ContactMe(request):
 
         desc=request.POST.get("desc")
         import joblib
-        models = joblib.load(f'spam.pkl')
-        v = joblib.load(f'vector.pickel')
+        import pickle as pk
+        models = pk.load(f'spam.pkl')
+        v = pk.load(f'vector.pickel')
         spam = models.predict(v.transform([desc]))
         if spam[0]==0:
             pass
