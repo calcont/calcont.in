@@ -443,8 +443,8 @@ def ContactMe(request):
         desc=request.POST.get("desc")
         import joblib
         PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-        models = joblib.load(f'./staticfiles/spam.pkl')
-        v = joblib.load(f'./staticfiles/vector.pickel')
+        models = joblib.load(f'{PROJECT_ROOT}/staticfiles/spam.pkl')
+        v = joblib.load(f'{PROJECT_ROOT}/staticfiles/vector.pickel')
         spam = models.predict(v.transform([desc]))
         if spam[0]==0:
             pass
