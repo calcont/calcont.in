@@ -20,6 +20,7 @@ from io import BytesIO
 import json
 import joblib
 from django.views.decorators.csrf import csrf_exempt
+client_secret = "6Ld7Fp8dAAAAAJ4kpwVl960_owTUJcqt1ZkRyMnc"
 pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 # from language_tool_python import LanguageTool as LT
 # Create your views here.
@@ -74,6 +75,21 @@ def ArrangeSideMapLinksForWebPage(indi_id,grp_id,same_grps_id):
             else:
                 links_strings_2.append([urls[link][0],urls[link][1]])
     return links_strings_1,links_strings_2
+
+def isCaptchaValid(r):
+    
+    url = 'https://www.google.com/recaptcha/api/siteverify'
+    captchaData = {
+        'secret': client_secret,
+        'response': r,
+    }
+    import urllib
+    data = urllib.parse.urlencode(captchaData).encode()
+    req = urllib.request.Request(url,data = data)
+    response = urllib.request.urlopen(req)
+    result = json.loads(response.read().decode())
+    return result['success']
+
 def index(request):
     return render(request,'index.html')
     
@@ -436,11 +452,15 @@ def Prefix_calculator(request):
     return render(request,'Prefix_calculator.html',param)
 #contact
 def ContactMe(request):
+    isSub=False
+    isValid=False
     if request.method == "POST":
+        isSub=True
         name=request.POST.get("name")
         email=request.POST.get("email")
    
         desc=request.POST.get("desc")
+        r = request.POST.get('g-recaptcha-response')
         import joblib
         models = joblib.load(f'spam.pkl')
         v = joblib.load(f'vector.pickel')
@@ -449,10 +469,14 @@ def ContactMe(request):
             pass
         else:
             desc = "[spam] " + desc
-        contact=Contact(name=name,email=email,desc=desc,date=datetime.today())
-        contact.save()
-        than=True
-        return render(request,'Contact_me.html',{"than":than})
+        if isCaptchaValid(r):
+            contact=Contact(name=name,email=email,desc=desc,date=datetime.today())
+            contact.save()
+            isValid=True
+        else:
+            than = 'notdone'
+            isValid=False
+        return render(request,'Contact_me.html',{"issub":isSub,"isValid":isValid})
     return render(request,'Contact_me.html')
 def Aboutme(request):
     return render(request,'Aboutme.html')
@@ -484,13 +508,15 @@ def Login(request):
     
     return render(request, "Login.html")
 def Signin(request):
+    isSub=False
+    isValid=False
     if request.method == "POST":
         #getting parameters
-        
+        isSub = True
         username=request.POST["username"]        
         email=request.POST["emailsign"]
         pass1=request.POST["password1"]
-       
+        r = request.POST.get('g-recaptcha-response')
         if username in User.objects.filter(is_active=True).values_list('username',flat=True):
 
             messages.warning(request,"Username is already taken!Please try with other username.")
@@ -499,7 +525,7 @@ def Signin(request):
         
      
         x=User.objects.filter(is_active=True).values_list('email',flat=True)
-        if email  in x:
+        if email  in x :
             
             messages.warning(request,"Email Exist!Please try with other  email.")
             
@@ -513,16 +539,22 @@ def Signin(request):
             return render(request,"Signin.html")
 
 
+        if isCaptchaValid(r):
+            myuser=User.objects.create_user(username,email,pass1)
+            myuser.save()
+            messages.success(request,"Accout has been created successfully")
+            isValid=True
+            return render(request,"index.html",{"canlogin":True})
+        else:
+            isValid=False
+            return render(request,"Signin.html",{"issub":isSub,"isValid":isValid})
         
-        myuser=User.objects.create_user(username,email,pass1)
-        myuser.save()
-        messages.success(request,"Accout has been created successfully")
+        
      
-        return render(request,"index.html",{"canlogin":True})
+        
         # return render(request,"index.html",param)
     if request.user.is_authenticated:
-        return HttpResponse("400 bad request") 
-    
+        return HttpResponse("400 bad request")  
     return render(request,"Signin.html")
 def Logout(request):
     if request.user.is_authenticated:
