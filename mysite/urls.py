@@ -46,6 +46,8 @@ urlpatterns = [
     path('Conversion/prefix_to_postfix', views.prefix_to_postfix,name="prefix_to_postfix"),
     #Cgpa to percentage
     path('Conversion/cgpa_to_percentage/', views.cgpa_to_percentage,name="cgpa_to_percentage"),
+    #image to base64 converter
+    path('Conversion/Image_to_base64_Converter/', views.Image_to_base64,name="Image_to_base64"),
  
    
 

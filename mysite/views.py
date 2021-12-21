@@ -45,6 +45,7 @@ urls = [
     ['/Conversion/prefix_to_postfix','Prefix to Postfix Converter',2,'CC',7],
     ['/Conversion/prefix_to_infix','Prefix to Infix Converter',2,'CC',8],
     ['/Conversion/cgpa_to_percentage/','Cgpa to Percentage Converter',2,'CC',9],
+    ['Conversion/Image_to_base64_Converter/','Image to base64 converter',2,'CC',10],
 
     ['/Translator/English_to_hindi/','English to Hindi Translator',3,'AT',0],
     ['/Translator/English_to_Marathi/','English to Marathi Translator',3,'AT',1],
@@ -322,7 +323,23 @@ def prefix_to_infix(request):
     link_string1,link_string2=ArrangeSideMapLinksForWebPage(8,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
     return render(request,'prefix_to_infix.html',param)
-
+#Image to base64 converter
+@csrf_exempt
+def Image_to_base64(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(10,2,'CC')
+    if request.method == "POST":
+        try: 
+            image =request.FILES['image']
+            encoded_string = base64.b64encode(image.read())
+        except:
+            url = request.POST.get('url')
+            import requests
+            response = requests.get(url)
+            encoded_string = base64.b64encode(response.content)
+        response=json.dumps({'txt': encoded_string},default=str)
+        return HttpResponse(response)
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'image_to_base64.html',param)
 
 
 #Translator

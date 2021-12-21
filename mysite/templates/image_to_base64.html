@@ -1,0 +1,315 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Convert image to base64, online and for free. You can convert and extract text from anytype of image such as jpg,png,jpeg..etc. by just dragging your image
+You can also enter url of any image from online that too convert it into text.
+{% endblock %}
+{% block MKW %}Image to base64, image to base64 converter, convert image to base64,base64 encoder from image,base64 image encoder{% endblock %}
+{% block Mr %}
+24/09/2021
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %} convert image to base64 | base64 image encoder
+{% endblock %}
+{% block body %}
+<style>
+    .input {
+
+        border: 1px solid rgb(38, 35, 35);
+        border-radius: 10px;
+
+    }
+    .files input {
+    outline: 2px dashed #2ea591;
+    outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    padding: 120px 0px 85px 35%;
+    text-align: center !important;
+    margin: 0;
+    width: 100% !important;
+}
+/* .files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+ } */
+.files{ position:relative}
+.files:after {  pointer-events: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 50px;
+    right: 0;
+    height: 56px;
+    content: "";
+    background-image: url('/static/drive_folder_upload_white_18dp.svg');
+    display: block;
+    margin: 0 auto;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.files:before {
+    position: absolute;
+    bottom: 10px;
+    left: 0;  pointer-events: none;
+    width: 100%;
+    right: 0;
+    height: 40px;
+    content: " or drag it here. ";
+    display: block;
+    margin: 0 auto;
+    color: #2ea591;
+    font-weight: 600;
+    text-transform: capitalize;
+    text-align: center;
+}
+
+    .AddName {
+        background-color: #3671ab;
+    }
+    .form-control {
+        background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px;
+        
+    }
+</style>
+<div class="container text-light">
+    <div class="row ">
+
+        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4 ">
+                <h2 class="mx-4 ">image to base64 converter</h2>
+                <hr class="my-4 bg-dark">
+                <h3 class="text-monospace my-2">base64 Image encoder?</h3>
+                <p class="text-monospace my-4">It is a tool which analyzes and process the image data and convert it into base64.
+                    Any type of image such as jpg,png,jpeg..etc. it can extract.So, image is nothing but pixels data and this data is processed by tool and convert it to base64.<br>
+                   You can also try <a href="/Analyzer/text-to-image-converter/"> text to image converter</a>.
+                </p>
+                <hr class="bg-dark my-2">
+                <h3 class="my-4 mb-4 text-monospace text-center">Image to base64 converter tool</h3>
+                <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+                    <form id="post-form"   enctype="multipart/form-data">
+                        <div class="form-group files">
+                            <label>Upload Your File </label>
+                            <input type="file" class="form-control" accept="image/*" id='img' name ="img" required>
+                          </div>
+                          <p class="text-warning" id="notify"></p>
+                        <div class="mb-2">
+                            
+                                    <button class="mx-2  btn btn-outline-secondary btn-md extract text-light"
+                                        type="submit" style="display:block;" id="convert">Convert-FILE</button>
+                                        <button class="btn btn-outline-secondary btn-sm text-light" style="display:none;" id="loading" stytype="button" >
+                                            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                            Loading...
+                                          </button>
+                               
+                        </div>
+                    </form>
+                    <p class="text-center font-weight-bold my-2">OR</p>
+                    <form id="post-form1"   enctype="multipart/form-data">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text" style="    background-color: #191717;
+                              border-radius: 10px;
+                              color: white;
+                              border: 2px solid black;" id="basic-addon1">url</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Enter url" id="input-url" aria-label="Username" aria-describedby="basic-addon1" required>
+                          </div>
+                          <p class="text-warning" id="notify"></p>
+                        <div class="mb-2">
+                            
+                                    <button class="mx-2 my-2 btn btn-outline-secondary btn-md extract text-light"
+                                        type="submit" style="display:block;" id="convert-url">Convert-URL</button>
+                                        <button class="btn btn-outline-secondary btn-sm text-light" style="display:none;" id="loading-url" stytype="button" >
+                                            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                            Loading...
+                                          </button>
+                               
+                        </div>
+                    </form>
+                    <textarea class="form-control input my-4" name="text" placeholder="Genrated text" id="text"
+                                rows="7" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " ></textarea>
+            <div class="row">
+            <div class="col-4 mb-2">
+                <a class="mx-2  btn btn-outline-secondary btn-md clear "  >Clear</a>
+            </div>
+            <div class="col-4 mb-2">
+                <a class="mx-2  btn btn-outline-secondary btn-md " id="copybtn">Copy</a>
+                <p class="mx-2" style="display: none;" id="copytxt">Text is copied!</p>
+            </div>
+                </div>
+                </div>
+
+            </div>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-2">Image to base64 converter in CalConT?</h3>
+            <p class="text-monospace my-4">So,to use this tool in calcont ,<br>
+                1.You can click on upload button or can drag and drop image in above field and other option is you can just enter the url of online image <br>
+                2.Press the convert button and wait for some seconds. <br>
+                3.Now,you can see the base64 format in output textarea or if their is some error it'll also notifies you below in output field.
+            </p>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-4">Use of tool?</h3>
+                <p>
+                    Sometimes you have to send or output an image within a text document (for example, HTML, CSS, JSON, XML), but you cannot do this because binary characters will damage the syntax of the text document. To prevent this, for example, you can encode image to Base64 and embed it using the data URI.It's also fast when you include base64 in html because browser don't has to send a request to fetch an image.
+                    </p>
+        </div>
+                    
+
+
+
+<div class="col-md-4 my-4 ">
+    <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <h4 class="my-2">Converters</h3>
+            {% for link in link_string1 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+        <h4 class="my-2 ">Calculators  </h3>
+            {% for link in link_string2 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+{% block JS %}
+<script>
+    $('.clear').click(function (e) {
+        document.getElementById('text').value = "";
+        document.getElementById('output').value = "";
+        e.preventDefault();
+    })
+    $('#copybtn').click(function (e) {
+  var copyText = document.getElementById("text");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.getElementById("copybtn").style.display = "none";
+  document.getElementById("copytxt").style.display = "block";
+});
+    
+        $('#post-form').submit(function (e) {
+            var data = new FormData();
+        var image = $('#img')[0].files[0];  
+        var validImageTypes = ["image/gif", "image/jpeg", "image/png","image/jpg"];
+        var fileType = image["type"];
+        e.preventDefault();
+        if ($.inArray(fileType, validImageTypes) < 0) {
+            document.getElementById('notify').innerHTML = "*Invalid Image format";
+        }
+        else{
+        document.getElementById('notify').innerHTML = "";
+        data.append('image', image)
+        document.getElementById("convert").style.display = "none";
+                document.getElementById("loading").style.display = "block";
+        $.ajax({
+            type: 'POST',
+            url: '/Conversion/Image_to_base64_Converter/',
+            data:data,
+            cache: false,
+            contentType: false,
+            processData: false,
+            encode:true,
+            success: function (response) {
+                var GotRes = JSON.parse(response)
+                var text = GotRes['txt']
+                document.getElementById('text').value = text;
+                document.getElementById('convert').style.display = "block";
+                document.getElementById('loading').style.display = "none";
+                document.getElementById("copybtn").style.display = "block";
+                document.getElementById("copytxt").style.display = "none";
+            },
+            error: function (response) {
+                document.getElementById('convert').style.display = "block";
+                document.getElementById('loading').style.display = "none";
+                    document.getElementById('text').value = "Invalid Image format";
+                },
+            })
+        }
+        })
+        $('#post-form1').submit(function (e) {
+            var url=document.getElementById('input-url').value;
+            e.preventDefault();
+            document.getElementById("convert-url").style.display = "none";
+                document.getElementById("loading-url").style.display = "block";
+            data={'data1':url,'isurl':1};
+$.ajax({
+            type: 'POST',
+            url: '/Conversion/Image_to_base64_Converter/',
+            data:{
+            url:url,
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+            encode:true,
+            success: function (response) {
+                var GotRes = JSON.parse(response)
+                var text = GotRes['txt']
+                document.getElementById('text').value = text;
+                document.getElementById("convert-url").style.display = "block";
+                document.getElementById("loading-url").style.display = "none";
+                document.getElementById("copybtn").style.display = "block";
+                document.getElementById("copytxt").style.display = "none";
+            },
+            error: function (response) {
+                document.getElementById("convert-url").style.display = "block";
+                document.getElementById("loading-url").style.display = "none";
+                document.getElementById('text').value = "error occured";
+                },
+            })
+        })
+    
+//         $('.extract').click(function (e) {
+//             var image = $('#img')[0].files[0];
+//             var validImageTypes = ["image/gif", "image/jpeg", "image/png","image/jpg"];
+//             var fileType = image["type"];
+//             if ($.inArray(fileType, validImageTypes) < 0) {
+//                 document.getElementById('notify').innerHTML = "*Invalid Image format";
+//             }
+//             else{
+//                 document.getElementById('notify').innerHTML = "";
+//                 document.getElementById('loading').style.display = "block";
+//                 Tesseract.recognize(image).then(function(result){
+//         // The result object of a text recognition contains detailed data about all the text
+//         // recognized in the image, words are grouped by arrays etc
+//         document.getElementById('text').value = result.data.text;
+        
+//         // Show recognized text in the browser !
+//         // alert(result.text);
+//     }).catch(function(err){
+//         document.getElementById('loading').style.display = "none";
+//         document.getElementById('notify').innerHTML = "Error while processing image";
+//     })
+//     .finally(function(){
+//         document.getElementById('loading').style.display = "none";
+//         document.getElementById("copybtn").style.display = "block";
+//   document.getElementById("copytxt").style.display = "none";
+//         // Enable button once the text recognition finishes (either if fails or not)
+//         // btn.disable = false;
+//     });
+// }
+// e.preventDefault();
+// });
+
+
+
+
+</script>
+
+{% endblock %}
