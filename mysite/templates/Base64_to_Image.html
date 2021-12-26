@@ -1,0 +1,189 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+You can convert any valid base64 string to image format.And small preview of converted image along
+with it's properties also will be shown.
+{% endblock %}
+{% block MKW %}Base64 to Image, Base64 to Image converter, convert base64 to Image,base64 decoder from image,base64 image decoder{% endblock %}
+{% block Mr %}
+24/09/2021
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %} Convert Base64 to Image | Base64 Image decoder
+{% endblock %}
+{% block body %}
+<style>
+    canvas {
+        display: none;
+    }
+
+    #image {
+        display: none;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<div class="container text-light">
+    <div class="row ">
+
+        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4 ">
+                <h2 class="mx-4 ">Base64 to Image converter </h2>
+                <hr class="my-4 bg-dark">
+                <h3 class="text-monospace my-2">Base64 Image Decoder ?</h3>
+                <p class="text-monospace my-4">Base64 Image Decoder helps you to convert valid base64 string into
+                    image format.It can be jpg,png,gif according to entered base64 string.Here,you can do that and also you can see a small image preview
+                    and original image properties like width,height,size,etc. in below of image.
+                    You can also check our
+                    <a href="/Conversion/Image_to_base64_Converter/">Image to Base64 converter</a>.
+                </p>
+                <hr class="bg-dark my-2">
+                <h3 class="my-4 mb-4 text-monospace text-center">Base64 to Image converter</h3>
+                <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+                    <section class="main my-5">
+                        <div class="container">
+                            <div class="small">
+                                <canvas id="canv"></canvas>
+                                <div class="form-group my-4">
+                                    <h5 class="my-2">Base64 Text:</h5>
+                                    <textarea class="form-control my-2" type="text" id="text"
+                                        placeholder="Enter base64 text" style="    color: white;
+                                background-color: #191717;
+                                border: 3px solid black;
+                                border-radius: 15px; " rows="5" spellcheck="false" required></textarea>
+                                </div>
+                                <h5 class="">Small Preview</h5>
+                                <p>(<span class="text-danger">*this is just small preview ,downloaded image will have
+                                        original resolution.</span>)</p>
+                                <div class="img container" style="     border: 3px solid black;
+                            border-radius: 15px;
+                            height: 150px;
+                            background-color: #191717;">
+                                    <img class="my-3 d-block mx-auto" id="imagee" onerror="showerror()" alt="preview image">
+                                    <p class=" text-danger" id="error"></p>
+                                </div>
+                                <div class="row my-2">
+                                    <div class="col-md-5">
+                                        <button type="submit" class="my-4 btn btn-outline-secondary text-light con">Convert</button>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <a class="my-4 btn btn-outline-secondary sssss text-light" id="link" href=""
+                                            download><img src="/static/file_download.svg" width="20" height="20" alt="">
+                                            Download</a>
+                                    </div>
+
+                                </div>
+                                <div class="img-properties" style="display: none;" id="img-proper">
+                                    <h4 class="text-monospace " >Image Properties</h4>
+                                    <p class="mx-2 my-2">
+                                    <p class="my-2 lead text-secondary font-weight-bold" id="widt"></p>
+                                    <p class="my-2 lead text-secondary font-weight-bold" id="heigh"></p>
+                                    <p class="my-2 lead text-secondary font-weight-bold" id="img-type"></p>
+                                    <p class="my-2 lead text-secondary font-weight-bold" id="img-size"></p>
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+            </div>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-2">Base64 to image converter in CalConT?</h3>
+            <p class="text-monospace my-4">So,to use this tool in calcont ,<br>
+                1.First you have to write or paste the valid image base64 string on textarea. <br>
+                2.Then click on convert button,now your image will be generated and you can download it too. <br>
+                3.Also an small preview of given base64 string generated and properties of original image will also be shown.
+            </p>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-4">Use of tool?</h3>
+            <p class=" my-4">
+            If someone has send you a image in base64 format for security purpose you can convert that into actual image.
+            And instead of using or including long base64 string in your html file you can directly include an path of your image by converting base64 string to image.
+            </p>
+        </div>
+
+
+
+
+        <div class="col-md-4 my-4 ">
+            <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2">Analyzers</h3>
+                    {% for link in link_string1 %}
+                    <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                    {% endfor %}
+            </div>
+            <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+                <h4 class="my-2 ">Translators</h3>
+                    {% for link in link_string2 %}
+                    <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                    {% endfor %}
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block JS %}
+<script>
+    function formatBytes(bytes, decimals = 2) {
+    if (bytes === 0) return '0 Bytes';
+
+    const k = 1024;
+    const dm = decimals < 0 ? 0 : decimals;
+    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+    const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}
+    $('.con').click(function (e) {
+        var base64str = document.getElementById('text').value;
+        document.getElementById('error').innerHTML="";
+        var img = document.getElementById('imagee');
+        var image = document.createElement('img');
+        image.addEventListener('load', function() {
+            console.log(image.width + ' × ' + image.height);
+            var width = image.width;
+        var height = image.height;
+        document.getElementById('widt').innerHTML = `- width: <span class="text-light">${width}px</span>`;
+        document.getElementById('heigh').innerHTML = `- height: <span class="text-light">${height}px</span>`;
+        });
+        image.src=`data:image/png;base64,${base64str}`;
+        img.src = image.src;
+        
+        document.getElementById('img-proper').display = "block";
+        document.getElementById('error').innerHTML = "";
+        document.getElementById('link').href = `data:image/png;base64,${base64str}`;
+        document.getElementById('img-proper').style.display = "block";
+        
+        if(base64str.charAt(0)=="/"){document.getElementById('img-type').innerHTML = `- type: <span class="text-light">jpg</span>`;}
+       else if(base64str.charAt(0)=="i"){document.getElementById('img-type').innerHTML = `- type: <span class="text-light">png</span>`;}
+        else if(base64str.charAt(0)=="R"){document.getElementById('img-type').innerHTML = `- type: <span class="text-light">gif</span>`;}
+        if(base64str.substr(base64str.length-2,base64str.length-1)=="=="){document.getElementById('img-size').innerHTML = `- size: <span class="text-light">${formatBytes((base64str.length * (3/4)) - 2)}</span>`;}
+        else{document.getElementById('img-size').innerHTML = `- size: <span class="text-light">${formatBytes((base64str.length * (3/4)) - 1)}</span>`;}
+        
+        document.getElementById('imagee').width = 110;
+        document.getElementById('imagee').height = 110;
+        // var image = document.getElementById('imagee');4r
+        // image.src="/static/1.jpg";
+        e.preventDefault();
+    });
+    function showerror(){
+       document.getElementById('error').innerHTML = "Invalid image base64 string";
+       document.getElementById('img-proper').style.display = "none";
+    }
+
+</script>
+
+{% endblock %}

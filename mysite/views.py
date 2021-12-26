@@ -45,7 +45,8 @@ urls = [
     ['/Conversion/prefix_to_postfix','Prefix to Postfix Converter',2,'CC',7],
     ['/Conversion/prefix_to_infix','Prefix to Infix Converter',2,'CC',8],
     ['/Conversion/cgpa_to_percentage/','Cgpa to Percentage Converter',2,'CC',9],
-    ['Conversion/Image_to_base64_Converter/','Image to base64 converter',2,'CC',10],
+    ['/Conversion/Image_to_base64_Converter/','Image to base64 converter',2,'CC',10],
+     ['/Conversion/Base64_to_Image_Converter/','Base64 to Image converter',2,'CC',11],
 
     ['/Translator/English_to_hindi/','English to Hindi Translator',3,'AT',0],
     ['/Translator/English_to_Marathi/','English to Marathi Translator',3,'AT',1],
@@ -336,11 +337,16 @@ def Image_to_base64(request):
             import requests
             response = requests.get(url)
             encoded_string = base64.b64encode(response.content)
-        response=json.dumps({'txt': encoded_string},default=str)
+        response=json.dumps({'txt': encoded_string.decode()},default=str)
         return HttpResponse(response)
     param={'link_string1':link_string1,'link_string2':link_string2}
     return render(request,'image_to_base64.html',param)
 
+#Base64 to Image Converter
+def Base64_to_Image(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(11,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'Base64_to_Image.html',param)
 
 #Translator
 def EnglishToHindi(request):

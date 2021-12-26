@@ -48,7 +48,8 @@ urlpatterns = [
     path('Conversion/cgpa_to_percentage/', views.cgpa_to_percentage,name="cgpa_to_percentage"),
     #image to base64 converter
     path('Conversion/Image_to_base64_Converter/', views.Image_to_base64,name="Image_to_base64"),
- 
+ #base4 to Image converter
+    path('Conversion/Base64_to_Image_Converter/', views.Base64_to_Image,name="Base64_to_Image"),
    
 
 #NameSorting

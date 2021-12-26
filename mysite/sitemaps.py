@@ -31,6 +31,7 @@ class StaticViewsSitemap(Sitemap):
             "mysite:postfix_to_infix",
             "mysite:infix_to_prefix",
             "mysite:Image_to_base64",
+            "mysite:Base64_to_Image",
             "mysite:EnglishToHindi",
             "mysite:EnglishToMarathi",
             "mysite:EnglishToGerman",
