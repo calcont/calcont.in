@@ -60,7 +60,9 @@ urls = [
     ['/Calculator/GCD_calculator/','GCD Calculator',4,'CC',1],
     ['/Calculator/BMI_calculator/','BMI Calculator',4,'CC',2],
     ['/Calculator/Postfix_calculator/','Postfix Calculator',4,'CC',3],
-    ['/Calculator/Prefix_calculator/','Prefix Calculator',4,'CC',4]
+    ['/Calculator/Prefix_calculator/','Prefix Calculator',4,'CC',4],
+    ['/Calculator/Material-weight-calculator/','Material weight Calculator',4,'CC',5],
+    
 
 ]
 
@@ -473,6 +475,10 @@ def Prefix_calculator(request):
     link_string1,link_string2=ArrangeSideMapLinksForWebPage(4,4,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
     return render(request,'Prefix_calculator.html',param)
+def material_weight_calculator(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(5,4,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'material_weight_calculator.html',param)
 #contact
 def ContactMe(request):
     isSub=False

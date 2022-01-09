@@ -1,0 +1,639 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Evaluate postfix expresion by entering expression as input.
+{% endblock %}
+{% block MKW %}calculators, engineering calculators, electrical engineering calculators,  mechanical engineering calculators, physics calculators,
+material weight calculator,metal weight calculator,metal weight calculator online,online metal weight calculator,sheet metal weight calculator,raw material weight calculator
+{% endblock %}
+{% block Mr %}
+09/01/2022
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %}material weight calculator | metal weight calculator
+{% endblock %}
+{% block body %}
+<style>
+ 
+</style>
+<div class="container text-light">
+    <div class="row ">
+
+      <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <div class="my-4 ">
+            <h2 class="text-center ">material weight calculator</h2>
+            <hr class='bg-dark my-2'>
+            <h3 class="my-4 text-center">What is material weight calculator?</h3>
+            <p class="text-monospace my-4">It is calculator which calculates the weight of material by just entering it's dimension values and chosen
+				shape of material.It's actually helps you to find the weight of any amount of metal/material.
+				</b></p>
+ <p class="text-monospace">You can also try our most viewed calculator <a href="/Calculator/Postfix_calculator/">Postfix Calculator</a>  .
+ </p>
+            <hr class='bg-dark my-4'>
+            <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+				<form  >
+					
+					<div class="form-group my-4">
+					  <label for="exampleInputPassword1">Material: </label>
+					  <select name="product" style="    color: white;
+					  background-color: #191717;
+					  border: 3px solid black;
+					  border-radius: 15px;" class="form-control" id="material">
+						<option>Steel (default)
+						<option>Aluminum 1100
+						<option>Aluminum 2011
+						<option>Aluminum 2014
+						<option>Aluminum 2017
+						<option>Aluminum 2024
+						<option>Aluminum 3003
+						<option>Aluminum 5005
+						<option>Aluminum 5052
+						<option>Aluminum 5056
+						<option>Aluminum 5083
+						<option>Aluminum 5086
+						<option>Aluminum 6061
+						<option>Aluminum 6063
+						<option>Aluminum 7050
+						<option>Aluminum 7075
+						<option>Aluminum 7178
+						<option>Stainless 300 Series
+						<option>Stainless 400 Series
+						<option>Nickel 200
+						<option>Nickel 400
+						<option>Nickel R-405
+						<option>Nickel K-500
+						<option>Nickel 600
+						<option>Nickel 625
+						<option>Nickel 800H
+						<option>Nickel 800AT
+						<option>Nickel 825
+						<option>Nickel 330
+						<option>Nickel 20
+						<option>Nickel C-276
+						<option>Nickel 2545MD
+						<option>Magnesium
+						<option>Beryllium
+						<option>Titanium
+						<option>Zirconium
+						<option>Cast Iron
+						<option>Zinc
+						<option>Brass
+						<option>Columbium
+						<option>Copper
+						<option>Molybdenum
+						<option>Silver
+						<option>Lead
+						<option>Tantalum
+						<option>Tungsten
+						<option>Gold
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Shape:</label>
+						<select name="form" onChange="ChangeLabel();ClearFields();" style="    color: white;
+						background-color: #191717;
+						border: 3px solid black;
+						border-radius: 15px;" class="form-control" id="shape">
+                            <option selected >Round
+                            <option  >Square
+                            <option >Rectangle
+                            <option >Hexagonal
+                            <option >Octagonal
+                            <option >Sheet
+                            <option >Plate
+                            <option >Tubular
+                            <option >Ring
+                            <option >Pipe
+                            </select>
+					  </div>
+					  <div class="form-group">
+						<label for="exampleInputPassword1">Quantity: </label>
+						<input type="number" class="form-control"  style="    background-color: #191717;
+						border-radius: 10px;
+						color: white;
+						border: 2px solid black;" placeholder="enter the quantity" id="param4" value="1" size="6" maxlength="10">
+					  </div>
+					  <div class="dimensions">
+					  <div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<p class="lead mx-4" id="lb1">Diameter</p>
+							  </div>
+
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="number" class="form-control"  style="    background-color: #191717;
+								border-radius: 10px;
+								color: white;
+								border: 2px solid black;" placeholder="enter the value"  id= "param1" size="6" maxlength="10">
+							  </div>
+							  
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<select name="form"  style="    color: white;
+								background-color: #191717;
+								border: 3px solid black;
+								border-radius: 15px;" class="form-control" id="units1">
+									<option selected>in
+                            <option>ft
+                            <option>yd
+                            <option>mm
+                            <option>cm
+                            <option>m
+									</select>
+							  </div>
+						</div>
+					  </div>
+					  <div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<p class="lead mx-4" id="lb2"></p>
+							  </div>
+
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="number" class="form-control" " style="    background-color: #191717;
+								border-radius: 10px;
+								color: white;
+								border: 2px solid black;" placeholder="enter the value" id="param2" size="6" maxlength="10">
+							  </div>
+							  
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<select name="form"  style="    color: white;
+								background-color: #191717;
+								border: 3px solid black;
+								border-radius: 15px;" class="form-control" id="units2">
+									<option selected>in
+                            <option>ft
+                            <option>yd
+                            <option>mm
+                            <option>cm
+                            <option>m
+									</select>
+							  </div>
+						</div>
+					  </div>
+					  <div class="row">
+						<div class="col-md-4">
+							<div class="form-group">
+								<p class="lead  mx-4" id="lb3">Length</p>
+							  </div>
+
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="number" class="form-control"  style="    background-color: #191717;
+								border-radius: 10px;
+								color: white;
+								border: 2px solid black;" placeholder="enter the value" id="param3" size="6" maxlength="10">
+							  </div>
+							  
+						</div>
+						<div class="col-md-3">
+							<div class="form-group">
+								<select name="form"  style="    color: white;
+								background-color: #191717;
+								border: 3px solid black;
+								border-radius: 15px;" class="form-control" id="units3">
+									<option selected>in
+                            <option>ft
+                            <option>yd
+                            <option>mm
+                            <option>cm
+                            <option>m
+									</select>
+							  </div>
+						</div>
+					  </div>
+					</div>
+					<input type="button" class="btn btn-secondary my-3" id="calculate" value="Calculate" style="margin-left:1cm">
+					<input type="reset" class="btn btn-secondary my-3"  value="Clear" onClick="ChangeLabel();ClearFields();return false;" style="margin-left:1cm">
+					<div class="answers d-block " style="border: 2px solid #2b2929;
+					margin-top: 20px;
+					margin-bottom: 10px;
+					border-radius: 10px;">
+					<div class="form-group col-md-8 mx-auto my-4">
+						<label for="ans">Calculated Weight(lbs)</label>
+						<input type="number" class="form-control"  style="    background-color: #191717;
+						border-radius: 10px;
+						color: white;
+						border: 2px solid black;" placeholder="Ans" id="result" size="6" maxlength="10" disabled>
+					  </div>
+					<div class="form-group col-md-8 mx-auto my-4">
+						<label for="ans">Calculated Weight(Kgs)</label>
+						<input type="number" class="form-control"  style="    background-color: #191717;
+						border-radius: 10px;
+						color: white;
+						border: 2px solid black;" placeholder="Ans" id="result2" size="6" maxlength="10" disabled>
+					  </div>
+					</div>
+				  </form>
+
+          </div>
+            <hr class="bg-dark my-3">
+          
+
+
+            <h3 class="my-3 text-center">How to calculate metal weight?</h3>
+            <p class=" my-4 text-monospace">
+				Even though our material weight calculator looks so complex but in behind the scenes it just work on one simple formula:
+				<br>
+				<b>Sectional Area (mm2) x Length (m) x Density (g/cm3) x 1/1,000</b><br>
+				
+				
+				As you can see the way this tool works is, in reality, quite simple. The tricky part might come with manually calculating the volume of some of the shapes, and in some cases the formulas tend to get complicated.
+			</p>
+</p>
+
+
+
+            <hr class="bg-dark my-3">
+            <h3 class="">Applications</h3>
+            <p class=" text-monospace my-3 mx-2">
+				Let's suppose your team or any company
+				planning to transport large metal elements. This will allow you to accurately estimate the cost of driving the elements to your desired destination, or if your vehicle can support the weight.<br>Like this there are plenty of scenarios where you know the dimensions
+				of material but not it's weight.So in that case it can be helpful.
+				<br>
+				One advantage can be as it is tough to calculate and can consume more time to calculate it manually.So in such cases this type of
+				calculators always will be helpful.
+			</p>
+           
+        </div>
+    </div>
+
+    <div class="col-md-4 my-4 ">
+      
+        
+        <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+          <h4 class="mb-2 ">Calculators</h3>
+            {% for link in link_string1 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+            </div>
+            <div class="col my-3 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <h4 class="my-2">Converters</h3>
+        {% for link in link_string2 %}
+        <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+         {% endfor %}
+        </div>
+          
+       
+        </div>
+      </div>
+</div>
+</div>
+{% endblock %}
+{% block JS %}
+<script>
+							console.log(document.getElementById('param1').value);	
+						var focusflag = false;
+						var Factor = new Array(47);
+						Factor[0] = .3462;
+						Factor[1] = .3604;
+						Factor[2] = .3568;
+						Factor[3] = .3568;
+						Factor[4] = .3533;
+						Factor[5] = .3498;
+						Factor[6] = .3462;
+						Factor[7] = .3427;
+						Factor[8] = .3356;
+						Factor[9] = .3392;
+						Factor[10] = .3392;
+						Factor[11] = .3462;
+						Factor[12] = .3462;
+						Factor[13] = .3568;
+						Factor[14] = .3568;
+						Factor[15] = .3604;
+						Factor[16] = 1.030;
+						Factor[17] = 1.010;
+						Factor[18] = 1.132;
+						Factor[19] = 1.125;
+						Factor[20] = 1.121;
+						Factor[21] = 1.075;
+						Factor[22] = 1.072;
+						Factor[23] = 1.075;
+						Factor[24] = 1.012;
+						Factor[25] = 1.012;
+						Factor[26] = 1.037;
+						Factor[27] = 1.012;
+						Factor[28] = 1.030;
+						Factor[29] = 1.132;
+						Factor[30] = 1.012;
+						Factor[31] = .229;
+						Factor[32] = .236;
+						Factor[33] = .575;
+						Factor[34] = .812;
+						Factor[35] = .911;
+						Factor[36] = .911;
+						Factor[37] = 1.084;
+						Factor[38] = 1.095;
+						Factor[39] = 1.144;
+						Factor[40] = 1.303;
+						Factor[41] = 1.339;
+						Factor[42] = 1.448;
+						Factor[43] = 2.120;
+						Factor[44] = 2.462;
+						Factor[45] = 2.466;
+						var RoundOff = 5;
+				
+				function UnitConvertI(value,type){
+							
+						
+							if(type=="cm")
+								value = value/2.54;
+							if(type=="m")
+								value = (value*100)/2.54;
+							if(type== "mm")
+								value = (value/10)/2.54;
+							if(type=="ft")
+								value = value*12;
+							if(type=="yd")
+								value = value*36;
+											
+			
+						
+					return value;
+					}
+				function UnitConvertF(value,type){
+						
+							if(type== "cm")
+								value = (value/2.54)/12;
+							if(type =="m")
+								value = ((value*100)/2.54)/12;
+							if(type=="mm")
+								value = ((value/10)/2.54)/12;				
+							if(type=="in")
+								value = value/12;
+							if(type=="yd")
+								value = value*3;
+							
+						
+					return value;
+					}
+				function CheckNum(value,label){
+						var String1 = new String(value);
+						var String2 = new String("");
+						var String3 = new String("");
+						var String4 = new String("");
+						var temp;
+						var i=0;
+						var count=0;
+						for(i=0;i<String1.length;i++){
+							String2 = new String(parseFloat(String1.charAt(i)));
+							if(String1.charAt(i)==".")
+								count++;
+							
+							if((String2.length!=1&&String1.charAt(i)!='.')||count>1){
+								alert("You entered an illegal value for the " + label);
+								return false;
+							}
+						}
+						return true;
+					}
+				function CheckParam(Param1,Param2,Param3,Param4){
+						var Form = document.getElementById("shape").value;
+						var valid1 = 0,valid2 = 0,valid3 = 0,valid4 = 0;
+						var counter = 0;
+						
+							if(Form=="Round"||Form=="Hexagonal"||Form=="Octagonal"){ 
+								if(Param1==""||Param3==""||Param4 == ""){
+								alert("You must fill in values for the Diameter And the Length!");
+								return false;
+								}	
+								valid1 = CheckNum(Param1,"Diameter");
+								valid3 = CheckNum(Param3,"Length");
+								valid4 = CheckNum(Param4,"Number of Pieces");
+								if(valid1!=true||valid3!=true||valid4!=true)
+									return false;
+							}
+							
+							if(Form=="Square"){ 
+								if(Param1==""||Param3==""||Param4 == ""){
+								alert("You must fill in values for the Width And the Length!");
+								return false;
+								}	
+								valid1 = CheckNum(Param1,"Width");
+								valid3 = CheckNum(Param3,"Length");
+								valid4 = CheckNum(Param4,"Number of Pieces");
+								if(valid1!=true||valid3!=true||valid4!=true)
+									return false;
+							}
+							
+							if(Form=="Flat"||Form=="Sheet"||Form=="Plate"||Form=="Coil"||Form=="Rectangle"){
+							if(Param1==""||Param3==""||Param4 == ""||Param2==""){
+								alert("You must fill in values for the Thickness And the Width And the Length!");
+								return false;
+								}	
+								valid1 = CheckNum(Param1,"Thickness");			
+								valid2 = CheckNum(Param2,"Width");
+								valid3 = CheckNum(Param3,"Length");
+								valid4 = CheckNum(Param4,"Number of Pieces");
+								if(valid1!=true||valid3!=true||valid4!=true||valid2!=true)
+									return false;
+				
+							}
+							if(Form=="Tubular"||Form=="Pipe"){ 
+							if(Param1==""||Param3==""||Param4 == ""||Param2==""){
+								alert("You must fill in values for the Outer Diameter And the Wall And the Length!");
+								return false;
+								}	
+								valid1 = CheckNum(Param1,"Outer Diameter");
+								valid2 = CheckNum(Param2,"Wall");
+								valid3 = CheckNum(Param3,"Length");
+								valid4 = CheckNum(Param4,"Number of Pieces");
+								if(valid1!=true||valid2!=true||valid3!=true||valid4!=true)
+									return false;
+				
+							}
+							if(Form=="Circular"){ 
+							if(Param1==""||Param3==""||Param4 == ""){
+								alert("You must fill in values for the Diameter And the Thickness!");
+								return false;
+								}	
+								valid1 = CheckNum(Param1,"Diameter");			
+								valid3 = CheckNum(Param3,"Thickness");
+								valid4 = CheckNum(Param4,"Number of Pieces");
+								if(valid1!=true||valid3!=true||valid4!=true)
+									return false;
+				
+							}
+							if(Form=="Ring"){
+							if(Param1==""||Param2==""||Param3==""||Param4 == ""){
+								alert("You must fill in values for the Outer Diameter And the Inner Diameter And the Thickness!");
+								return false;
+								}	
+								valid1 = CheckNum(Param1,"Outer Diameter");
+								valid2 = CheckNum(Param2,"Inner Diameter");
+								valid3 = CheckNum(Param3,"Thickness");
+								valid4 = CheckNum(Param4,"Number of Pieces");
+								if(valid1!=true||valid2!=true||valid3!=true||valid4!=true)
+									return false;
+				
+							}
+					
+			
+						
+						return true;
+					}
+				$('#calculate').click(function(e){
+					var Param = new Array(5);
+					var Units = new Array(4);
+						var Convert;
+						var FormType;
+						var Result;
+						
+						var Good;
+						Param[0] = document.getElementById('param1').value;
+						Param[1] = document.getElementById('param2').value;
+						Param[2] = document.getElementById('param3').value;
+						Param[3] = document.getElementById('param4').value;
+						Good = CheckParam(Param[0],Param[1],Param[2],Param[3]);
+						if(!Good)
+						return;			
+						
+			
+						Units[0] = document.getElementById('units1').value;
+						Units[1] = document.getElementById('units2').value;
+						Units[2] = document.getElementById('units3').value;
+						
+						Param[0] = UnitConvertI(Param[0],Units[0]);
+						Param[1] = UnitConvertI(Param[1],Units[1]);
+						Param[2] = UnitConvertF(Param[2],Units[2]);
+						
+						FormType =document.getElementById("shape").value;
+						if(document.getElementById("material").selectedIndex>0)
+						Convert = Factor[document.getElementById("material").selectedIndex-1];
+						else
+						Convert = 1;	
+						document.forms[0].result.rsize = "4";
+						
+							if(FormType=="Round"){
+								Result = new String(2.6729 * Param[0] * Param[0] * Convert * Param[2] * Param[3]);
+								document.getElementById('result').value = Result.substring(0,Result.indexOf(".")+RoundOff);
+								document.getElementById('result2').value = Result.substring(0,Result.indexOf(".")+RoundOff)* 0.4535;
+								
+							}
+							if(FormType=="Square"){
+								Result = new String(3.4032 * Param[0] * Param[0] * Convert * Param[2] * Param[3]);
+								document.getElementById('result').value = Result.substring(0,Result.indexOf(".")+RoundOff);
+								document.getElementById('result2').value = Result.substring(0,Result.indexOf(".")+RoundOff)* 0.4535;
+							}
+							if(FormType=="Hexagonal"){
+								Result= new String(2.9473 * Param[0] * Param[0] * Convert * Param[2] * Param[3]);
+								document.getElementById('result').value = Result.substring(0,Result.indexOf(".")+RoundOff);
+								document.getElementById('result2').value = Result.substring(0,Result.indexOf(".")+RoundOff)* 0.4535;
+							}
+							if(FormType=="Octagonal"){
+								Result = new String(2.8193 * Param[0] * Param[0] * Convert * Param[2] * Param[3]);
+								document.getElementById('result').value = Result.substring(0,Result.indexOf(".")+RoundOff);
+								document.getElementById('result2').value= Result.substring(0,Result.indexOf(".")+RoundOff)* 0.4535;
+							}
+							if(FormType=="Flat"||FormType=="Sheet"||FormType=="Plate"||FormType=="Coil"||FormType=="Rectangle"){
+								Result = new String(3.4032 * Param[0] * Convert * Param[1] * Param[2] * Param[3]);					
+								document.getElementById('result').value = Result.substring(0,Result.indexOf(".")+RoundOff);
+								document.getElementById('result2').value= Result.substring(0,Result.indexOf(".")+RoundOff)* 0.4535;
+							}
+							if(FormType=="Tubular"||FormType=="Pipe"){
+								Result = 10.68 * (Param[0] - Param[1]) * Convert * Param[1] * Param[2] * Param[3];
+								if(Result<0)
+								alert("The Width of the Tube Wall cannot exceed the Outer Diameter!");
+								else{
+									Result = new String(Result);
+								document.getElementById('result').value = Result.substring(0,Result.indexOf(".")+RoundOff);
+								document.getElementById('result2').value = Result.substring(0,Result.indexOf(".")+RoundOff)* 0.4535;
+							}
+						}
+							if(FormType=="Circular"){
+								Param[2] = UnitConvertI(Param[2],"ft");
+								Result = new String(.22274 * Param[0] * Convert * Param[0] * Param[2] * Param[3]);
+								document.getElementById('result').value = Result.substring(0,Result.indexOf(".")+RoundOff);
+								document.getElementById('result2').value = Result.substring(0,Result.indexOf(".")+RoundOff)* 0.4535;
+							}
+							if(FormType=="Ring"){
+								Param[2] = UnitConvertI(Param[2],"ft");
+								Result = (.22274 * Param[2] * ((Param[0]*Param[0]) - (Param[1]*Param[1])) * Convert * Param[3]);
+								if(Result<0)
+								alert("The Inner Diameter cannot exceed the Outer Diameter!");
+								else{
+									Result = new String(Result);
+								document.getElementById('result').value = Result.substring(0,Result.indexOf(".")+RoundOff);
+								document.getElementById('result2').value = Result.substring(0,Result.indexOf(".")+RoundOff)* 0.4535;
+								}
+							}
+					
+							
+							e.preventDefault();
+							
+						});
+
+				function ClearFields(){
+					document.getElementById('param1').value = "";
+					document.getElementById('param2').value = "";
+					document.getElementById('param3').value = "";
+					document.getElementById('param4').value = "1";
+					document.getElementById('result').value= "";
+					document.getElementById('result2').value  = "";
+					
+				}
+				function ChangeLabel(){
+					var formType;
+					formType = document.getElementById("shape").value;
+			
+					
+						
+					if(formType=="Round"){
+						document.getElementById('lb1').innerHTML = "Diameter";
+						document.getElementById('lb2').innerHTML = "";
+						document.getElementById('lb3').innerHTML= "Length";
+						}
+					if(formType=="Square"){
+						document.getElementById('lb1').innerHTML = "Width";
+						document.getElementById('lb2').innerHTML = "";
+						document.getElementById('lb3').innerHTML = "Length";
+						}
+					if(formType== "Hexagonal"){
+						document.getElementById('lb1').innerHTML = "Diameter";
+						document.getElementById('lb2').innerHTML = "";
+						document.getElementById('lb3').innerHTML = "Length";
+						}
+					if(formType=="Octagonal"){
+						document.getElementById('lb1').innerHTML = "Diameter";
+						document.getElementById('lb2').innerHTML = "";
+						document.getElementById('lb3').innerHTML = "Length";
+						}
+					if(formType=="Flat"||formType=="Sheet"||formType=="Plate"||formType=="Coil"||formType=="Rectangle"){
+						document.getElementById('lb1').innerHTML = "Thickness";
+						document.getElementById('lb2').innerHTML = "Width";
+						document.getElementById('lb3').innerHTML = "Length";
+						}
+					if(formType=="Tubular"||formType=="Pipe"){
+						document.getElementById('lb1').innerHTML = "Outer Diameter";
+						document.getElementById('lb2').innerHTML = "Wall";
+						document.getElementById('lb3').innerHTML = "Length";
+						}
+					if(formType=="Circular"){
+						document.getElementById('lb1').innerHTML = "Diameter";
+						document.getElementById('lb2').innerHTML = "";
+						document.getElementById('lb3').innerHTML = "Thickness";
+						}
+					if(formType=="Ring"){
+						document.getElementById('lb1').innerHTML = "Outer Diameter";
+						document.getElementById('lb2').innerHTML = "Inner Diameter";
+						document.getElementById('lb3').innerHTML = "Thickness";
+						}
+			
+					
+				}
+				ChangeLabel();
+				ClearFields();
+</script>
+{% endblock %}

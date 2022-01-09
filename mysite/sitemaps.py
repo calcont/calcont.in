@@ -44,6 +44,7 @@ class StaticViewsSitemap(Sitemap):
             "mysite:BMI_calculator",
             "mysite:Postfix_calculator",
             "mysite:Prefix_calculator",
+            "mysite:material_weight_calculator",
             "mysite:PrivacyPolicy",
         ]
     def location(self, item):

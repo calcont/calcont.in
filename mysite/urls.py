@@ -75,6 +75,8 @@ urlpatterns = [
     path('Calculator/Postfix_calculator/', views.Postfix_calculator,name="Postfix_calculator"),
     #Prefix calculator
     path('Calculator/Prefix_calculator/', views.Prefix_calculator,name="Prefix_calculator"),
+    #Material weight calculator
+    path('Calculator/Material-weight-calculator/', views.material_weight_calculator,name="material_weight_calculator"),
 #PrivacyPolicy
     path('Privacy_policy/', views.PrivacyPolicy,name="PrivacyPolicy"),
 
