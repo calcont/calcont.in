@@ -171,7 +171,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content" style="background-color: rgb(25, 25, 25);border-radius: 40px;">
         <div class="modal-header" style="border-bottom: 1px solid rgb(41 40 40);">
-          <h4 class="modal-title" id="exampleModalLabel">Create Account?</h4>
+          <!-- <h4 class="modal-title" id="exampleModalLabel">Create Account?</h4>
           <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -197,21 +197,20 @@
                 src="/static/google.png" /></a><br>
 
           </div>
-        </div>
-        <!-- <h4 class="modal-title" id="exampleModalLabel">CheckOut new tool</h4>
-          <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body" id="mbdy">
-          <p class="modalText">Checkout <a class="ntool" href="/Analyzer/text-to-image-converter/">Text to Image
-              converter</a> where you can generate your own custom images from entered text and you can edit that too.
-            <br><br> Also you can checkout <a class="ntool" href="/Analyzer/image-to-text-converter/">Image to text
-              converter</a> where you can extact text that is present on image.
-            <br>These are the tools really helpful for you people and can save your valuable time.
-          </p>
-          <br>
         </div> -->
+        <h4 class="modal-title" id="exampleModalLabel">Material weight Calculator</h4>
+        <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="mbdy">
+        <p class="modalText" >Checkout our new tool i.e <a class="ntool" href="/Calculator/Material-weight-calculator/">Material weight </a> Calculator where you can 
+          calculate the weight of any material by just entering it's dimensions.It is too useful for mechanical engineering students and also for
+          those people who work in metal industry. 
+         <br><br>Do try out this,it can save your valuable time.
+        </p>
+        <br>
+    </div>
 
 
 
@@ -442,19 +441,19 @@
       setexpire();
 
     });
-    $(".signin").click(function (e) {
+    // $(".signin").click(function (e) {
+    //   setexpire();
+
+    // });
+    $("#mbdy").click(function (e) {
+      window.location.href = "Calculator/Material-weight-calculator/";
       setexpire();
 
     });
-    // $("#mbdy").click(function (e) {
-    //   window.location.href = "/Analyzer/image-to-text-converter/";
-    //   setexpire();
+    $(".ntool").click(function (e) {
+      setexpire();
 
-    // });
-    // $(".ntool").click(function (e) {
-    //   setexpire();
-
-    // });
+    });
     $("#closeS").click(function (e) {
       setexpire1();
       document.getElementById("AlertS").style.display = "none";
