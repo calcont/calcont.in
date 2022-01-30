@@ -204,10 +204,11 @@
         </button>
       </div>
       <div class="modal-body" id="mbdy">
-        <p class="modalText" >Checkout our new tool i.e <a class="ntool" href="/Calculator/Material-weight-calculator/">Material weight </a> Calculator where you can 
-          calculate the weight of any material by just entering it's dimensions.It is too useful for mechanical engineering students and also for
-          those people who work in metal industry. 
-         <br><br>Do try out this,it can save your valuable time.
+        <p class="modalText" >
+          Please do suggest your ideas to us if you have, related to new tools that can be add.
+          <br> Because we want to add such tools that students don't find over internet and although they find it can get unsatisfactory result.
+          <br> So,that's why you can fill up this <a class="survey" href="https://docs.google.com/forms/d/e/1FAIpQLSdffrb7iPBU4byHcSwkm2UMJbXAcHnt10ViePbM409pSREKMQ/viewform?usp=sf_link">form</a> so that we can get your thoughts. <br>
+          We will be very grateful if you do so.Thank you!
         </p>
         <br>
     </div>
@@ -339,12 +340,6 @@
 
     </div>
   </nav>
-  <div class="alert alert-dark my-2 alert-dismissible " id="AlertS" style="display: none;" role="alert">
-    Hello people,if you are interested in AR then do download our app <a href="https://play.google.com/store/apps/details?id=com.aprendizstudio.ARLAB" id="Supportt">ARLab</a> from playstore which basically education based Ar app.
-    <button type="button" class="close" id="closeS" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
   {% block body %}
 
   {% endblock %}
@@ -408,15 +403,18 @@
       document.cookie = 'PopCookie' + "=" + x + "; " + "expires=" + date1.toUTCString() + ";path=/";
 
     }
-    function setexpire1() {
-      var date2 = new Date();
-      date2.setTime(new Date(date2.getFullYear(), date2.getMonth(), date2.getDate(), date2.getHours() + 24));
-      var x1 = Math.floor((Math.random() * 500) + 3);
-      document.cookie = 'SupportCookie' + "=" + x1 + "; " + "expires=" + date2.toUTCString() + ";path=/";
+    function setexpire_7() {
+      var date1 = new Date();
+
+      date1.setTime(new Date(date1.getFullYear(), date1.getMonth(), date1.getDate() + 7, date1.getHours(), date1.getMinutes() ));
+
+      var x = Math.floor((Math.random() * 1000) + 1);
+
+      document.cookie = 'PopCookie' + "=" + x + "; " + "expires=" + date1.toUTCString() + ";path=/";
+
     }
 
     var myCookie = readCookie('PopCookie');
-    var myCookie1 = readCookie('SupportCookie');
 
 
     if (myCookie == undefined) {
@@ -430,12 +428,12 @@
       //    $('#newtool').modal('show') 
       //    }, 45000);
     }
-    if (myCookie1 == undefined) {
-      // code to show modal here 
+    // if (myCookie1 == undefined) {
+    //   // code to show modal here 
 
-      document.getElementById("AlertS").style.display = "block";
+    //   document.getElementById("AlertS").style.display = "block";
 
-    }
+    // }
 
     $("#closeP").click(function (e) {
       setexpire();
@@ -445,25 +443,20 @@
     //   setexpire();
 
     // });
-    $("#mbdy").click(function (e) {
-      window.location.href = "/Calculator/Material-weight-calculator/";
-      setexpire();
+    $(".survey").click(function (e) {
+      setexpire_7();
 
     });
-    $(".ntool").click(function (e) {
-      setexpire();
+    // $("#closeS").click(function (e) {
+    //   setexpire1();
+    //   document.getElementById("AlertS").style.display = "none";
 
-    });
-    $("#closeS").click(function (e) {
-      setexpire1();
-      document.getElementById("AlertS").style.display = "none";
+    // });
+    // $(".Supportt").click(function (e) {
+    //   setexpire1();
+    //   document.getElementById("AlertS").style.display = "none";
 
-    });
-    $(".Supportt").click(function (e) {
-      setexpire1();
-      document.getElementById("AlertS").style.display = "none";
-
-    });
+    // });
 
 
 
