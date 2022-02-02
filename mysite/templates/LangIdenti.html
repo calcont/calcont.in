@@ -1,0 +1,192 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Now you can detect any language text and you can translate it too in english by using this tool.
+{% endblock %}
+{% block MKW %}Language Identifier , Language Detector , Any Language to English converter, hindi to english,spanish to english,thai to english,french to english,german to english,detect any language,online tool,translator,converter{% endblock %}
+{% block Mr %}
+30/12/2020
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %}Language Identifier | Language Detector
+{% endblock %}
+{% block body %}
+<style>
+    #speech {
+        display: block;
+        position: absolute;
+
+        height: 50px;
+        border-radius: 40px;
+        outline: none;
+        cursor: pointer;
+        border-color: rgb(255, 94, 0);
+    }
+
+    .arabian {
+        margin-top: 60px;
+    }
+
+    /* #speech :hover{
+   background-color: rgb(0, 255, 251);
+  border-radius: 40px;
+  height:43px;
+ width:100px;
+ }  */
+</style>
+
+<div class="container text-light">
+    <div class="row ">
+
+        <div class="col-md-7 my-4 " style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4 ">
+
+                <h2 class="my-3 text-center text-light">Language Identifier</h2>
+                <hr class="bg-dark my-2">
+                <h3 class="my-4 text-light">Language Identifier?</h3>
+                <p class="text-light text-monospace my-4 mx-2">Language Identifier is an text analyzer tool where it analyze your text and use Natural Language processing alogrithms to detect your text language that have entered.Sometimes it might happen that it will misidentify some words or will fail to detect all the words properly since it is not 100 percent accurate.
+                    On addition to that here,if you wish to translate this text into english you can do so.
+                </p>
+
+                <hr class="bg-dark my-2">
+                <div class="container">
+                    <h4 class="my-4 text-monospace text-center">Language-Identifier tool</h4>
+                    <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+                        <form class="post-form">
+                            {% csrf_token %}
+                            <div class="form-group my-4">
+                                <textarea class="form-control input my-4" name="text" placeholder="Enter Your text"
+                                    id="text" rows="5" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " required></textarea>
+                            </div>
+                            <div class="form-group my-4">
+                                <label for="Dlang">Detected Language</label>
+                                <input class="form-control" style="    color: white;
+                                background-color: #191717;
+                                border: 3px solid black;
+                                border-radius: 15px; " type="text" name="Detected Language" id="DLang" readonly>
+                            </div>
+                            <button class="btn btn-secondary mb-4" name="detect" id="detect" type="submit">Detect</button>
+                            <button class="btn btn-secondary mb-4" name="convert" id="convert" type="submit" disabled>Convert to
+                                English</button>
+                                <textarea class="form-control input my-4" name="Etext" 
+                                id="Etext" rows="5" style="    color: white;
+        background-color: #191717;
+        border: 3px solid black;
+        border-radius: 15px;
+        display: none; " readonly></textarea>
+                        </form>
+                    </div>
+                </div>
+                <hr class="bg-dark my-4">
+                <h3 class="my-4 text-light">Language Identifier in calcont?</h3>
+                <p class="text-light text-monospace my-4 mx-2">
+                    Here in calcont you just have to enter you text and click on detect button then it will detect entered text language .
+                    After that convert to english button will be enabled and you can click on it to convert your text into english. 
+                </p>
+                <hr class="bg-dark my-2">
+                <h3 class="text-light my-4">Use of this tool?</h3>
+                <p class="text-monospace text-light my-3">
+                <p "><b>1</b>. can convert unknown language text in english.(can avoid from scam emails and sms in unknow language)</p>
+                <p "><b>2</b>. Will be helpful while communicating or chatting with different people who spokes different languages
+                </p>
+                <p ><b>3</b>. If your english is not that good then you can enter your own language text and convert that to proper english sentence.</p>
+                </p>
+
+
+            </div>
+        </div>
+        <div class="col-md-4 my-4 ">
+
+            <div class="col my-2 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+                <h4 class="mb-2 ">Analyzers</h3>
+                    {% for link in link_string1 %}
+                    <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                    {% endfor %}
+
+            </div>
+            <div class="col my-2 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2">Translators</h3>
+                    {% for link in link_string2 %}
+                    <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                    {% endfor %}
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block JS %}
+<script>
+    var isDetect = 0;
+    $('#detect').click(function(e){
+
+        isDetect = 1;
+        e.preventDefault();
+        if(document.getElementById('text').value==""){
+            alert("Please enter text");
+
+        }
+        else{
+    $.ajax({
+        type:'POST',
+        url:'/Analyzer/Language-Identifier/',
+        data:{
+            text:$('#text').val(),
+            lang_code:$('#DLang').val(),
+            isDetect:isDetect,
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+        encode:true,
+        success:function(response){
+          var GotRes=JSON.parse(response)
+          document.getElementById('DLang').value=GotRes['lang'];
+      document.getElementById('convert').disabled=false;
+        }
+    })
+}
+    })
+    $('#convert').click(function(e){
+
+        isDetect = 0;
+        e.preventDefault();
+        if(document.getElementById('text').value==""){
+            alert("Please enter text");
+
+        }
+        else{
+    $.ajax({
+        type:'POST',
+        url:'/Analyzer/Language-Identifier/',
+        data:{
+            text:$('#text').val(),
+            isDetect:isDetect,
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+        encode:true,
+        success:function(response){
+          var GotRes=JSON.parse(response)
+              document.getElementById('Etext').style.display='block';
+              document.getElementById('Etext').value=GotRes['e_lang'];
+           
+        }
+    })
+}
+    })
+    $(document).on('submit','.post-form',function(e){
+       console.log(isDetect);
+   
+})
+</script>
+{% endblock %}

@@ -28,6 +28,7 @@ urlpatterns = [
     path('Analyzer/base64-to-text-converter/',views.base64totext,name="base64totext"),
     path('Analyzer/text-to-image-converter/',views.texttoimage,name="texttoimage"),
     path('Analyzer/image-to-text-converter/',views.imagetotext,name="imagetotext"),
+    path('Analyzer/Language-Identifier/',views.LangIdenti,name="LangIdenti"),
     
     path('Conversion/BinaryConverter/', views.Binaryconversion,name='Binaryconversion'),
     path('Conversion/DecimalConverter/', views.Decimalconversion,name="Decimalconversion"),

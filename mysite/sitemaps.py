@@ -20,6 +20,7 @@ class StaticViewsSitemap(Sitemap):
             "mysite:base64totext",
             "mysite:texttoimage",
             "mysite:imagetotext",
+            "mysite:LangIdenti",
             "mysite:Binaryconversion",
             "mysite:Decimalconversion",
             "mysite:Hexadecimalconversion",

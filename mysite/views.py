@@ -1,3 +1,4 @@
+import googletrans
 import speech_recognition as sr  
 from django.http import HttpResponse
 from django.shortcuts import render,redirect
@@ -34,6 +35,7 @@ urls = [
     ['/Analyzer/base64-to-text-converter/','base64 to text decoder',1,'AT',5],
     ['/Analyzer/text-to-image-converter/','text to image converter',1,'AT',6],
     ['/Analyzer/image-to-text-converter/','Image to text converter',1,'AT',7],
+    ['/Analyzer/Language-Identifier/','Language Identifier',1,'AT',8],
 
     ['/Conversion/BinaryConverter/','Binary Converter',2,'CC',0],
     ['/Conversion/DecimalConverter/','Decimal Converter',2,'CC',1],
@@ -278,6 +280,27 @@ def imagetotext(request):
         return HttpResponse(response)
     param={'link_string1':link_string1,'link_string2':link_string2}
     return render(request,'Imagetotext.html',param)
+
+#Language identifier
+def LangIdenti(request):
+    link_string1,link_string2=ArrangeSideMapLinksForWebPage(8,1,'AT')
+    t = Translator()
+    if request.method == "POST":
+        text =request.POST['text']
+        if request.POST.get('isDetect')=="0":
+            eng_txt= t.translate(text, dest='en')
+            response=json.dumps({'e_lang': eng_txt.text},default=str)
+            return HttpResponse(response)
+        else:
+            lang = t.detect(text)
+            try:
+                response=json.dumps({'lang': googletrans.LANGUAGES[lang.lang]},default=str)
+            except:
+                err = "Not able to detect this language"
+                response=json.dumps({'lang': err},default=str)
+            return HttpResponse(response)
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'LangIdenti.html',param)
 
 #Conversion
 def Binaryconversion(request):
