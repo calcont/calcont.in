@@ -121,8 +121,8 @@ Since it is and tradtional language of maharashtra and its been spoken since fro
 to improve your skills easily. </p>
 <hr class="bg-dark my-2">
 <h3 class="text-light my-4">How can it will be helpful?</h3>
-<p class="text-monospace text-light my-3"><p class="my-2">1.You can try to write english text by your own and can check whether its gramatically or in any aspect right or not
-  and still you can practice more.</p><br><p class="my-2">2.People who dont know the meaning of english word/sentence will be helpful for those. and many more..
+<p class="text-monospace text-light my-3"><p class="my-2">1.It can be helpful to learn new or native language other than english.
+</p><br><p class="my-2">2.People who dont know the meaning of english word/sentence will be helpful for those. and many more..
   </p><br><p class="my-2">3.You can use voice recogniton feature too avoid writing.</p>
 </p>
 <hr class="bg-dark my-2">
@@ -133,18 +133,21 @@ to improve your skills easily. </p>
     
   <div class="col my-2 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
   box-shadow:13px 4px 19px 7px rgb(19 17 17);">
- <h4 class="mb-2 ">Translators</h3>
-  {% for link in link_string1 %}
-  <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-  {% endfor %}
-    
-    </div>
-<div class="col my-2 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
-box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-<h4 class="my-2">Analyzers</h3>
-{% for link in link_string2 %}
-<li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
- {% endfor %}
+        
+      
+        <h4 class="mb-2 ">Translators</h3>
+          {% for link in link_string1 %}
+          <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+          {% endfor %}
+            
+            </div>
+      <div class="col my-2 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <h4 class="my-2">Analyzers</h3>
+        {% for link in link_string2 %}
+        <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+         {% endfor %}
+          
           </div>
           
        

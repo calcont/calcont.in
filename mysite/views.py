@@ -20,67 +20,15 @@ import pytesseract
 from io import BytesIO
 import json
 import joblib
+from . import MyFunctions
+from . import globals
 from django.views.decorators.csrf import csrf_exempt
 client_secret = "6Ld7Fp8dAAAAAJ4kpwVl960_owTUJcqt1ZkRyMnc"
 pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
+tran = MyFunctions.TranslatorFun()
+SideMap = MyFunctions.ArrangeSideMapForWebpage()
 # from language_tool_python import LanguageTool as LT
 # Create your views here.
-urls = [
-    #[HREF_LINK,NAME_TO_BE_GIVEN,GRP_ID,SAME_GRP_IN_WEBPAGE,INDI_ID]
-    ['/Analyzer/TextAnalyzer/','Text editor',1,'AT',0],
-    ['/Analyzer/name_sorting/', 'Words Sorting',1,'AT',1],
-    ['/Analyzer/Grammar_correction/','Grammar Corrector',1,'AT',2],
-    ['/Analyzer/Online-Keywords-extractor-from-text/','Keyword Extractor',1,'AT',3],
-    ['/Analyzer/text-to-base64-converter/','text to base64 encoder',1,'AT',4],
-    ['/Analyzer/base64-to-text-converter/','base64 to text decoder',1,'AT',5],
-    ['/Analyzer/text-to-image-converter/','text to image converter',1,'AT',6],
-    ['/Analyzer/image-to-text-converter/','Image to text converter',1,'AT',7],
-    ['/Analyzer/Language-Identifier/','Language Identifier',1,'AT',8],
-
-    ['/Conversion/BinaryConverter/','Binary Converter',2,'CC',0],
-    ['/Conversion/DecimalConverter/','Decimal Converter',2,'CC',1],
-    ['/Conversion/HexadecimalConverter/','Hexadecimal Converter',2,'CC',2],
-    ['/Conversion/CurrencyConverter/','Currency Converter',2,'CC',3],
-    [ '/Conversion/infix_to_postfix','Infix to Postfix Converter',2,'CC',4],
-    ['/Conversion/infix_to_prefix','Infix to Prefix Converter',2,'CC',5],
-    ['/Conversion/postfix_to_infix','Postfix to Infix Converter',2,'CC',6],
-    ['/Conversion/prefix_to_postfix','Prefix to Postfix Converter',2,'CC',7],
-    ['/Conversion/prefix_to_infix','Prefix to Infix Converter',2,'CC',8],
-    ['/Conversion/cgpa_to_percentage/','Cgpa to Percentage Converter',2,'CC',9],
-    ['/Conversion/Image_to_base64_Converter/','Image to base64 converter',2,'CC',10],
-     ['/Conversion/Base64_to_Image_Converter/','Base64 to Image converter',2,'CC',11],
-
-    ['/Translator/English_to_hindi/','English to Hindi Translator',3,'AT',0],
-    ['/Translator/English_to_Marathi/','English to Marathi Translator',3,'AT',1],
-    ['/Translator/English_to_German/','English to German Translator',3,'AT',2],
-    ['/Translator/English_to_French/','English to French Translator',3,'AT',3],
-    ['/Translator/English_to_Arabian/','English to Arabian Translator',3,'AT',4],
-    ['/Translator/English_to_spanish/','English to Spanish Translator',3,'AT',5],
-    ['/Translator/English_to_thai/','English to Thai Translator',3,'AT',6],
-
-    ['/Calculator/EMI_calculator/','EMI Calculator',4,'CC',0],
-    ['/Calculator/GCD_calculator/','GCD Calculator',4,'CC',1],
-    ['/Calculator/BMI_calculator/','BMI Calculator',4,'CC',2],
-    ['/Calculator/Postfix_calculator/','Postfix Calculator',4,'CC',3],
-    ['/Calculator/Prefix_calculator/','Prefix Calculator',4,'CC',4],
-    ['/Calculator/Material-weight-calculator/','Material weight Calculator',4,'CC',5],
-    
-
-]
-
-def ArrangeSideMapLinksForWebPage(indi_id,grp_id,same_grps_id):
-    links_strings_1=[]
-    links_strings_2=[]
-    for link in range(len(urls)):
-
-        if urls[link][3] == same_grps_id:
-            if urls[link][2] == grp_id:
-                if urls[link][4]!= indi_id:
-                    links_strings_1.append([urls[link][0],urls[link][1]])
-                pass
-            else:
-                links_strings_2.append([urls[link][0],urls[link][1]])
-    return links_strings_1,links_strings_2
 
 def isCaptchaValid(r):
     
@@ -106,15 +54,15 @@ def error_500(request):
     return render(request,'500.html' ,status=500)
 #Analyzer
 def sitemaps(request):
-    text=[url for url in urls if url[2]==1]
-    converter=[url for url in urls if url[2]==2]
-    Translator=[url for url in urls if url[2]==3]
-    calculator=[url for url in urls if url[2]==4]
+    text=[url for url in globals.urlSideMapList() if url[2]==1]
+    converter=[url for url in globals.urlSideMapList() if url[2]==2]
+    Translator=[url for url in globals.urlSideMapList() if url[2]==3]
+    calculator=[url for url in globals.urlSideMapList() if url[2]==4]
 
     return render(request,'sitemaps.html',{'text':text,'converter':converter,'translator':Translator,'calculator':calculator})
 
 def text(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(0,1,'AT')
+    link_string1,link_string2=SideMap.arrange(0,1,'AT')
     if request.method=="POST":
         tex=request.POST.get('text','default')
         removepunc=request.POST.get('removepunc','off')
@@ -158,11 +106,11 @@ def text(request):
 
         
         parms={'Text':analysed,'IsEnter':IsEnter,'OrText':tex,'link_string1':link_string1,'link_string2':link_string2}
-        return render(request,'text.html',parms)
+        return render(request,'textAnalyzer/text.html',parms)
     params={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'text.html',params)
+    return render(request,'textAnalyzer/text.html',params)
 def Grammar_correction(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(2,1,'AT')
+    link_string1,link_string2=SideMap.arrange(2,1,'AT')
     if request.method=='POST':
         IsEnter=True
         text=request.POST.get('text','default')
@@ -197,22 +145,18 @@ def Grammar_correction(request):
             param={'NewText':result['result'],"text":Text,"IsEnter":IsEnter,"length_text":length_text,'link_string1':link_string1,'link_string2':link_string2}
         else:
             param={'NewText':" ","text":text,"IsEnter":IsEnter,"length_text":length_text,'link_string1':link_string1,'link_string2':link_string2}
-        return render(request,'Grammar_correction.html',param)
+        return render(request,'textAnalyzer/Grammar_correction.html',param)
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'Grammar_correction.html',param)
-        
-
-        
-
-    
+    return render(request,'textAnalyzer/Grammar_correction.html',param)
 #namesorting
 def name_sorting(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(1,1,'AT')
+    link_string1,link_string2=SideMap.arrange(1,1,'AT')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'name_sorting.html',param)
+    return render(request,'textAnalyzer/name_sorting.html',param)
+
 #KeywordsExtractionFromText
 def KeywordsExtraction(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(3,1,'AT')
+    link_string1,link_string2=SideMap.arrange(3,1,'AT')
     if request.method == "POST":
         text =request.POST['text']
         rake_nltk_var = Rake()
@@ -221,11 +165,11 @@ def KeywordsExtraction(request):
         response=json.dumps({'Keyword': keyword_extracted,'keywordLen':len(keyword_extracted)},default=str)
         return HttpResponse(response) 
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'KeywwordsExtraction.html',param)
+    return render(request,'textAnalyzer/KeywwordsExtraction.html',param)
 
 #text to base64
 def texttobase64(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(4,1,'AT')
+    link_string1,link_string2=SideMap.arrange(4,1,'AT')
     if request.method == "POST":
         text =request.POST['text']
         encoded_string = base64.b64encode(text.encode())
@@ -233,11 +177,11 @@ def texttobase64(request):
         response=json.dumps({'Encoded': encoded_string},default=str)
         return HttpResponse(response) 
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'text_to_base64.html',param)
+    return render(request,'textAnalyzer/text_to_base64.html',param)
 
 #base64 to text
 def base64totext(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(5,1,'AT')
+    link_string1,link_string2=SideMap.arrange(5,1,'AT')
     if request.method == "POST":
         text =request.POST['text']
         decoded_string = base64.b64decode(text.encode())
@@ -245,21 +189,17 @@ def base64totext(request):
         response=json.dumps({'Decoded': decoded_string},default=str)
         return HttpResponse(response) 
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'base64_to_text.html',param)
-#text to image
-def texttoimage(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(6,1,'AT')
-    param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'texttoimage.html',param)
+    return render(request,'textAnalyzer/base64_to_text.html',param)
 
+#texttoimage
 def texttoimage(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(6,1,'AT')
+    link_string1,link_string2=SideMap.arrange(6,1,'AT')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'texttoimage.html',param)
-#image to text
+    return render(request,'textAnalyzer/texttoimage.html',param)
+
 @csrf_exempt
 def imagetotext(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(7,1,'AT')
+    link_string1,link_string2=SideMap.arrange(7,1,'AT')
     if request.method == "POST":
         # if request.POST['isurl']=="1":
         
@@ -275,15 +215,17 @@ def imagetotext(request):
             import requests
             response = requests.get(url)
             img = Image.open(BytesIO(response.content)) 
+            print(img)
             result = pytesseract.image_to_string(img)
         response=json.dumps({'txt': result},default=str)
         return HttpResponse(response)
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'Imagetotext.html',param)
+    return render(request,'textAnalyzer/Imagetotext.html',param)
 
 #Language identifier
 def LangIdenti(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(8,1,'AT')
+    link_string1,link_string2=SideMap.arrange(8,1,'AT')
+    from googletrans import Translator
     t = Translator()
     if request.method == "POST":
         text =request.POST['text']
@@ -300,59 +242,66 @@ def LangIdenti(request):
                 response=json.dumps({'lang': err},default=str)
             return HttpResponse(response)
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'LangIdenti.html',param)
+    return render(request,'textAnalyzer/LangIdenti.html',param)
+
 
 #Conversion
 def Binaryconversion(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(0,2,'CC')
+    link_string1,link_string2=SideMap.arrange(0,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'Binarycon.html',param)
+    return render(request,'converter/Binarycon.html',param)
 def Decimalconversion(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(1,2,'CC')
+    link_string1,link_string2=SideMap.arrange(1,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'DecimalCon.html',param)
+    return render(request,'converter/DecimalCon.html',param)
 def Hexadecimalconversion(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(2,2,'CC')
+    link_string1,link_string2=SideMap.arrange(2,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'HexaCon.html',param)
+    return render(request,'converter/HexaCon.html',param)
 #currency
 def Currencyconversion(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(3,2,'CC')
+    link_string1,link_string2=SideMap.arrange(3,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'CurrencyCon.html',param)
+    return render(request,'converter/CurrencyCon.html',param)
 def infix_to_postfix(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(4,2,'CC')
+    link_string1,link_string2=SideMap.arrange(4,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'infix_to_postfix.html',param)
+    return render(request,'converter/infix_to_postfix.html',param)
 #cgpatopercent
 def cgpa_to_percentage(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(9,2,'CC')
+    link_string1,link_string2=SideMap.arrange(9,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'cgtopercent.html',param)
+    return render(request,'converter/cgtopercent.html',param)
 ##PostfixtoInfix
 def postfix_to_infix(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(6,2,'CC')
+    link_string1,link_string2=SideMap.arrange(6,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'postfix_to_infix.html',param)
+    return render(request,'converter/postfix_to_infix.html',param)
 ##Infixtoprefix
 def infix_to_prefix(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(5,2,'CC')
+    link_string1,link_string2=SideMap.arrange(5,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'infix_to_prefix.html',param)
+    return render(request,'converter/infix_to_prefix.html',param)
 ##prefixtoPostfix
 def prefix_to_postfix(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(7,2,'CC')
+    link_string1,link_string2=SideMap.arrange(7,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'prefix_to_postfix.html',param)
+    return render(request,'converter/prefix_to_postfix.html',param)
 ##prefixtoInfix
 def prefix_to_infix(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(8,2,'CC')
+    link_string1,link_string2=SideMap.arrange(8,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'prefix_to_infix.html',param)
+    return render(request,'converter/prefix_to_infix.html',param)
+##prefixtoInfix
+def prefix_to_infix(request):
+    link_string1,link_string2=SideMap.arrange(8,2,'CC')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'converter/prefix_to_infix.html',param)
+
 #Image to base64 converter
 @csrf_exempt
 def Image_to_base64(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(10,2,'CC')
+    link_string1,link_string2=SideMap.arrange(10,2,'CC')
     if request.method == "POST":
         try: 
             image =request.FILES['image']
@@ -364,144 +313,90 @@ def Image_to_base64(request):
             encoded_string = base64.b64encode(response.content)
         response=json.dumps({'txt': encoded_string.decode()},default=str)
         return HttpResponse(response)
+        
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'image_to_base64.html',param)
+    return render(request,'converter/image_to_base64.html',param)
 
 #Base64 to Image Converter
 def Base64_to_Image(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(11,2,'CC')
+    link_string1,link_string2=SideMap.arrange(11,2,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'Base64_to_Image.html',param)
+    return render(request,'converter/Base64_to_Image.html',param)
+
 
 #Translator
 def EnglishToHindi(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(0,3,'AT')
-    if request.method=='POST':
-        text=request.POST.get('text','default')
-        trans=Translator()
-        
-        lang=trans.detect(text)
-        t=trans.translate(text,dest='hi')
-        alt=True
-        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
-        return render(request,'EnglishToHindi_Transl.html',param)
-        # print(text)
-    param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'EnglishToHindi_Transl.html',param)
-
+    respons = tran.EnglishToOther(request,0,'hi','Translator/EnglishToOther/EnglishToHindi_Transl.html')
+    return respons
 def EnglishToMarathi(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(1,3,'AT')
-    if request.method=="POST":
-        text=request.POST.get('text','default')
-        trans=Translator()
-        
-        lang=trans.detect(text)
-        t_marathi=trans.translate(text,dest='mr')
-    
-
-        alt=True
-        param={"ortext":text,"text":t_marathi.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
-        return render(request,'EnglishToMarathi_Transl.html',param)
-    param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'EnglishToMarathi_Transl.html',param)
+    respons = tran.EnglishToOther(request,1,'mr','Translator/EnglishToOther/EnglishToMarathi_Transl.html')
+    return respons
 def EnglishToGerman(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(2,3,'AT')
-    if request.method=="POST":
-        text=request.POST.get('text','default')
-        trans=Translator()
-        
-        lang=trans.detect(text)
-        t=trans.translate(text,dest='de')
-      
-
-        alt=True
-        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
-        return render(request,'EnglishToGerman_Transl.html',param)
-    param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'EnglishToGerman_Transl.html',param)
+    respons = tran.EnglishToOther(request,2,'de','Translator/EnglishToOther/EnglishToGerman_Transl.html')
+    return respons
 def EnglishToFrench(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(3,3,'AT')
-    if request.method=="POST":
-        text=request.POST.get('text','default')
-        trans=Translator()
-        
-        lang=trans.detect(text)
-        t=trans.translate(text,dest='fr')
-      
-
-        alt=True
-        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
-        return render(request,'EnglishToFrench_Transl.html',param)
-    param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'EnglishToFrench_Transl.html',param)
+    respons = tran.EnglishToOther(request,3,'fr','Translator/EnglishToOther/EnglishToFrench_Transl.html')
+    return respons
 def EnglishToArabian(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(4,3,'AT')
-    if request.method=="POST":
-        text=request.POST.get('text','default')
-        trans=Translator()
-        
-        lang=trans.detect(text)
-        t=trans.translate(text,dest='ar')
-      
-
-        alt=True
-        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
-        return render(request,'EnglishToArabian_Transl.html',param)
-    param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'EnglishToArabian_Transl.html',param)
+    respons = tran.EnglishToOther(request,4,'ar','Translator/EnglishToOther/EnglishToArabian_Transl.html')
+    return respons
 def EnglishToSpanish(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(5,3,'AT')
-    if request.method=="POST":
-        text=request.POST.get('text','default')
-        trans=Translator()
-        
-        lang=trans.detect(text)
-        t=trans.translate(text,dest='es')
-        alt=True
-        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
-        return render(request,'EnglishToSpanish_Transl.html',param)
-    param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'EnglishToSpanish_Transl.html',param)
+    respons = tran.EnglishToOther(request,5,'es','Translator/EnglishToOther/EnglishToSpanish_Transl.html')
+    return respons
 def EnglishTothai(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(6,3,'AT')
-    if request.method=="POST":
-        text=request.POST.get('text','default')
-        trans=Translator()
-        
-        lang=trans.detect(text)
-        t=trans.translate(text,dest='th')
-        alt=True
-        param={"ortext":text,"text":t.text,"alt":alt,'link_string1':link_string1,'link_string2':link_string2}
-        return render(request,'EnglishToThai_Transl.html',param)
-    param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'EnglishToThai_Transl.html',param)
+    respons = tran.EnglishToOther(request,6,'th','Translator/EnglishToOther/EnglishToThai_Transl.html')
+    return respons
+
+##hindi.to english
+def HindiToEnglish(request):
+    respons = tran.HindiToOther(request,7,'en','hi','Translator/HindiToOther/HindiToEnglish_Transl.html')
+    return respons
+def HindiToMarathi(request):
+    respons = tran.HindiToOther(request,8,'mr','hi','Translator/HindiToOther/HindiToMarathi_Transl.html')
+    return respons
+def HindiToGerman(request):
+    respons = tran.HindiToOther(request,9,'de','hi','Translator/HindiToOther/HindiToGerman_Transl.html')
+    return respons
+def HindiToFrench(request):
+    respons = tran.HindiToOther(request,10,'fr','hi','Translator/HindiToOther/HindiToFrench_Transl.html')
+    return respons
+def HindiToArabian(request):
+    respons = tran.HindiToOther(request,11,'ar','hi','Translator/HindiToOther/HindiToArabian_Transl.html')
+    return respons
+def HindiToSpanish(request):
+    respons = tran.HindiToOther(request,12,'es','hi','Translator/HindiToOther/HindiToSpanish_Transl.html')
+    return respons
+def HindiToThai(request):
+    respons = tran.HindiToOther(request,13,'th','hi','Translator/HindiToOther/HindiToThai_Transl.html')
+    return respons
+
 
 #calculator
 
 def Loan_calculator(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(0,4,'CC')
+    link_string1,link_string2=SideMap.arrange(0,4,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'loan_calculator.html',param)
+    return render(request,'calculator/loan_calculator.html',param)
 def GCD_calculator(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(1,4,'CC')
+    link_string1,link_string2=SideMap.arrange(1,4,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'GCD_calculator.html',param)
+    return render(request,'calculator/GCD_calculator.html',param)
 def BMI_calculator(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(2,4,'CC')
+    link_string1,link_string2=SideMap.arrange(2,4,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'BMI_calculator.html',param)
+    return render(request,'calculator/BMI_calculator.html',param)
 def Postfix_calculator(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(3,4,'CC')
+    link_string1,link_string2=SideMap.arrange(3,4,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'Postfix_calculator.html',param)
+    return render(request,'calculator/Postfix_calculator.html',param)
 def Prefix_calculator(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(4,4,'CC')
+    link_string1,link_string2=SideMap.arrange(4,4,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'Prefix_calculator.html',param)
+    return render(request,'calculator/Prefix_calculator.html',param)
 def material_weight_calculator(request):
-    link_string1,link_string2=ArrangeSideMapLinksForWebPage(5,4,'CC')
+    link_string1,link_string2=SideMap.arrange(5,4,'CC')
     param={'link_string1':link_string1,'link_string2':link_string2}
-    return render(request,'material_weight_calculator.html',param)
+    return render(request,'calculator/material_weight_calculator.html',param)
 #contact
 def ContactMe(request):
     isSub=False

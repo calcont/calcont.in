@@ -62,6 +62,14 @@ urlpatterns = [
     path('Translator/English_to_Arabian/', views.EnglishToArabian,name="EnglishToArabian"),
     path('Translator/English_to_spanish/', views.EnglishToSpanish,name="EnglishToSpanish"),
     path('Translator/English_to_thai/', views.EnglishTothai,name="EnglishToThai"),
+    #hindi to ..
+    path('Translator/Hindi_to_English/', views.HindiToEnglish,name="HindiToEnglish"),
+    path('Translator/Hindi_to_Marathi/', views.HindiToMarathi,name="HindiToMarathi"),
+    path('Translator/Hindi_to_German/', views.HindiToGerman,name="HindiToGerman"),
+    path('Translator/Hindi_to_French/', views.HindiToFrench,name="HindiToFrench"),
+    path('Translator/Hindi_to_Arabian/', views.HindiToArabian,name="HindiToArabian"),
+    path('Translator/Hindi_to_Spanish/', views.HindiToSpanish,name="HindiToSpanish"),
+    path('Translator/Hindi_to_Thai/', views.HindiToThai,name="HindiToThai"),
   
 #calculator
 

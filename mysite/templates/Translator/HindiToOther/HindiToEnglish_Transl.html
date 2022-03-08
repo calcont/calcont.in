@@ -1,0 +1,140 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+You can convert your hindi text to english text in this tool.Here,you have to type your hindi text 
+  that too you can write in english language and then at the same time the respective english translation will be generated in texfield
+{% endblock  %}
+{% block MKW %}Hindi to English translator,Hindi to English converter{% endblock  %}
+{% block Mr %}
+30/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}Hindi to English translator
+{% endblock  %}
+{% block body %}
+<style>
+
+#speech{
+  display: block;
+  position: absolute;
+
+   height: 50px; 
+  border-radius: 40px;
+ outline:none;
+  cursor: pointer;
+  border-color: rgb(255, 94, 0);
+}
+.marathi{
+  margin-top:60px;
+}
+ /* #speech :hover{
+   background-color: rgb(0, 255, 251);
+  border-radius: 40px;
+  height:43px;
+ width:100px;
+ }  */
+</style>
+
+<div class="container text-light">
+  <div class="row ">
+    
+        <div class="col-md-7 my-4 " style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+          <div class="my-4 ">
+<h2 class="my-3 text-center text-light" >Hindi To English</h2>
+<hr class="bg-dark my-2">
+<h3 class="my-4 text-light">Hindi To English Translator?</h3>
+<p class="text-light text-monospace my-4 mx-2">You can convert your hindi text to english text in this tool.Here,you have to just type your hindi text 
+  that too you can write in english language and then at the same time the respective english translation will be generated in texfield. </p>
+
+
+<hr class="bg-dark my-2">
+<div class="container">
+  <h4 class="my-4 text-monospace text-center">Hindi To English Translator tool</h4>
+  <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+<form  id="tra" method='POST'>{% csrf_token %}
+    <div class="form-group">
+      <label for="MText" class="my-2">Hindi text</label>
+        <textarea class="form-control input my-2" id="HText" placeholder="Enter Hindi Text" name='text' style="color: white;
+       background-color: #191717;
+       border: 3px solid black;
+       border-radius: 15px;"  rows="5"></textarea>
+     </div>
+    <div class="form-group">
+        <label for="MText" class="my-2">English text</label>
+        <textarea class="form-control input" id="EText" placeholder="English Text"  name='text' style="color: white;
+       background-color: #191717;
+       border: 3px solid black;
+       border-radius: 15px;" rows="5"></textarea>
+     </div>
+   
+    </form>
+</div>
+</div>
+
+<hr class="bg-dark my-2">
+
+  <h3 class="my-4 text-light">Why we need translation?</h3>
+  <p class="text-light text-monospace my-4 mx-2">The skills of translation are becoming ever more important and desirable. 
+    Today’s multicultural and multilingual society demands effective, efficient,
+     and empathetic communication between languages and cultures. That’s important for various reasons, which we’ll now explore</p>
+<hr class="bg-dark my-2">
+<h3 class="my-4 text-light">For whom this will be helpul?</h3>
+<p class="text-light text-monospace my-4 mx-2">Around 20% of indian people can speak fluent english and among the rest, some of them can speak but
+they are not fluent and most of them don't know the english but have a dedication to learn it.For all those it can be helpful cause you can write,paste hindi text in english language(like:- mai acha hoon) too or you can write actual hindi text.It can be helpful for all of us cause sometimes we don't know the translation of certain hindi words in english which may cause wrong impression while communicating or if you are giving some speech. </p>
+
+
+</div>
+</div>
+<div class="col-md-4 my-4 ">
+    
+  <div class="col my-2 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        
+      
+        <h4 class="mb-2 ">Translators</h3>
+          {% for link in link_string1 %}
+          <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+          {% endfor %}
+            
+            </div>
+      <div class="col my-2 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <h4 class="my-2">Analyzers</h3>
+        {% for link in link_string2 %}
+        <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+         {% endfor %}
+          
+          </div>
+          
+       
+        </div>
+      </div>
+</div>
+</div>
+{% endblock  %}
+{% block JS %}
+<script>
+    
+document.getElementById('HText').onkeyup = function(e){
+
+    var text = document.getElementById('HText') ,Otext;
+        $.ajax({
+        type:'POST',
+        url:'/Translator/Hindi_to_English/',
+        data:{
+            text:text.value,
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+        encode:true,
+        success:function(response){
+          var GotRes=JSON.parse(response)
+          Otext=GotRes['ConTex']
+          document.getElementById('EText').value = Otext;
+        } 
+});
+        }
+
+</script>
+{% endblock  %}

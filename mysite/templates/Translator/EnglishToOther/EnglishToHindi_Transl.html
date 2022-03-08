@@ -1,0 +1,226 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Convert and translate english language to hindi language using voice recognition.
+{% endblock %}
+{% block MKW %}English to hindi translator,English to hindi converter,voice recognition,English to hindi text
+converter{% endblock %}
+{% block Mr %}
+30/12/2020
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %}English to Hindi Translator
+{% endblock %}
+{% block body %}
+<style>
+  #speech {
+    display: block;
+    position: absolute;
+
+    height: 50px;
+    border-radius: 40px;
+    outline: none;
+    cursor: pointer;
+    border-color: rgb(255, 94, 0);
+  }
+
+  .hindi {
+    margin-top: 60px;
+  }
+
+  /* #speech :hover{
+   background-color: rgb(0, 255, 251);
+  border-radius: 40px;
+  height:43px;
+ width:100px;
+ }  */
+</style>
+
+<div class="container text-light">
+  <div class="row ">
+
+    <div class="col-md-7 my-4 " style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <div class="my-4 ">
+        <h2 class="my-3 text-center text-light">English to Hindi</h2>
+        <hr class="bg-dark my-2">
+        <h3 class="my-4 text-light">Hindi language?</h3>
+        <p class="text-light text-monospace my-4 mx-2">As we all know English is global language but Hindi is a language
+          which is very famous and it is
+          an national/official language of india.Not only india but also there are other countries in Central asia where
+          people speaks hindi there.
+          Since it is and tradtional language and it been spoken since from long time ago.So,its been an emotional
+          attachment to people those lives in india. </p>
+
+
+        <hr class="bg-dark my-2">
+        <div class="container">
+          <h4 class="my-4 text-monospace text-center">English to Hindi translator tool</h4>
+          <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+            <div class="btn-group btn-group-toggle my-3 col-md-8" data-toggle="buttons">
+              <label class="btn btn-warning active" id="Etext">
+                <input type="radio" name="options" id="option1" checked> Entered Text
+              </label>
+              <label class="btn btn-secondary" id="Ctext">
+                <input type="radio" name="options" id="option2"> Translated Text
+              </label>
+            </div>
+            <form action="/Translator/English_to_hindi/" class="tra" method='POST'>{% csrf_token %}
+              {% if not alt %}
+              <div class="form-group">
+                <textarea class="form-control input" id="EText" name='text' placeholder="Enter your text" rows="10"
+                  style="    color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;"></textarea>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control input" id="Tohind" style="display: none;color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10"></textarea>
+              </div>
+              {% endif %}
+              {% if alt%}
+              <div class="form-group">
+                <textarea class="form-control input" id="EText" name='text' style="display: none;color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10">{{ortext}}</textarea>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control input" id="Tohind" style="color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10">{{text}}</textarea>
+              </div>
+              {% endif %}
+              <div class="row mb-4">
+                <div class="col-4">
+                  <button type="submit" class="speak " id="speech" style="filter: invert();">
+                    <i class="fa fa-microphone fa-2x " style="width:60px;" aria-hidden="true"></i>
+                  </button>
+                </div>
+                <div class="col-4">
+                  <button type="submit" class="btn btn-outline-primary text-light btn-lg trae">Translate</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <hr class="bg-dark my-2">
+        <h3 class="my-4 text-light">Why we need translation?</h3>
+        <p class="text-light text-monospace my-4 mx-2">The skills of translation are becoming ever more important and
+          desirable.
+          Today’s multicultural and multilingual society demands effective, efficient,
+          and empathetic communication between languages and cultures. That’s important for various reasons, which we’ll
+          now explore</p>
+
+        <hr class="bg-dark my-2">
+        <h3 class="my-4 text-light">For whom these will be helpful?</h3>
+        <p class="text-light text-monospace my-4 mx-2">`In india only,
+          there are 12.18% of people who can speaks a fluent english.And People around world loves to learn Hindi and
+          those who know english but
+          not hindi but they live in india for some reason.For all those people they can enter the English text here and
+          can translate it into in hindi
+          ,it"ll really helps you all
+          to improve your skills easily. </p>
+        <hr class="bg-dark my-2">
+        <h3 class="text-light my-4">How can it will be helpful?</h3>
+        <p class="text-monospace text-light my-3">
+        <p class="my-2">1.It can be helpful to learn new or native language other than english.</p><br>
+        <p class="my-2">2.People who dont know the meaning of english word/sentence will be helpful for those. and many
+          more..
+        </p><br>
+        <p class="my-2">3.You can use voice recogniton feature too avoid writing.</p>
+        </p>
+        </p>
+
+
+
+
+      </div>
+    </div>
+    <div class="col-md-4 my-4 ">
+      <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+        <h4 class="mb-2 ">Translators</h3>
+          {% for link in link_string1 %}
+          <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+          {% endfor %}
+
+      </div>
+      <div class="col my-2 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <h4 class="my-2">Analyzers</h3>
+          {% for link in link_string2 %}
+          <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+          {% endfor %}
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+{% block JS %}
+<script>
+  {% if alt %}
+  window.scrollTo(0, 450);
+  {% endif %}
+
+  window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  window.SpeechGrammarList = window.SpeechGrammarList || window.webkitSpeechGrammarList;
+  const grammar = '#JSGF V1.0'
+  const recognition = new SpeechRecognition();
+  const speechRecognitionList = new SpeechGrammarList();
+  speechRecognitionList.addFromString(grammar, 1);
+  recognition.grammars = speechRecognitionList;
+
+  recognition.lang = 'en-US';
+  recognition.interimResults = true;
+  recognition.onresult = function (event) {
+    const UserMsg = event.results[0][0].transcript;
+    // console.log(UserMsg)
+    document.getElementById("EText").value = UserMsg
+
+
+  }
+  //OnEndingSpeech
+  recognition.onspeechend = function () {
+    recognition.stop();
+    document.getElementById("speech").style.backgroundColor = "white";
+  }
+  //ErrorHanling
+  recognition.onerror = function (event) {
+    // message.textContent = 'Error occurred in recognition: ' + event.error;
+  }
+  $('.speak').click(function (e) {
+    e.preventDefault();
+
+    document.getElementById("speech").style.backgroundColor = "#00fbff";
+    recognition.start();
+
+  });
+
+  $('#option1').click(function (e) {
+
+    document.getElementById("EText").style.display = "block"
+    document.getElementById("Tohind").style.display = "none"
+    e.preventDefault();
+  })
+
+
+  $('#option2').click(function (e) {
+
+    document.getElementById("EText").style.display = "none"
+    document.getElementById("Tohind").style.display = "block"
+    e.preventDefault();
+  });
+</script>
+{% endblock %}

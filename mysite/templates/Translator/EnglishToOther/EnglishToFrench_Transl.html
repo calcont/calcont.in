@@ -1,19 +1,18 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-Convert and translate english language to arabic language using voice recognition.
+Convert and translate english language to french language using voice recognition.
 {% endblock  %}
-{% block MKW %}English to arabic translator,English to arabic converter,voice recognition,English to arabic text converter{% endblock  %}
+{% block MKW %}English to french translator,English to french converter,voice recognition,English to french text converter{% endblock  %}
 {% block Mr %}
 30/12/2020
 {% endblock  %}
 {% block MAut %}
 Amar khamkar
 {% endblock  %}
-{% block title %}English to Arabic Translator
+{% block title %}English to french Translator
 {% endblock  %}
 {% block body %}
 <style>
-
 #speech{
   display: block;
   position: absolute;
@@ -24,7 +23,7 @@ Amar khamkar
   cursor: pointer;
   border-color: rgb(255, 94, 0);
 }
-.arabian{
+.french{
   margin-top:60px;
 }
  /* #speech :hover{
@@ -35,27 +34,27 @@ Amar khamkar
  }  */
 
 
-
 </style>
-
 <div class="container text-light">
   <div class="row ">
     
         <div class="col-md-7 my-4 " style="background-color:rgb(30,30,30);
         box-shadow:13px 4px 19px 7px rgb(19 17 17);">
           <div class="my-4 ">
+<h2 class="my-3 text-center text-light" >English to French</h2>
+<hr class="bg-dark my-2">
 
-<h2 class="my-3 text-center text-light" >English to Arabian</h2>
-  <hr class="bg-dark my-2">
-<h3 class="my-4 text-light">Arabian language?</h3>
-<p class="text-light text-monospace my-4 mx-2">As we all know English is global language but Arabian is  ( العربية)  a Arabic Semitic language,
- like Hebrew and Aramaic. Around 260 million people use it as their first language. Many more
- people can also understand it as a second language. It is written with the Arabic alphabet, which is written from right to left, like Hebrew.
- </p>
+
+<h3 class="my-4 text-light">French language?</h3>
+<p class="text-light text-monospace my-4 mx-2">As we all know English is global language but French is a language which is very famous and it is 
+an language is a Romance language of the Indo-European family, which is spoken in northern France and in southern Belgium  located in Europe.
+In these countries there are only 30-40 %  of people can speak English only
+Since it is an tradtional language of France and its been spoken since from long time ago.</p>
+
 
 <hr class="bg-dark my-2">
 <div class="container">
-  <h4 class="my-4 text-monospace text-center">English to Arabian translator tool</h4>
+  <h4 class="my-4 text-monospace text-center">English to French translator tool</h4>
   <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
     <div class="btn-group btn-group-toggle my-3 col-md-8" data-toggle="buttons">
       <label class="btn btn-warning active" id="Etext">
@@ -65,73 +64,68 @@ Amar khamkar
         <input type="radio" name="options" id="option2"> Translated Text
       </label>
     </div>
-<form action="/Translator/English_to_Arabian/" class="tra" method='POST'>{% csrf_token %}
-     {% if not alt %}
-     <div class="form-group">
-      <textarea class="form-control input" id="EText" name='text' placeholder="Enter your text" rows="10" style="    color: white;
-      background-color: #191717;
-      border: 3px solid black;
-      border-radius: 15px;"></textarea>
-    </div>
-    <div class="form-group" >
-      <textarea class="form-control input" id="Tohind" style="display: none;color: white;
-      background-color: #191717;
-      border: 3px solid black;
-      border-radius: 15px;" rows="10"></textarea>
-    </div>
-    
+<form action="/Translator/English_to_French/" class="tra" method='POST'>{% csrf_token %}
+  {% if not alt %}
+  <div class="form-group">
+    <textarea class="form-control input" id="EText" name='text' placeholder="Enter your text" rows="10" style="    color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;"></textarea>
+  </div>
+  <div class="form-group" >
+    <textarea class="form-control input" id="Tohind" style="display: none;color: white;
+    background-color: #191717;
+    border: 3px solid black;
+    border-radius: 15px;" rows="10"></textarea>
+  </div>
     {% endif %}
     {% if alt%}
     <div class="form-group">
-     <textarea class="form-control input" id="EText" name='text' style="display: none;color: white;
-    background-color: #191717;
-    border: 3px solid black;
-    border-radius: 15px;" rows="10">{{ortext}}</textarea>
-  </div>
-  <div class="form-group" >
-    <textarea class="form-control input" id="Tohind" style="color: white;
-    background-color: #191717;
-    border: 3px solid black;
-    border-radius: 15px;" rows="10">{{text}}</textarea>
-  </div>
-  {% endif %}
-  <div class="row mb-4">
-    <div class="col-4">
-    <button type="submit" class="speak " id="speech" style="filter: invert();" >
-            <i class="fa fa-microphone fa-2x " style="width:60px;"  aria-hidden="true"></i>
-          </button>
-          </div>
-        <div class="col-4">
-      <button type="submit" class="btn btn-outline-primary text-light btn-lg trae ">Translate</button>
-    </div>
-    </div>
-    </form>
+      <textarea class="form-control input" id="EText" name='text' style="display: none;color: white;
+     background-color: #191717;
+     border: 3px solid black;
+     border-radius: 15px;" rows="10">{{ortext}}</textarea>
+   </div>
+   <div class="form-group" >
+     <textarea class="form-control input" id="Tohind" style="color: white;
+     background-color: #191717;
+     border: 3px solid black;
+     border-radius: 15px;" rows="10">{{text}}</textarea>
+   </div>
+    {% endif %}
+    <div class="row mb-4">
+      <div class="col-4">
+   <button type="submit" class="speak " id="speech" style="filter: invert();" >
+     <i class="fa fa-microphone fa-2x " style="width:60px;"  aria-hidden="true"></i>
+         </button>
+       </div>
+       <div class="col-4">
+         
+     <button type="submit" class="btn btn-outline-primary text-light btn-lg trae ">Translate</button>
+   </div>
+   </div>
+   </form>
 </div>
 </div>
-<hr class="bg-dark my-2">
+  <hr class="bg-dark my-2">
+  
   <h3 class="my-4 text-light">Why we need translation?</h3>
   <p class="text-light text-monospace my-4 mx-2">The skills of translation are becoming ever more important and desirable. 
     Today’s multicultural and multilingual society demands effective, efficient,
      and empathetic communication between languages and cultures. That’s important for various reasons, which we’ll now explore</p>
-
-
-
-<hr class="bg-dark my-2">
+  <hr class="bg-dark my-2">
 <h3 class="my-4 text-light">For whom these will be helpul?</h3>
-<p class="text-light text-monospace my-4 mx-2">Since there are  many arabian countries who speaks only Arabic but there  are less people who can speak
-english
-.And those who know english but 
-not arabic but they live in  arabian countries for some reason.For all those people they can enter the English text here  and can translate it into in  arabic
+<p class="text-light text-monospace my-4 mx-2">Since there are  many areas in france/Belgium who speaks only french but there very less people who speaks English
+.And People around world/India loves to learn French and those who know english but 
+not french but they live in France for some reason.For all those people they can enter the English text here  and can translate it into in French
 ,it"ll really helps you all
 to improve your skills easily. </p>
 <hr class="bg-dark my-2">
 <h3 class="text-light my-4">How can it will be helpful?</h3>
-<p class="text-monospace text-light my-3"><p class="my-2">1.You can try to write english text by your own and can check whether its gramatically or in any aspect right or not
-  and still you can practice more.</p><br><p class="my-2">2.People who dont know the meaning of english word/sentence will be helpful for those. and many more..
+<p class="text-monospace text-light my-3"><p class="my-2">1.It can be helpful to learn new or native languuage other than english.</p><br><p class="my-2">2.People who dont know the meaning of english word/sentence will be helpful for those. and many more..
   </p><br><p class="my-2">3.You can use voice recogniton feature too avoid writing.</p>
-</p>
-
-
+<hr class="bg-dark my-2">
+ 
 </div>
 </div>
 <div class="col-md-4 my-4 ">
@@ -152,7 +146,7 @@ to improve your skills easily. </p>
         {% for link in link_string2 %}
         <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
          {% endfor %}
-            
+          
           </div>
           
        
@@ -200,7 +194,7 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
       recognition.start();
 
     });
-    $('#option1').click(function(e){
+ $('#option1').click(function(e){
 
 document.getElementById("EText").style.display="block"
 document.getElementById("Tohind").style.display="none"

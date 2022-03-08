@@ -1,0 +1,139 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+convert your hindi text into thai in this tool.
+{% endblock  %}
+{% block MKW %}Hindi to Thai translator,Hindi to Thai Converter{% endblock  %}
+{% block Mr %}
+30/12/2020
+{% endblock  %}
+{% block MAut %}
+Amar khamkar
+{% endblock  %}
+{% block title %}Hindi to Thai translator
+{% endblock  %}
+{% block body %}
+<style>
+
+#speech{
+  display: block;
+  position: absolute;
+
+   height: 50px; 
+  border-radius: 40px;
+ outline:none;
+  cursor: pointer;
+  border-color: rgb(255, 94, 0);
+}
+.s\panish{
+  margin-top:60px;
+}
+ /* #speech :hover{
+   background-color: rgb(0, 255, 251);
+  border-radius: 40px;
+  height:43px;
+ width:100px;
+ }  */
+</style>
+
+<div class="container text-light">
+  <div class="row ">
+    
+        <div class="col-md-7 my-4 " style="background-color:rgb(30,30,30);
+        box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+          <div class="my-4 ">
+<h2 class="my-3 text-center text-light" >Hindi To Thai</h2>
+<hr class="bg-dark my-2">
+<h3 class="my-4 text-light">Hindi To Thai Translator?</h3>
+<p class="text-light text-monospace my-4 mx-2">You can convert your hindi text into thai in this tool.Here,you have to just type your hindi text 
+  that too you can write in english language and then at the same time the respective thai translation will be generated in texfield. </p>
+
+
+<hr class="bg-dark my-2">
+<div class="container">
+  <h4 class="my-4 text-monospace text-center">Hindi To Thai Translator tool</h4>
+  <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+<form  id="tra" method='POST'>{% csrf_token %}
+    <div class="form-group">
+      <label for="MText" class="my-2">Hindi text</label>
+        <textarea class="form-control input my-2" id="HText" placeholder="Enter Hindi Text" name='text' style="color: white;
+       background-color: #191717;
+       border: 3px solid black;
+       border-radius: 15px;"  rows="5"></textarea>
+     </div>
+    <div class="form-group">
+        <label for="MText" class="my-2">Thai text</label>
+        <textarea class="form-control input" id="EText" placeholder="Thai Text"  name='text' style="color: white;
+       background-color: #191717;
+       border: 3px solid black;
+       border-radius: 15px;" rows="5"></textarea>
+     </div>
+   
+    </form>
+</div>
+</div>
+
+<hr class="bg-dark my-2">
+
+  <h3 class="my-4 text-light">Why we need translation?</h3>
+  <p class="text-light text-monospace my-4 mx-2">The skills of translation are becoming ever more important and desirable. 
+    Today’s multicultural and multilingual society demands effective, efficient,
+     and empathetic communication between languages and cultures. That’s important for various reasons, which we’ll now explore</p>
+<hr class="bg-dark my-2">
+<h3 class="my-4 text-light">For whom this will be helpul?</h3>
+<p class="text-light text-monospace my-4 mx-2">As most of people speaks hindi in india, for them to learn other languages such as Thai,this translator can be helpful or if he/she do not hindi and they want to know meaning of paticular hindi word in thai,for all of them it can be helpful
+Here, you can write/paste hindi text in english language(like:- mai acha hoon) too or you can write actual hindi text.. </p>
+
+
+</div>
+</div>
+<div class="col-md-4 my-4 ">
+    
+  <div class="col my-2 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        
+      
+        <h4 class="mb-2 ">Translators</h3>
+          {% for link in link_string1 %}
+          <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+          {% endfor %}
+            
+            </div>
+      <div class="col my-2 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+      <h4 class="my-2">Analyzers</h3>
+        {% for link in link_string2 %}
+        <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+         {% endfor %}
+          
+          </div>
+          
+       
+        </div>
+      </div>
+</div>
+</div>
+{% endblock  %}
+{% block JS %}
+<script>
+    
+document.getElementById('HText').onkeyup = function(e){
+
+    var text = document.getElementById('HText') ,Otext;
+        $.ajax({
+        type:'POST',
+        url:'/Translator/Hindi_to_Thai/',
+        data:{
+            text:text.value,
+            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+        },
+        encode:true,
+        success:function(response){
+          var GotRes=JSON.parse(response)
+          Otext=GotRes['ConTex']
+          document.getElementById('EText').value = Otext;
+        } 
+});
+        }
+
+</script>
+{% endblock  %}
