@@ -117,7 +117,7 @@ def Grammar_correction(request):
         from gingerit.gingerit import GingerIt
         length_text=len(text)
         if length_text<300:
-            result = GingerIt().parse(text)
+            result = ginger.gingerI().parse(text)
             n=len(list(result['corrections']))
             d=[]
             a=[]
