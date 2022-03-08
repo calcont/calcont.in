@@ -215,7 +215,6 @@ def imagetotext(request):
             import requests
             response = requests.get(url)
             img = Image.open(BytesIO(response.content)) 
-            print(img)
             result = pytesseract.image_to_string(img)
         response=json.dumps({'txt': result},default=str)
         return HttpResponse(response)
