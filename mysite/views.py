@@ -114,7 +114,7 @@ def Grammar_correction(request):
     if request.method=='POST':
         IsEnter=True
         text=request.POST.get('text','default')
-        from gingerit.gingerit import GingerIt
+        from . import ginger
         length_text=len(text)
         if length_text<300:
             result = ginger.gingerI().parse(text)
