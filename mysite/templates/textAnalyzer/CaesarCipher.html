@@ -1,0 +1,162 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Caesar cipher is an encryption technique in which each letter in the plain text is replaced by a letter some fixed number of positions down the alphabet. For example, with a shift of one, A would be replaced by B, B would become C, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
+
+{% endblock %}
+{% block MKW %}caesar cipher , caesar cipher calculator,caesar cipher encoder,caesar cipher decoder,encryption technique{% endblock %}
+{% block Mr %}
+21/03/2022
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %} caesar cipher - encoder,decoder,calculator
+{% endblock %}
+{% block body %}
+<style>
+    .input {
+
+        border: 1px solid rgb(38, 35, 35);
+        border-radius: 10px;
+
+    }
+
+    .AddName {
+        background-color: #3671ab;
+    }
+</style>
+<div class="container text-light">
+    <div class="row ">
+
+        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4 ">
+                <h1 class="">caesar cipher</h1>
+                <hr class="my-4 bg-dark">
+                <h3 class="text-monospace my-2">caesar cipher?</h3>
+                <p class="text-monospace my-4">Caesar cipher is an encryption technique in which each letter in the plain text is replaced by a letter some fixed number of positions down the alphabet. For example, with a shift of one, A would be replaced by B, B would become C, and so on. The method is named after Julius Caesar, who used it in his private correspondence.
+                For decryption steps are exactly opposite to this where instead shifting down we shift up like B will become A for shift = 1.<br>
+                    You can also checkout playfair cipher for encryption and decryption.
+                    <a href="/Analyzer/playfair-cipher-encoder-decoder/">playfair cipher encoder/decoder</a>.
+                </p>
+                <hr class="bg-dark my-2">
+                <h3 class="my-4 mb-4 text-monospace text-center">caesar cipher encoder / decoder</h3>
+                <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+                    <form id="post-form">
+                        <div class="form-group mb-4">
+                            <textarea class="form-control input my-4" name="text" placeholder="Enter the text" id="text"
+                                rows="7" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " required></textarea>
+                            <textarea class="form-control my-4" placeholder="Output" id="output" rows="7" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " disabled></textarea>
+                        </div>
+
+
+                        <div class="mb-2">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="">Choose Action</label>
+                                    <select id="action"  style="    color: white;
+                                    background-color: #191717;
+                                    border: 3px solid black;
+                                    border-radius: 15px;" class="form-control">
+                                      
+                                      <option value="1">Encode</option>
+                                      <option value="2">Decode</option>
+                                    </select>
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                    <label for="">Enter the shift no</label>
+                                    <input type="number" style="    color: white;
+                                    background-color: #191717;
+                                    border: 3px solid black;
+                                    border-radius: 15px;" placeholder="shift" id="shift" value="0" class="form-control text-light" required>
+                                  </div>
+
+                                
+
+                            </div>
+                            <div class="">
+                                <button type="submit" class="btn btn-outline-secondary text-light con my-3">Convert</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-4">uses of caesar cipher encryption technique?</h3>
+            <p class=" my-4">
+                <p>
+                   
+
+
+
+                    <p class="my-2"> 1. One of the easiest methods to use in cryptography which is easy to understand.</p>
+                    <p class="my-2"> 2. Use of only a short key in the entire process.</p>
+                    <p class="my-2"> 3. Can be an best method for the system which cannot use any complicated coding techniques.</p>
+                    <p class="my-2"> 4. Requires few computing resources.</p>
+                    </p>
+        </div>
+                    
+
+
+
+<div class="col-md-4 my-4 ">
+    <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <h4 class="my-2">Analyzers</h3>
+            {% for link in link_string1 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+        <h4 class="my-2 ">Translators</h3>
+            {% for link in link_string2 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+{% block JS %}
+<script src="/static/js/caesarCipher.js" ></script>
+<script>
+
+  
+   $('.con').click(function(e){
+    e.preventDefault();
+        var text = $('#text').val();
+        var action = $('#action').val();
+        var shift = $('#shift').val() ,offset = 0;
+        if(text.length == 0){
+            alert('Please enter text');
+            return;
+        }
+        else{
+
+            if(action == 1){
+                output = encodetxt(text,shift);
+                $('#output').val(output);
+            }
+            else if(action==2){
+                output = decodetxt(text,shift);
+                $('#output').val(output);
+            }
+        }
+        //program to encode text using caesar cipher
+       
+   })
+</script>
+
+{% endblock %}

@@ -11,6 +11,8 @@ def urlSideMapList():
     ['/Analyzer/text-to-image-converter/','text to image converter',1,'AT',6],
     ['/Analyzer/text-to-image-to-text-converter/','Image to text converter',1,'AT',7],
     ['/Analyzer/Language-Identifier/','Language Identifier',1,'AT',8],
+    ['/Analyzer/Caesar-cipher-encoder-decoder/','Caesar Cipher encoder/decoder',1,'AT',9],
+    ['/Analyzer/playfair-cipher-encoder-decoder/','playfair Cipher encoder/decoder',1,'AT',10],
 
     ['/Conversion/BinaryConverter/','Binary Converter',2,'CC',0],
     ['/Conversion/DecimalConverter/','Decimal Converter',2,'CC',1],

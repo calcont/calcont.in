@@ -29,6 +29,8 @@ urlpatterns = [
     path('Analyzer/text-to-image-converter/',views.texttoimage,name="texttoimage"),
     path('Analyzer/image-to-text-converter/',views.imagetotext,name="imagetotext"),
     path('Analyzer/Language-Identifier/',views.LangIdenti,name="LangIdenti"),
+    path('Analyzer/Caesar-cipher-encoder-decoder/',views.caesarCipher,name="caesarCipher"),
+    path('Analyzer/playfair-cipher-encoder-decoder/',views.playfCipher,name="playfCipher"),
     
     path('Conversion/BinaryConverter/', views.Binaryconversion,name='Binaryconversion'),
     path('Conversion/DecimalConverter/', views.Decimalconversion,name="Decimalconversion"),

@@ -1,0 +1,381 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+The Playfair cipher is a manual symmetric encryption technique and was the first literal digram substitution cipher. The scheme was invented in 1854 by Charles Wheatstone.
+{% endblock %}
+{% block MKW %}playfair cipher encoder , playfair cipher decoder , playfair cipher calculator{% endblock %}
+{% block Mr %}
+21/03/2022
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %} Playfair cipher - encoder,decoder
+{% endblock %}
+{% block body %}
+<style>
+    .input {
+
+        border: 1px solid rgb(38, 35, 35);
+        border-radius: 10px;
+
+    }
+
+    .AddName {
+        background-color: #3671ab;
+    }
+</style>
+<div class="container text-light">
+    <div class="row ">
+
+        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4 ">
+                <h1 class="mx-4 ">Playfair cipher</h1>
+                <hr class="my-4 bg-dark">
+                <h3 class="text-monospace my-2">Playfair cipher encryption technique?</h3>
+                <p class="text-monospace my-4">First of all we create matrix(5x5) where each of the 25 alphabets must be unique and one letter of the alphabet (usually J) is omitted from the table (as the table can hold only 25 alphabets). If the plaintext contains J, then it is replaced by I. 
+                    <br> 
+                    The initial alphabets in the key square are the unique alphabets of the key in the order in which they appear followed by the remaining letters of the alphabet in order.<br>
+                    After so , The plaintext is split into pairs of two letters (digraphs). Since Playfair cipher encrypts the message digraph by digraph. Therefore, the Playfair cipher is an example of a digraph substitution cipher.<br>
+                    You can also checkout caesar cipher encryption technique
+                    <a href="/Analyzer/Caesar-cipher-encoder-decoder/">caesar cipher encoder / decoder</a>.
+                </p>
+                <hr class="bg-dark my-2">
+                <h3 class="my-4 mb-4 text-monospace text-center">Playfair cipher encoder / decoder</h3>
+                <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+                    <form id="post-form">
+                        <div class="form-group mb-4">
+                            <textarea class="form-control input my-4" name="text" placeholder="Enter the text" id="text"
+                                rows="5" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " required></textarea>
+            
+            <div class="form-group ">
+                <label for="">Enter key</label>
+                <input type="text" style="    color: white;
+                background-color: #191717;
+                border: 3px solid black;
+                border-radius: 15px;" placeholder="key" id="key"  class="form-control text-light" required>
+              </div>
+                            <textarea class="form-control my-4" placeholder="Output" id="output" rows="5" style="    color: white;
+            background-color: #191717;
+            border: 3px solid black;
+            border-radius: 15px; " disabled></textarea>
+                        </div>
+
+
+                        <div class="mb-2">
+                            <div class="row">
+                                <div class="form-group col-md-6">
+                                    <label for="">Choose Action</label>
+                                    <select id="action"  style="    color: white;
+                                    background-color: #191717;
+                                    border: 3px solid black;
+                                    border-radius: 15px;" class="form-control">
+                                      
+                                      <option value="1">Encode</option>
+                                      <option value="2">Decode</option>
+                                    </select>
+                                  </div>
+
+                                
+
+                            </div>
+                            <div class="">
+                                <button type="submit" class="btn btn-outline-secondary text-light con my-3" >Convert</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+            <hr class="my-4 bg-dark">
+            <h3 class="text-monospace my-4">Advantages of playfair cipher encryption technique</h3>
+                <p>
+                    <p class="my-2"> 1. It is significantly harder to break since the frequency analysis technique used to break simple substitution ciphers is difficult but still can be used on (25*25) = 625 digraphs rather than 25 monographs which is difficult. </p>
+                    <p class="my-2"> 2. Brute force attack does not affect it.</p>
+                    <p class="my-2"> 3. Easy to perform the substitution.</p>
+                    </p>
+        </div>
+                    
+
+
+
+<div class="col-md-4 my-4 ">
+    <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <h4 class="my-2">Analyzers</h3>
+            {% for link in link_string1 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+        <h4 class="my-2 ">Translators</h3>
+            {% for link in link_string2 %}
+            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+            {% endfor %}
+    </div>
+
+</div>
+</div>
+</div>
+
+
+
+{% endblock %}
+{% block JS %}
+<script src="/static/js/playfairCipher.js" ></script>
+<script>
+$(".con").click(function(e){
+    var action = $("#action").val();
+    if (action==1){
+
+        cipher();
+    }
+    else{
+        deCodeCipher();
+    }
+    e.preventDefault();
+})
+
+
+var isChet = false;
+var isEnd = false;
+var flag = false;
+var flagX = false;
+var flagAdd = false;
+function getKeyword(key) { 
+   var key = document.getElementById("key").value;
+   return document.getElementById("key").value;
+}
+
+function getString() {
+  return document.getElementById("text").value;
+}
+
+function processKey() { 
+  var key = getKeyword();
+  key = key.toUpperCase().replace(/\s/g, '').replace(/J/g, "I");
+  var result = [];
+  var temp = '';
+  var alphabet = 'ABCDEFGHIKLMNOPQRSTUVWXYZ';
+  for(var i = 0; i < key.length; i++) {
+    if (alphabet.indexOf(key[i]) !== -1) {
+      alphabet = alphabet.replace(key[i], '');
+      temp += key[i];
+    }
+  }
+  temp += alphabet;
+  var result = [];
+  temp = temp.split('');
+  while(temp[0]) {
+    result.push(temp.splice(0,5));
+  }
+  return result;
+}
+
+function cipher() {
+  var keyresult = processKey();
+  var res = [];
+  var error = 'Warning!!! String is empty';
+  var str = getString();
+  if(str === '') {
+    document.getElementById('printValue').innerHTML = error;
+  }
+  // var err = 'ERRORX';
+  var textPhrase, separator;
+  str = str.toUpperCase().replace(/\s/g, '').replace(/J/g, "I");
+  if(str.length === 0) {
+    //document.getElementById("printValue").innerHTML = err.toUpperCase().replace(/\s/g, '').replace(/J/g, "I");
+    }
+  else {
+    textPhrase = str[0];
+  }
+  var help = 0; flagAdd = false;
+  for(var i = 1; i < str.length; i++) {
+      if(str[i - 1] === str[i]) {
+        if(str[i] === 'X') {
+          separator = 'Q';
+        }
+        else {
+          separator = 'X';
+        }
+        textPhrase += separator + str[i];
+        help = 1; 
+      }
+      else {
+        textPhrase += str[i];
+      }
+    if(help === 1) {
+      flagAdd = true;
+    }
+  }
+  
+  if(textPhrase.length % 2 !== 0) {
+    if(textPhrase[textPhrase.length - 1] === 'X') {
+      textPhrase += 'Q';
+      isEnd = true;
+      flagX = false;
+    }
+    else {
+      textPhrase += 'X';
+      isEnd = true;
+      flagX = true;
+    }
+  }
+  
+  var t = [];
+  var enCodeStr = '';
+  for(var i = 0; i < textPhrase.length; i += 2){
+  	var pair1 = textPhrase[i];
+  	var pair2 = textPhrase[i + 1];
+  	var p1i, p1j, p2i, p2j;
+  	for(var stroka = 0; stroka < keyresult.length; stroka++) {
+	    for(var stolbec = 0; stolbec < keyresult[stroka].length; stolbec++){
+	      if (keyresult[stroka][stolbec] == pair1){
+	      	p1i = stroka;
+	      	p1j = stolbec;
+	      }
+	      if (keyresult[stroka][stolbec] == pair2){
+	      	p2i = stroka;
+	      	p2j = stolbec;
+	      }
+	    }
+	  }
+    var coord1 = '', coord2 = '';
+    
+    if(p1i === p2i) {
+      if(p1j === 4) {
+        coord1 = keyresult[p1i][0];
+      }
+      else {
+        coord1 = keyresult[p1i][p1j + 1];
+      }
+      if(p2j === 4) {
+        coord2 = keyresult[p2i][0];
+      }
+      else {
+        coord2 = keyresult[p2i][p2j + 1]
+      }
+    }
+    if(p1j === p2j) {
+      if(p1i === 4) {
+        coord1 = keyresult[0][p1j];
+      }
+      else {
+        coord1 = keyresult[p1i + 1][p1j];
+      }
+      if(p2i === 4) {
+        coord2 = keyresult[0][p2j];
+      }
+      else {
+        coord2 = keyresult[p2i + 1][p2j]
+      }
+    }
+    if(p1i !== p2i && p1j !== p2j) {
+      coord1 = keyresult[p1i][p2j];
+      coord2 = keyresult[p2i][p1j];
+    }
+    enCodeStr = enCodeStr + coord1 + coord2;
+  }
+  document.getElementById("output").value = enCodeStr;
+  // alert("Добавили букву в середине слова? - " + flagAdd);
+  return enCodeStr;
+}
+
+function deCodeCipher() {
+  var deCodeStr = '';
+  var text = '';
+  var error = "Warning!!! String is empty";
+  var text1 = getString();
+  if(text1 === '') {
+    document.getElementById('printDeCode').innerHTML = error;
+  }
+  var keyresult = processKey();
+  for(var i = 0; i < text1.length; i += 2){
+  	var pair1 = text1[i];
+  	var pair2 = text1[i + 1];
+  	var p1i, p1j, p2i, p2j;
+  	for(var stroka = 0; stroka < keyresult.length; stroka++) {
+	    for(var stolbec = 0; stolbec < keyresult[stroka].length; stolbec++){
+	      if (keyresult[stroka][stolbec] == pair1){
+	      	p1i = stroka;
+	      	p1j = stolbec;
+	      }
+	      if (keyresult[stroka][stolbec] == pair2){
+	      	p2i = stroka;
+	      	p2j = stolbec;
+	      }
+	    }
+	  }
+    var coord1 = '', coord2 = '';
+    
+    if(p1i === p2i) {
+      if(p1j === 0) {
+        coord1 = keyresult[p1i][4];
+      }
+      else {
+        coord1 = keyresult[p1i][p1j - 1];
+      }
+      if(p2j === 0) {
+        coord2 = keyresult[p2i][4];
+      }
+      else {
+        coord2 = keyresult[p2i][p2j - 1]
+      }
+    }
+    if(p1j === p2j) {
+      if(p1i === 0) {
+        coord1 = keyresult[4][p1j]
+      }
+      else {
+        coord1 = keyresult[p1i - 1][p1j];
+      }
+      if(p2i === 0) {
+        coord2 = keyresult[4][p2j];
+      }
+      else {
+        coord2 = keyresult[p2i - 1][p2j]
+      }
+    }
+    if(p1i !== p2i && p1j !== p2j) {
+      coord1 = keyresult[p1i][p2j];
+      coord2 = keyresult[p2i][p1j];
+    }
+    text = text + coord1 + coord2;
+  }
+  text = text.split('');
+  
+  for(var i = 0; i < text.length; i++) {
+    var count;
+    if (flagAdd) {
+      if(text[i] === text[i + 2] && (text[i + 1] === 'X' || text[i + 1] === 'Q')) {
+        count = i + 1;
+        text.splice(count, 1);
+      }
+    }
+    else if(flagAdd && isEnd && (flagX || !flagX)) {
+      if(text[i - 2] === text[i] && (text[i - 1] === 'X' || text[i - 1] === 'Q'))
+        count = i + 1;
+      text.splice(count, 1);
+    }
+    else if(!flagAdd) {
+      break;
+    }
+  }
+  if(flagX) {
+    text.pop();
+  }
+  if(isEnd && !flagX) {
+    text.pop();
+  }
+  text = text.join('');
+  document.getElementById('output').value = text;
+}
+</script>
+
+{% endblock %}

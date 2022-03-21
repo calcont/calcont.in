@@ -242,7 +242,17 @@ def LangIdenti(request):
             return HttpResponse(response)
     param={'link_string1':link_string1,'link_string2':link_string2}
     return render(request,'textAnalyzer/LangIdenti.html',param)
+#Caesar cipher encoder/decoder
+def caesarCipher(request):
+    link_string1,link_string2=SideMap.arrange(9,1,'AT')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'textAnalyzer/CaesarCipher.html',param)
 
+#playfair cipher encoder/decoder
+def playfCipher(request):
+    link_string1,link_string2=SideMap.arrange(10,1,'AT')
+    param={'link_string1':link_string1,'link_string2':link_string2}
+    return render(request,'textAnalyzer/playfCipher.html',param)
 
 #Conversion
 def Binaryconversion(request):
