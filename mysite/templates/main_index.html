@@ -198,15 +198,17 @@
 
           </div>
         </div> -->
-        <h4 class="modal-title" id="exampleModalLabel">New Update!!</h4>
+        <h4 class="modal-title" id="exampleModalLabel">New encryption tools</h4>
         <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body" id="mbdy">
         <p class="modalText" >
-          We have updated <a href="/Conversion/infix_to_postfix">infix to postfix</a> , <a href="/Conversion/infix_to_prefix">infix to prefix </a> converters.Now instead of just converting expressions into postfix or prefix you can also generate the respective postfix/prefix table,
-           where you can observe how its been converted into postfix/prefix expression step by step.
+          We have added two text encryption tools <a class="link" href="/Analyzer/Caesar-cipher-encoder-decoder/">Caesar cipher encoder/decoder</a> and <a class="link"href="/Analyzer/playfair-cipher-encoder-decoder/">playfair cipher encoder/decoder</a> which
+          will help you to encode plain text into cipher/encoded text with different complexities.
+          <br>
+          You can also decode your cipher text into plain text using this tools.
         </p>
         <br>
     </div>
@@ -443,7 +445,10 @@
     //   document.getElementById("AlertS").style.display = "block";
 
     // }
+    $(".link").click(function (e) {
+      setexpire();
 
+    });
     $("#closeP").click(function (e) {
       setexpire();
 
