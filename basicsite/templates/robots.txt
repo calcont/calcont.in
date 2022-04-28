@@ -2,6 +2,4 @@ User-agent: *
 Disallow: /admin
 Disallow:  /*.png
 Allow: /ads.txt/
-Disallow: /static/
-Allow: /static/favicon.ico
 Sitemap:https://www.calcont.in/sitemap.xml
