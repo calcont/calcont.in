@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: calcont.in
+Token: 71feaeedd458ad8aba1aafb73737be06fb1f31d608d9c08dd17971fdacc30b32
