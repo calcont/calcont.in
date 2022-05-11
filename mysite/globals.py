@@ -48,7 +48,9 @@ def urlSideMapList():
     ['/Calculator/BMI_calculator/','BMI Calculator',4,'CC',2],
     ['/Calculator/Postfix_calculator/','Postfix Calculator',4,'CC',3],
     ['/Calculator/Prefix_calculator/','Prefix Calculator',4,'CC',4],
-    ['/Calculator/Material-weight-calculator/','Material weight Calculator',4,'CC',5],]
+    ['/Calculator/Material-weight-calculator/','Material weight Calculator',4,'CC',5],
+    ['/Calculator/Linear-regression-calculator/','Linear Regression Calculator',4,'CC',6],
+    ]
     return urls
 
 
