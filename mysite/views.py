@@ -427,7 +427,7 @@ def Linear_regression_calculator(request):
         except ZeroDivisionError:
             response=json.dumps({'error': 'Division by zero'},default=str)
         return HttpResponse(response)
-    return render(request,'calculator/Linear_regression_calculator.html',param)
+    return render(request,'calculator/linear_regression_calculator.html',param)
 #contact
 def ContactMe(request):
     isSub=False
