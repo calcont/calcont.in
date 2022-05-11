@@ -55,7 +55,7 @@ class StaticViewsSitemap(Sitemap):
             "mysite:Postfix_calculator",
             "mysite:Prefix_calculator",
             "mysite:material_weight_calculator",
-            "mysite:linear_regression_calculator",
+            "mysite:Linear_regression_calculator",
             "mysite:PrivacyPolicy",
         ]
     def location(self, item):
