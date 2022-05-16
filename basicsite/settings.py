@@ -24,10 +24,8 @@ SECRET_KEY = '+%1e1)rzsn_c%3cm8b5y_+su3!90gu6#efpy38pob%^5_1_8_+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
-PREPEND_WWW = True
-BASE_URL = "https://www.calcont.in"
-ALLOWED_HOSTS = ['www.calcont.in', 'calcont.in']
 
+ALLOWED_HOSTS = ['www.calcont.in', 'calcont.in']
 
 # Application definition
 
@@ -143,9 +141,12 @@ STATICFILES_DIRS = [
     
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-django_heroku.settings(locals())
+
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT=True
+
+django_heroku.settings(locals())
+
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY    = '475883331625-he2ege0iciojh5n85j95rprd6gdqalcu.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET  = 'ExytHUSGY0ougL1ppv9haEXI'
 
