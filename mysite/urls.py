@@ -89,7 +89,7 @@ urlpatterns = [
     #Material weight calculator
     path('Calculator/Material-weight-calculator/', views.material_weight_calculator,name="material_weight_calculator"),
     #Linear regression calculator
-    path('/Calculator/Linear-regression-calculator/', views.Linear_regression_calculator,name="Linear_regression_calculator"),
+    path('Calculator/Linear-regression-calculator/', views.Linear_regression_calculator,name="Linear_regression_calculator"),
 #PrivacyPolicy
     path('Privacy_policy/', views.PrivacyPolicy,name="PrivacyPolicy"),
 
