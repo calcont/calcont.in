@@ -27,7 +27,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['www.calcont.in','calcont.in']
 
-PREPEND_WWW = True
 
 # Application definition
 
@@ -146,6 +145,7 @@ if os.getcwd() == '/app':
     DEBUG = False
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
     SECURE_SSL_REDIRECT=True
+    PREPEND_WWW = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
     

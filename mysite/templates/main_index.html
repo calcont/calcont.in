@@ -191,7 +191,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content" style="background-color: rgb(25, 25, 25);border-radius: 40px;">
         <div class="modal-header" style="border-bottom: 1px solid rgb(41 40 40);">
-          <h4 class="modal-title" id="exampleModalLabel">Create Account?</h4>
+          <!-- <h4 class="modal-title" id="exampleModalLabel">Create Account?</h4>
           <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -216,22 +216,24 @@
               href="{% url 'social:begin' 'google-oauth2' %}">Sign Up With <img class="mx-2"
                 src="/static/google.png" /></a><br>
 
-          </div>
-        </div>
-        <!-- <h4 class="modal-title" id="exampleModalLabel">New encryption tools</h4>
+          </div> -->
+        <!-- </div> -->
+        <h4 class="modal-title" id="exampleModalLabel">Calcont Survey</h4>
         <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body" id="mbdy">
         <p class="modalText" >
-          We have added two text encryption tools <a class="link" href="/Analyzer/Caesar-cipher-encoder-decoder/">Caesar cipher encoder/decoder</a> and <a class="link"href="/Analyzer/playfair-cipher-encoder-decoder/">playfair cipher encoder/decoder</a> which
-          will help you to encode plain text into cipher/encoded text with different complexities.
-          <br>
-          You can also decode your cipher text into plain text using this tools.
+          Hey there!!<br/><br/>
+          Looks like you are finding this website helpful or interesting.<br/>Can you help me to create this more helpful by suggesting some ideas about tools or feedback that you have?It will really
+          help me to improve this website and add new tools.
+          <br/>
+          <br/>
+          Do fill <a class="signin" href="https://forms.gle/KLmkrvbeWPvkH5yM8">this form</a> or click anywhere in this alert.
         </p>
         <br>
-    </div> -->
+    </div>
 
 
 
@@ -451,9 +453,9 @@
     if (myCookie == undefined) {
       // code to show modal here 
       setTimeout(function () {
-        {% if not user.is_authenticated %}
+        // {% if not user.is_authenticated %}
         $('#DoLogin').modal('show')
-        {% endif %}
+        // {% endif %}
       }, 50000);
       //  setTimeout(function(){ 
       //    $('#newtool').modal('show') 
@@ -465,7 +467,8 @@
     //   document.getElementById("AlertS").style.display = "block";
 
     // }
-    $(".link").click(function (e) {
+    $("#mbdy").click(function (e) {
+      document.location="https://forms.gle/KLmkrvbeWPvkH5yM8";
       setexpire();
 
     });
