@@ -90,6 +90,8 @@ urlpatterns = [
     path('Calculator/Material-weight-calculator/', views.material_weight_calculator,name="material_weight_calculator"),
     #Linear regression calculator
     path('Calculator/Linear-regression-calculator/', views.Linear_regression_calculator,name="Linear_regression_calculator"),
+    #hcf and lcm calculator
+    path('Calculator/HCF-LCM-calculator/', views.HCF_LCM_calculator,name="HCF_LCM_calculator"),
 #PrivacyPolicy
     path('Privacy_policy/', views.PrivacyPolicy,name="PrivacyPolicy"),
 
