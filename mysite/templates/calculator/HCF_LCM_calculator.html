@@ -1,15 +1,15 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-Evaluate postfix expresion by entering expression as input.
+Calculate highest common factor and lowest common multiple of two or more numbers at same time.
 {% endblock %}
-{% block MKW %}Postfix evaluator,postfix calculator,how to calculate postfix expression?,Postfix expression evaluator,Postfix expression calculator{% endblock %}
+{% block MKW %}HCF calculator,lcm calculator,hcf lcm calculator,hcf calculator online,cm and hcf calculatorAptitude questions,mathematical calculator{% endblock %}
 {% block Mr %}
-4/02/2021
+09/07/2022
 {% endblock %}
 {% block MAut %}
 Amar khamkar
 {% endblock %}
-{% block title %}Postfix expression calculator
+{% block title %}Hcf and Lcm calculator
 {% endblock %}
 {% block body %}
 <style>
@@ -22,14 +22,13 @@ Amar khamkar
     <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
     box-shadow:13px 4px 19px 7px rgb(19 17 17);">
       <div class="my-4 ">
-          <h2 class="text-center ">Hcf Lcm Calculator</h2>
+          <h2 class="text-center ">HCF LCM Calculator</h2>
           <hr class='bg-dark my-2'>
           <h3 class="my-4 text-center">What is Hcf and Lcm?</h3>
-          <p class="text-monospace my-4">An postfix expression (also called Reverse Polish Notation)
-is a single letter or an operator, preceded by two postfix strings. Every postfix string longer than a single variable contains first and 
-second operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b>.</p>
-<p class="text-monospace">But in general expressions usually are in infix format.So, we have to convert them into postfix expression.For that
-    you can use <a href="/Conversion/infix_to_postfix">Infix to Postfix Converter</a> .
+          <p class="text-monospace my-4">Hcf(Highest common factor) is very similar to GCD(greatest common divisor) helps us to find highest factors of numbers which should be common or else it would be 1.
+              On the other hand LCM(lowest common multiple) is taking multiples(for 4 it is 4,8,12)
+              of all numbers and then select common of between all of then but is should be lowest.<br>
+              You can see explanation of both of them with some examples in below.
 </p>
           <hr class='bg-dark my-4'>
            <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
@@ -64,35 +63,33 @@ second operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b>.</p>
          
 
 
-          <h3 class="my-3 text-center">How to evaluate Postfix expression?</h3>
-          <p class=" my-4">1.First we read expression from left to right.So,During reading the expression from left to right, push the element in the stack if it is an operand.
-<br><p class="my-2">2.If the current character is an operatorthen  pop the two operands from the stack  and then evaluate it.
-      </p>
-<br><p class="my-2">3.Push back the result of the evaluation. Repeat it till the end of the expression.Checkout examples that are mention below in table </p>
-</p>
-
-        <div class="container  mt-4" style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
-1) Postfix Expression: 	54+<br>
-Answer: 9<br>
-2) Postfix Expression: 	57+67+*<br>
-Answer: 156<br>
-3) Postfix Expression: 	452*+5+<br>
-Answer: 19<br>
-3) Postfix Expression:	456*+<br>
-Answer: 34<br>
-</div>
+          <h3 class="my-3 text-center">How to calculate HCF & LCM?</h3>
+          <p class=" my-4">
+              <b>1.Evaluating HCF</b><br>
+              Let us suppose we have 3 numbers 3,6,30<br>
+              First,we are going to find numbers(factor) which are divisible with give number(of which we intend to find hcf) and then take highest common among them,<br>
+              for 3 - 3<br>
+              for 6 - 2,3,6<br>
+              for 30 - 2,3,5,10,15,30<br>
+              So,in above the common numbers are 2,3 but in that highes is 3 so HCF will be <b>3</b>. <br><br>
+              <b>2.Evaluating LCM</b><br>
+              Considering same example as above,<br>
+              We are going to find multiples of all numbers and will check lowest common value among them<br>
+              for 3 - 3,6,9,12,15...30,33<br>
+              for 6 - 6,12,18,24,30,36<br>
+              for 30 - 30,60 <br>
+              So,in above common numbers between 3,6 are 6,12,18,24 ... but here lowest one is 6 and if we consider 30 at the same time 30 will be the answer.  
+          </p>
 
 
 
           <hr class="bg-dark my-3">
-          <h3 class="">Applications</h3>
-          <p class=" text-monospace my-3 mx-2">Infix expressions are readable and solvable by humans. We can easily 
-              distinguish the order of operators, and also can use the parenthesis to solve that part first during solving mathematical expressions. 
-              But computer cannot differentiate the operators
-and parenthesis easily, that’s why postfix conversion is needed.Compilers or command editor in computer and some calculators also convert expression
-to postfix first and then solve those expression to evaluate answer for the same.</p>
-         
-              <hr class="bg-dark my-3">
+          <h3 class="">Use of this calculator?</h3>
+          <p class=" text-monospace my-3 mx-2">
+            Help us to common or similarity between numbers.And GCD helps us to solve various mathematical problem very quickly.Variety of questions based on hcf & lcm are asked in many competetive exams.
+            You can just verify your manual anwers with this or you can calculate directly from this which can reduce your time.  
+            .</p>
+<script src="/static/js/calculator/hcf_lcm.js"></script>
       </div>
   </div>
 
@@ -118,8 +115,4 @@ to postfix first and then solve those expression to evaluate answer for the same
     </div>
 </div>
 </div>
-{% endblock %}
-{% block JS %}
-<script src="/static/js/calculator/hcf_lcm.js">
-</script>
 {% endblock %}
