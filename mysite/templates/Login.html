@@ -14,70 +14,111 @@ Amar khamkar
 {% block title %} Login | CalConT
 {% endblock  %}
 {% block body %}
+
 <style>
 
+.login-body{
+  background-color: rgb(30, 30, 30);
+  box-shadow: 13px 4px 19px 7px rgb(19 17 17);
+  border-radius: 40px;
+  color: white;
+  max-width: 450px;
+  padding: 15px;
+  margin: auto;
+}
+
+.login-head{
+    padding-top: 30px;
+}
 
 </style>
-{% if messages %}
- {% for message  in messages  %}
-<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-    {{message}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  {% endfor %}
-{% endif %} 
-<div class="container  text-light my-3 col-md-4  py-10" style="background-color:rgb(30,30,30);
-        box-shadow:13px 4px 19px 7px rgb(19 17 17);border-radius: 40px;padding-top: 10px"> 
-
-<h2 class="my-4 text-center ">Login</h2>
-        <hr class="bg-dark">
-    <form class="form-signin my-3" action="/login/" method="post">
-        {% csrf_token %}
-        <div class="form-group">
-          <label for="validationDefault01"><label class="text-danger">*</label>Username</label>
-          <input type="text" class="form-control my-2" id="username" name="usernamelog" 
-          name="name" placeholder='Username' style="color: white;
-          background-color: #191818;
-          border: 2px solid #848484;
-          border-radius: 15px;"  required>
-        </div>
-        <div class="form-group">
-          <label for="validationDefault01"><label class="text-danger">*</label>Password</label>
-          <input type="password" class="form-control my-2" id="password" name="password" 
-         placeholder='Password' style="color: white;
-          background-color: #191818;
-          border: 2px solid #848484;
-          border-radius: 15px;"  required>
-        </div>
-       
-      
-        <div class="container ">
-          <div class="signUp  ">
-          <button class="btn btn-lg btn-block  my-4  text-light btn-outline-secondary" type="submit">Log in</button>
-        </div>
-        <p class="text-center mb-2 mt-2">OR</p>
-        
-        
-          <a  type="button" class="btn  text-light btn-outline-secondary btn-md btn-block "
-    
-       href="{% url 'social:begin' 'google-oauth2' %}">Sign Up With   <img class="mx-2" src="/static/google.png"/></a><br>
-    
-      </div>
-        
-        <hr class="bg-dark my-2">
-        <div class="checkbox my-3">
-          <label>
-            Don't have account yet?Please <a href="/signin">Sign up </a> here.
-          </label>
-        </div>
-      </form>
+{% if messages %} {% for message in messages %}
+<div
+  class="alert alert-{{message.tags}} alert-dismissible fade show"
+  role="alert"
+>
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
-{% endblock  %}
-{% block JS %}
-<script>
+{% endfor %} {% endif %}
+<div class="login-main mb-5">
+<main
+  class="login-body w-100 mt-4"
+>
+  <h2 class="text-center login-head">Login</h2>
+  <hr class="bg-dark" />
+  <form class="form-signin my-3" action="/login/" method="post">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="validationDefault01"
+        ><label class="text-danger">*</label>Username</label
+      >
+      <input
+        type="text"
+        class="form-control my-2"
+        id="username"
+        name="usernamelog"
+        name="name"
+        placeholder="Username"
+        style="
+          color: white;
+          background-color: #191818;
+          border: 2px solid #848484;
+          border-radius: 15px;
+        "
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="validationDefault01"
+        ><label class="text-danger">*</label>Password</label
+      >
+      <input
+        type="password"
+        class="form-control my-2"
+        id="password"
+        name="password"
+        placeholder="Password"
+        style="
+          color: white;
+          background-color: #191818;
+          border: 2px solid #848484;
+          border-radius: 15px;
+        "
+        required
+      />
+    </div>
 
+    <div class="container">
+      <div class="signUp">
+        <button
+          class="btn btn-lg btn-block my-4 text-light btn-outline-secondary"
+          type="submit"
+        >
+          Log in
+        </button>
+      </div>
+      <p class="text-center mb-2 mt-2">OR</p>
 
-</script>
-{% endblock  %}
+      <a
+        type="button"
+        class="btn text-light btn-outline-secondary btn-md btn-block"
+        href="{% url 'social:begin' 'google-oauth2' %}"
+        >Sign Up With <img class="mx-2" src="/static/google.png" /></a
+      ><br />
+    </div>
+
+    <hr class="bg-dark my-2" />
+    <div class="checkbox my-3">
+      <label>
+        Don't have account yet?Please <a href="/signin">Sign up </a> here.
+      </label>
+    </div>
+  </form>
+</main>
+</div>
+{% endblock %} {% block JS %}
+<script></script>
+{% endblock %}
