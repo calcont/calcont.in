@@ -24,16 +24,15 @@ SECRET_KEY = '+%1e1)rzsn_c%3cm8b5y_+su3!90gu6#efpy38pob%^5_1_8_+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 if os.getcwd() != '/app':
-    DEBUG = True
+    DEBUG = False
 
-ALLOWED_HOSTS = ['www.calcont.in','calcont.in','127.0.0.1']
+ALLOWED_HOSTS = ['www.calcont.in', 'calcont.in', '127.0.0.1']
 
 
 # Application definition
 
 INSTALLED_APPS = [
     'mysite.apps.MysiteConfig',
-    
     'django.contrib.sitemaps',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,10 +41,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'social_django',
-   
-    
+
+
 ]
-SITE_ID=1
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -56,7 +55,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'social_django.middleware.SocialAuthExceptionMiddleware',
-    
+
 ]
 
 ROOT_URLCONF = 'basicsite.urls'
@@ -82,13 +81,13 @@ TEMPLATES = [
 WSGI_APPLICATION = 'basicsite.wsgi.application'
 
 AUTHENTICATION_BACKENDS = [
-   
+
     # Needed to login by username in Django admin, regardless of `allauth`
     'django.contrib.auth.backends.ModelBackend',
 
 
 
-     'social_core.backends.google.GoogleOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
 ]
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -140,21 +139,21 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "mysite/static"),
-    
+
 ]
 if os.getcwd() == '/app':
     DEBUG = False
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-    SECURE_SSL_REDIRECT=True
+    SECURE_SSL_REDIRECT = True
     PREPEND_WWW = True
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-    
+
 django_heroku.settings(locals())
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY    = '475883331625-he2ege0iciojh5n85j95rprd6gdqalcu.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET  = 'ExytHUSGY0ougL1ppv9haEXI'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '475883331625-he2ege0iciojh5n85j95rprd6gdqalcu.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ExytHUSGY0ougL1ppv9haEXI'
 
 LOGIN_URL = '/auth/login/google-oauth2/'
 LOGOUT_URL = '/'
-LOGIN_REDIRECT_URL = "/Sitemaps/" 
+LOGIN_REDIRECT_URL = "/Sitemaps/"

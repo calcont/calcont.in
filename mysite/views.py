@@ -346,13 +346,6 @@ def prefix_to_infix(request):
     link_string1, link_string2 = SideMap.arrange(8, 2, 'CC')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, 'converter/prefix_to_infix.html', param)
-# prefixtoInfix
-
-
-def prefix_to_infix(request):
-    link_string1, link_string2 = SideMap.arrange(8, 2, 'CC')
-    param = {'link_string1': link_string1, 'link_string2': link_string2}
-    return render(request, 'converter/prefix_to_infix.html', param)
 
 # Image to base64 converter
 
@@ -382,94 +375,6 @@ def Base64_to_Image(request):
     link_string1, link_string2 = SideMap.arrange(11, 2, 'CC')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, 'converter/Base64_to_Image.html', param)
-
-
-# Translator
-def EnglishToHindi(request):
-    respons = tran.EnglishToOther(
-        request, 0, 'hi', 'Translator/EnglishToOther/EnglishToHindi_Transl.html')
-    return respons
-
-
-def EnglishToMarathi(request):
-    respons = tran.EnglishToOther(
-        request, 1, 'mr', 'Translator/EnglishToOther/EnglishToMarathi_Transl.html')
-    return respons
-
-
-def EnglishToGerman(request):
-    respons = tran.EnglishToOther(
-        request, 2, 'de', 'Translator/EnglishToOther/EnglishToGerman_Transl.html')
-    return respons
-
-
-def EnglishToFrench(request):
-    respons = tran.EnglishToOther(
-        request, 3, 'fr', 'Translator/EnglishToOther/EnglishToFrench_Transl.html')
-    return respons
-
-
-def EnglishToArabian(request):
-    respons = tran.EnglishToOther(
-        request, 4, 'ar', 'Translator/EnglishToOther/EnglishToArabian_Transl.html')
-    return respons
-
-
-def EnglishToSpanish(request):
-    respons = tran.EnglishToOther(
-        request, 5, 'es', 'Translator/EnglishToOther/EnglishToSpanish_Transl.html')
-    return respons
-
-
-def EnglishTothai(request):
-    respons = tran.EnglishToOther(
-        request, 6, 'th', 'Translator/EnglishToOther/EnglishToThai_Transl.html')
-    return respons
-
-# hindi.to english
-
-
-def HindiToEnglish(request):
-    respons = tran.HindiToOther(
-        request, 7, 'en', 'hi', 'Translator/HindiToOther/HindiToEnglish_Transl.html')
-    return respons
-
-
-def HindiToMarathi(request):
-    respons = tran.HindiToOther(
-        request, 8, 'mr', 'hi', 'Translator/HindiToOther/HindiToMarathi_Transl.html')
-    return respons
-
-
-def HindiToGerman(request):
-    respons = tran.HindiToOther(
-        request, 9, 'de', 'hi', 'Translator/HindiToOther/HindiToGerman_Transl.html')
-    return respons
-
-
-def HindiToFrench(request):
-    respons = tran.HindiToOther(
-        request, 10, 'fr', 'hi', 'Translator/HindiToOther/HindiToFrench_Transl.html')
-    return respons
-
-
-def HindiToArabian(request):
-    respons = tran.HindiToOther(
-        request, 11, 'ar', 'hi', 'Translator/HindiToOther/HindiToArabian_Transl.html')
-    return respons
-
-
-def HindiToSpanish(request):
-    respons = tran.HindiToOther(
-        request, 12, 'es', 'hi', 'Translator/HindiToOther/HindiToSpanish_Transl.html')
-    return respons
-
-
-def HindiToThai(request):
-    respons = tran.HindiToOther(
-        request, 13, 'th', 'hi', 'Translator/HindiToOther/HindiToThai_Transl.html')
-    return respons
-
 
 # calculator
 
