@@ -1,80 +1,81 @@
 from django.contrib import admin
 from django.urls import path, include
-from . import views
 from . import all_views
 
 app_name = "mysite"
-handler404 = 'mysite.views.error_404'
-handler500 = 'mysite.views.error_500'
+handler404 = 'mysite.all_views.views_errors.error_404'
+handler500 = 'mysite.all_views.views_errors.error_500'
 urlpatterns = [
 
     path('oauth/', include('social_django.urls', namespace='social')),
-    path('', views.index, name='index'),
-    path('Contact_me/', views.ContactMe, name='contact'),
-    path('About/', views.Aboutme, name="about"),
-    path('Supportme/', views.Supportme, name="support"),
-    path('Sitemaps/', views.sitemaps),
+    path('', all_views.other_views.index, name='index'),
+    path('Contact_me/', all_views.other_views.ContactMe, name='contact'),
+    path('About/', all_views.other_views.Aboutme, name="about"),
+    path('Supportme/', all_views.other_views.Supportme, name="support"),
+    path('Sitemaps/', all_views.other_views.sitemaps),
     # Authentication
-    path('login/', views.Login, name="Login"),
-    path('signin/', views.Signin, name="Signin"),
-    path('logout/', views.Logout, name="Logout"),
+    path('login/', all_views.views_authentication.Login, name="Login"),
+    path('signin/', all_views.views_authentication.Signin, name="Signin"),
+    path('logout/', all_views.views_authentication.Logout, name="Logout"),
 
 
     # Analyzer
-    path('Analyzer/TextAnalyzer/', views.text, name='text'),
+    path('Analyzer/TextAnalyzer/', all_views.views_textanalyzer.text, name='text'),
     # path('Analyzer/TextAnalyzer/Analyze/', views.analyze,name='analyze'),
-    path('Analyzer/name_sorting/', views.name_sorting, name="name_sorting"),
+    path('Analyzer/name_sorting/',
+         all_views.views_textanalyzer.name_sorting, name="name_sorting"),
     path('Analyzer/Grammar_correction/',
-         views.Grammar_correction, name="grammar"),
+         all_views.views_textanalyzer.Grammar_correction, name="grammar"),
     path('Analyzer/Online-Keywords-extractor-from-text/',
-         views.KeywordsExtraction, name="KeywordsExtraction"),
+         all_views.views_textanalyzer.KeywordsExtraction, name="KeywordsExtraction"),
     path('Analyzer/text-to-base64-converter/',
-         views.texttobase64, name="texttobase64"),
+         all_views.views_textanalyzer.texttobase64, name="texttobase64"),
     path('Analyzer/base64-to-text-converter/',
-         views.base64totext, name="base64totext"),
+         all_views.views_textanalyzer.base64totext, name="base64totext"),
     path('Analyzer/text-to-image-converter/',
-         views.texttoimage, name="texttoimage"),
+         all_views.views_textanalyzer.texttoimage, name="texttoimage"),
     path('Analyzer/image-to-text-converter/',
-         views.imagetotext, name="imagetotext"),
-    path('Analyzer/Language-Identifier/', views.LangIdenti, name="LangIdenti"),
+         all_views.views_textanalyzer.imagetotext, name="imagetotext"),
+    path('Analyzer/Language-Identifier/',
+         all_views.views_textanalyzer.LangIdenti, name="LangIdenti"),
     path('Analyzer/Caesar-cipher-encoder-decoder/',
-         views.caesarCipher, name="caesarCipher"),
+         all_views.views_textanalyzer.caesarCipher, name="caesarCipher"),
     path('Analyzer/playfair-cipher-encoder-decoder/',
-         views.playfCipher, name="playfCipher"),
+         all_views.views_textanalyzer.playfCipher, name="playfCipher"),
 
     path('Conversion/BinaryConverter/',
-         views.Binaryconversion, name='Binaryconversion'),
+         all_views.views_converters.Binaryconversion, name='Binaryconversion'),
     path('Conversion/DecimalConverter/',
-         views.Decimalconversion, name="Decimalconversion"),
+         all_views.views_converters.Decimalconversion, name="Decimalconversion"),
     path('Conversion/HexadecimalConverter/',
-         views.Hexadecimalconversion, name="Hexadecimalconversion"),
+         all_views.views_converters.Hexadecimalconversion, name="Hexadecimalconversion"),
     # Conversion
     # CurrencyConverter
     path('Conversion/CurrencyConverter/',
-         views.Currencyconversion, name="Currencyconversion"),
+         all_views.views_converters.Currencyconversion, name="Currencyconversion"),
     path('Conversion/infix_to_postfix',
-         views.infix_to_postfix, name="infix_to_postfix"),
+         all_views.views_converters.infix_to_postfix, name="infix_to_postfix"),
     # infix to prefix
     path('Conversion/infix_to_prefix',
-         views.infix_to_prefix, name="infix_to_prefix"),
+         all_views.views_converters.infix_to_prefix, name="infix_to_prefix"),
     # postfix to infix
     path('Conversion/postfix_to_infix',
-         views.postfix_to_infix, name="postfix_to_infix"),
+         all_views.views_converters.postfix_to_infix, name="postfix_to_infix"),
     # prefix to infix
     path('Conversion/prefix_to_infix',
-         views.prefix_to_infix, name="prefix_to_infix"),
+         all_views.views_converters.prefix_to_infix, name="prefix_to_infix"),
     # prefix to postfix
     path('Conversion/prefix_to_postfix',
-         views.prefix_to_postfix, name="prefix_to_postfix"),
+         all_views.views_converters.prefix_to_postfix, name="prefix_to_postfix"),
     # Cgpa to percentage
     path('Conversion/cgpa_to_percentage/',
-         views.cgpa_to_percentage, name="cgpa_to_percentage"),
+         all_views.views_converters.cgpa_to_percentage, name="cgpa_to_percentage"),
     # image to base64 converter
     path('Conversion/Image_to_base64_Converter/',
-         views.Image_to_base64, name="Image_to_base64"),
+         all_views.views_converters.Image_to_base64, name="Image_to_base64"),
     # base4 to Image converter
     path('Conversion/Base64_to_Image_Converter/',
-         views.Base64_to_Image, name="Base64_to_Image"),
+         all_views.views_converters.Base64_to_Image, name="Base64_to_Image"),
 
 
     # NameSorting
@@ -136,7 +137,7 @@ urlpatterns = [
     path('Calculator/HCF-LCM-calculator/',
          all_views.views_calculators.HCF_LCM_calculator, name="HCF_LCM_calculator"),
     # PrivacyPolicy
-    path('Privacy_policy/', views.PrivacyPolicy, name="PrivacyPolicy"),
+    path('Privacy_policy/', all_views.other_views.PrivacyPolicy, name="PrivacyPolicy"),
 
 
 
