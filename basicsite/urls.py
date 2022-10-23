@@ -26,7 +26,7 @@ sitemaps={
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sitemap.xml/',sitemap,{'sitemaps':sitemaps}),
-    path('', include("mysite.urls")),
+    path('', include("mysite.all_urls")),
     path('oauth/', include('social_django.urls', namespace='social')),
     path('robots.txt/', TemplateView.as_view(template_name="robots.txt", content_type='text/plain')),
     path('ads.txt/', TemplateView.as_view(template_name="ads.txt", content_type='text/plain')),

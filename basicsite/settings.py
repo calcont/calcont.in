@@ -151,8 +151,13 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 django_heroku.settings(locals())
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '475883331625-he2ege0iciojh5n85j95rprd6gdqalcu.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ExytHUSGY0ougL1ppv9haEXI'
+if os.getcwd != '/app':
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '475883331625-q7vvbr7ovpjs7lhjr0rfdoil53gd1r69.apps.googleusercontent.com'
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'y8FZoB0bV4DceEm6pFg1mmpe'
+
+else:
+    SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '475883331625-he2ege0iciojh5n85j95rprd6gdqalcu.apps.googleusercontent.com'
+    SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ExytHUSGY0ougL1ppv9haEXI'
 
 LOGIN_URL = '/auth/login/google-oauth2/'
 LOGOUT_URL = '/'
