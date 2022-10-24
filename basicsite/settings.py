@@ -154,7 +154,6 @@ django_heroku.settings(locals())
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '475883331625-he2ege0iciojh5n85j95rprd6gdqalcu.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'ExytHUSGY0ougL1ppv9haEXI'
-
 LOGIN_URL = '/auth/login/google-oauth2/'
 LOGOUT_URL = '/'
 LOGIN_REDIRECT_URL = "/Sitemaps/"
