@@ -1,115 +1,158 @@
-{% extends 'main_index.html' %}
-{% block MDesc %}
-Signin
-{% endblock  %}
-{% block MKW %}
-Signin
-{% endblock  %}
-{% block Mr %}
-20/05/21
-{% endblock  %}
-{% block MAut %}
-Amar khamkar
-{% endblock  %}
-{% block title %} Sigin | CalConT
-{% endblock  %}
-{% block body %}
-<style>
-
-</style>
-{% if messages %}
- {% for message  in messages  %}
-<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-    {{message}}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  {% endfor %}
-{% endif %} 
-<div class="container  text-light my-3 col-md-4  py-10" style="background-color:rgb(30,30,30);
-        box-shadow:13px 4px 19px 7px rgb(19 17 17);border-radius: 40px;padding-top: 10px"> 
-
-<h2 class="my-4 text-center ">Signup</h2>
-<hr class="bg-dark">
-    <form class="form-signin my-2" method="post" action="/signin/">
-
-        {% csrf_token %}
-       
-        <div class="form-group">
-          <label for="validationDefault01"><label class="text-danger">*</label>Username</label>
-          <input type="text" class="form-control my-2" id="username" name="username" 
-          name="name" placeholder='Username' style="color: white;
-          background-color: #191818;
-          border: 2px solid #848484;
-          border-radius: 15px;"  required>
-        </div>
-        
-        <div class="form-group">
-          <label for="validationDefault01"><label class="text-danger">*</label>Email</label>
-          <input type="email" class="form-control my-2" id="email" name="emailsign" 
-          name="name" placeholder='Email' style="color: white;
-          background-color: #191818;
-          border: 2px solid #848484;
-          border-radius: 15px;"  required>
-        </div>
-       
-        <div class="form-group">
-          <label for="validationDefault01"><label class="text-danger">*</label>Password</label>
-          <input type="password" class="form-control my-2" id="password" name="password1" 
-         placeholder='Password' style="color: white;
-          background-color: #191818;
-          border: 2px solid #848484;
-          border-radius: 15px;"  required>
-           <small>
-            *Your password must be 5-10 characters long, contain letters and numbers.
-          </small>
-        </div>
-        <p class="text-danger" id="captxt" style="display: none;">*please fill captcha</p>
-<div class="g-recaptcha" data-sitekey="6Ld7Fp8dAAAAAKsL4YrbD1eHmzhARWKeRbfYAfyB" ></div>
-        <div class="form-group my-2">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
-            <label class="form-check-label" for="invalidCheck2">
-              Agree to our <a href="https://www.calcont.in/Privacy_policy/">privacy policy,terms and conditions</a>
-            </label>
-          </div>
-        </div>
-        
- 
-     
-        <hr class="bg-dark my-2">
-       
-        <div class="container ">
-          <div class="signUp  ">
-          <button class="btn btn-lg btn-block  my-4  text-light btn-outline-secondary" type="submit">Sign Up</button>
-        </div>
-        <p class="text-center mb-2 mt-2">OR</p>
-        
-        
-          <a  type="button" class="btn  text-light btn-outline-secondary btn-md btn-block "
-    
-       href="{% url 'social:begin' 'google-oauth2' %}">Sign Up With   <img class="mx-2" src="/static/google.png"/></a><br>
-    
-      </div>
-        <div class="checkbox my-3">
-          <label>
-            Already registerd?Please <a href="/login">Login </a> here.
-          </label>
-        </div>
-      </form>
+{% extends 'main_index.html' %} {% block MDesc %} Signin {% endblock %} {% block
+MKW %} Signin {% endblock %} {% block Mr %} 20/05/21 {% endblock %} {% block
+MAut %} Amar khamkar {% endblock %} {% block title %} Sigin | CalConT {%
+endblock %} {% block body %}
+<style></style>
+{% if messages %} {% for message in messages %}
+<div
+  class="alert alert-{{message.tags}} alert-dismissible fade show"
+  role="alert"
+>
+  {{message}}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
-{% endblock  %}
+{% endfor %} {% endif %}
+<div
+  class="container text-light my-3 col-md-4 py-10"
+  style="
+    background-color: rgb(30, 30, 30);
+    box-shadow: 13px 4px 19px 7px rgb(19 17 17);
+    border-radius: 40px;
+    padding-top: 10px;
+  "
+>
+  <h2 class="my-4 text-center">Signup</h2>
+  <hr class="bg-dark" />
+  <form class="form-signin my-2" method="post" action="/signin/">
+    {% csrf_token %}
 
-{% block JS %}
+    <div class="form-group">
+      <label for="validationDefault01"
+        ><label class="text-danger">*</label>Username</label
+      >
+      <input
+        type="text"
+        class="form-control my-2"
+        id="username"
+        name="username"
+        name="name"
+        placeholder="Username"
+        style="
+          color: white;
+          background-color: #191818;
+          border: 2px solid #848484;
+          border-radius: 15px;
+        "
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="validationDefault01"
+        ><label class="text-danger">*</label>Email</label
+      >
+      <input
+        type="email"
+        class="form-control my-2"
+        id="email"
+        name="emailsign"
+        name="name"
+        placeholder="Email"
+        style="
+          color: white;
+          background-color: #191818;
+          border: 2px solid #848484;
+          border-radius: 15px;
+        "
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="validationDefault01"
+        ><label class="text-danger">*</label>Password</label
+      >
+      <input
+        type="password"
+        class="form-control my-2"
+        id="password"
+        name="password1"
+        placeholder="Password"
+        style="
+          color: white;
+          background-color: #191818;
+          border: 2px solid #848484;
+          border-radius: 15px;
+        "
+        required
+      />
+      <small>
+        *Your password must be 5-10 characters long, contain letters and
+        numbers.
+      </small>
+    </div>
+    <p class="text-danger" id="captxt" style="display: none">
+      *please fill captcha
+    </p>
+    <div
+      class="g-recaptcha"
+      data-sitekey="6Ld7Fp8dAAAAAKsL4YrbD1eHmzhARWKeRbfYAfyB"
+    ></div>
+    <div class="form-group my-2">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="invalidCheck2"
+          required
+        />
+        <label class="form-check-label" for="invalidCheck2">
+          Agree to our
+          <a href="https://www.calcont.in/Privacy_policy/"
+            >privacy policy,terms and conditions</a
+          >
+        </label>
+      </div>
+    </div>
+
+    <hr class="bg-dark my-2" />
+
+    <div class="container">
+      <div class="signUp">
+        <button
+          class="btn btn-lg btn-block my-4 text-light btn-outline-secondary"
+          type="submit"
+        >
+          Sign Up
+        </button>
+      </div>
+      <p class="text-center mb-2 mt-2">OR</p>
+
+      <a
+        type="button"
+        class="btn text-light btn-outline-secondary btn-md btn-block"
+        href="{% url 'social:begin' 'google-oauth2' %}"
+        >Sign Up With <img class="mx-2" src="/static/google.png" /></a
+      ><br />
+    </div>
+    <div class="checkbox my-3">
+      <label>
+        Already registerd?Please <a href="/login">Login </a> here.
+      </label>
+    </div>
+  </form>
+</div>
+{% endblock %} {% block JS %}
 <script>
 
 
-{% if issub and isValid %}
-    document.getElementById('captxt').style.display='none'
-    {% elif  issub and not isValid %}
-    document.getElementById('captxt').style.display='block'
-    {% endif %}
-
+  {% if issub and isValid %}
+      document.getElementById('captxt').style.display='none'
+      {% elif  issub and not isValid %}
+      document.getElementById('captxt').style.display='block'
+      {% endif %}
 </script>
-{% endblock  %}
+{% endblock %}

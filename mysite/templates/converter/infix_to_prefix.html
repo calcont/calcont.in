@@ -1,244 +1,180 @@
-{% extends 'main_index.html' %}
-{% block MDesc %}
-Convert infix expression to prefix expression by entering expression.Some examples are Input : A * B + C / D
-Output : + * A B/ C D
-{% endblock  %}
-{% block MKW %}Infix to prefix calculator,infix to prefix converter,infix prefix converter,infix to prefix table,how to convert infix to prefix?,Infix to prefix evaluator,Infix to prefix converter,infix expression converter{% endblock  %}
-{% block Mr %}
-26/12/2020
-{% endblock  %}
-{% block MAut %}
-Amar khamkar
-{% endblock  %}
-{% block title %} Infix to prefix calculator
-{% endblock  %}
-{% block body %}
-<style>
-
-
-</style>
-
+{% extends 'main_index.html' %} 
+{% block MDesc %} Convert infix expression to
+prefix expression by entering expression.Some examples are Input : A * B + C / D
+Output : + * A B/ C D 
+{% endblock %} 
+{% block MKW %}Infix to prefix
+calculator,infix to prefix converter,infix prefix converter,infix to prefix
+table,how to convert infix to prefix?,Infix to prefix evaluator,Infix to prefix
+converter,infix expression converter
+{% endblock %} 
+{% block Mr %} 26/12/2020 {%endblock %} 
+{% block MAut %} Amar khamkar {% endblock %}
+ {% block title %} Infix to prefix calculator {% endblock %} 
+ {% block body %}
+<style></style>
 
 <div class="container text-light">
-  <div class="row ">
-
-  <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
-  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-      <div class="my-4 ">
-<h2 class="my-2 text-center text-light" >Infix to prefix calculator</h2>
-<hr class="bg-dark">
-<h3 class="text-center text-light my-2">What is infix and prefix expression?</h3>
-<p class="text-light text-monospace my-4 mx-2">An infix expression is expression which is used by us in day today life
-  An infix expression is a single letter, or an operator, proceeded by one infix string and followed by another infix string.
-  e.g. <b>A,A + B,(A + B) + (C – D)</b>.So,in which we have operators between operands.
-  <br>
-  <br>
-   An expression is called the prefix expression if the operator appears in the expression before the operands. 
-  Simply of the form (operator operand1 operand2).e.g. <b>*+AB-CD </b></p>
-  <hr class="bg-dark my-2">
-  <form>
-    <div class="form-group text-light my-4">
-      <label for="exampleInputEmail1">Infix expression</label>
-      <input type="text" class="form-control" placeholder="Enter infix expression" style="    color: white;
-      background-color: #191717;
-      border: 3px solid black;
-      border-radius: 15px;" id="Infix" required>
-     
-    </div>
-    <div class="form-group text-light">
-      <label for="exampleInputPassword1">prefix expression</label>
-      <input type="text" class="form-control" placeholder="prefix expression is..." style="    color: white;
-      background-color: #191717;
-      border: 3px solid black;
-      border-radius: 15px;" id="prefix" readonly>
-    </div>
-   <div>
-    <button type="submit" class="btn btn-outline-secondary text-light con my-3">Convert</button>
-   </div>
-   <div class="tabs" id="OutTable" style="display: none;">
-    <hr class="bg-dark my-2">
-    <p class="my-2 lead">Infix to Prefix table</p>
-    <table class="table table-borderless text-light my-4 mb-4">
-      <thead>
-        <tr>
-          <th class="rounded-lg" scope="col">Sr No</th>
-          <th class="rounded-lg" scope="col">Expression</th>
-          <th class="rounded-lg" scope="col">Stack</th>
-          <th class="rounded-lg" scope="col">Prefix</th>
-        </tr>
-
-      </thead>
-      <tbody id="content">
-
-      </tbody>
-    </table>
-  </div>
-  </form>
-  <hr class="bg-dark my-2">
-  <h3 class="text-center text-light my-4">Conversion from Infix to Prefix expressions.</h3>
-  <p class="text-light text-monospace my-4 mx-2">To convert Infix to Prefix expression, computers usually use the stack data structure.
-   
-<br>
-1. Reverse the infix expression.
-<br>
-2.Obtain the “nearly” postfix expression of the modified expression .
-<br>
-3. Reverse the postfix expression.
-<br>
-.Checkout examples that are mention below.</p>
-    <div class="container  mt-4" style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
-   1) Infix Expression: (a+b) <br>
-    Prefix Expression: +ab<br><br>
-   2) Infix Expression: A * B + C / D<br>
-   Prefix Expression: + * A B/ C D <br><br>
-   3) Infix Expression: (a+b)*(c+d)<br>
-   Prefix Expression: *+ab+cd<br>
-</div>
-
-<hr class="bg-dark my-3">
-<h3 class="text-center text-light">Applications</h3>
-<p class="text-light text-monospace my-2 mx-2">Infix expressions are readable and solvable by humans. We can easily 
-distinguish the order of operators, and also can use the parenthesis to solve that part first during solving mathematical expressions. 
-The computer cannot differentiate the operators
- and parenthesis easily, that’s why postfix/prefix conversion is needed.Compilers or command editor in computer and some calculators also convert expression
- to prefix/postfix first and then solve those expression to evaluate answer for the same.</p>
-
-</div>
-</div>
-
-
-    <div class="col-md-4 my-4 ">
-     
-      <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
-      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-        
-      
-        <h4 class="mb-2 ">Converters</h3>
-          {% for link in link_string1 %}
-          <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-          {% endfor %}
+  <div class="row">
+    <div
+      class="col-md-7 my-3"
+      style="
+        background-color: rgb(30, 30, 30);
+        box-shadow: 13px 4px 19px 7px rgb(19 17 17);
+      "
+    >
+      <div class="my-4">
+        <h2 class="my-2 text-center text-light">Infix to prefix calculator</h2>
+        <hr class="bg-dark" />
+        <h3 class="text-center text-light my-2">
+          What is infix and prefix expression?
+        </h3>
+        <p class="text-light text-monospace my-4 mx-2">
+          An infix expression is expression which is used by us in day today
+          life An infix expression is a single letter, or an operator, proceeded
+          by one infix string and followed by another infix string. e.g.
+          <b>A,A + B,(A + B) + (C – D)</b>.So,in which we have operators between
+          operands.
+          <br />
+          <br />
+          An expression is called the prefix expression if the operator appears
+          in the expression before the operands. Simply of the form (operator
+          operand1 operand2).e.g. <b>*+AB-CD </b>
+        </p>
+        <hr class="bg-dark my-2" />
+        <form>
+          <div class="form-group text-light my-4">
+            <label for="exampleInputEmail1">Infix expression</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="Enter infix expression"
+              style="
+                color: white;
+                background-color: #191717;
+                border: 3px solid black;
+                border-radius: 15px;
+              "
+              id="Infix"
+              required
+            />
           </div>
-      <div class="col my-3 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
-      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-      <h4 class="my-2">Calculators</h3>
-      {% for link in link_string2 %}
-      <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-       {% endfor %}
-      </div>
-      
-         
+          <div class="form-group text-light">
+            <label for="exampleInputPassword1">prefix expression</label>
+            <input
+              type="text"
+              class="form-control"
+              placeholder="prefix expression is..."
+              style="
+                color: white;
+                background-color: #191717;
+                border: 3px solid black;
+                border-radius: 15px;
+              "
+              id="prefix"
+              readonly
+            />
+          </div>
+          <div>
+            <button
+              type="submit"
+              class="btn btn-outline-secondary text-light con my-3"
+            >
+              Convert
+            </button>
+          </div>
+          <div class="tabs" id="OutTable" style="display: none">
+            <hr class="bg-dark my-2" />
+            <p class="my-2 lead">Infix to Prefix table</p>
+            <table class="table table-borderless text-light my-4 mb-4">
+              <thead>
+                <tr>
+                  <th class="rounded-lg" scope="col">Sr No</th>
+                  <th class="rounded-lg" scope="col">Expression</th>
+                  <th class="rounded-lg" scope="col">Stack</th>
+                  <th class="rounded-lg" scope="col">Prefix</th>
+                </tr>
+              </thead>
+              <tbody id="content"></tbody>
+            </table>
+          </div>
+        </form>
+        <hr class="bg-dark my-2" />
+        <h3 class="text-center text-light my-4">
+          Conversion from Infix to Prefix expressions.
+        </h3>
+        <p class="text-light text-monospace my-4 mx-2">
+          To convert Infix to Prefix expression, computers usually use the stack
+          data structure.
+
+          <br />
+          1. Reverse the infix expression.
+          <br />
+          2.Obtain the “nearly” postfix expression of the modified expression .
+          <br />
+          3. Reverse the postfix expression.
+          <br />
+          .Checkout examples that are mention below.
+        </p>
+        <div
+          class="container mt-4"
+          style="
+            background-color: #1d1c1c;
+            border: 2px solid white;
+            border-radius: 10px;
+          "
+        >
+          1) Infix Expression: (a+b) <br />
+          Prefix Expression: +ab<br /><br />
+          2) Infix Expression: A*B+C/D<br />
+          Prefix Expression: + * A B/ C D <br /><br />
+          3) Infix Expression: (a+b)*(c+d)<br />
+          Prefix Expression: *+ab+cd<br />
         </div>
+
+        <hr class="bg-dark my-3" />
+        <h3 class="text-center text-light">Applications</h3>
+        <p class="text-light text-monospace my-2 mx-2">
+          Infix expressions are readable and solvable by humans. We can easily
+          distinguish the order of operators, and also can use the parenthesis
+          to solve that part first during solving mathematical expressions. The
+          computer cannot differentiate the operators and parenthesis easily,
+          that’s why postfix/prefix conversion is needed.Compilers or command
+          editor in computer and some calculators also convert expression to
+          prefix/postfix first and then solve those expression to evaluate
+          answer for the same.
+        </p>
       </div>
+    </div>
+
+    <div class="col-md-4 my-4">
+      <div
+        class="col p-4 d-flex flex-column position-static"
+        style="
+          background-color: rgb(30, 30, 30);
+          box-shadow: 13px 4px 19px 7px rgb(19 17 17);
+        "
+      >
+        <h4 class="mb-2">Converters</h4>
+        {% for link in link_string1 %}
+        <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+        {% endfor %}
+      </div>
+      <div
+        class="col my-3 p-4 d-flex flex-column position-static"
+        style="
+          background-color: rgb(30, 30, 30);
+          box-shadow: 13px 4px 19px 7px rgb(19 17 17);
+        "
+      >
+        <h4 class="my-2">Calculators</h4>
+        {% for link in link_string2 %}
+        <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>
-</div>
+{% endblock %} {% block JS %}
+<script src="/static/js/converter/infix_to_prefix.js"></script>
 {% endblock %}
-{% block JS %}
-<script>
-$('.con').click(function (e) {
-  var infixed=document.getElementById('Infix').value;
-  
-  var infix=infixed.split("")
-  for(var  i=0;i<infix.length;i++){
-    if(infix[i]=="("){
-      infix[i]=")";
-    }
-    else if(infix[i]==")"){
-      infix[i]="(";
-    }
-  }
-  infix = infix.reverse();
-  console.log(infix);
-  var stack=[],prefix=[];
-  var operand,prec;
-  document.getElementById('OutTable').style.display="block";
-  $('#content').empty();
-  
-  function isOperand( operand){
-    if ((operand>='a' && operand<='z') || (operand>='A' && operand<='Z')  || (operand>='0' && operand<='9')){
-      return(1);
-    }
-    else{
-    return(0);
-    }
-  }
-  function valinTable(i,infix,stack,prefix){
-    
-    var strPre=prefix.toString();
-    
-    var strStack=stack.toString();
-        tble=`<tr >
-                        <td class="rounded-lg">
-                        ${i}
-                        </td>
-                        <td class="rounded-lg">
-                        ${infix[i]}
-                        </td>
-                        <td class="rounded-lg">
-                        ${strStack.replaceAll(",","")}
-                        </td>
-                        <td class="rounded-lg">
-                        ${strPre.replaceAll(",","")}
-                        </td>
-                      </tr>` ;
-        
-                      $('#content').append(tble);
-  }
-  function precedence( prec){
-   if (prec=='('){
-      
-        return(4);
-      }
-      if (prec=='^'||prec=='%'){
-        return(3);
-      }
-      if (prec=='*'||prec=='/'){
-      return(2);
-        
-      }
-      if (prec=='+'||prec=='-'){
-      
-        return(1);
-      }
-      if (prec==')'){
-        return 0;
-      }
-      return -1;
-  }
-  for(var i=0;i<infix.length;i++){    
-    console.log(infix[i]);
-      if (isOperand(infix[i])){
-          prefix.push(infix[i]); 
-        }
-        else if (stack.length==0){
-          stack.push(infix[i]);
-        }
-        else if(infix[i]==')'){
-  while(stack[stack.length - 1 ]!='('){
-    console.log("prefix",prefix);
-    prefix.push(stack.pop());
-  }stack.pop();
-  }  
-        else if (precedence(infix[i])>precedence(stack[stack.length - 1 ])){
-          stack.push(infix[i]);
-          }
-        else{
-          while (precedence(infix[i])<=precedence(stack[stack.length - 1 ]) && stack.length!=0 && stack[stack.length - 1 ]!='('){
-           prefix.push(stack.pop());
-          }
-          stack.push(infix[i]);
-        }
-        valinTable(i,infix,stack,prefix);
-      }
-        while (stack.length!=0){
-          prefix.push(stack.pop());
-        }  
-        infix[i]=' ';
-        valinTable(i,infix,stack,prefix);
-        prefix=prefix.reverse();      
-  var strPre=prefix.toString();
-  document.getElementById("prefix").value=strPre.replaceAll(",","");
-  e.preventDefault();
-      });
-    
-</script>
-{% endblock  %}

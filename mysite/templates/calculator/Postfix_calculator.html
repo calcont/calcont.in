@@ -1,118 +1,196 @@
-{% extends 'main_index.html' %}
-{% block MDesc %}
-Evaluate postfix expresion by entering expression as input.
-{% endblock %}
-{% block MKW %}Postfix evaluator,postfix calculator,how to calculate postfix expression?,Postfix expression evaluator,Postfix expression calculator{% endblock %}
-{% block Mr %}
-4/02/2021
-{% endblock %}
-{% block MAut %}
-Amar khamkar
-{% endblock %}
-{% block title %}Postfix expression calculator
-{% endblock %}
-{% block body %}
-<style>
- 
-</style>
+{% extends 'main_index.html' %} {% block MDesc %} Evaluate postfix expresion by
+entering expression as input. {% endblock %} {% block MKW %}Postfix
+evaluator,postfix calculator,how to calculate postfix expression?,Postfix
+expression evaluator,Postfix expression calculator{% endblock %} {% block Mr %}
+4/02/2021 {% endblock %} {% block MAut %} Amar khamkar {% endblock %} {% block
+title %}Postfix expression calculator {% endblock %} {% block body %}
+<style></style>
 <div class="container text-light">
-  <div class="row ">
-    
-    <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-      <div class="my-4 ">
-          <h2 class="text-center ">Postfix expression calculator</h2>
-          <hr class='bg-dark my-2'>
-          <h3 class="my-4 text-center">What is Postfix expression?</h3>
-          <p class="text-monospace my-4">An postfix expression (also called Reverse Polish Notation)
-is a single letter or an operator, preceded by two postfix strings. Every postfix string longer than a single variable contains first and 
-second operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b>.</p>
-<p class="text-monospace">But in general expressions usually are in infix format.So, we have to convert them into postfix expression.For that
-    you can use <a href="/Conversion/infix_to_postfix">Infix to Postfix Converter</a> .
-</p>
-          <hr class='bg-dark my-4'>
-           <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
-            <form>
-                <div class="form-group my-4">
-                    <label for="">Postfix expression(<label class="text-danger"> *Only numbers</label> )</label>
-                    <input type="text" class="form-control" placeholder="Enter expression" style="    color: white;
-                    background-color: #191717;
-                    border: 3px solid black;
-                    border-radius: 15px;" id="Postfix" required>
-            
-                </div>
-                <div class="form-group">
-                    <label for="">Ans</label>
-                    <input type="number" class="form-control" placeholder="Ans is.." style="    color: white;
-                    background-color: #191717;
-                    border: 3px solid black;
-                    border-radius: 15px;" id="Ans" disabled>
-                </div>
-            
-                <button type="submit" class="btn btn-outline-secondary mb-3 text-light cal">Calculate</button>
-            </form>
-          </div>
-          <hr class="bg-dark my-3">
-         
+  <div class="row">
+    <div
+      class="col-md-7 my-3"
+      style="
+        background-color: rgb(30, 30, 30);
+        box-shadow: 13px 4px 19px 7px rgb(19 17 17);
+      "
+    >
+      <div class="my-4">
+        <h2 class="text-center">Postfix expression calculator</h2>
+        <hr class="bg-dark my-2" />
+        <h3 class="my-4 text-center">What is Postfix expression?</h3>
+        <p class="text-monospace my-4">
+          An postfix expression (also called Reverse Polish Notation) is a
+          single letter or an operator, preceded by two postfix strings. Every
+          postfix string longer than a single variable contains first and second
+          operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b>.
+        </p>
+        <p class="text-monospace">
+          But in general expressions usually are in infix format.So, we have to
+          convert them into postfix expression.For that you can use
+          <a href="/Conversion/infix_to_postfix">Infix to Postfix Converter</a>
+          .
+        </p>
+        <hr class="bg-dark my-4" />
+        <div
+          class="container"
+          style="border: 3px solid #2b2929; border-radius: 10px"
+        >
+          <form>
+            <div class="form-group my-4">
+              <label for=""
+                >Postfix expression(<label class="text-danger">
+                  *Only numbers</label
+                >
+                )</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Enter expression"
+                style="
+                  color: white;
+                  background-color: #191717;
+                  border: 3px solid black;
+                  border-radius: 15px;
+                "
+                id="Postfix"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="">Ans</label>
+              <input
+                type="number"
+                class="form-control"
+                placeholder="Ans is.."
+                style="
+                  color: white;
+                  background-color: #191717;
+                  border: 3px solid black;
+                  border-radius: 15px;
+                "
+                id="Ans"
+                disabled
+              />
+            </div>
 
-
-          <h3 class="my-3 text-center">How to evaluate Postfix expression?</h3>
-          <p class=" my-4">1.First we read expression from left to right.So,During reading the expression from left to right, push the element in the stack if it is an operand.
-<br><p class="my-2">2.If the current character is an operatorthen  pop the two operands from the stack  and then evaluate it.
-      </p>
-<br><p class="my-2">3.Push back the result of the evaluation. Repeat it till the end of the expression.Checkout examples that are mention below in table </p>
-</p>
-
-        <div class="container  mt-4" style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
-1) Postfix Expression: 	54+<br>
-Answer: 9<br>
-2) Postfix Expression: 	57+67+*<br>
-Answer: 156<br>
-3) Postfix Expression: 	452*+5+<br>
-Answer: 19<br>
-3) Postfix Expression:	456*+<br>
-Answer: 34<br>
-</div>
-
-
-
-          <hr class="bg-dark my-3">
-          <h3 class="">Applications</h3>
-          <p class=" text-monospace my-3 mx-2">Infix expressions are readable and solvable by humans. We can easily 
-              distinguish the order of operators, and also can use the parenthesis to solve that part first during solving mathematical expressions. 
-              But computer cannot differentiate the operators
-and parenthesis easily, that’s why postfix conversion is needed.Compilers or command editor in computer and some calculators also convert expression
-to postfix first and then solve those expression to evaluate answer for the same.</p>
-         
-              <hr class="bg-dark my-3">
-      </div>
-  </div>
-
-  <div class="col-md-4 my-4 ">
-    <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-             <h4 class="mb-2 ">Calculators</h3>
-                {% for link in link_string1 %}
-                <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-                {% endfor %}
-                </div>
-                <div class="col my-3 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
-            box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-            <h4 class="my-2">Converters</h3>
-            {% for link in link_string2 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-             {% endfor %}
-          
+            <button
+              type="submit"
+              class="btn btn-outline-secondary mb-3 text-light cal"
+            >
+              Calculate
+            </button>
+          </form>
         </div>
-        
-     
+        <hr class="bg-dark my-3" />
+
+        <h3 class="my-3 text-center">How to evaluate Postfix expression?</h3>
+        <p class="my-4">
+          1.First we read expression from left to right.So,During reading the
+          expression from left to right, push the element in the stack if it is
+          an operand. <br />
+          <p class="my-2">
+            2.If the current character is an operatorthen pop the two operands
+            from the stack and then evaluate it.
+          </p>
+          <br />
+          <p class="my-2">
+            3.Push back the result of the evaluation. Repeat it till the end of
+            the expression.Checkout examples that are mention below in table
+          </p>
+        </p>
+
+        <div
+          class="container mt-4"
+          style="
+            background-color: #1d1c1c;
+            border: 2px solid white;
+            border-radius: 10px;
+          "
+        >
+          1) Postfix Expression: 54+<br />
+          Answer: 9<br />
+          2) Postfix Expression: 57+67+*<br />
+          Answer: 156<br />
+          3) Postfix Expression: 452*+5+<br />
+          Answer: 19<br />
+          3) Postfix Expression: 456*+<br />
+          Answer: 34<br />
+        </div>
+
+        <hr class="bg-dark my-3" />
+        <h3 class="">Applications</h3>
+        <p class="text-monospace my-3 mx-2">
+          Infix expressions are readable and solvable by humans. We can easily
+          distinguish the order of operators, and also can use the parenthesis
+          to solve that part first during solving mathematical expressions. But
+          computer cannot differentiate the operators and parenthesis easily,
+          that’s why postfix conversion is needed.Compilers or command editor in
+          computer and some calculators also convert expression to postfix first
+          and then solve those expression to evaluate answer for the same.
+        </p>
+
+        <hr class="bg-dark my-3" />
       </div>
     </div>
+
+    <div class="col-md-4 my-4">
+      <div
+        class="col p-4 d-flex flex-column position-static"
+        style="
+          background-color: rgb(30, 30, 30);
+          box-shadow: 13px 4px 19px 7px rgb(19 17 17);
+        "
+      >
+        <h4 class="mb-2">Calculators</h4>
+        {% for link in link_string1 %}
+        <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+        {% endfor %}
+      </div>
+      <div
+        class="col my-3 p-4 d-flex flex-column position-static"
+        style="
+          background-color: rgb(30, 30, 30);
+          box-shadow: 13px 4px 19px 7px rgb(19 17 17);
+        "
+      >
+        <h4 class="my-2">Converters</h4>
+        {% for link in link_string2 %}
+        <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-{% endblock %}
-{% block JS %}
+{% endblock %} {% block JS %}
 <script>
-$(".cal").click(function(e){var t,n,a,l,c,u,o=document.getElementById("Postfix").value,r=[],s=-1;for(t=0;t<=o.length;t++)u=o[t],isNaN(parseInt(u))?"+"!=u&&"-"!=u&&"*"!=u&&"/"!=u||(a=r[s],n=r[--s],s--,"+"==u?l=n+a:"-"==u?l=n-a:"*"==u?l=n*a:"/"==u&&(l=n/a),r[++s]=l):r[++s]=parseInt(u);c=r[s],document.getElementById("Ans").value=c,e.preventDefault()});
+  $(".cal").click(function (e) {
+    var t,
+      n,
+      a,
+      l,
+      c,
+      u,
+      o = document.getElementById("Postfix").value,
+      r = [],
+      s = -1;
+    for (t = 0; t <= o.length; t++)
+      (u = o[t]),
+        isNaN(parseInt(u))
+          ? ("+" != u && "-" != u && "*" != u && "/" != u) ||
+            ((a = r[s]),
+            (n = r[--s]),
+            s--,
+            "+" == u
+              ? (l = n + a)
+              : "-" == u
+              ? (l = n - a)
+              : "*" == u
+              ? (l = n * a)
+              : "/" == u && (l = n / a),
+            (r[++s] = l))
+          : (r[++s] = parseInt(u));
+    (c = r[s]), (document.getElementById("Ans").value = c), e.preventDefault();
+  });
 </script>
 {% endblock %}
