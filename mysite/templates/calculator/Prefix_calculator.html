@@ -129,8 +129,6 @@ expression evaluator,prefix expression calculator
           differnet but advantage will be same. Such as in calculators, in which
           it scans and calculate expression value.
         </p>
-
-        <hr class="bg-dark my-3" />
       </div>
     </div>
 
@@ -163,7 +161,6 @@ expression evaluator,prefix expression calculator
   </div>
 </div>
 {% endblock %} {% block JS %}
-<script>
-    $(".cal").click(function(e){var t,n,a,l,c,r,u=document.getElementById("prefix").value,d=[],f=-1;for(t=u.length;t>=0;t--)r=u[t],isNaN(parseInt(r))?"+"!=r&&"-"!=r&&"*"!=r&&"/"!=r||(a=d[f],n=d[--f],f--,"+"==r?l=n+a:"-"==r?l=n-a:"*"==r?l=n*a:"/"==r&&(l=n/a),d[++f]=l):d[++f]=parseInt(r);c=d[f],document.getElementById("Ans").value=c,e.preventDefault()});
+<script src="/static/js/calculator/Prefix_calculator.js">
 </script>
 {% endblock %}

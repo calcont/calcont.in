@@ -1,6 +1,5 @@
 $(".con").click(function (e) {
   var infixed = document.getElementById("Infix").value;
-
   var infix = infixed.split("");
   for (var i = 0; i < infix.length; i++) {
     if (infix[i] == "(") {
@@ -10,7 +9,6 @@ $(".con").click(function (e) {
     }
   }
   infix = infix.reverse();
-  console.log(infix);
   var stack = [],
     prefix = [];
   var operand, prec;
@@ -68,14 +66,14 @@ $(".con").click(function (e) {
     return -1;
   }
   for (var i = 0; i < infix.length; i++) {
-    console.log(infix[i]);
     if (isOperand(infix[i])) {
       prefix.push(infix[i]);
+    } else if (infix[i] == " ") {
+      continue;
     } else if (stack.length == 0) {
       stack.push(infix[i]);
     } else if (infix[i] == ")") {
       while (stack[stack.length - 1] != "(") {
-        console.log("prefix", prefix);
         prefix.push(stack.pop());
       }
       stack.pop();
