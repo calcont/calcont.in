@@ -1,5 +1,6 @@
+
 {% extends 'main_index.html' %}
- {% block MDesc %} Evaluate postfix expresion by
+{% block MDesc %} Evaluate postfix expresion by
 entering expression as input. 
 {% endblock %} 
 {% block MKW %}Postfix evaluator,postfix calculator,how to calculate postfix expression?,Postfix
@@ -9,7 +10,7 @@ expression evaluator,Postfix expression calculator
 4/02/2021 
 {% endblock %} 
 {% block MAut %} Amar khamkar {% endblock %}
- {% block title %}Postfix expression calculator {% endblock %} {% block body %}
+{% block title %}Postfix expression calculator {% endblock %} {% block body %}
 <style></style>
 <div class="container text-light">
   <div class="row">
@@ -95,15 +96,15 @@ expression evaluator,Postfix expression calculator
           1.First we read expression from left to right.So,During reading the
           expression from left to right, push the element in the stack if it is
           an operand. <br />
-          <p class="my-2">
+          <span class="my-2">
             2.If the current character is an operatorthen pop the two operands
             from the stack and then evaluate it.
-          </p>
+          </span>
           <br />
-          <p class="my-2">
+          <span class="my-2">
             3.Push back the result of the evaluation. Repeat it till the end of
             the expression.Checkout examples that are mention below in table
-          </p>
+          </span>
         </p>
 
         <div
@@ -169,34 +170,6 @@ expression evaluator,Postfix expression calculator
   </div>
 </div>
 {% endblock %} {% block JS %}
-<script>
-  $(".cal").click(function (e) {
-    var t,
-      n,
-      a,
-      l,
-      c,
-      u,
-      o = document.getElementById("Postfix").value,
-      r = [],
-      s = -1;
-    for (t = 0; t <= o.length; t++)
-      (u = o[t]),
-        isNaN(parseInt(u))
-          ? ("+" != u && "-" != u && "*" != u && "/" != u) ||
-            ((a = r[s]),
-            (n = r[--s]),
-            s--,
-            "+" == u
-              ? (l = n + a)
-              : "-" == u
-              ? (l = n - a)
-              : "*" == u
-              ? (l = n * a)
-              : "/" == u && (l = n / a),
-            (r[++s] = l))
-          : (r[++s] = parseInt(u));
-    (c = r[s]), (document.getElementById("Ans").value = c), e.preventDefault();
-  });
+<script src="/static/js/calculator/Postfix_calculator.js">
 </script>
 {% endblock %}
