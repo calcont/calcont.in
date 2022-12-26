@@ -499,16 +499,30 @@
               >
             </div>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link mx-3 font-weight-bolder" href="/Contact_me"
-              >Contact me</a
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
-          </li>
-          <li class="nav-item">
-            <a class="nav-link mx-3 font-weight-bolder" href="/Supportme/"
-              >Support Me❤️</a
+              More
+            </a>
+            <div
+              class="dropdown-menu dropdown-menu-dark"
+              aria-labelledby="navbarDropdown"
             >
+              <a class="dropdown-item" href="/Contact_me">Contact me</a>
+              <a class="dropdown-item" href="/Supportme/">Support Me❤️</a>
+              <a
+                class="dropdown-item"
+                href="https://forms.gle/KLmkrvbeWPvkH5yM8/"
+                >Feature Request?</a
+              >
+            </div>
           </li>
         </ul>
         {% if not user.is_authenticated %}
@@ -661,22 +675,22 @@
 
       var myCookie = readCookie("PopCookie");
 
-      if (myCookie == undefined) {
-        // code to show modal here
-        setTimeout(function () {
-          $("#DoLogin").modal("show");
-        }, 50000);
-      }
-      $("#mbdy").click(function (e) {
-        document.location = "https://forms.gle/KLmkrvbeWPvkH5yM8";
-        setexpire();
-      });
-      $("#closeP").click(function (e) {
-        setexpire();
-      });
-      $(".signin").click(function (e) {
-        setexpire();
-      });
+      // if (myCookie == undefined) {
+      //   // code to show modal here
+      //   setTimeout(function () {
+      //     $("#DoLogin").modal("show");
+      //   }, 50000);
+      // }
+      // $("#mbdy").click(function (e) {
+      //   document.location = "https://forms.gle/KLmkrvbeWPvkH5yM8";
+      //   setexpire();
+      // });
+      // $("#closeP").click(function (e) {
+      //   setexpire();
+      // });
+      // $(".signin").click(function (e) {
+      //   setexpire();
+      // });
     </script>
     {% block JS %} {% endblock %}
   </body>
