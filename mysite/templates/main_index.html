@@ -212,33 +212,6 @@
             class="modal-header"
             style="border-bottom: 1px solid rgb(41 40 40)"
           >
-            <!-- <h4 class="modal-title" id="exampleModalLabel">Create Account?</h4>
-          <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p class="modalText">After registering in <a type="button" href="/" class="">CalConT</a> you will be notified
-            about our
-            recently added tools,and you will be always connected with us.Through this
-            you can also help us to improve. </p>
-          <br>
-          <p class="modalText">If you have any query about how your details stored after registering then you should
-            read our <a href="\Privacy_policy">Privacy Policy.</a></p>
-          <hr class="bg-dark">
-          <div class="container ">
-            <div class="signUp  ">
-              <a class="btn btn-lg btn-block  my-4  text-light btn-outline-secondary signin" href="\signin">Sign Up</a>
-            </div>
-            <p class="text-center mb-2 mt-2">OR</p>
-
-
-            <a type="button" class="btn  text-light btn-outline-secondary btn-md btn-block "
-              href="{% url 'social:begin' 'google-oauth2' %}">Sign Up With <img class="mx-2"
-                src="/static/google.png" /></a><br>
-
-          </div> -->
-            <!-- </div> -->
             <h4 class="modal-title" id="exampleModalLabel">Calcont Survey</h4>
             <button
               type="button"
@@ -575,14 +548,6 @@
       </div>
     </nav>
     {% block body %} {% endblock %}
-    <!-- <footer  class="footer  py-3 text-light bg-dark">
-    <p class="mb-0 text-center">© 2020-2021 CalConT.in</p>
-    <p class="mb-0 text-center">
-      <a href="#">Back to top |</a>
-      <a href="/About_me/">About </a>
-    </p>
-
-  </footer> -->
     <footer
       class="container-fluid footer py-3 text-center text-light my-5"
       style="background-color: rgb(21, 20, 19)"
@@ -601,7 +566,7 @@
               <span class="text-light" style="font-size: 15px"
                 >Contact on :
               </span>
-              calcont.in01@gmail
+              <a href="mailto:calcont.in01@gmail.com">calcont.in01@gmail.com</a>
             </p>
             <p class="mx-auto">
               Follow On :
@@ -617,7 +582,7 @@
         </div>
       </div>
     </footer>
-    <!-- Optional avaScript -->
+    <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.3.1.js"
@@ -699,20 +664,9 @@
       if (myCookie == undefined) {
         // code to show modal here
         setTimeout(function () {
-          // {% if not user.is_authenticated %}
           $("#DoLogin").modal("show");
-          // {% endif %}
         }, 50000);
-        //  setTimeout(function(){
-        //    $('#newtool').modal('show')
-        //    }, 45000);
       }
-      // if (myCookie1 == undefined) {
-      //   // code to show modal here
-
-      //   document.getElementById("AlertS").style.display = "block";
-
-      // }
       $("#mbdy").click(function (e) {
         document.location = "https://forms.gle/KLmkrvbeWPvkH5yM8";
         setexpire();
@@ -723,20 +677,6 @@
       $(".signin").click(function (e) {
         setexpire();
       });
-      // $(".survey").click(function (e) {
-      //   setexpire_7();
-
-      // });
-      // $("#closeS").click(function (e) {
-      //   setexpire1();
-      //   document.getElementById("AlertS").style.display = "none";
-
-      // });
-      // $(".Supportt").click(function (e) {
-      //   setexpire1();
-      //   document.getElementById("AlertS").style.display = "none";
-
-      // });
     </script>
     {% block JS %} {% endblock %}
   </body>
