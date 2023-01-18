@@ -1,12 +1,14 @@
-from django.http import HttpResponse
-from django.contrib import messages
-from django.shortcuts import render, redirect
-import json
+from django.shortcuts import render
 from datetime import datetime
-from .. import MyFunctions
 from .. import globals
 from ..models import Contact
-client_secret = "6Ld7Fp8dAAAAAJ4kpwVl960_owTUJcqt1ZkRyMnc"
+from basicsite.settings.base import BASE_DIR
+import json
+import os
+import environ
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+client_secret = env('client_secret_captcha')
 
 
 def isCaptchaValid(r):

@@ -14,7 +14,7 @@ from django.views.decorators.csrf import csrf_exempt
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
 if os.getcwd() != '/app':##for mac
-    pytesseract.pytesseract.tesseract_cmd = '/usr/local/bin/tesseract'
+    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'
 else:
     pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 
