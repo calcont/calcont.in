@@ -3,8 +3,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import HttpResponse
 from django.contrib import messages
 from django.shortcuts import render, redirect
+from basicsite.settings.base import BASE_DIR
 import json
-client_secret = "6Ld7Fp8dAAAAAJ4kpwVl960_owTUJcqt1ZkRyMnc"
+import os
+import environ
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+client_secret = env('client_secret_captcha')
 
 
 def isCaptchaValid(r):
