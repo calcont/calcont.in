@@ -3,18 +3,12 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 import json
 import base64
-from io import BytesIO
-from PIL import Image, ImageDraw
 import pytesseract
+import requests
 import os
 from django.views.decorators.csrf import csrf_exempt
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
-if os.getcwd() != '/app':##for mac
-    pytesseract.pytesseract.tesseract_cmd = '/usr/local/bin/tesseract'
-else:
-    pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
-
 
 # Conversion
 def Binaryconversion(request):
@@ -76,7 +70,6 @@ def prefix_to_postfix(request):
     return render(request, '../templates/converter/prefix_to_postfix.html', param)
 # prefixtoInfix
 
-
 def prefix_to_infix(request):
     link_string1, link_string2 = SideMap.arrange(8, 2, 'CC')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
@@ -94,7 +87,6 @@ def Image_to_base64(request):
             encoded_string = base64.b64encode(image.read())
         except:
             url = request.POST.get('url')
-            import requests
             response = requests.get(url)
             encoded_string = base64.b64encode(response.content)
         response = json.dumps({'txt': encoded_string.decode()}, default=str)

@@ -9,8 +9,6 @@ handler500 = 'mysite.all_views.views_errors.error_500'
 
 def urlpatterns():
     urlpatterns = [
-
-        path('oauth/', include('social_django.urls', namespace='social')),
         path('', all_views.other_views.index, name='index'),
         path('Contact_me/', all_views.other_views.ContactMe, name='contact'),
         path('About/', all_views.other_views.Aboutme, name="about"),

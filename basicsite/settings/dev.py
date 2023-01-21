@@ -1,10 +1,13 @@
 from basicsite.settings.base import *
 import os
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = True
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '+%1e1)rzsn_c%3cm8b5y_+su3!90gu6#efpy38pob%^5_1_8_+'
 
 ALLOWED_HOSTS = ['127.0.0.1']
 

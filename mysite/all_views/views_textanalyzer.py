@@ -13,8 +13,8 @@ from io import BytesIO
 from django.views.decorators.csrf import csrf_exempt
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
-if os.getcwd() != '/app':##for mac
-    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'
+if os.getcwd() != '/app':##for windows
+    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'#do install tesseact in this path only and add it to your environment-variables
 else:
     pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 

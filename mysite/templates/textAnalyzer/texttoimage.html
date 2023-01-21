@@ -159,7 +159,31 @@ canvas {
 {% endblock %}
 {% block JS %}
 <script>
-   var oldText,canvas=document.getElementById("canv"),a=document.getElementById("link"),ctx=canvas.getContext("2d"),img=document.getElementById("image");function grow(t){t.style.height="10rem",t.style.height=t.scrollHeight+"px",document.getElementById("image").style.display="block",generate()}var generate=function(){var t=document.getElementById("text").value.split("\n").join("\n"),e=t.split("\n"),n=e.slice(0).sort(function(t,e){return e.length-t.length});ctx.canvas.width=ctx.measureText(n[0]).width+25,ctx.canvas.height=30*e.length,ctx.fillStyle=document.getElementById("ColorInput2").value,ctx.fillRect(0,0,canvas.width,canvas.height),ctx.textBaseline="middle",ctx.font=`${document.getElementById("fsize").value}px Anonymous Pro`,ctx.fillStyle=document.getElementById("ColorInput1").value;for(var l=0;l<e.length;l++)ctx.fillText(e[l],12.5,15+30*l);img.src=ctx.canvas.toDataURL(),a.href=img.src,oldText=t};
+    var oldText,
+    canvas = document.getElementById("canv"),
+    a = document.getElementById("link"),
+    ctx = canvas.getContext("2d"),
+    img = document.getElementById("image");
+function grow(t) {
+    (t.style.height = "10rem"), (t.style.height = t.scrollHeight + "px"), (document.getElementById("image").style.display = "block"), generate();
+}
+var generate = function () {
+    var t = document.getElementById("text").value.split("\n").join("\n"),
+        e = t.split("\n"),
+        n = e.slice(0).sort(function (t, e) {
+            return e.length - t.length;
+        });
+    (ctx.canvas.width = ctx.measureText(n[0]).width + 25),
+        (ctx.canvas.height = 30 * e.length),
+        (ctx.fillStyle = document.getElementById("ColorInput2").value),
+        ctx.fillRect(0, 0, canvas.width, canvas.height),
+        (ctx.textBaseline = "middle"),
+        (ctx.font = `${document.getElementById("fsize").value}px Anonymous Pro`),
+        (ctx.fillStyle = document.getElementById("ColorInput1").value);
+    for (var l = 0; l < e.length; l++) ctx.fillText(e[l], 12.5, 15 + 30 * l);
+    (img.src = ctx.canvas.toDataURL()), (a.href = img.src), (oldText = t);
+};
+
 
 </script>
 
