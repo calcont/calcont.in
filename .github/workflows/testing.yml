@@ -31,6 +31,7 @@ jobs:
     - name: Coverage report
       env:
         SECRET_KEY: b2317f5cd3d1290d1c0eb3e0d2a2235905a3244e487ec3d57e
+        client_secret_captcha: cc2e71615819471c23e745e21d1031bd429238f51cb39a6fcd
       run: |
         pip install coverage
         coverage run manage.py test
