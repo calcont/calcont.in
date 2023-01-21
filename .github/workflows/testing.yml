@@ -28,6 +28,13 @@ jobs:
       run: |
         pip install flake8
         flake8
+    - name: Coverage report
+      env:
+        SECRET_KEY: b2317f5cd3d1290d1c0eb3e0d2a2235905a3244e487ec3d57e
+      run: |
+        pip install coverage
+        coverage run manage.py test
+        coverage report
     - name: calcont.in Testing
       run: |
         python3 manage.py test
