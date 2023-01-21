@@ -26,6 +26,7 @@ def isCaptchaValid(r):
     result = json.loads(response.read().decode())
     return result['success']
 
+
 def Login(request):
     if request.method == "POST":
         # getting parameters
