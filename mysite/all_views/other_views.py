@@ -49,8 +49,8 @@ def ContactMe(request):
         desc = request.POST.get("desc")
         r = request.POST.get('g-recaptcha-response')
         import joblib
-        models = joblib.load(f'spam.pkl')
-        v = joblib.load(f'vector.pickel')
+        models = joblib.load('spam.pkl')
+        v = joblib.load('vector.pickel')
         spam = models.predict(v.transform([desc]))
         if spam[0] == 0:
             pass
@@ -62,7 +62,6 @@ def ContactMe(request):
             contact.save()
             isValid = True
         else:
-            than = 'notdone'
             isValid = False
         return render(request, '../templates/Contact_me.html', {"issub": isSub, "isValid": isValid})
     return render(request, '../templates/Contact_me.html')

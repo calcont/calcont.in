@@ -2,7 +2,7 @@
 from googletrans import Translator
 from . import globals
 import json
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
 urls = globals.urlSideMapList()
 
@@ -10,9 +10,7 @@ urls = globals.urlSideMapList()
 class TranslatorFun:
     def Translate(self, text, dest, src='en'):
         trans = Translator()
-        lang = trans.detect(text)
-        t = trans.translate(text, dest=dest, src=src)
-        return t
+        return trans.translate(text, dest=dest, src=src)
 
     def EnglishToOther(self, request, indi_id, dest, htmlFile):
         link_string1, link_string2 = ArrangeSideMapForWebpage.arrange(
@@ -23,11 +21,9 @@ class TranslatorFun:
             alt = True
             param = {"ortext": text, "text": t.text, "alt": alt,
                      'link_string1': link_string1, 'link_string2': link_string2}
-            resp = render(request, htmlFile, param)
-            return resp
+            return render(request, htmlFile, param)
         param = {'link_string1': link_string1, 'link_string2': link_string2}
-        resp = render(request, htmlFile, param)
-        return resp
+        return render(request, htmlFile, param)
 
     def HindiToOther(self, request, indi_id, dest, src, htmlFile):
         link_string1, link_string2 = ArrangeSideMapForWebpage.arrange(
@@ -39,11 +35,9 @@ class TranslatorFun:
             else:
                 t = self.Translate(text, dest, src=src)
                 res = json.dumps({'ConTex': t.text}, default=str)
-            resp = HttpResponse(res)
-            return resp
+            return HttpResponse(res)
         param = {'link_string1': link_string1, 'link_string2': link_string2}
-        resp = render(request, htmlFile, param)
-        return resp
+        return render(request, htmlFile, param)
 
 
 class ArrangeSideMapForWebpage:
@@ -57,7 +51,6 @@ class ArrangeSideMapForWebpage:
                 if urls[link][2] == grp_id:
                     if urls[link][4] != indi_id:
                         links_strings_1.append([urls[link][0], urls[link][1]])
-                    pass
                 else:
                     links_strings_2.append([urls[link][0], urls[link][1]])
         return links_strings_1, links_strings_2

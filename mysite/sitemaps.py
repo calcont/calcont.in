@@ -5,6 +5,7 @@ from django.shortcuts import reverse
 class StaticViewsSitemap(Sitemap):
     priority=0.5
     changefreq="daily"
+
     def items(self):
         return [
             "mysite:index",
@@ -58,5 +59,6 @@ class StaticViewsSitemap(Sitemap):
             "mysite:Linear_regression_calculator",
             "mysite:PrivacyPolicy",
         ]
+
     def location(self, item):
         return reverse(item)

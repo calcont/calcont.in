@@ -9,6 +9,5 @@ all_urls = [urls_authentication.urlpatterns(), urls_calculators.urlpatterns(), u
 
 urlpatterns = []
 
-for i in range(len(all_urls)):
-    for val in all_urls[i]:
-        urlpatterns.append(val)
+for all_url in all_urls:
+    urlpatterns.extend(iter(all_url))

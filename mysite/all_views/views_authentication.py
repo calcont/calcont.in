@@ -38,7 +38,6 @@ def Login(request):
             login(request, user)
 
             messages.success(request, "Successfully login.")
-            Login = True
 
             return redirect('/')
         else:

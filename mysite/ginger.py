@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import requests
 import cloudscraper
 
 URL = "https://services.gingersoftware.com/Ginger/correct/jsonSecured/GingerTheTextFull"  # noqa
