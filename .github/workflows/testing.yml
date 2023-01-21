@@ -2,9 +2,9 @@ name: calcont.in Tests
 
 on:
   push:
-    branches: "*"
+    branches: master
   pull_request:
-    branches: "*"
+    branches: master
 
 permissions:
   contents: read
