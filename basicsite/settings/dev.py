@@ -1,7 +1,7 @@
 from basicsite.settings.base import *
 import os
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = "b2317f5cd3d1290d1c0eb3e0d2a2235905a3244e487ec3d57e" # dummy secret key(not og)
 
 DEBUG = True
 
