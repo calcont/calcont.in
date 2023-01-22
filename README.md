@@ -1,7 +1,7 @@
 # CalConT
 
 ### What was my motivation ?
-So, It is a website that I have created as a side project to explore my knowledge towards web development and Django and I wanted a project to be ready -> deployed .That's why thought let's create something which will have tools such as calculators, translators, converters. And back then I was in second year of my college had a DSA subject so I was learning through it and adding various tools in website Examples:- postfix calculator , prefix calculator etc.
+So, It is a website that I have created as a side project to explore my knowledge towards web development and Django ( you"ll get this how beginner I was by reading folder,project app name ) and I wanted a project to be ready -> deployed .That's why thought let's create something which will have tools such as calculators, translators, converters. And back then I was in second year of my college had a DSA subject so I was learning through it and adding various tools in website Examples:- postfix calculator , prefix calculator etc.
 
 ### What actually it does ?
 Finally, <a href="https://www.calcont.in">calcont.in</a> is a website which contains various tools such as calculators ,converters ,AI-based analyzers, translators which can help people to save their time in day-to-day life.
