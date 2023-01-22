@@ -16,6 +16,7 @@ django-environ==0.9.0
 django-heroku==0.3.1
 django-import-export==2.7.1
 et-xmlfile==1.1.0
+flake8==6.0.0
 gingerit==0.8.2
 googletrans==3.1.0a0
 gunicorn==20.1.0
@@ -30,6 +31,7 @@ idna==2.10
 joblib==1.1.1
 language-tool-python==2.5.2
 MarkupPy==1.14
+mccabe==0.7.0
 Naked==0.1.31
 nltk==3.6.3
 numpy==1.24.1
@@ -42,6 +44,7 @@ pybase64==1.2.0
 pycodestyle==2.10.0
 pycparser==2.20
 pycryptodome==3.11.0
+pyflakes==3.0.1
 PyJWT==2.1.0
 pyparsing==3.0.7
 pytesseract==0.3.8

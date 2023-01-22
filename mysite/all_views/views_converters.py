@@ -1,11 +1,9 @@
 from .. import MyFunctions
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
 import json
 import base64
-import pytesseract
 import requests
-import os
 from django.views.decorators.csrf import csrf_exempt
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
@@ -85,7 +83,7 @@ def Image_to_base64(request):
         try:
             image = request.FILES['image']
             encoded_string = base64.b64encode(image.read())
-        except:
+        except Exception:
             url = request.POST.get('url')
             response = requests.get(url)
             encoded_string = base64.b64encode(response.content)

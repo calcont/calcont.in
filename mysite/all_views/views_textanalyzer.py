@@ -1,11 +1,11 @@
 from .. import MyFunctions
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 from django.http import HttpResponse
 import json
 from rake_nltk import Rake
 import base64
 import os
-from PIL import Image, ImageDraw
+from PIL import Image
 from googletrans import Translator
 import googletrans
 import pytesseract
@@ -13,8 +13,8 @@ from io import BytesIO
 from django.views.decorators.csrf import csrf_exempt
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
-if os.getcwd() != '/app':##for windows
-    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'#do install tesseact in this path only and add it to your environment-variables
+if os.getcwd() != '/app':# for windows
+    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'# do install tesseact in this path only and add it to your environment-variables
 else:
     pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 
@@ -35,26 +35,18 @@ def text(request):
             for char in tex:
                 if char not in pun:
                     analysed = analysed + char
-
-            text = analysed
         if fullcaps == 'on':
             analysed = tex.upper()
-
-            text = analysed
         if newlineremover == "on":
             analysed = ""
             for char in tex:
                 if char != '\n' and char != '\r':
                     analysed += char
-
-            text = analysed
         if xtraspaceremover == "on":
             analysed = ""
             for i, char in enumerate(tex):
                 if not (tex[i] == " "):
                     analysed += char
-
-            text = analysed
 
         if fullcaps != 'on' and removepunc != "on" and xtraspaceremover != "on" and newlineremover != "on":
 
@@ -210,7 +202,7 @@ def LangIdenti(request):
             try:
                 response = json.dumps(
                     {'lang': googletrans.LANGUAGES[lang.lang]}, default=str)
-            except Exception as e:
+            except Exception:
                 err = "Not able to detect this language"
                 response = json.dumps({'lang': err}, default=str)
             return HttpResponse(response)

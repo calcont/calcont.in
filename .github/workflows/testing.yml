@@ -1,0 +1,44 @@
+name: calcont.in Tests 
+
+on:
+  push:
+    branches: master
+  pull_request:
+    branches: master
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Lint with flake8
+      run: |
+        pip install flake8
+        flake8
+    - name: Coverage report
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        client_secret_captcha: ${{ secrets.client_secret_captcha }}
+      run: |
+        pip install coverage
+        coverage run manage.py test
+        coverage report
+    - name: calcont.in Testing
+      env:
+        SECRET_KEY: ${{ secrets.SECRET_KEY }}
+        client_secret_captcha: ${{ secrets.CLIENT_SECRET_CAPTCHA }}
+      run: |
+        python3 manage.py test

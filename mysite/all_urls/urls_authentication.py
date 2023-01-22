@@ -1,6 +1,5 @@
 from .. import all_views
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 
 def urlpatterns():
     urlpatterns = [

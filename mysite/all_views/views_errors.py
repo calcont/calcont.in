@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
 
 def error_404(request, exception):
     return render(request, '../templates/404.html', status=404)
