@@ -29,9 +29,9 @@ jobs:
         pip install flake8
         flake8
     - name: Coverage report
-      env:
-        SECRET_KEY: ${{ secrets.SECRET_KEY }}
-        client_secret_captcha: ${{ secrets.client_secret_captcha }}
+        env:
+          SECRET_KEY: ${{ secrets.SECRET_KEY }}
+          client_secret_captcha: ${{ secrets.client_secret_captcha }}
       run: |
         pip install coverage
         coverage run manage.py test

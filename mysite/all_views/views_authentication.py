@@ -6,11 +6,7 @@ from django.shortcuts import render, redirect
 from basicsite.settings.base import BASE_DIR
 import json
 import os
-import environ
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-client_secret = env('client_secret_captcha')
-
+client_secret = os.environ.get('client_secret_captcha')
 
 def isCaptchaValid(r):
 
