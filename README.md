@@ -9,26 +9,61 @@ We have >= 15k visitors who invest their valuable time in this website in a mont
 
 ## Installation
 
-First up of all you need to create python virtual environment.(<a href="https://docs.python.org/3/library/venv.html" > Ref link </a>)
+First up of all you need to create python virtual environment.(<a href="https://docs.python.org/3/library/venv.html">ref</a>)
 
+For windows,
 ```
-pip install foobar
+python3 -m venv venv_name 
+```
+then go to that directory where venv is
+```
+cd venv_name
+```
+clone calcont.in project
+```
+git clone git@github.com:calcont/calcont.in.git
+```
+activate the venv
+```
+./Scripts/activate
+```
+go to calcont.in
+```
+cd calcont.in
+```
+install all python packages mentioned in requirements.txt
+```
+pip install -r requirements.txt
+```
+create .env in root directory and add
+```
+SECRET_KEY=anystring
+client_secret_captcha=anystring
+```
+run django server
+```
+python manage.py runserver
 ```
 
 ## Usage
 
-```python
-import foobar
+Once you done with your setup, you need to understand workflow of the project
+1. `basicsite` is the root or we can say main project name, which contains essential files such as `urls.py` , `views.py` , `settings.py` etc.
+As, django framework follows `MVT` i.e Model View Template structure to handle request on server
 
-# returns 'words'
-foobar.pluralize('word')
+### Settings
+There is a folder called `settings` in which 3 major files are there i.e `dev.py` , `prod.py` , `base.py` .
+ - `base.py` consist of all the common settings for both dev.py & prod.py
+ - `dev.py` consist development settings & credentials
+ - `prod.py` consist all heroku related configurations and some of production credentials
 
-# returns 'geese'
-foobar.pluralize('goose')
+### urls
+urls.py have several url patterns such as for `social_auth` to handle social login, `admin` and very important is `mysite.url` which basically handles all the urls and request info.
 
-# returns 'phenomenon'
-foobar.singularize('phenomena')
-```
+### mysite
+It is basically a core app of calcont which contains important folders,files
+
+
 
 ## Contributing
 
