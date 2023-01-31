@@ -64,7 +64,8 @@ urls.py have several url patterns such as for `social_auth` to handle social log
 It is basically a core app of calcont which contains important folders,files such templates, all_urls , all_views etc.
 - `models.py` - It consist of database schema , relation between different entities and attributes under it.
 - `templates` - Templates consist of all the html files and every category has different folder which has html files of all tools comes under either calculators , converters etc.
-- `all_urls` - again th
+- `all_urls` - It is folder which has different url files and those urls.py files again different for different category. When any user request some url it first goes to basicsite i.e root app and then to the mysite app wherein logic to handle request is been written in views.
+- `all_views` - It is folder which contains files of views for all categories wherein logic is been written over here like which html file to show for particular request and as well as handling post & get request, form submission and save the details to the database etc. is been written over here.
 
 
 
