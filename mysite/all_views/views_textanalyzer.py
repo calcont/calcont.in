@@ -84,14 +84,11 @@ def Grammar_correction(request):
                         if text[j] == " ":
                             break
                     a.append("\u0332".join(text[i:j+1]))
-                    # print("\u0332".join(text[i]))
                     i = j
                 else:
                     a.append(text[i])
                 i += 1
-            Text = ""
-            for i in a:
-                Text += i
+            Text = "".join(a)
 
             param = {'NewText': result['result'], "text": Text, "IsEnter": IsEnter,
                      "length_text": length_text, 'link_string1': link_string1, 'link_string2': link_string2}
@@ -196,7 +193,6 @@ def LangIdenti(request):
         if request.POST.get('isDetect') == "0":
             eng_txt = t.translate(text, dest='en')
             response = json.dumps({'e_lang': eng_txt.text}, default=str)
-            return HttpResponse(response)
         else:
             lang = t.detect(text)
             try:
@@ -205,7 +201,7 @@ def LangIdenti(request):
             except Exception:
                 err = "Not able to detect this language"
                 response = json.dumps({'lang': err}, default=str)
-            return HttpResponse(response)
+        return HttpResponse(response)
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/LangIdenti.html', param)
 # Caesar cipher encoder/decoder
