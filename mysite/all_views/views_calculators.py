@@ -53,9 +53,9 @@ def Linear_regression_calculator(request):
             y = [int(i[1]) for i in tableArr]
             x_sum = sum(x)
             y_sum = sum(y)
-            x2 = sum([i**2 for i in x])
-            y2 = sum([i**2 for i in y])
-            xy = sum([i*j for i, j in zip(x, y)])
+            x2 = sum(i**2 for i in x)
+            y2 = sum(i**2 for i in y)
+            xy = sum(i*j for i, j in zip(x, y))
             a = (sum(y)*x2-sum(x)*xy)/(len(x)*x2-sum(x)*sum(x))
             b = (len(x)*xy-sum(x)*sum(y))/(len(x)*x2-sum(x)*sum(x))
             eqn = f'y = {format(b,".2f")}x + {format(a,".2f")}'
