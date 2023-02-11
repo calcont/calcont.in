@@ -25,7 +25,7 @@ git clone git@github.com:calcont/calcont.in.git
 ```
 activate the venv
 ```
-./scripts/activate
+.\scripts\activate
 ```
 go to calcont.in
 ```
