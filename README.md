@@ -25,7 +25,7 @@ git clone git@github.com:calcont/calcont.in.git
 ```
 activate the venv
 ```
-./scripts/activate
+.\scripts\activate
 ```
 go to calcont.in
 ```
@@ -79,4 +79,4 @@ Please make sure to update tests as appropriate.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[APACHE 2.0](LICENSE.md)
