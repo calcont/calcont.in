@@ -31,7 +31,7 @@ go to calcont.in
 ```
 cd calcont.in
 ```
-install all python packages mentioned in requirements.txt (it will throw an error while installing psycopg2 in windows os,I'll suggest you to remove psycopg2 from requirements.txt and run following command.If you know how to resolve it then do raise PR for the same, issue :- [https://github.com/Amark19/calcont.in/issues/19])
+install all python packages mentioned in requirements.txt (it will throw an error while installing psycopg2 in windows os,I'll suggest you to remove psycopg2 from requirements.txt and run following command.If you know how to resolve it then do raise PR for the same, issue :- https://github.com/Amark19/calcont.in/issues/19)
 ```
 pip install -r requirements.txt
 ```
