@@ -10,6 +10,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
 
+DEBUG = False
+
 ADMINS = [
     ('CalConT', 'calcont.in01@gmail.com'),
 ]
@@ -17,10 +19,8 @@ ADMINS = [
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_HOST_USER = ' postmaster@sandbox0c4d0d0425594b65865fb83a4b57c093.mailgun.org'
+EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-
-DEBUG = False
 
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)

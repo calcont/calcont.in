@@ -7,17 +7,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 SECRET_KEY = env('SECRET_KEY')
 
-DEBUG = False
-
-ADMINS = [
-    ('CalConT', 'calcont.in01@gmail.com'),
-]
-
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_HOST_USER = ' postmaster@sandbox0c4d0d0425594b65865fb83a4b57c093.mailgun.org'
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1']
 

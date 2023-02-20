@@ -32,6 +32,7 @@ jobs:
       env:
         SECRET_KEY: ${{ secrets.SECRET_KEY }}
         client_secret_captcha: ${{ secrets.client_secret_captcha }}
+        EMAIL_HOST_USER: ${{ secrets.EMAIL_HOST_USER }}
         EMAIL_HOST_PASSWORD: ${{ secrets.EMAIL_HOST_PASSWORD }}
       run: |
         pip install coverage
