@@ -27,6 +27,7 @@ def isCaptchaValid(r):
 
 
 def index(request):
+    print(1/0)
     return render(request, '../templates/index.html')
 
 def sitemaps(request):
