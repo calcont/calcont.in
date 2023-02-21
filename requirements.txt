@@ -38,7 +38,7 @@ numpy==1.24.1
 oauthlib==3.1.1
 odfpy==1.4.1
 openpyxl==3.0.10
-Pillow==8.4.0
+Pillow==9.2.0
 psycopg2==2.9.5
 pybase64==1.2.0
 pycodestyle==2.10.0
