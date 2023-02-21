@@ -40,6 +40,10 @@ create .env in root directory and add
 SECRET_KEY=anystring
 client_secret_captcha=anystring
 ```
+as this app consist few database schemas that need to be migrated.so,run
+```
+python manage.py migrate
+```
 run django server
 ```
 python manage.py runserver
