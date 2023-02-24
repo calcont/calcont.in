@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
-def error_404(request, exception):
+
+def error_404(request):
     return render(request, '../templates/404.html', status=404)
 
 

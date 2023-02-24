@@ -5,11 +5,11 @@ import json
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
 
+
 def Loan_calculator(request):
     link_string1, link_string2 = SideMap.arrange(0, 4, 'CC')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/calculator/loan_calculator.html', param)
-
 
 
 def GCD_calculator(request):
@@ -55,9 +55,9 @@ def Linear_regression_calculator(request):
             y_sum = sum(y)
             x2 = sum(i**2 for i in x)
             y2 = sum(i**2 for i in y)
-            xy = sum(i*j for i, j in zip(x, y))
-            a = (sum(y)*x2-sum(x)*xy)/(len(x)*x2-sum(x)*sum(x))
-            b = (len(x)*xy-sum(x)*sum(y))/(len(x)*x2-sum(x)*sum(x))
+            xy = sum(i * j for i, j in zip(x, y))
+            a = (sum(y) * x2 - sum(x) * xy) / (len(x) * x2 - sum(x) * sum(x))
+            b = (len(x) * xy - sum(x) * sum(y)) / (len(x) * x2 - sum(x) * sum(x))
             eqn = f'y = {format(b,".2f")}x + {format(a,".2f")}'
             response = json.dumps({'Σx': x_sum, 'Σy': y_sum, 'Σx^2': x2, 'Σy^2': y2,
                                   'Σxy': xy, 'Linear Regression Equation(bx + a)': eqn}, default=str)

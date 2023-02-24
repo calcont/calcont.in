@@ -1,8 +1,13 @@
 # -*- coding: utf-8 -*-
 import cloudscraper
+import environ
+import os
+from basicsite.settings.base import BASE_DIR
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 URL = "https://services.gingersoftware.com/Ginger/correct/jsonSecured/GingerTheTextFull"  # noqa
-API_KEY = "6ae0c3a0-afdc-4532-a810-82ded0054236"
+API_KEY = env('GINGER_API_KEY')
 
 
 class gingerI(object):
@@ -30,7 +35,7 @@ class gingerI(object):
     @staticmethod
     def _change_char(original_text, from_position, to_position, change_with):
         return "{}{}{}".format(
-            original_text[:from_position], change_with, original_text[to_position + 1 :]
+            original_text[:from_position], change_with, original_text[to_position + 1:]
         )
 
     def _process_data(self, text, data):
@@ -48,7 +53,7 @@ class gingerI(object):
                 corrections.append(
                     {
                         "start": start,
-                        "text": text[start : end + 1],
+                        "text": text[start: end + 1],
                         "correct": suggest.get("Text", None),
                         "definition": suggest.get("Definition", None),
                     }

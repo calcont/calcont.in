@@ -13,8 +13,8 @@ from io import BytesIO
 from django.views.decorators.csrf import csrf_exempt
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
-if os.getcwd() != '/app':# for windows
-    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'# do install tesseact in this path only and add it to your environment-variables
+if os.getcwd() != '/app':  # for windows
+    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'  # do install tesseact in this path only and add it to your environment-variables
 else:
     pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 
@@ -83,7 +83,7 @@ def Grammar_correction(request):
                     for j in range(i, len(text)):
                         if text[j] == " ":
                             break
-                    a.append("\u0332".join(text[i:j+1]))
+                    a.append("\u0332".join(text[i:j + 1]))
                     i = j
                 else:
                     a.append(text[i])

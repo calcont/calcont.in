@@ -16,15 +16,9 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.sitemaps.views import sitemap
 from django.views.generic import TemplateView
-from mysite.sitemaps import StaticViewsSitemap
-sitemaps = {
-    'static': StaticViewsSitemap
-}
 urlpatterns = [
     path('calcont-admin/', admin.site.urls),
-    path('sitemap.xml/', sitemap, {'sitemaps': sitemaps}),
     path('', include("mysite.all_urls")),
     path('oauth/', include('social_django.urls', namespace='social')),
     path('robots.txt/', TemplateView.as_view(template_name="robots.txt",

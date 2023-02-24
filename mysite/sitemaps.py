@@ -3,8 +3,8 @@ from django.shortcuts import reverse
 
 
 class StaticViewsSitemap(Sitemap):
-    priority=0.5
-    changefreq="daily"
+    priority = 0.5
+    changefreq = "daily"
 
     def items(self):
         return [

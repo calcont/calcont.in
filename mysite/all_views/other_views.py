@@ -29,6 +29,7 @@ def isCaptchaValid(r):
 def index(request):
     return render(request, '../templates/index.html')
 
+
 def sitemaps(request):
     text = [url for url in globals.urlSideMapList() if url[2] == 1]
     converter = [url for url in globals.urlSideMapList() if url[2] == 2]
@@ -38,6 +39,8 @@ def sitemaps(request):
     return render(request, 'sitemaps.html', {'text': text, 'converter': converter, 'translator': Translator, 'calculator': calculator})
 
 # contact
+
+
 def ContactMe(request):
     isSub = False
     isValid = False
@@ -74,6 +77,7 @@ def Aboutme(request):
 def PrivacyPolicy(request):
     return render(request, '../templates/PrivacyPolicy.html')
 # authentication
+
 
 def Supportme(request):
     return render(request, "../templates/Supportme.html")
