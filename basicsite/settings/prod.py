@@ -25,7 +25,7 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = ['www.calcont.in', 'calcont.in', 'www.calcont.herokuapp.com']
+ALLOWED_HOSTS = ['www.calcont.in', 'calcont.in', 'calcont.herokuapp.com']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
