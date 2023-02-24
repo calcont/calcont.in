@@ -16,5 +16,5 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "staticfiles")
 ]
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '475883331625-q7vvbr7ovpjs7lhjr0rfdoil53gd1r69.apps.googleusercontent.com'# for development purpose
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '475883331625-q7vvbr7ovpjs7lhjr0rfdoil53gd1r69.apps.googleusercontent.com'  # for development purpose
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'y8FZoB0bV4DceEm6pFg1mmpe'
