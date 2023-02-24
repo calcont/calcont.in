@@ -2,6 +2,7 @@ from .. import MyFunctions
 
 tran = MyFunctions.TranslatorFun()
 
+
 def EnglishToHindi(request):
     respons = tran.EnglishToOther(
         request, 0, 'hi', '../templates/Translator/EnglishToOther/EnglishToHindi_Transl.html')
