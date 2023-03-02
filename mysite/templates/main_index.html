@@ -1,150 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="{% block MDesc %}{% endblock  %}" />
-    <meta name="keywords" content="{% block MKW %}{% endblock  %}" />
-    <meta name="revised" content="{% block Mr %}{% endblock  %}" />
-    <meta name="author" content="{% block MAut %}{% endblock  %}" />
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-      crossorigin="anonymous"
-    />
-    <meta name="p:domain_verify" content="28e934c826c14b50d8566460490226c8" />
-    <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
-    <script src="/static/js/typed.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
-    <meta name="p:domain_verify" content="28e934c826c14b50d8566460490226c8" />
-    <title>{% block title %} {% endblock title %}</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-T6P40QX3XC"
-    ></script>
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3911342542125154"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="{% block MDesc %}{% endblock  %}" />
+  <meta name="keywords" content="{% block MKW %}{% endblock  %}" />
+  <meta name="revised" content="{% block Mr %}{% endblock  %}" />
+  <meta name="author" content="{% block MAut %}{% endblock  %}" />
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
+  <meta name="p:domain_verify" content="28e934c826c14b50d8566460490226c8" />
+  <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+  <script src="/static/js/typed.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
+  <meta name="p:domain_verify" content="28e934c826c14b50d8566460490226c8" />
+  <title>{% block title %} {% endblock title %}</title>
+  <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
 
-      gtag("config", "G-T6P40QX3XC");
-    </script>
-    <script
-      data-ad-client="ca-pub-3911342542125154"
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-    ></script>
-  </head>
-  <style>
-    @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
-
-    html {
-      scroll-behavior: smooth;
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-T6P40QX3XC"></script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3911342542125154"
+    crossorigin="anonymous"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
     }
+    gtag("js", new Date());
 
-    a {
-      color: #6c859a;
-    }
+    gtag("config", "G-T6P40QX3XC");
+  </script>
+  <script data-ad-client="ca-pub-3911342542125154" async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<style>
+  @import url("https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
-    body {
-      background-color: rgb(25, 25, 25);
-    }
+  html {
+    scroll-behavior: smooth;
+  }
 
-    navbar {
-      background-color: rgb(5, 5, 5);
-    }
+  a {
+    color: #6c859a;
+  }
 
-    thead {
-      background-color: #2f6794;
-      color: #a1b0bb;
-    }
+  body {
+    background-color: rgb(25, 25, 25);
+  }
 
-    tbody {
-      background-color: #1c2023;
-    }
-    /* width */
-    ::-webkit-scrollbar {
-      width: 20px;
-    }
+  navbar {
+    background-color: rgb(5, 5, 5);
+  }
 
-    /* Track */
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #362f2f;
-      border-radius: 10px;
-    }
+  thead {
+    background-color: #2f6794;
+    color: #a1b0bb;
+  }
 
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #333538;
-      border-radius: 10px;
-    }
+  tbody {
+    background-color: #1c2023;
+  }
 
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #333538;
-    }
-    .btn {
-      padding: 0.5rem 1.8rem;
-      border: none;
-      font-size: 1rem;
-      border-radius: 2rem;
-      box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
-    }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 20px;
+  }
 
-    .btn-outline-secondary {
-      padding: 0.5rem 1.8rem;
-      border: none;
-      font-size: 1rem;
-      border-radius: 2rem;
-      box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
-      background-color: #313233;
-    }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #362f2f;
+    border-radius: 10px;
+  }
 
-    .trae {
-      padding: 0.8rem 1.8rem;
-      border: none;
-      font-size: 1rem;
-      border-radius: 2rem;
-      box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
-      background-color: #3879ba;
-    }
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #333538;
+    border-radius: 10px;
+  }
 
-    .content-bg {
-      background-color: rgb(30, 30, 30);
-      box-shadow: 13px 4px 19px 7px rgb(19 17 17);
-      border-radius: 20px;
-    }
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #333538;
+  }
 
-    @media only screen and (max-width: 500px) and (min-width: 300px) {
-      #AlertS {
-        font-size: 14px;
-      }
-    }
+  .btn {
+    padding: 0.5rem 1.8rem;
+    border: none;
+    font-size: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
+  }
 
-    #baktop {
-      right: 10px;
-      margin-top: 500px;
-      position: fixed;
-    }
+  .btn-outline-secondary {
+    padding: 0.5rem 1.8rem;
+    border: none;
+    font-size: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
+    background-color: #313233;
+  }
 
-    /* .signin,.google {
+  .trae {
+    padding: 0.8rem 1.8rem;
+    border: none;
+    font-size: 1rem;
+    border-radius: 2rem;
+    box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
+    background-color: #3879ba;
+  }
+
+  .content-bg {
+    background-color: rgb(30, 30, 30);
+    box-shadow: 13px 4px 19px 7px rgb(19 17 17);
+    border-radius: 20px;
+  }
+
+  @media only screen and (max-width: 500px) and (min-width: 300px) {
+    #AlertS {
+      font-size: 14px;
+    }
+  }
+
+  #baktop {
+    right: 10px;
+    margin-top: 500px;
+    position: fixed;
+  }
+
+  /* .signin,.google {
     padding: 0.8rem 1.8rem;
     border: none;
     border-radius: 2rem;
@@ -154,528 +141,302 @@
   
 
   } */
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
     }
+  }
 
-    .brand {
-      border: 1px solid black;
-      border-radius: 50px;
-    }
+  .brand {
+    border: 1px solid black;
+    border-radius: 50px;
+  }
 
-    .dropdown-menu {
-      background-color: rgb(25, 25, 25);
-      border: 1.5px solid white;
-      border-radius: 10px;
-      color: blanchedalmond;
-    }
+  .dropdown-menu {
+    background-color: rgb(25, 25, 25);
+    border: 1.5px solid white;
+    border-radius: 10px;
+    color: blanchedalmond;
+  }
 
-    .dropdown-item {
-      color: white;
-    }
+  .dropdown-item {
+    color: white;
+  }
 
-    .footer {
-      position: absolute;
-    }
+  .footer {
+    position: absolute;
+  }
 
-    .modelText {
-      font-size: 18px;
-    }
-  </style>
+  .modelText {
+    font-size: 18px;
+  }
+</style>
 
-  <body>
-    <!-- Modal -->
-    <div
-      class="modal fade text-light"
-      id="DoLogin"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div
-          class="modal-content"
-          style="background-color: rgb(25, 25, 25); border-radius: 40px"
-        >
-          <div
-            class="modal-header"
-            style="border-bottom: 1px solid rgb(41 40 40)"
-          >
-            <h4 class="modal-title" id="exampleModalLabel">Calcont Survey</h4>
-            <button
-              type="button"
-              class="close"
-              id="closeP"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body" id="mbdy">
-            <p class="modalText">
-              Hey there!!<br /><br />
-              Looks like you are finding this website helpful or interesting.<br />Can
-              you help me to create this more helpful by suggesting some ideas
-              about tools or feedback that you have?It will really help me to
-              improve this website and add new tools.
-              <br />
-              <br />
-              Do fill
-              <a class="signin" href="https://forms.gle/KLmkrvbeWPvkH5yM8"
-                >this form</a
-              >
-              or click anywhere in this alert.
-            </p>
+<body>
+  <!-- Modal -->
+  <div class="modal fade text-light" id="DoLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content" style="background-color: rgb(25, 25, 25); border-radius: 40px">
+        <div class="modal-header" style="border-bottom: 1px solid rgb(41 40 40)">
+          <h4 class="modal-title" id="exampleModalLabel">Calcont Survey</h4>
+          <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="mbdy">
+          <p class="modalText">
+            Hey there!!<br /><br />
+            Looks like you are finding this website helpful or interesting.<br />Can
+            you help me to create this more helpful by suggesting some ideas
+            about tools or feedback that you have?It will really help me to
+            improve this website and add new tools.
             <br />
-          </div>
+            <br />
+            Do fill
+            <a class="signin" href="https://forms.gle/KLmkrvbeWPvkH5yM8">this form</a>
+            or click anywhere in this alert.
+          </p>
+          <br />
         </div>
       </div>
     </div>
-    <nav
-      class="navbar navbar-expand-lg navbar-dark sticky-top"
-      style="background-color: rgb(20, 20, 20)"
-    >
-      <a class="navbar-brand" href="/">
-        <img
-          src="/static/Logo.png"
-          class="brand"
-          width="60"
-          height="60"
-          alt=""
-          loading="lazy"
-        />
-        CalConT
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarNavDropdown"
-        aria-controls="navbarNavDropdown"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link mx-3 font-weight-bolder" href="/"
-              >Home <span class="sr-only">(current)</span></a
-            >
-          </li>
+  </div>
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgb(20, 20, 20)">
+    <a class="navbar-brand" href="/">
+      <img src="/static/Logo.png" class="brand" width="60" height="60" alt="" loading="lazy" />
+      CalConT
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link mx-3 font-weight-bolder" href="/">Home <span class="sr-only">(current)</span></a>
+        </li>
 
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Text Analyzer
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/Analyzer/TextAnalyzer/"
-                >Text editor</a
-              >
-              <a class="dropdown-item" href="/Analyzer/name_sorting/"
-                >Words Sorting</a
-              >
-              <a class="dropdown-item" href="/Analyzer/Grammar_correction/"
-                >Grammar Checker</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Analyzer/Online-Keywords-extractor-from-text/"
-                >Keywords Extractor</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Analyzer/text-to-base64-converter/ "
-                >text to base64 encoder</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Analyzer/base64-to-text-converter/ "
-                >base64 to text decoder</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Analyzer/image-to-text-converter/ "
-                >Image to text converter</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Analyzer/text-to-image-converter/ "
-                >Text to Image converter</a
-              >
-              <a class="dropdown-item" href="/Analyzer/Language-Identifier/ "
-                >Language Identifier</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Analyzer/Caesar-cipher-encoder-decoder/ "
-                >Caesar cipher encoder/decoder</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Analyzer/playfair-cipher-encoder-decoder/ "
-                >Playfair cipher encoder/decoder</a
-              >
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Conversions
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/Conversion/BinaryConverter/"
-                >Binary Converter</a
-              >
-              <a class="dropdown-item" href="/Conversion/DecimalConverter/"
-                >Decimal Converter</a
-              >
-              <a class="dropdown-item" href="/Conversion/HexadecimalConverter/"
-                >Hexadecimal Converter</a
-              >
-              <a class="dropdown-item" href="/Conversion/infix_to_postfix"
-                >infix to postfix Converter</a
-              >
-              <a class="dropdown-item" href="/Conversion/infix_to_prefix"
-                >infix to prefix Converter</a
-              >
-              <a class="dropdown-item" href="/Conversion/prefix_to_infix"
-                >Prefix to infix converter</a
-              >
-              <a class="dropdown-item" href="/Conversion/prefix_to_postfix"
-                >Prefix to postfix converter</a
-              >
-              <a class="dropdown-item" href="/Conversion/postfix_to_infix"
-                >Postfix to infix converter</a
-              >
-              <a class="dropdown-item" href="/Conversion/CurrencyConverter/"
-                >Currency Converter</a
-              >
-              <a class="dropdown-item" href="/Conversion/cgpa_to_percentage/"
-                >Cgpa to percentage converter</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Conversion/Image_to_base64_Converter/"
-                >Image to base64 converter</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Conversion/Base64_to_Image_Converter/"
-                >Base64 to Image converter</a
-              >
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Calculators
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="/Calculator/EMI_calculator/"
-                >EMI Calculator</a
-              >
-              <a class="dropdown-item" href="/Calculator/BMI_calculator/"
-                >BMI Calculator</a
-              >
-              <a class="dropdown-item" href="/Calculator/GCD_calculator/"
-                >GCD Calculator</a
-              >
-              <a class="dropdown-item" href="/Calculator/Postfix_calculator/"
-                >Postfix Calculator</a
-              >
-              <a class="dropdown-item" href="/Calculator/Prefix_calculator/"
-                >Prefix Calculator</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Calculator/Material-weight-calculator/"
-                >Material Weight Calculator</a
-              >
-              <a
-                class="dropdown-item"
-                href="/Calculator/Linear-regression-calculator/"
-                >Linear regression Calculator</a
-              >
-              <a class="dropdown-item" href="/Calculator/HCF-LCM-calculator/"
-                >Hcf Lcm Calculator</a
-              >
-            </div>
-          </li>
-
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              Translator
-            </a>
-            <div
-              class="dropdown-menu dropdown-menu-dark"
-              aria-labelledby="navbarDropdown"
-            >
-              <a class="dropdown-item" href="/Translator/English_to_hindi/"
-                >English to Hindi</a
-              >
-              <a class="dropdown-item" href="/Translator/English_to_Marathi/"
-                >English to Marathi</a
-              >
-              <a class="dropdown-item" href="/Translator/English_to_French/"
-                >English to French</a
-              >
-              <a class="dropdown-item" href="/Translator/English_to_German/"
-                >English to German</a
-              >
-              <a class="dropdown-item" href="/Translator/English_to_Arabian/"
-                >English to Arabian</a
-              >
-              <a class="dropdown-item" href="/Translator/English_to_spanish/"
-                >English to Spanish</a
-              >
-              <a class="dropdown-item" href="/Translator/English_to_thai/"
-                >English to Thai</a
-              >
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="/Translator/Hindi_to_English/"
-                >Hindi to English</a
-              >
-              <a class="dropdown-item" href="/Translator/Hindi_to_Marathi/"
-                >Hindi to Marathi</a
-              >
-              <a class="dropdown-item" href="/Translator/Hindi_to_French/"
-                >Hindi to French</a
-              >
-              <a class="dropdown-item" href="/Translator/Hindi_to_German/"
-                >Hindi to German</a
-              >
-              <a class="dropdown-item" href="/Translator/Hindi_to_Arabian/"
-                >Hindi to Arabian</a
-              >
-              <a class="dropdown-item" href="/Translator/Hindi_to_Spanish/"
-                >Hindi to Spanish</a
-              >
-              <a class="dropdown-item" href="/Translator/Hindi_to_Thai/"
-                >Hindi to Thai</a
-              >
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a
-              class="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              More
-            </a>
-            <div
-              class="dropdown-menu dropdown-menu-dark"
-              aria-labelledby="navbarDropdown"
-            >
-              <a class="dropdown-item" href="/Contact_me">Contact me</a>
-              <a class="dropdown-item" href="/Supportme/">Support Me❤️</a>
-              <a class="dropdown-item" href="https://github.com/Amark19/calcont.in" target="_blank">Contribute</a>
-              <a
-                class="dropdown-item"
-                href="https://forms.gle/KLmkrvbeWPvkH5yM8/"
-                >Feature Request?</a
-              >
-            </div>
-          </li>
-        </ul>
-        {% if not user.is_authenticated %}
-        <div class="ml-auto my-2">
-          <a
-            type="button"
-            href="\login\"
-            class="btn btn-outline-secondary"
-            style="color: white"
-            >Login</a
-          >
-          <a type="button" href="\signin\" class="mx-2 btn btn-warning"
-            >Sign-up</a
-          >
-        </div>
-        {% else %}
-
-        <div class="dropdown ml-auto">
-          <a
-            class="btn btn-outline-warning dropdown-toggle"
-            href="#"
-            role="button"
-            id="dropdownMenuLink"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            Welcome {{request.user}}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Text Analyzer
           </a>
-
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="/logout/">Logout</a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/Analyzer/TextAnalyzer/">Text editor</a>
+            <a class="dropdown-item" href="/Analyzer/name_sorting/">Words Sorting</a>
+            <a class="dropdown-item" href="/Analyzer/Grammar_correction/">Grammar Checker</a>
+            <a class="dropdown-item" href="/Analyzer/Online-Keywords-extractor-from-text/">Keywords Extractor</a>
+            <a class="dropdown-item" href="/Analyzer/text-to-base64-converter/ ">text to base64 encoder</a>
+            <a class="dropdown-item" href="/Analyzer/base64-to-text-converter/ ">base64 to text decoder</a>
+            <a class="dropdown-item" href="/Analyzer/image-to-text-converter/ ">Image to text converter</a>
+            <a class="dropdown-item" href="/Analyzer/text-to-image-converter/ ">Text to Image converter</a>
+            <a class="dropdown-item" href="/Analyzer/Language-Identifier/ ">Language Identifier</a>
+            <a class="dropdown-item" href="/Analyzer/Caesar-cipher-encoder-decoder/ ">Caesar cipher encoder/decoder</a>
+            <a class="dropdown-item" href="/Analyzer/playfair-cipher-encoder-decoder/ ">Playfair cipher
+              encoder/decoder</a>
           </div>
-        </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Conversions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/Conversion/BinaryConverter/">Binary Converter</a>
+            <a class="dropdown-item" href="/Conversion/DecimalConverter/">Decimal Converter</a>
+            <a class="dropdown-item" href="/Conversion/HexadecimalConverter/">Hexadecimal Converter</a>
+            <a class="dropdown-item" href="/Conversion/infix_to_postfix">infix to postfix Converter</a>
+            <a class="dropdown-item" href="/Conversion/infix_to_prefix">infix to prefix Converter</a>
+            <a class="dropdown-item" href="/Conversion/prefix_to_infix">Prefix to infix converter</a>
+            <a class="dropdown-item" href="/Conversion/prefix_to_postfix">Prefix to postfix converter</a>
+            <a class="dropdown-item" href="/Conversion/postfix_to_infix">Postfix to infix converter</a>
+            <a class="dropdown-item" href="/Conversion/CurrencyConverter/">Currency Converter</a>
+            <a class="dropdown-item" href="/Conversion/cgpa_to_percentage/">Cgpa to percentage converter</a>
+            <a class="dropdown-item" href="/Conversion/Image_to_base64_Converter/">Image to base64 converter</a>
+            <a class="dropdown-item" href="/Conversion/Base64_to_Image_Converter/">Base64 to Image converter</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Calculators
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/Calculator/EMI_calculator/">EMI Calculator</a>
+            <a class="dropdown-item" href="/Calculator/BMI_calculator/">BMI Calculator</a>
+            <a class="dropdown-item" href="/Calculator/GCD_calculator/">GCD Calculator</a>
+            <a class="dropdown-item" href="/Calculator/Postfix_calculator/">Postfix Calculator</a>
+            <a class="dropdown-item" href="/Calculator/Prefix_calculator/">Prefix Calculator</a>
+            <a class="dropdown-item" href="/Calculator/Material-weight-calculator/">Material Weight Calculator</a>
+            <a class="dropdown-item" href="/Calculator/Linear-regression-calculator/">Linear regression Calculator</a>
+            <a class="dropdown-item" href="/Calculator/HCF-LCM-calculator/">Hcf Lcm Calculator</a>
+          </div>
+        </li>
 
-        {% endif %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Translator
+          </a>
+          <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/Translator/English_to_hindi/">English to Hindi</a>
+            <a class="dropdown-item" href="/Translator/English_to_Marathi/">English to Marathi</a>
+            <a class="dropdown-item" href="/Translator/English_to_French/">English to French</a>
+            <a class="dropdown-item" href="/Translator/English_to_German/">English to German</a>
+            <a class="dropdown-item" href="/Translator/English_to_Arabian/">English to Arabian</a>
+            <a class="dropdown-item" href="/Translator/English_to_spanish/">English to Spanish</a>
+            <a class="dropdown-item" href="/Translator/English_to_thai/">English to Thai</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="/Translator/Hindi_to_English/">Hindi to English</a>
+            <a class="dropdown-item" href="/Translator/Hindi_to_Marathi/">Hindi to Marathi</a>
+            <a class="dropdown-item" href="/Translator/Hindi_to_French/">Hindi to French</a>
+            <a class="dropdown-item" href="/Translator/Hindi_to_German/">Hindi to German</a>
+            <a class="dropdown-item" href="/Translator/Hindi_to_Arabian/">Hindi to Arabian</a>
+            <a class="dropdown-item" href="/Translator/Hindi_to_Spanish/">Hindi to Spanish</a>
+            <a class="dropdown-item" href="/Translator/Hindi_to_Thai/">Hindi to Thai</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            More
+          </a>
+          <div class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/Contact_me">Contact me</a>
+            <a class="dropdown-item" href="/Supportme/">Support Me❤️</a>
+            <a class="dropdown-item" href="https://github.com/Amark19/calcont.in" target="_blank">Contribute</a>
+            <a class="dropdown-item" href="https://forms.gle/KLmkrvbeWPvkH5yM8/">Feature Request?</a>
+          </div>
+        </li>
+      </ul>
+      {% if not user.is_authenticated %}
+      <div class="ml-auto my-2">
+        <a type="button" href="\login\" class="btn btn-outline-secondary" style="color: white">Login</a>
+        <a type="button" href="\signin\" class="mx-2 btn btn-warning">Sign-up</a>
       </div>
-    </nav>
-    {% block body %} {% endblock %}
-    <footer
-      class="container-fluid footer py-3 text-center text-light my-5"
-      style="background-color: rgb(21, 20, 19)"
-    >
-      <div class="row">
-        <div class="col-md-6 order-md-2">
-          <p class="my-3">
-            &copy;2020-2022 CalConT.in | <a href="/About/"> About </a> |
-            <a href="/Privacy_policy/">Privacy Policy </a>|
-            <a href="/Sitemaps/">Sitemap</a> |
-            <a href="https://github.com/Amark19/calcont.in" target="_blank">Contribute</a>
+      {% else %}
+
+      <div class="dropdown ml-auto">
+        <a class="btn btn-outline-warning dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome {{request.user}}
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item" href="/logout/">Logout</a>
+        </div>
+      </div>
+
+      {% endif %}
+    </div>
+  </nav>
+  {% block body %} {% endblock %}
+  <footer class="container-fluid footer py-3 text-center text-light my-5" style="background-color: rgb(21, 20, 19)">
+    <div class="row">
+      <div class="col-md-6 order-md-2">
+        <p class="my-3">
+          &copy;2020-2022 CalConT.in | <a href="/About/"> About </a> |
+          <a href="/Privacy_policy/">Privacy Policy </a>|
+          <a href="/Sitemaps/">Sitemap</a> |
+          <a href="https://github.com/Amark19/calcont.in" target="_blank">Contribute</a>
+        </p>
+      </div>
+      <div class="col-md-6 order-md-1">
+        <div class="container">
+          <p class="mx-auto mb-2" style="color: #6c859a">
+            <span class="text-light" style="font-size: 15px">Contact on :
+            </span>
+            <a href="mailto:calcont.in01@gmail.com">calcont.in01@gmail.com</a>
+          </p>
+          <p class="mx-auto">
+            Follow On :
+            <a href="https://www.linkedin.com/company/calcont-in/ "><img src="/static/linkedin.png" width="30px"
+                height="30px" alt="" /></a>
           </p>
         </div>
-        <div class="col-md-6 order-md-1">
-          <div class="container">
-            <p class="mx-auto mb-2" style="color: #6c859a">
-              <span class="text-light" style="font-size: 15px"
-                >Contact on :
-              </span>
-              <a href="mailto:calcont.in01@gmail.com">calcont.in01@gmail.com</a>
-            </p>
-            <p class="mx-auto">
-              Follow On :
-              <a href="https://www.linkedin.com/company/calcont-in/ "
-                ><img
-                  src="/static/linkedin.png"
-                  width="30px"
-                  height="30px"
-                  alt=""
-              /></a>
-            </p>
-          </div>
-        </div>
       </div>
-    </footer>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.js"
-      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
-      crossorigin="anonymous"
-    ></script>
-    <script>
-      function readCookie(name) {
-        var nameEQ = name + "=";
-        var ca = document.cookie.split(";");
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == " ") c = c.substring(1, c.length);
-          if (c.indexOf(nameEQ) == 0)
-            return c.substring(nameEQ.length, c.length);
-        }
+    </div>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  <script>
+    function readCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(";");
+      for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == " ") c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0)
+          return c.substring(nameEQ.length, c.length);
       }
+    }
 
-      function setexpire() {
-        var date1 = new Date();
+    function setexpire() {
+      var date1 = new Date();
 
-        date1.setTime(
-          new Date(
-            date1.getFullYear(),
-            date1.getMonth(),
-            date1.getDate(),
-            date1.getHours() + 48
-          )
-        );
+      date1.setTime(
+        new Date(
+          date1.getFullYear(),
+          date1.getMonth(),
+          date1.getDate(),
+          date1.getHours() + 48
+        )
+      );
 
-        var x = Math.floor(Math.random() * 1000 + 1);
+      var x = Math.floor(Math.random() * 1000 + 1);
 
-        document.cookie =
-          "PopCookie" +
-          "=" +
-          x +
-          "; " +
-          "expires=" +
-          date1.toUTCString() +
-          ";path=/";
-      }
-      function setexpire_7() {
-        var date1 = new Date();
+      document.cookie =
+        "PopCookie" +
+        "=" +
+        x +
+        "; " +
+        "expires=" +
+        date1.toUTCString() +
+        ";path=/";
+    }
+    function setexpire_7() {
+      var date1 = new Date();
 
-        date1.setTime(
-          new Date(
-            date1.getFullYear(),
-            date1.getMonth(),
-            date1.getDate() + 7,
-            date1.getHours(),
-            date1.getMinutes()
-          )
-        );
+      date1.setTime(
+        new Date(
+          date1.getFullYear(),
+          date1.getMonth(),
+          date1.getDate() + 7,
+          date1.getHours(),
+          date1.getMinutes()
+        )
+      );
 
-        var x = Math.floor(Math.random() * 1000 + 1);
+      var x = Math.floor(Math.random() * 1000 + 1);
 
-        document.cookie =
-          "PopCookie" +
-          "=" +
-          x +
-          "; " +
-          "expires=" +
-          date1.toUTCString() +
-          ";path=/";
-      }
+      document.cookie =
+        "PopCookie" +
+        "=" +
+        x +
+        "; " +
+        "expires=" +
+        date1.toUTCString() +
+        ";path=/";
+    }
 
-      var myCookie = readCookie("PopCookie");
+    var myCookie = readCookie("PopCookie");
 
       // if (myCookie == undefined) {
       //   // code to show modal here
@@ -693,7 +454,16 @@
       // $(".signin").click(function (e) {
       //   setexpire();
       // });
-    </script>
-    {% block JS %} {% endblock %}
-  </body>
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3911342542125154"
+    crossorigin="anonymous"></script>
+  <!-- recommend-calcont-adunit -->
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3911342542125154" data-ad-slot="3259871936"
+    data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  {% block JS %} {% endblock %}
+</body>
+
 </html>
