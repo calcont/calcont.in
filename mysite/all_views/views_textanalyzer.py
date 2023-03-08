@@ -144,10 +144,13 @@ def texttobase64(request):
 def base64totext(request):
     link_string1, link_string2 = SideMap.arrange(5, 1, 'AT')
     if request.method == "POST":
-        text = request.POST['text']
-        decoded_string = base64.b64decode(text.encode())
-        decoded_string = decoded_string.decode()
-        response = json.dumps({'Decoded': decoded_string}, default=str)
+        try:
+            text = request.POST['text']
+            decoded_string = base64.b64decode(text.encode())
+            decoded_string = decoded_string.decode()
+            response = json.dumps({'Decoded': decoded_string}, default=str)
+        except Exception:
+            response = json.dumps({'Decoded': "There is some Error while processing"}, default=str)
         return HttpResponse(response)
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/base64_to_text.html', param)

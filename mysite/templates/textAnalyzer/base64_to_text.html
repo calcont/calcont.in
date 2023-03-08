@@ -139,7 +139,6 @@ Amar khamkar
             encode: true,
             success: function (response) {
                 var GotRes = JSON.parse(response)
-                console.log(GotRes)
                 //console.log(x)
                 var keyword = GotRes['Decoded']
                 document.getElementById('output').value = keyword;

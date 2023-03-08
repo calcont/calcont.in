@@ -2,7 +2,6 @@ $(".cal").click(function (e) {
 
   e.preventDefault();
   let prefixExp = document.getElementById("prefix").value;
-  console.log(prefixExp);
   let stack = [];
 
   //function to check whether character is number or not
@@ -19,10 +18,8 @@ $(".cal").click(function (e) {
         continue;
       } else {
         let tempAns = eval(stack.pop() + prefixExp[idx] + stack.pop());
-        console.log(tempAns);
         stack.push(tempAns);
       }
-      console.log(stack);
     }
   }
   document.getElementById('Ans').value = stack.pop();

@@ -29,12 +29,15 @@ class TranslatorFun:
         link_string1, link_string2 = ArrangeSideMapForWebpage.arrange(
             self, indi_id, 3, 'AT')
         if request.method == "POST":
-            text = request.POST['text']
-            if text == "":
-                res = json.dumps({'ConTex': ""}, default=str)
-            else:
-                t = self.Translate(text, dest, src=src)
-                res = json.dumps({'ConTex': t.text}, default=str)
+            try:
+                text = request.POST['text']
+                if text == "":
+                    res = json.dumps({'ConTex': ""}, default=str)
+                else:
+                    t = self.Translate(text, dest, src=src)
+                    res = json.dumps({'ConTex': t.text}, default=str)
+            except Exception:
+                res = json.dumps({'ConTex': "There is some Error while processing"}, default=str)
             return HttpResponse(res)
         param = {'link_string1': link_string1, 'link_string2': link_string2}
         return render(request, htmlFile, param)
