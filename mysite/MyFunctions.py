@@ -16,13 +16,17 @@ class TranslatorFun:
         link_string1, link_string2 = ArrangeSideMapForWebpage.arrange(
             self, indi_id, 3, 'AT')
         if request.method == "POST":
-            text = request.POST.get('text', 'default')
-            t = self.Translate(text, dest)
-            alt = True
-            param = {"ortext": text, "text": t.text, "alt": alt,
-                     'link_string1': link_string1, 'link_string2': link_string2}
-            return render(request, htmlFile, param)
-        param = {'link_string1': link_string1, 'link_string2': link_string2}
+            try:
+                text = request.POST.get('text', 'default')
+                t = self.Translate(text, dest)
+                alt = True
+                param = {"ortext": text, "text": t.text, "alt": alt,
+                         'link_string1': link_string1, 'link_string2': link_string2}
+            except Exception:
+                param = {"ortext": text, "text": "There is some Error while processing, can be due to invalid input such as blank space", "alt": True,
+                         'link_string1': link_string1, 'link_string2': link_string2}
+        else:
+            param = {'link_string1': link_string1, 'link_string2': link_string2}
         return render(request, htmlFile, param)
 
     def HindiToOther(self, request, indi_id, dest, src, htmlFile):
