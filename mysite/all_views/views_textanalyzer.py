@@ -197,12 +197,12 @@ def LangIdenti(request):
             eng_txt = t.translate(text, dest='en')
             response = json.dumps({'e_lang': eng_txt.text}, default=str)
         else:
-            lang = t.detect(text)
             try:
+                lang = t.detect(text)
                 response = json.dumps(
                     {'lang': googletrans.LANGUAGES[lang.lang]}, default=str)
             except Exception:
-                err = "Not able to detect this language"
+                err = "Not able to detect this text.This might me due to some special characters or some other reason.Can you please try some other text?"
                 response = json.dumps({'lang': err}, default=str)
         return HttpResponse(response)
     param = {'link_string1': link_string1, 'link_string2': link_string2}
