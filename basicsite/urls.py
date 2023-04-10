@@ -23,7 +23,7 @@ urlpatterns = [
     path('oauth/', include('social_django.urls', namespace='social')),
     path('robots.txt/', TemplateView.as_view(template_name="robots.txt",
          content_type='text/plain')),
-    path('ads.txt/', TemplateView.as_view(template_name="ads.txt",
+    path('ads.txt', TemplateView.as_view(template_name="ads.txt",
          content_type='text/plain')),
     path('.well-known/brave-rewards-verification.txt/', TemplateView.as_view(
         template_name=".well-known/brave-rewards-verification.txt", content_type='text/plain')),
