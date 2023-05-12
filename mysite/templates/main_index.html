@@ -187,7 +187,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content" style="background-color: rgb(25, 25, 25); border-radius: 40px">
         <div class="modal-header" style="border-bottom: 1px solid rgb(41 40 40)">
-          <h4 class="modal-title" id="exampleModalLabel">Calcont Survey</h4>
+          <h4 class="modal-title" id="exampleModalLabel">Calcont Blog</h4>
           <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -195,15 +195,12 @@
         <div class="modal-body" id="mbdy">
           <p class="modalText">
             Hey there!!<br /><br />
-            Looks like you are finding this website helpful or interesting.<br />Can
-            you help me to create this more helpful by suggesting some ideas
-            about tools or feedback that you have?It will really help me to
-            improve this website and add new tools.
+            Looks like you are finding this website interesting.<br />
+            If you are a developer I have some <span class="text-warning">good news</span> for you !! That I have developed <a href="https://blog.calcont.in/" target="_blank"><b>calcont blog</b></a> where you can learn
+              about project developement using different technologies such as Html & Js, Django, Flutter & also about System Design. You can also 
+              learn about how we developed these tools in the website & about many more projecs.
             <br />
             <br />
-            Do fill
-            <a class="signin" href="https://forms.gle/KLmkrvbeWPvkH5yM8">this form</a>
-            or click anywhere in this alert.
           </p>
           <br />
         </div>
@@ -317,6 +314,10 @@
             <a class="dropdown-item" href="https://forms.gle/KLmkrvbeWPvkH5yM8/">Feature Request?</a>
           </div>
         </li>
+
+        <li class="nav-item active">
+          <a class="nav-link font-weight-bolder" target="_blank" href="https://blog.calcont.in">Blog</a>
+        </li>
       </ul>
       {% if not user.is_authenticated %}
       <div class="ml-auto my-2">
@@ -347,6 +348,7 @@
           &copy;2020-2022 CalConT.in | <a href="/About/"> About </a> |
           <a href="/Privacy_policy/">Privacy Policy </a>|
           <a href="/Sitemaps/">Sitemap</a> |
+          <a href="https://blog.calcont.in" target="_blank">Blog</a> |
           <a href="https://github.com/Amark19/calcont.in" target="_blank">Contribute</a>
         </p>
       </div>
@@ -411,14 +413,14 @@
         date1.toUTCString() +
         ";path=/";
     }
-    function setexpire_7() {
+    function setexpire_1Month() {
       var date1 = new Date();
 
       date1.setTime(
         new Date(
           date1.getFullYear(),
-          date1.getMonth(),
-          date1.getDate() + 7,
+          date1.getMonth() + 1,
+          date1.getDate(),
           date1.getHours(),
           date1.getMinutes()
         )
@@ -438,31 +440,34 @@
 
     var myCookie = readCookie("PopCookie");
 
-      // if (myCookie == undefined) {
-      //   // code to show modal here
-      //   setTimeout(function () {
-      //     $("#DoLogin").modal("show");
-      //   }, 50000);
-      // }
-      // $("#mbdy").click(function (e) {
-      //   document.location = "https://forms.gle/KLmkrvbeWPvkH5yM8";
-      //   setexpire();
-      // });
-      // $("#closeP").click(function (e) {
-      //   setexpire();
-      // });
-      // $(".signin").click(function (e) {
-      //   setexpire();
-      // });
+    if (myCookie == undefined) {
+      // code to show modal here
+      setTimeout(function () {
+        $("#DoLogin").modal("show");
+      }, 50000);
+    }
+    $("#mbdy").click(function (e) {
+      window.open("https://blog.calcont.in/");
+      setexpire_1Month();
+      $("#DoLogin").modal("hide");
+    });
+    $("#closeP").click(function (e) {
+      setexpire_1Month();
+      $("#DoLogin").modal("hide");
+    });
+    $(".signin").click(function (e) {
+      setexpire_1Month();
+      $("#DoLogin").modal("hide");
+    });
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3911342542125154"
-  crossorigin="anonymous"></script>
-<!-- recommend-calcont-adunit -->
-<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3911342542125154" data-ad-slot="3259871936"
-  data-ad-format="auto" data-full-width-responsive="true"></ins>
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+    crossorigin="anonymous"></script>
+  <!-- recommend-calcont-adunit -->
+  <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3911342542125154" data-ad-slot="3259871936"
+    data-ad-format="auto" data-full-width-responsive="true"></ins>
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
   {% block JS %} {% endblock %}
 </body>
 
