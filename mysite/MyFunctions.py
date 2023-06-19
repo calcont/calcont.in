@@ -41,7 +41,7 @@ class TranslatorFun:
                     t = self.Translate(text, dest, src=src)
                     res = json.dumps({'ConTex': t.text}, default=str)
             except Exception:
-                res = json.dumps({'ConTex': "There is some Error while processing"}, default=str)
+                res = json.dumps({'ConTex': "There is some Error while processing,edit some text or type some.It may work"}, default=str)
             return HttpResponse(res)
         param = {'link_string1': link_string1, 'link_string2': link_string2}
         return render(request, htmlFile, param)

@@ -114,26 +114,8 @@ Here, you can write/paste hindi text in english language(like:- mai acha hoon) t
 </div>
 {% endblock  %}
 {% block JS %}
+<script src="/static/js/translator/hindiToOther.js"></script>
 <script>
-    
-document.getElementById('HText').onkeyup = function(e){
-
-    var text = document.getElementById('HText') ,Otext;
-        $.ajax({
-        type:'POST',
-        url:'/Translator/Hindi_to_German/',
-        data:{
-            text:text.value,
-            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-        },
-        encode:true,
-        success:function(response){
-          var GotRes=JSON.parse(response)
-          Otext=GotRes['ConTex']
-          document.getElementById('EText').value = Otext;
-        } 
-});
-        }
-
+var url = '/Translator/Hindi_to_German/';
 </script>
 {% endblock  %}
