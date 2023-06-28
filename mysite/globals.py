@@ -34,7 +34,7 @@ def urlSideMapList():
         ['/Translator/English_to_Arabian/', 'English to Arabian Translator', 3, 'AT', 4],
         ['/Translator/English_to_spanish/', 'English to Spanish Translator', 3, 'AT', 5],
         ['/Translator/English_to_thai/', 'English to Thai Translator', 3, 'AT', 6],
-        ['Translator/Hindi_to_English/', 'Hindi to English Translator', 3, 'AT', 7],
+        ['/Translator/Hindi_to_English/', 'Hindi to English Translator', 3, 'AT', 7],
         ['/Translator/Hindi_to_Marathi/', 'Hindi to Marathi Translator', 3, 'AT', 8],
         ['/Translator/Hindi_to_German/', 'Hindi to German Translator', 3, 'AT', 9],
         ['/Translator/Hindi_to_French/', 'Hindi to French Translator', 3, 'AT', 10],
