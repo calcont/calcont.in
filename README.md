@@ -76,7 +76,7 @@ It is basically a core app of calcont which contains important folders,files suc
 
 ## Contributing
 
-Pull requests are welcome. For major changes, please open an issue first
+Pull requests are welcome. For major changes, please open an issue first or u can create new discussion topic
 to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
