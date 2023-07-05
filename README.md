@@ -19,7 +19,7 @@ then go to that directory where venv is
 ```
 cd venv_name
 ```
-clone calcont.in project
+fork & then clone calcont.in project
 ```
 git clone git@github.com:calcont/calcont.in.git
 ```
