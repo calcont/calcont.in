@@ -1,190 +1,178 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-You can convert your own text to image format and it's too useful and ease to use.You have to only write the text and you can also edit text if you want.
+You can convert your own text to image format and it's too useful and ease to use.You have to only write the text and
+you can also edit text if you want.
 any text
 {% endblock %}
-{% block MKW %}Text to image, text characters to image, Text to image generator, convert text to image, Generate image from text, save text as image, styled text to image, Numbers to image{% endblock %}
+{% block MKW %}Text to image, text characters to image, Text to image generator, convert text to image, Generate image
+from text, save text as image, styled text to image, Numbers to image{% endblock %}
 {% block Mr %}
 24/09/2021
 {% endblock %}
 {% block MAut %}
 Amar khamkar
 {% endblock %}
-{% block title %}   text to image converter - Convert text to image online
+{% block title %} text to image converter - Convert text to image online
 {% endblock %}
 {% block body %}
 <style>
+    textarea:focus {
+        border: 3px solid #232323;
+        border-radius: 0;
+    }
+
+    .canvas-container {
+        width: 100%;
+        max-width: 100%;
+        /* Ensure the container does not exceed the canvas width */
+        overflow: hidden;
+        /* Maintain aspect ratio (1:1) for the canvas */
+    }
+    /* Set the canvas dimensions to fit the canvas-container */
+    canvas {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        /* Position the canvas within the canvas-container */
+        top: 0;
+        left: 0;
+
+        border: 2px solid grey;
+        max-height: 200px;
+        overflow: scroll;
+    }
 
 
-/* textarea {
-  
-  min-height: 10rem;
-  transition: height 0.1s ease;
-} */
+    .palet {
+        width: 27px;
+        height: 27px;
+        border-radius: 15px;
+    }
 
-textarea:focus {
-  border: 3px solid #232323;
-  border-radius: 0;
-}
-
-canvas {
-  display: none;
-}
-.colors{
-    /* border: 2px solid #272727;
-    border-radius: 5px; */
-}
-.palet{
-    width: 27px;
-    height: 27px;
-    border-radius:15px ;
-}
-.colorSection{
-    border: 2px solid #353531;
-    border-radius: 20px;
-}
-#image {
-  display: none;
-  margin-top: 5rem;
-  margin-bottom: 5rem;
-  margin-left: auto;
-  margin-right: auto;
-}
+    .colorSection {
+        border: 2px solid #353531;
+        border-radius: 20px;
+    }
 </style>
 <div class="container text-light">
-    <div class="row ">
-
-        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-            <div class="my-4 ">
-                <h1>text to image converter </h1>
+    <div class="row">
+        <div class="col-md-7 my-3"
+            style="background-color: rgb(30, 30, 30); box-shadow: 13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4">
+                <h1>text to image converter</h1>
                 <hr class="my-4 bg-dark">
-                <h3 class="text-monospace my-2">text to image ?</h3>
-                <p class="text-monospace my-4">Text to Image converter helps you to convert your own written text into image format where it process your text and creates an respected image from text.
-                    You can also check our 
-                    <a href="/Analyzer/image-to-text-converter/">Image to text converter</a>.
-                </p>
+                <h3 class="text-monospace my-2">text to image?</h3>
+                <p class="text-monospace my-4">Text to Image converter helps you to convert your own written text into
+                    an image format where it processes your text and creates a respected image from text. You can also
+                    check our <a href="/Analyzer/image-to-text-converter/">Image to text converter</a>.</p>
                 <hr class="bg-dark my-2">
                 <h3 class="my-4 mb-4 text-monospace text-center">text to image converter</h3>
-                <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+                <div class="container" style="border: 3px solid #2b2929; border-radius: 10px;">
                     <section class="main my-5">
                         <div class="container">
-                            <div class="small">
-                                <canvas id="canv"></canvas>
-                                <div class="form-group my-4">
-                                <textarea class="form-control" type="text" id="text" onkeyup="grow(this)" placeholder="Text" style="    color: white;
-                                background-color: #191717;
-                                border: 3px solid black;
-                                border-radius: 15px;
-                                font-family: 'Anonymous Pro';
-                                    font-size: 2rem;
-                                    color: #d1d1d1;
-                                    resize: none;
-                                    overflow: hidden; " rows="4"></textarea>
-                            </div>
-                            <h4 class="">Output:</h4>
-                            <div class="img container" style=" border: 3px solid black;
-                            border-radius: 15px;">
-                               
-                                <img class="img-fluid"  id="image" />
+                            <div class="canvas-container">
+                                <canvas id="canvas" width="550" height="300"></canvas>
                             </div>
                             <div class="color-picker my-4">
                                 <div class="row colors">
                                     <div class="col-md-1 my-4">Edit:</div>
-                                    <div class="col-md-3   mx-2 mt-1 colorSection" style="margin-bottom: 35px;" id="textcolor">
-                                <input type="color" class="my-2   palet" id="ColorInput1" onchange="generate()" value="#BBBBBB" title="Choose your color">
-                                <label for="exampleColorInput" class="form-label">Text Color</label>
+                                    <div class="col-md-3 mx-2 mt-1 colorSection" style="margin-bottom: 35px;"
+                                        id="textcolor">
+                                        <input type="color" class="my-2 palet" id="ColorInput1" onchange="generate()"
+                                            value="#BBBBBB" title="Choose your color">
+                                        <label for="exampleColorInput" class="form-label">Text Color</label>
+                                    </div>
+                                    <div class="col-md-4 mx-2 mt-1 colorSection" style="margin-bottom: 35px;"
+                                        id="bgcolor">
+                                        <input type="color" class="my-2 palet" id="ColorInput2" onchange="generate()"
+                                            value="#232323" title="Choose your color">
+                                        <label for="exampleColorInput" class="form-label">Background Color</label>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="number" class="form-control my-2" onchange="generate()"
+                                            placeholder="Font-Size" id="fsize" value="20"
+                                            style="color: white; background-color: #1e1e1e; border: 3px solid #353531; border-radius: 15px;">
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
+                                            checked>
+                                        <label class="form-check-label" for="flexCheckChecked">Transparent
+                                            Background</label>
+                                    </div>
+                                </div>
                             </div>
-                                    <div class="col-md-4  mx-2 mt-1 colorSection" style="margin-bottom: 35px;" id="bgcolor">
-                                <input type="color" class="my-2  palet" id="ColorInput2" onchange="generate()" value="#232323" title="Choose your color">
-                                <label for="exampleColorInput" class="form-label">Background Color</label>
-                            </div>
-                            <div class="col-md-3">
-                                <input type="number" class="form-control my-2 " onchange="generate()" placeholder="Font-Size" id="fsize" value="20" style="    color: white;
-      background-color: #1e1e1e;
-      border: 3px solid #353531;
-      border-radius: 15px;" id="Infix" >
-                                  </div>
-                            </div>
-                            </div>
-                            <a class="my-4 btn btn-outline-secondary text-light" id="link" href="" download><img src="/static/file_download.svg" width="20" height="20" alt=""> Download</a>
-                        </div>
+                            <a class="my-4 btn btn-outline-secondary text-light" id="link" href="" download>
+                                <img src="/static/file_download.svg" width="20" height="20" alt=""> Download
+                            </a>
                         </div>
                     </section>
                 </div>
-
             </div>
             <hr class="my-4 bg-dark">
             <h3 class="text-monospace my-2">text to image converter in CalConT?</h3>
-            <p class="text-monospace my-4">So,to use this tool in calcont ,<br>
-                1.First you have to write or paste the text on textarea. <br>
-                2.Then image will be automatically generated you don't have to press any button overhere.All the process will be done on runtime. <br>
-                3.Also you can edit your image by provided option and then finally you can download generated image.
+            <p class="text-monospace my-4">
+                So, to use this tool in calcont,
+                <br>
+                1. First, you have to write or paste the text on textarea.
+                <br>
+                2. Then image will be automatically generated you don't have to press any button over here. All the
+                process will be done on runtime.
+                <br>
+                3. Also, you can edit your image by provided options and then finally you can download the generated
+                image.
             </p>
             <hr class="my-4 bg-dark">
             <h3 class="text-monospace my-4">Use of tool?</h3>
-            <p class=" my-4">There are a lot application like,
-                <p>
-                    <p class="my-2"> 1.It can be used as small photo editing software.</p>
-                    <p class="my-2"> 2.Can be used as quote,poetry generator.</p>
-                    <p class="my-2"> 3.Useful to create documents.</p>
-                    </p>
+            <p class="my-4">
+                There are a lot of applications like,
+            <p>
+            <p class="my-2">1. It can be used as small photo editing software.</p>
+            <p class="my-2">2. Can be used as a quote, poetry generator.</p>
+            <p class="my-2">3. Useful to create documents.</p>
+            </p>
+            </p>
         </div>
-                    
-
-
-
-<div class="col-md-4 my-4 ">
-    <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-        <h4 class="my-2">Analyzers</h3>
-            {% for link in link_string1 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-            {% endfor %}
+        <div class="col-md-4 my-4">
+            <div class="col my-3 p-4 d-flex flex-column position-static"
+                style="background-color: rgb(30, 30, 30); box-shadow: 13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2">Analyzers</h3>
+                    {% for link in link_string1 %}
+                    <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                    {% endfor %}
+            </div>
+            <div class="col p-4 d-flex flex-column position-static"
+                style="background-color: rgb(30, 30, 30); box-shadow: 13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2">Translators</h3>
+                    {% for link in link_string2 %}
+                    <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                    {% endfor %}
+            </div>
+        </div>
     </div>
-    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-
-
-        <h4 class="my-2 ">Translators</h3>
-            {% for link in link_string2 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-            {% endfor %}
-    </div>
-
-</div>
-</div>
 </div>
 
-{% endblock %}
-{% block JS %}
+
 <script>
-    var oldText,
-    canvas = document.getElementById("canv"),
-    a = document.getElementById("link"),
-    ctx = canvas.getContext("2d"),
-    img = document.getElementById("image");
-function grow(t) {
-    (t.style.height = "10rem"), (t.style.height = t.scrollHeight + "px"), (document.getElementById("image").style.display = "block"), generate();
-}
-var generate = function () {
-    var t = document.getElementById("text").value.split("\n").join("\n"),
-        e = t.split("\n"),
-        n = e.slice(0).sort(function (t, e) {
-            return e.length - t.length;
-        });
-    (ctx.canvas.width = ctx.measureText(n[0]).width + 25),
-        (ctx.canvas.height = 30 * e.length),
-        (ctx.fillStyle = document.getElementById("ColorInput2").value),
-        ctx.fillRect(0, 0, canvas.width, canvas.height),
-        (ctx.textBaseline = "middle"),
-        (ctx.font = `${document.getElementById("fsize").value}px Anonymous Pro`),
-        (ctx.fillStyle = document.getElementById("ColorInput1").value);
-    for (var l = 0; l < e.length; l++) ctx.fillText(e[l], 12.5, 15 + 30 * l);
-    (img.src = ctx.canvas.toDataURL()), (a.href = img.src), (oldText = t);
-};
+    document.addEventListener("DOMContentLoaded", function () {
+        // Create a new instance of Canvas
+        var canvas = new fabric.Canvas("canvas");
+
+        // Create a new Textbox instance
+        var text = new fabric.Textbox(
+            "A Sample Text",
+            {
+                width: 400,
+                fontSize: 40,
+                left: 50,
+                top: 50,
+                fill: "#BBBBBB",
+            }
+        );
+
+        // Render the Textbox on Canvas
+        canvas.add(text);
+    });
 
 
 </script>
-
 {% endblock %}
