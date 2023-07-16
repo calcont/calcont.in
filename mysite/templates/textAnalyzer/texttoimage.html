@@ -15,43 +15,72 @@ Amar khamkar
 {% block title %} text to image converter - Convert text to image online
 {% endblock %}
 {% block body %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/4.5.0/fabric.min.js"></script>
 <style>
-    textarea:focus {
-        border: 3px solid #232323;
-        border-radius: 0;
+    .custom-range::-webkit-slider-runnable-track {
+        background-color: #343a40;
+        /* Dark grey background color */
+        height: 4px;
+        /* Adjust the height of the track */
     }
 
-    .canvas-container {
-        width: 100%;
-        max-width: 100%;
-        /* Ensure the container does not exceed the canvas width */
-        overflow: hidden;
-        /* Maintain aspect ratio (1:1) for the canvas */
-    }
-    /* Set the canvas dimensions to fit the canvas-container */
-    canvas {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        /* Position the canvas within the canvas-container */
-        top: 0;
-        left: 0;
-
-        border: 2px solid grey;
-        max-height: 200px;
-        overflow: scroll;
+    .custom-range::-webkit-slider-thumb {
+        background-color: #fff;
+        /* White thumb color */
+        border: 1px solid #6c757d;
+        /* Optional: Add a border around the thumb */
+        height: 16px;
+        /* Adjust the height of the thumb */
+        width: 16px;
+        /* Adjust the width of the thumb */
+        margin-top: -6px;
+        /* Adjust the vertical position of the thumb */
     }
 
+    /* Optional: Adjust the color when the thumb is being dragged */
+    .custom-range::-moz-range-thumb {
+        background-color: #fff;
+        /* White thumb color */
+        border: 1px solid #6c757d;
+        /* Optional: Add a border around the thumb */
+        height: 16px;
+        /* Adjust the height of the thumb */
+        width: 16px;
+        /* Adjust the width of the thumb */
+        margin-top: -6px;
+        /* Adjust the vertical position of the thumb */
+    }
 
-    .palet {
-        width: 27px;
-        height: 27px;
+    /* Optional: Adjust the color when the thumb is being dragged */
+    .custom-range::-ms-thumb {
+        background-color: #fff;
+        /* White thumb color */
+        border: 1px solid #6c757d;
+        /* Optional: Add a border around the thumb */
+        height: 16px;
+        /* Adjust the height of the thumb */
+        width: 16px;
+        /* Adjust the width of the thumb */
+        margin-top: -6px;
+        /* Adjust the vertical position of the thumb */
+    }
+
+    #c {
+        border: 2px solid rgb(66, 66, 66);
+        top: 22px;
+        left: 0px;
+    }
+
+    .select {
+        color: white;
+        background-color: #191717;
+        border: 3px solid black;
         border-radius: 15px;
     }
 
-    .colorSection {
-        border: 2px solid #353531;
-        border-radius: 20px;
+    .palet {
+        width: 25px;
+        height: 25px;
     }
 </style>
 <div class="container text-light">
@@ -68,45 +97,123 @@ Amar khamkar
                 <hr class="bg-dark my-2">
                 <h3 class="my-4 mb-4 text-monospace text-center">text to image converter</h3>
                 <div class="container" style="border: 3px solid #2b2929; border-radius: 10px;">
-                    <section class="main my-5">
-                        <div class="container">
-                            <div class="canvas-container">
-                                <canvas id="canvas" width="550" height="300"></canvas>
+                    <section class="main my-5" style="display: flex; justify-content: center;">
+                        <canvas id="c" style="max-width: 100%;"></canvas>
+                    </section>
+                    <p class="lead font-weight-bold text-center">Edit👇</p>
+                    <div class="edit my-4">
+                        <div class="row">
+                            <div class="col-md">
+                                <label class="visually-hidden" for="autoSizingSelect">Font</label>
+                                <select class="form-control select" id="font-family">
+                                    <option class=" select" value="arial">Arial</option>
+                                    <option class="select" value="helvetica" selected>Helvetica</option>
+                                    <option class="select" value="myriad pro">Myriad Pro</option>
+                                    <option class="select" value="delicious">Delicious</option>
+                                    <option class="select" value="times new roman">Times new roman</option>
+                                    <option class="select" value="verdana">Verdana</option>
+                                    <option class="select" value="georgia">Georgia</option>
+                                    <option class="select" value="courier">Courier</option>
+                                    <option class="select" value="comic sans ms">Comic Sans MS</option>
+                                    <option class="select" value="impact">Impact</option>
+                                    <option class="select" value="monaco">Monaco</option>
+                                    <option class="select" value="optima">Optima</option>
+                                    <option class="select" value="hoefler text">Hoefler Text</option>
+                                    <option class="select" value="plaster">Plaster</option>
+                                    <option class="select" value="engagement">Engagement</option>
+                                </select>
                             </div>
-                            <div class="color-picker my-4">
-                                <div class="row colors">
-                                    <div class="col-md-1 my-4">Edit:</div>
-                                    <div class="col-md-3 mx-2 mt-1 colorSection" style="margin-bottom: 35px;"
-                                        id="textcolor">
-                                        <input type="color" class="my-2 palet" id="ColorInput1" onchange="generate()"
-                                            value="#BBBBBB" title="Choose your color">
-                                        <label for="exampleColorInput" class="form-label">Text Color</label>
-                                    </div>
-                                    <div class="col-md-4 mx-2 mt-1 colorSection" style="margin-bottom: 35px;"
-                                        id="bgcolor">
-                                        <input type="color" class="my-2 palet" id="ColorInput2" onchange="generate()"
-                                            value="#232323" title="Choose your color">
-                                        <label for="exampleColorInput" class="form-label">Background Color</label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <input type="number" class="form-control my-2" onchange="generate()"
-                                            placeholder="Font-Size" id="fsize" value="20"
-                                            style="color: white; background-color: #1e1e1e; border: 3px solid #353531; border-radius: 15px;">
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked"
-                                            checked>
-                                        <label class="form-check-label" for="flexCheckChecked">Transparent
-                                            Background</label>
-                                    </div>
+                            <div class="col-md ">
+                                <label for="text-align" style="display:inline-block">Text align:</label>
+                                <select id="text-align" class="form-control select">
+                                    <option class="select" value="left">Left</option>
+                                    <option class="select" value="center">Center</option>
+                                    <option class="select" value="right">Right</option>
+                                    <option class="select" value="justify">Justify</option>
+                                </select>
+                            </div>
+                            <div class="col-md my-2">
+                                <label for="customRange1">Font Size</label>
+                                <input type="range" class="custom-range" value="50" min="1" max="120" step="1"
+                                    id="text-font-size">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 my-3">
+                                <div class="my-2">
+                                    <input type="color" class="palet" value="" id="text-color">
+                                    <label for="customRange1">Text color</label>
+                                </div>
+                                <div class="my-2">
+                                    <input type="color" class="palet" value="" id="canvas-bg-color">
+                                    <label for="customRange1">Background color</label>
+                                </div>
+                                <div class="my-2">
+                                    <input type="color" class="palet" value="" id="text-lines-bg-color">
+                                    <label for="customRange1">Background text color </label>
+                                </div>
+                                <div class="my-2">
+                                    <input type="color" class="palet" value="" id="text-stroke-color">
+                                    <label for="customRange1">stroke color </label>
                                 </div>
                             </div>
-                            <a class="my-4 btn btn-outline-secondary text-light" id="link" href="" download>
-                                <img src="/static/file_download.svg" width="20" height="20" alt=""> Download
-                            </a>
+                            <div class="col-md-6 my-3">
+                                <div class="my-2">
+                                    <label for="text-stroke-width">Stroke width</label>
+                                    <input type="range" class="custom-range" value="1" min="1" max="5" step="1"
+                                        id="text-stroke-width">
+
+                                </div>
+                                <div class="custom-control custom-checkbox my-2">
+                                    <input type="checkbox" class="custom-control-input" id="transparent-bg">
+                                    <label class="custom-control-label" for="transparent-bg" >Transparent
+                                        background</label>
+                                </div>
+                                <div class="my-2">
+                                    <label for="text-stroke-width">Line Height</label>
+                                    <input type="range" class="custom-range" value="1" min="0" max="10" step="0.1"
+                                        id="text-line-height">
+                                </div>
+                            </div>
                         </div>
-                    </section>
+                        <div id="text-controls-additional" class="row mx-auto">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" name='fonttype' id="text-cmd-bold">
+                                <label class="custom-control-label" for="text-cmd-bold">Bold</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mx-2">
+                                <input type="checkbox" class="custom-control-input" name='fonttype'
+                                    id="text-cmd-italic">
+                                <label class="custom-control-label" for="text-cmd-italic">Italic</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mx-2">
+                                <input type="checkbox" class="custom-control-input" name='fonttype'
+                                    id="text-cmd-underline">
+                                <label class="custom-control-label" for="text-cmd-underline">Underline</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mx-2">
+                                <input type="checkbox" class="custom-control-input" name='fonttype'
+                                    id="text-cmd-overline">
+                                <label class="custom-control-label" for="text-cmd-overline">Overline</label>
+                            </div>
+                            <div class="custom-control custom-checkbox mx-2">
+                                <input type="checkbox" class="custom-control-input" name='fonttype'
+                                    id="text-cmd-linethrough">
+                                <label class="custom-control-label" name='fonttype'
+                                    for="text-cmd-linethrough">Linethrough</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start my-2">
+                        <a class=" btn btn-outline-secondary text-light" id="link" href="" download>
+                            <img src="/static/file_download.svg" width="20" height="20" alt=""> download
+                        </a>
+                        <a class=" mx-2 btn btn-outline-secondary text-light" id="reset" href="">
+                            Reset
+                        </a>
+                    </div>
                 </div>
+
             </div>
             <hr class="my-4 bg-dark">
             <h3 class="text-monospace my-2">text to image converter in CalConT?</h3>
@@ -152,27 +259,6 @@ Amar khamkar
 </div>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Create a new instance of Canvas
-        var canvas = new fabric.Canvas("canvas");
-
-        // Create a new Textbox instance
-        var text = new fabric.Textbox(
-            "A Sample Text",
-            {
-                width: 400,
-                fontSize: 40,
-                left: 50,
-                top: 50,
-                fill: "#BBBBBB",
-            }
-        );
-
-        // Render the Textbox on Canvas
-        canvas.add(text);
-    });
-
-
+<script src="/static/js/textAnalyzers/textToImage.js">
 </script>
 {% endblock %}
