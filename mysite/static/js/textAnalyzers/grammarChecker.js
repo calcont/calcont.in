@@ -3,11 +3,12 @@ let isProcessing = false;
 let alertM = document.getElementById('alert');
 let loading = document.getElementById('loading');
 let buttons = document.getElementById('buttons');
+let lengthThreshold = 300
 function countChar() {
     len = document.getElementById('Text').value.length;
-    document.getElementById('exceed').innerHTML = "(" + len + "/1000)";
-    if (len > 1000) {
-        alertM.innerHTML = "Please enter text less than 1000 characters";
+    document.getElementById('exceed').innerHTML = "(" + len + `/${lengthThreshold})`;
+    if (len > lengthThreshold) {
+        alertM.innerHTML = "Please enter text less than " +  lengthThreshold + " characters";
     }
     else {
         alertM.innerHTML = "";
@@ -26,8 +27,8 @@ function commonChecks(e) {
         alertM.innerHTML = "Please enter some text";
         return false;
     }
-    if (len > 1500) {
-        alertM.innerHTML = "Please enter text less than 1000 characters";
+    if (len > lengthThreshold) {
+        alertM.innerHTML = "Please enter text less than " +  lengthThreshold + " characters";
         return false;
     }
     e.preventDefault();
