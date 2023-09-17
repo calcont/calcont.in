@@ -11,6 +11,7 @@ import googletrans
 import pytesseract
 from io import BytesIO
 from django.views.decorators.csrf import csrf_exempt
+import language_tool_python
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
 if os.getcwd() != '/app':  # for windows
@@ -27,7 +28,6 @@ def text(request):
         fullcaps = request.POST.get('fullcaps', 'off')
         newlineremover = request.POST.get('newlineremover', 'off')
         xtraspaceremover = request.POST.get('xtraspaceremover', 'off')
-        # print(tex)
         IsEnter = True
         if removepunc == 'on':
             pun = '''!.()-[]{};:'"/\,<>?@#$%^_~'''
@@ -63,39 +63,33 @@ def text(request):
 
 def Grammar_correction(request):
     link_string1, link_string2 = SideMap.arrange(2, 1, 'AT')
-    if request.method == 'POST':
-        IsEnter = True
-        text = request.POST.get('text', 'default')
-        from .. import ginger
-        length_text = len(text)
-        if length_text < 300:
-            result = ginger.gingerI().parse(text)
-            n = len(list(result['corrections']))
-            d = []
-            a = []
-            for i in range(n):
-                dash = list(result['corrections'][i].items())
-                d.append(dash[0][1])
-            d.reverse()
-            i = 0
-            while i < (len(text)):
-                if i in d:
-                    for j in range(i, len(text)):
-                        if text[j] == " ":
-                            break
-                    a.append("\u0332".join(text[i:j + 1]))
-                    i = j
-                else:
-                    a.append(text[i])
-                i += 1
-            Text = "".join(a)
+    if request.method == "POST":
+        payload = json.loads(request.POST['payload'])
+        text = payload['text']
+        type = payload['type']
+        my_tool = language_tool_python.LanguageTool('en-US')
+        if type == 'check':
+            text_with_underline = ""
+            offsets = [(rule.offset, rule.errorLength, rule.ruleId, rule.message) for rule in my_tool.check(text)]
+            index = 0
 
-            param = {'NewText': result['result'], "text": Text, "IsEnter": IsEnter,
-                     "length_text": length_text, 'link_string1': link_string1, 'link_string2': link_string2}
-        else:
-            param = {'NewText': " ", "text": text, "IsEnter": IsEnter, "length_text": length_text,
-                     'link_string1': link_string1, 'link_string2': link_string2}
-        return render(request, '../templates/textAnalyzer/Grammar_correction.html', param)
+            suggestions = {}
+
+            for (from_, length, ruleId, message) in offsets:
+                text_with_underline += text[index:from_]
+                for i in range(from_, from_ + length):
+                    text_with_underline += text[i] + "\u0332"
+                index = from_ + length
+                suggestions[ruleId] = message
+            text_with_underline += text[index:]
+            response = json.dumps({'text': text_with_underline, 'suggestions': suggestions}, default=str)
+            return HttpResponse(response)
+        elif type == 'correct':
+            text = text.replace("\u0332", "")
+            corrected_text = my_tool.correct(text)
+            response = json.dumps({'text': corrected_text}, default=str)
+            return HttpResponse(response)
+
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/Grammar_correction.html', param)
 
@@ -172,8 +166,7 @@ def imagetotext(request):
             image = request.FILES['image']
             img = Image.open(image)
             result = pytesseract.image_to_string(img)
-        except Exception as e:
-            print(e)
+        except Exception:
             url = request.POST.get('url')
             import requests
             response = requests.get(url)

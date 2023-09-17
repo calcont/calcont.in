@@ -30,7 +30,6 @@ function doneTyping() {
         success: function (response) {
             var GotRes = JSON.parse(response)
             Otext = GotRes['ConTex']
-            console.log(Otext);
             document.getElementById('EText').value = Otext;
         }
     });
