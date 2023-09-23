@@ -53,16 +53,16 @@ in which wrong words are underlined.</p>
               <textarea class="form-control input" id="Text" name='text' placeholder="Enter your text" rows="10" style="    color: white;
               background-color: #191717;
               border: 3px solid black;
-              border-radius: 15px;" onkeyup="countChar()" required></textarea>
+              border-radius: 15px;" onkeyup="countChar()" ></textarea>
             </div>
-            <p id="exceed" class=" mx-2">(0/300)</p>
+            <p id="exceed" class="mx-2">(0/1000)</p>
             <p id="alert" class="mx-2 text-danger"></p>
+            <p id="Palert" class="mx-2 text-primary" style="display: none;">Text is corrected !</p>
             <div class="spinner-border text-primary mb-2" role="status" id="loading" style="display: none;">
               <span class="visually-hidden"></span>
             </div>
             <div class="mb-2" id="buttons">
-              <a class="mx-2 btn btn-outline-secondary btn-md check" id="check" role="button">Check</a>
-              <a class="mx-2 btn btn-outline-secondary btn-md  correct" id="correct" role="button">Correct</a>
+              <a class=" btn btn-outline-secondary btn-md correct" id="correct" role="button">Correct</a>
             </div>
           </form>
 </div>

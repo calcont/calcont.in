@@ -1,6 +1,7 @@
 from .. import MyFunctions
 from django.shortcuts import render
 from django.http import HttpResponse
+import requests
 import json
 from rake_nltk import Rake
 import base64
@@ -61,36 +62,27 @@ def text(request):
 
 
 def Grammar_correction(request):
-    # link_string1, link_string2 = SideMap.arrange(2, 1, 'AT')
-    # if request.method == "POST":
-    #     payload = json.loads(request.POST['payload'])
-    #     text = payload['text']
-    #     type = payload['type']
-    #     my_tool = language_tool_python.LanguageTool('en-US')
-    #     if type == 'check':
-    #         text_with_underline = ""
-    #         offsets = [(rule.offset, rule.errorLength, rule.ruleId, rule.message) for rule in my_tool.check(text)]
-    #         index = 0
+    link_string1, link_string2 = SideMap.arrange(2, 1, 'AT')
+    if request.method == "POST":
+        text = request.POST['text']
+        url = os.environ.get('GRAMMAR_API_URL')
+        headers = {
+            "content-type": "application/x-www-form-urlencoded",
+            "X-RapidAPI-Key": os.environ.get('GRAMMAR_API_KEY'),
+            "X-RapidAPI-Host": os.environ.get('GRAMMAR_API_HOST')
+        }
+        response = requests.post(url, data=request.POST, headers=headers)
+        response = response.json()
+        errors = response['response']['errors']
+        reversed_errors = reversed(errors)
 
-    #         suggestions = {}
-
-    #         for (from_, length, ruleId, message) in offsets:
-    #             text_with_underline += text[index:from_]
-    #             for i in range(from_, from_ + length):
-    #                 text_with_underline += text[i] + "\u0332"
-    #             index = from_ + length
-    #             suggestions[ruleId] = message
-    #         text_with_underline += text[index:]
-    #         response = json.dumps({'text': text_with_underline, 'suggestions': suggestions}, default=str)
-    #         return HttpResponse(response)
-    #     elif type == 'correct':
-    #         text = text.replace("\u0332", "")
-    #         corrected_text = my_tool.correct(text)
-    #         response = json.dumps({'text': corrected_text}, default=str)
-    #         return HttpResponse(response)
-
-    # param = {'link_string1': link_string1, 'link_string2': link_string2}
-    return render(request, '../templates/underConstruction.html')
+        corrected_text = text
+        for error in reversed_errors:
+            correction = error['better'][0]
+            corrected_text = corrected_text[:error['offset']] + correction + corrected_text[error['offset'] + error['length']:]
+        return HttpResponse(corrected_text)
+    param = {'link_string1': link_string1, 'link_string2': link_string2}
+    return render(request, '../templates/textAnalyzer/Grammar_correction.html', param)
 
 # namesorting
 
