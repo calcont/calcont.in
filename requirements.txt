@@ -42,7 +42,7 @@ psycopg2==2.9.5
 pybase64==1.2.0
 pycodestyle==2.10.0
 pycparser==2.20
-pycryptodome==3.11.0
+pycryptodome==3.19.1
 pyflakes==3.0.1
 PyJWT==2.4.0
 pyparsing==3.0.7
