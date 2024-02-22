@@ -7,6 +7,7 @@ from basicsite.settings.base import BASE_DIR
 import json
 import os
 import environ
+import urllib
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 client_secret = env('client_secret_captcha')
@@ -19,7 +20,6 @@ def isCaptchaValid(r):
         'secret': client_secret,
         'response': r,
     }
-    import urllib
     data = urllib.parse.urlencode(captchaData).encode()
     req = urllib.request.Request(url, data=data)
     response = urllib.request.urlopen(req)
@@ -78,7 +78,7 @@ def Signin(request):
 
         # create user
 
-        if len(pass1) < 5 or len(pass1) > 10 or not pass1.isalnum():
+        if len(pass1) < 5 or len(pass1) > 18 or not pass1.isalnum():
             messages.warning(request, "Invalid Password.")
             return render(request, "../templates/Signin.html")
 
