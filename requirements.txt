@@ -7,7 +7,7 @@ charset-normalizer==2.0.12
 click==8.0.1
 cloudscraper==1.2.58
 colorama==0.4.4
-cryptography==41.0.4
+cryptography==42.0.5
 defusedxml==0.7.1
 diff-match-patch==20200713
 dj-database-url==0.5.0
