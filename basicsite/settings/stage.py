@@ -21,9 +21,6 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = ['.calcont.in', 'calcont.in', '.herokuapp.com']
 
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-
 SECURE_HSTS_SECONDS = 60
 
 SESSION_COOKIE_SECURE = True
