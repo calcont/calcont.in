@@ -16,20 +16,10 @@ ADMINS = [
     ('CalConT', 'calcont.in01@gmail.com'),
 ]
 
-EMAIL_USE_TLS = True
-EMAIL_PORT = 587
-EMAIL_HOST = 'smtp.mailgun.org'
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = ['.calcont.in', 'calcont.in', '.herokuapp.com']
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
-PREPEND_WWW = True
 
 SECURE_HSTS_SECONDS = 60
 
