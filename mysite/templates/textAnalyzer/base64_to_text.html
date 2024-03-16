@@ -15,10 +15,8 @@ Amar khamkar
 {% block body %}
 <style>
     .input {
-
         border: 1px solid rgb(38, 35, 35);
         border-radius: 10px;
-
     }
 
     .AddName {
@@ -27,9 +25,7 @@ Amar khamkar
 </style>
 <div class="container text-light">
     <div class="row ">
-
-        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);box-shadow:13px 4px 19px 7px rgb(19 17 17);">
             <div class="my-4 ">
                 <h1 >Base64 to text converter</h1>
                 <hr class="my-4 bg-dark">
@@ -42,8 +38,6 @@ Amar khamkar
                 <hr class="bg-dark my-2">
                 <h3 class="my-4 mb-4 text-monospace text-center">Base64 to Text decoder</h3>
                 <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
-                    <form id="post-form">
-                        {% csrf_token %}
                         <div class="form-group mb-4">
                             <textarea class="form-control input my-4" name="text" placeholder="Enter the base64 string" id="text"
                                 rows="7" style="    color: white;
@@ -55,24 +49,17 @@ Amar khamkar
             border: 3px solid black;
             border-radius: 15px; " disabled></textarea>
                         </div>
-
-
                         <div class="mb-2">
                             <div class="row">
                                 <div class="col-8">
-                                    <button class="mx-2  btn btn-outline-secondary btn-md extract text-light"
-                                        type="submit">Decode</button>
+                                    <button class="mx-2 btn btn-outline-secondary btn-md text-light" onclick="base64ToText()">Decode</button>
                                 </div>
-
                                 <div class="col-4">
-                                    <a class="mx-2  btn btn-outline-secondary btn-md clear">Clear</a>
+                                    <button class="mx-2 btn btn-outline-secondary btn-md text-light" onclick="clearText()">Clear</button>
                                 </div>
-
                             </div>
                         </div>
-                    </form>
                 </div>
-
             </div>
             <hr class="my-4 bg-dark">
             <h3 class="text-monospace my-2">base64 decoder in CalConT?</h3>
@@ -89,66 +76,45 @@ Amar khamkar
                     <p class="my-2"> 1.It can be used to decode text after receiving base64 format of some important information.</p>
                     <p class="my-2"> 2.Use in Security or cryptography.</p>
                     <p class="my-2"> 3.Uses in Computer networks.</p>
-                    <p class="my-2"> 3.Base64 is commonly used in a number of applications including email via MIME, and storing complex data in XML.</p>
-                    </p>
+                    <p class="my-2"> 4.Base64 is commonly used in a number of applications including email via MIME, and storing complex data in XML.</p>
+                </p>
         </div>
-                    
-
-
-
-<div class="col-md-4 my-4 ">
-    <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-        <h4 class="my-2">Analyzers</h3>
-            {% for link in link_string1 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-            {% endfor %}
+        <div class="col-md-4 my-4 ">
+            <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+            box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2">Analyzers</h3>
+                    {% for link in link_string1 %}
+                    <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                    {% endfor %}
+            </div>
+            <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+            box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2 ">Translators</h4>
+                    {% for link in link_string2 %}
+                    <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                    {% endfor %}
+            </div>
+        </div>
     </div>
-    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-
-
-        <h4 class="my-2 ">Translators</h3>
-            {% for link in link_string2 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-            {% endfor %}
-    </div>
-
-</div>
-</div>
 </div>
 
 {% endblock %}
 {% block JS %}
 <script>
-    $('.clear').click(function (e) {
-        document.getElementById('text').value = "";
-        document.getElementById('output').value = "";
-        e.preventDefault();
-    })
-    $(document).on('submit', '#post-form', function (e) {
-        $('#content').empty();
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: '/Analyzer/base64-to-text-converter/',
-            data: {
-                text: $('#text').val(),
-                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-            },
-            encode: true,
-            success: function (response) {
-                var GotRes = JSON.parse(response)
-                //console.log(x)
-                var keyword = GotRes['Decoded']
-                document.getElementById('output').value = keyword;
-            },
-            error: function (response) {
-                document.getElementById('output').value = "invalid string";
-            },
-            
-        })
-    })
+    function base64ToText() {
+        var text = document.getElementById('text').value;
+        var output = document.getElementById('output');
+        try {
+            output.value = decodeURIComponent(escape(window.atob(text)));
+        } catch (e) {
+            output.value = "Invalid base64 string";
+        }
+    }
+
+    function clearText() {  
+        document.getElementById('text').value = '';
+        document.getElementById('output').value = '';
+    }
 </script>
 
 {% endblock %}

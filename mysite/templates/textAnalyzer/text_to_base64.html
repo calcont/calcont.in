@@ -27,9 +27,7 @@ Amar khamkar
 </style>
 <div class="container text-light">
     <div class="row ">
-
-        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);box-shadow:13px 4px 19px 7px rgb(19 17 17);">
             <div class="my-4 ">
                 <h1 >Text to Base64</h1>
                 <hr class="my-4 bg-dark">
@@ -42,8 +40,6 @@ Amar khamkar
                 <hr class="bg-dark my-2">
                 <h3 class="my-4 mb-4 text-monospace text-center">text to base64 encoder</h3>
                 <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
-                    <form id="post-form">
-                        {% csrf_token %}
                         <div class="form-group mb-4">
                             <textarea class="form-control input my-4" name="text" placeholder="Enter the text" id="text"
                                 rows="7" style="    color: white;
@@ -55,24 +51,19 @@ Amar khamkar
             border: 3px solid black;
             border-radius: 15px; " disabled></textarea>
                         </div>
-
-
                         <div class="mb-2">
                             <div class="row">
                                 <div class="col-8">
-                                    <button class="mx-2  btn btn-outline-secondary btn-md extract text-light"
-                                        type="submit">Encode</button>
+                                    <button class="mx-2 btn btn-outline-secondary btn-md text-light" onclick="textToBase64()">Encode</button>
                                 </div>
 
                                 <div class="col-4">
-                                    <a class="mx-2  btn btn-outline-secondary btn-md clear">Clear</a>
+                                    <button class="mx-2 btn btn-outline-secondary btn-md text-light" onclick="clearText()">Clear</button>
                                 </div>
 
                             </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-
             </div>
             <hr class="my-4 bg-dark">
             <h3 class="text-monospace my-2">base64 encoder in CalConT?</h3>
@@ -92,59 +83,37 @@ Amar khamkar
                     <p class="my-2"> 3.Base64 is commonly used in a number of applications including email via MIME, and storing complex data in XML.</p>
                     </p>
         </div>
-                    
-
-
-
-<div class="col-md-4 my-4 ">
-    <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-        <h4 class="my-2">Analyzers</h3>
-            {% for link in link_string1 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-            {% endfor %}
+        <div class="col-md-4 my-4 ">
+            <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+            box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2">Analyzers</h3>
+                    {% for link in link_string1 %}
+                    <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                    {% endfor %}
+            </div>
+            <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2 ">Translators</h4>
+                    {% for link in link_string2 %}
+                    <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
+                    {% endfor %}
+            </div>
+        </div>
     </div>
-    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-
-
-        <h4 class="my-2 ">Translators</h3>
-            {% for link in link_string2 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-            {% endfor %}
-    </div>
-
-</div>
-</div>
 </div>
 
 {% endblock %}
 {% block JS %}
 <script>
-    $('.clear').click(function (e) {
-        document.getElementById('text').value = "";
-        document.getElementById('output').value = "";
-        e.preventDefault();
-    })
-    $(document).on('submit', '#post-form', function (e) {
-        $('#content').empty();
-        e.preventDefault();
-        $.ajax({
-            type: 'POST',
-            url: '/Analyzer/text-to-base64-converter/',
-            data: {
-                text: $('#text').val(),
-                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-            },
-            encode: true,
-            success: function (response) {
-                var GotRes = JSON.parse(response)
-                //console.log(x)
-                var keyword = GotRes['Encoded']
-                document.getElementById('output').value = keyword;
-            }
-        })
-    })
+    function textToBase64() {
+        var text = document.getElementById('text').value;
+        var encoded = btoa(unescape(encodeURIComponent(text)))
+        document.getElementById('output').value = encoded;
+    }
+
+    function clearText() {
+        document.getElementById('text').value = '';
+        document.getElementById('output').value = '';
+    }
 </script>
 
 {% endblock %}
