@@ -30,6 +30,7 @@
       {% endblock %}
     </title>
     <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
+    <link rel="stylesheet" href="/static/css/main.css">
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T6P40QX3XC"></script>
@@ -45,149 +46,6 @@
     </script>
     <script data-ad-client="ca-pub-3911342542125154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </head>
-  <style>
-    @import url('https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
-    
-    html {
-      scroll-behavior: smooth;
-    }
-    
-    a {
-      color: #6c859a;
-    }
-    
-    body {
-      background-color: rgb(25, 25, 25);
-    }
-    
-    navbar {
-      background-color: rgb(5, 5, 5);
-    }
-    
-    thead {
-      background-color: #2f6794;
-      color: #a1b0bb;
-    }
-    
-    tbody {
-      background-color: #1c2023;
-    }
-    
-    /* width */
-    ::-webkit-scrollbar {
-      width: 20px;
-    }
-    
-    /* Track */
-    ::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 5px #362f2f;
-      border-radius: 10px;
-    }
-    
-    /* Handle */
-    ::-webkit-scrollbar-thumb {
-      background: #333538;
-      border-radius: 10px;
-    }
-    
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-      background: #333538;
-    }
-    
-    .btn {
-      padding: 0.5rem 1.8rem;
-      border: none;
-      font-size: 1rem;
-      border-radius: 2rem;
-      box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
-    }
-    
-    .btn-outline-secondary {
-      padding: 0.5rem 1.8rem;
-      border: none;
-      font-size: 1rem;
-      border-radius: 2rem;
-      box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
-      background-color: #313233;
-    }
-    
-    .trae {
-      padding: 0.8rem 1.8rem;
-      border: none;
-      font-size: 1rem;
-      border-radius: 2rem;
-      box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
-      background-color: #3879ba;
-    }
-    
-    .content-bg {
-      background-color: rgb(30, 30, 30);
-      box-shadow: 13px 4px 19px 7px rgb(19 17 17);
-      border-radius: 20px;
-    }
-    
-    @media only screen and (max-width: 500px) and (min-width: 300px) {
-      #AlertS {
-        font-size: 14px;
-      }
-    }
-    
-    #baktop {
-      right: 10px;
-      margin-top: 500px;
-      position: fixed;
-    }
-    
-    /* .signin,.google {
-            padding: 0.8rem 1.8rem;
-            border: none;
-            border-radius: 2rem;
-            box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
-            font-size: 15px;
-            background-color: #313233;
-          
-        
-          } */
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
-    
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-    
-    .brand {
-      border: 1px solid black;
-      border-radius: 50px;
-    }
-    
-    .dropdown-menu {
-      background-color: rgb(25, 25, 25);
-      border: 1.5px solid white;
-      border-radius: 10px;
-      color: blanchedalmond;
-    }
-    
-    .dropdown-item {
-      color: white;
-    }
-    
-    .footer {
-      position: absolute;
-    }
-    
-    .modelText {
-      font-size: 18px;
-    }
-  </style>
 
   <body>
     <!-- Modal -->
@@ -229,10 +87,10 @@
               <a class="dropdown-item" href="/Analyzer/name_sorting/">Words Sorting</a>
               <a class="dropdown-item" href="/Analyzer/Grammar_correction/">Grammar Corrector</a>
               <a class="dropdown-item" href="/Analyzer/Online-Keywords-extractor-from-text/">Keywords Extractor</a>
-              <a class="dropdown-item" href="/Analyzer/text-to-base64-converter/ ">text to base64 encoder</a>
-              <a class="dropdown-item" href="/Analyzer/base64-to-text-converter/ ">base64 to text decoder</a>
-              <a class="dropdown-item" href="/Analyzer/image-to-text-converter/ ">Image to text converter</a>
-              <a class="dropdown-item" href="/Analyzer/text-to-image-converter/ ">Text to Image converter</a>
+              <a class="dropdown-item" href="/Analyzer/text-to-base64-converter/ ">Text To Base64</a>
+              <a class="dropdown-item" href="/Analyzer/base64-to-text-converter/ ">Base64 To Text</a>
+              <a class="dropdown-item" href="/Analyzer/image-to-text-converter/ ">Image To Text</a>
+              <a class="dropdown-item" href="/Analyzer/text-to-image-converter/ ">Text To Image</a>
               <a class="dropdown-item" href="/Analyzer/Language-Identifier/ ">Language Identifier</a>
               <a class="dropdown-item" href="/Analyzer/Caesar-cipher-encoder-decoder/ ">Caesar cipher encoder/decoder</a>
               <a class="dropdown-item" href="/Analyzer/playfair-cipher-encoder-decoder/ ">Playfair cipher encoder/decoder</a>
@@ -244,15 +102,15 @@
               <a class="dropdown-item" href="/Conversion/BinaryConverter/">Binary Converter</a>
               <a class="dropdown-item" href="/Conversion/DecimalConverter/">Decimal Converter</a>
               <a class="dropdown-item" href="/Conversion/HexadecimalConverter/">Hexadecimal Converter</a>
-              <a class="dropdown-item" href="/Conversion/infix_to_postfix">infix to postfix Converter</a>
-              <a class="dropdown-item" href="/Conversion/infix_to_prefix">infix to prefix Converter</a>
-              <a class="dropdown-item" href="/Conversion/prefix_to_infix">Prefix to infix converter</a>
-              <a class="dropdown-item" href="/Conversion/prefix_to_postfix">Prefix to postfix converter</a>
-              <a class="dropdown-item" href="/Conversion/postfix_to_infix">Postfix to infix converter</a>
+              <a class="dropdown-item" href="/Conversion/infix_to_postfix">Infix To postfix Converter</a>
+              <a class="dropdown-item" href="/Conversion/infix_to_prefix">Infix To Prefix Converter</a>
+              <a class="dropdown-item" href="/Conversion/prefix_to_infix">Prefix To Infix Converter</a>
+              <a class="dropdown-item" href="/Conversion/prefix_to_postfix">Prefix To Postfix Converter</a>
+              <a class="dropdown-item" href="/Conversion/postfix_to_infix">Postfix To Infix Converter</a>
               <a class="dropdown-item" href="/Conversion/CurrencyConverter/">Currency Converter</a>
-              <a class="dropdown-item" href="/Conversion/cgpa_to_percentage/">Cgpa to percentage converter</a>
-              <a class="dropdown-item" href="/Conversion/Image_to_base64_Converter/">Image to base64 converter</a>
-              <a class="dropdown-item" href="/Conversion/Base64_to_Image_Converter/">Base64 to Image converter</a>
+              <a class="dropdown-item" href="/Conversion/cgpa_to_percentage/">Cgpa To Percentage Converter</a>
+              <a class="dropdown-item" href="/Conversion/Image_to_base64_Converter/">Image To Base64 Converter</a>
+              <a class="dropdown-item" href="/Conversion/Base64_to_Image_Converter/">Base64 To Image Converter</a>
             </div>
           </li>
           <li class="nav-item dropdown">

@@ -21,6 +21,8 @@ DATABASES['default'].update(db_from_env)
 
 ALLOWED_HOSTS = ['.calcont.in', 'calcont.in', '.herokuapp.com']
 
+CACHES = get_cache()
+
 SECURE_HSTS_SECONDS = 60
 
 SESSION_COOKIE_SECURE = True

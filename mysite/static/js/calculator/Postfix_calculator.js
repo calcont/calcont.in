@@ -1,5 +1,6 @@
 $(".cal").click(function (e) {
   var postfix = document.getElementById("Postfix").value;
+  postfix.replace(/\s/g, "");
   var stack = [],
     top = -1;
 

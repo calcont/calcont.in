@@ -39,9 +39,6 @@ create .env in root directory and add
 ```
 SECRET_KEY=anystring
 client_secret_captcha=anystring
-GRAMMAR_API_URL=anystring
-GRAMMAR_API_KEY=anystring
-GRAMMAR_API_HOST=anystring
 ```
 as this app consist few database schemas that need to be migrated.so,run
 ```

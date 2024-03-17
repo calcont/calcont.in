@@ -1,0 +1,6 @@
+import os
+
+CURRENCY_ENDPOINT = f"{os.environ.get('CURRENCY_EXCHANGE_API')}"
+ENDPOINT_KEY1 = f"{os.environ.get('CURRENCY_EXCHANGE_API_KEY1')}"
+ENDPOINT_KEY2 = f"{os.environ.get('CURRENCY_EXCHANGE_API_KEY2')}"
+CURRENCIES = ['EUR', 'USD', 'INR', 'GBP', 'AUD', 'JPY', 'NZD']

@@ -4,7 +4,6 @@ from django.http import HttpResponse
 import requests
 import json
 from rake_nltk import Rake
-import base64
 import os
 from PIL import Image
 from googletrans import Translator
@@ -12,10 +11,9 @@ import googletrans
 import pytesseract
 from io import BytesIO
 from django.views.decorators.csrf import csrf_exempt
-
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
 if os.getcwd() != '/app':  # for windows
-    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'  # do install tesseact in this path only and add it to your environment-variables
+    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'  # do install tesseract in this path only and add it to your environment-variables
 else:
     pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
 
@@ -114,12 +112,6 @@ def KeywordsExtraction(request):
 
 def texttobase64(request):
     link_string1, link_string2 = SideMap.arrange(4, 1, 'AT')
-    if request.method == "POST":
-        text = request.POST['text']
-        encoded_string = base64.b64encode(text.encode())
-        encoded_string = encoded_string.decode()
-        response = json.dumps({'Encoded': encoded_string}, default=str)
-        return HttpResponse(response)
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/text_to_base64.html', param)
 
@@ -128,15 +120,6 @@ def texttobase64(request):
 
 def base64totext(request):
     link_string1, link_string2 = SideMap.arrange(5, 1, 'AT')
-    if request.method == "POST":
-        try:
-            text = request.POST['text']
-            decoded_string = base64.b64decode(text.encode())
-            decoded_string = decoded_string.decode()
-            response = json.dumps({'Decoded': decoded_string}, default=str)
-        except Exception:
-            response = json.dumps({'Decoded': "There is some Error while processing"}, default=str)
-        return HttpResponse(response)
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/base64_to_text.html', param)
 

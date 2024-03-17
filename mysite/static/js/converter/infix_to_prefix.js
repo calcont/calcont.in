@@ -1,103 +1,96 @@
 $(".con").click(function (e) {
   var infixed = document.getElementById("Infix").value;
+  infixed = infixed.replaceAll(" ", "");
   var infix = infixed.split("");
-  for (var i = 0; i < infix.length; i++) {
-    if (infix[i] == "(") {
-      infix[i] = ")";
-    } else if (infix[i] == ")") {
-      infix[i] = "(";
-    }
-  }
-  infix = infix.reverse();
-  var stack = [],
-    prefix = [];
-  var operand, prec;
   document.getElementById("OutTable").style.display = "block";
   $("#content").empty();
+  e.preventDefault();
 
-  function isOperand(operand) {
-    if (
-      (operand >= "a" && operand <= "z") ||
-      (operand >= "A" && operand <= "Z") ||
-      (operand >= "0" && operand <= "9")
-    ) {
-      return 1;
-    } else {
-      return 0;
-    }
-  }
-  function valinTable(i, infix, stack, prefix) {
-    var strPre = prefix.toString();
-
-    var strStack = stack.toString();
-    tble = `<tr >
+  function valinTable(index, value, stack, prefix) {
+    var strPre = prefix.join(" ");
+    var strStack = stack.join(" ");
+    var tble = `<tr>
                         <td class="rounded-lg">
-                        ${i}
+                        ${index}
                         </td>
                         <td class="rounded-lg">
-                        ${infix[i]}
+                        ${value}
                         </td>
                         <td class="rounded-lg">
-                        ${strStack.replaceAll(",", "")}
+                        ${strStack}
                         </td>
                         <td class="rounded-lg">
-                        ${strPre.replaceAll(",", "")}
+                        ${strPre}
                         </td>
                       </tr>`;
 
     $("#content").append(tble);
   }
-  function precedence(prec) {
-    if (prec == "(") {
-      return 4;
+  // Helper function to get the precedence of operators
+  function getPrecedence(operator) {
+    switch (operator) {
+      case '^':
+        return 4;
+      case '*':
+      case '/':
+        return 3;
+      case '+':
+      case '-':
+        return 2;
+      case '(':
+        return 1;
+      default:
+        return 0; // For operands
     }
-    if (prec == "^" || prec == "%") {
-      return 3;
-    }
-    if (prec == "*" || prec == "/") {
-      return 2;
-    }
-    if (prec == "+" || prec == "-") {
-      return 1;
-    }
-    if (prec == ")") {
-      return 0;
-    }
-    return -1;
   }
-  for (var i = 0; i < infix.length; i++) {
-    if (isOperand(infix[i])) {
-      prefix.push(infix[i]);
-    } else if (infix[i] == " ") {
-      continue;
-    } else if (stack.length == 0) {
-      stack.push(infix[i]);
-    } else if (infix[i] == ")") {
-      while (stack[stack.length - 1] != "(") {
-        prefix.push(stack.pop());
+
+  // Function to check if a character is an operator
+  function isOperator(char) {
+    return ['+', '-', '*', '/', '^', '(', ')'].includes(char);
+  }
+
+  let operators = [];
+  let operands = [];
+  
+  for (let i = 0; i < infix.length; i++) {
+    if (infix[i] == '(') {
+      operators.push(infix[i]);
+    }
+    else if (infix[i] == ')') {
+      while (operators.length != 0 &&
+        operators[operators.length - 1] != '(') {
+        let op1 = operands.pop();
+        let op2 = operands.pop();
+        let op = operators.pop();
+        let tmp = op + op2 + op1;
+        operands.push(tmp);
       }
-      stack.pop();
-    } else if (precedence(infix[i]) > precedence(stack[stack.length - 1])) {
-      stack.push(infix[i]);
-    } else {
-      while (
-        precedence(infix[i]) <= precedence(stack[stack.length - 1]) &&
-        stack.length != 0 &&
-        stack[stack.length - 1] != "("
-      ) {
-        prefix.push(stack.pop());
-      }
-      stack.push(infix[i]);
+      operators.pop();
     }
-    valinTable(i, infix, stack, prefix);
+    else if (!isOperator(infix[i])) {
+      operands.push(infix[i] + "");
+    }
+    else {
+      while (operators.length &&
+        getPrecedence(infix[i]) <=
+        getPrecedence(operators[operators.length - 1])) {
+        let op1 = operands.pop();
+        let op2 = operands.pop();
+        let op = operators.pop();
+        let tmp = op + op2 + op1;
+        operands.push(tmp);
+      }
+      operators.push(infix[i]);
+    }
+    valinTable(i, infix[i], operators, operands);
   }
-  while (stack.length != 0) {
-    prefix.push(stack.pop());
+  while (operators.length != 0) {
+    let op1 = operands.pop();
+    let op2 = operands.pop();
+    let op = operators.pop();
+    let tmp = op + op2 + op1;
+    operands.push(tmp);
   }
-  infix[i] = " ";
-  valinTable(i, infix, stack, prefix);
-  prefix = prefix.reverse();
-  var strPre = prefix.toString();
-  document.getElementById("prefix").value = strPre.replaceAll(",", "");
-  e.preventDefault();
+  valinTable(infix.length, "", operators, operands);
+  document.getElementById("prefix").value = operands.pop();
 });

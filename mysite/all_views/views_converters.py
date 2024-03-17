@@ -1,13 +1,23 @@
-from .. import MyFunctions
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
 import base64
 import requests
+import random
 from django.views.decorators.csrf import csrf_exempt
+from django.core.cache import cache
+from .. import MyFunctions
+from ..handlers.requestHandler.get import GetHandler
+from ..constants import converters as constants
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
+CACHE_TIMEOUT = 60 * 60 * 24
 
+def GenerateCurrencyEndpoint(from_currency):
+    endpoint_key = random.choice([constants.ENDPOINT_KEY1, constants.ENDPOINT_KEY2])
+    currencies_queryParam = ','.join(constants.CURRENCIES)
+    endpoint = f"{constants.CURRENCY_ENDPOINT}/?apikey={endpoint_key}&base_currency={from_currency}&currencies={currencies_queryParam}"
+    return endpoint
 
 def Binaryconversion(request):
     link_string1, link_string2 = SideMap.arrange(0, 2, 'CC')
@@ -26,10 +36,23 @@ def Hexadecimalconversion(request):
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/converter/HexaCon.html', param)
 
-
 def Currencyconversion(request):
     link_string1, link_string2 = SideMap.arrange(3, 2, 'CC')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
+    if request.method == "POST":
+        from_currency = request.POST.get('from_currency')
+        to_currency = request.POST.get('to_currency')
+        amount = request.POST.get('amount')
+        if cache.get(from_currency) is None:
+            endpoint = GenerateCurrencyEndpoint(from_currency)
+            getRequest = GetHandler(endpoint)
+            response = getRequest.send()
+            cache.set(from_currency, response, CACHE_TIMEOUT)
+        data = cache.get(from_currency).json()
+        conversion_rate = data['data'][to_currency]['value']
+        converted_amount = float(amount) * conversion_rate
+        json_response = json.dumps({'converted_amount': converted_amount}, default=str)
+        return HttpResponse(json_response)
     return render(request, '../templates/converter/CurrencyCon.html', param)
 
 
