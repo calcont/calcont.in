@@ -159,3 +159,6 @@ def get_cache():
         'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
       }
     }
+    
+    
+CACHES = get_cache()
