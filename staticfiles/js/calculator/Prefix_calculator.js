@@ -4,9 +4,13 @@ const Ans = document.getElementById("Ans");
 let prefix, spaceSeparationStatus = false, stack = [], idx, prefixExp, prefixAns;
 
 
-$(".cal").click(function (e) {  
+$(".cal").click(function (e) { 
   e.preventDefault();
   prefix = document.getElementById("Prefix").value;
+  if (prefix === "") {
+    Ans.value = "Please enter a valid prefix expression";
+    return;
+  }
   spaceSeparationStatus = document.getElementById("prefix-switch").checked;
   if (spaceSeparationStatus) {
     prefixExp = processSpacedExpression(prefix);
@@ -41,6 +45,6 @@ $(".cal").click(function (e) {
     Ans.value = prefixAns;
   }
   catch (e) {
-    Ans.value = "Error while parsing or Invalid Expression";
+    Ans.value = "Invalid Expression";
   }
 });

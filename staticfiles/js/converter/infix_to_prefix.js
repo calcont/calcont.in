@@ -1,10 +1,16 @@
+const Ans = document.getElementById("prefix");
+let infixed, infix, stack, prefix, operand, prec, tble;
+
 $(".con").click(function (e) {
-  var infixed = document.getElementById("Infix").value;
-  infixed = infixed.replaceAll(" ", "");
-  var infix = infixed.split("");
+  e.preventDefault();
+  infix = document.getElementById("Infix").value;
+  if (infix === "") {
+    Ans.value = "Please enter a valid infix expression";
+    return;
+  }
+  infix = infix.replace(/\s+/g, "").split("");
   document.getElementById("OutTable").style.display = "block";
   $("#content").empty();
-  e.preventDefault();
 
   function valinTable(index, value, stack, prefix) {
     var strPre = prefix.join(" ");
@@ -92,5 +98,5 @@ $(".con").click(function (e) {
     operands.push(tmp);
   }
   valinTable(infix.length, "", operators, operands);
-  document.getElementById("prefix").value = operands.pop();
+  Ans.value = operands.pop();
 });

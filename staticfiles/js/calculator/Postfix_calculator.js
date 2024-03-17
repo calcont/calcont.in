@@ -8,6 +8,10 @@ let i, a, b, result, pEval, ch;
 $(".cal").click(function (e) {
   e.preventDefault();
   postfix = document.getElementById("Postfix").value;
+  if (postfix === "") {
+    Ans.value = "Please enter a valid postfix expression";
+    return;
+  }
   spaceSeparationStatus = document.getElementById("postfix-switch").checked;
   if (spaceSeparationStatus) {
     postfix = processSpacedExpression(postfix);

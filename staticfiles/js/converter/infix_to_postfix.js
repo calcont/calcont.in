@@ -1,9 +1,15 @@
+const Ans = document.getElementById('Ans');
+let infixed, infix, stack, postfix, operand, prec, tble;
+
+
 $('.con').click(function (e) {
-    var infixed = document.getElementById('Infix').value;
-    infixed.replace(/\s+/g, '');
-    var infix = infixed.split("")
-    var stack = [], postfix = [];
-    var operand, prec;
+    infix = document.getElementById('Infix').value;
+    if (infix === "") {
+        Ans.value = "Please enter a valid infix expression";
+        return;
+    }
+    infix = infix.replace(/\s+/g, "").split("");
+    stack = [], postfix = [];
     document.getElementById('OutTable').style.display = "block";
     $('#content').empty();
 
@@ -15,7 +21,7 @@ $('.con').click(function (e) {
             return (0);
         }
     }
-    
+
     function valinTable(i, infix, stack, postfix) {
         var strPost = postfix.toString();
         var strStack = stack.toString();
@@ -84,6 +90,6 @@ $('.con').click(function (e) {
     infix[i] = ' ';
     valinTable(i, infix, stack, postfix);
     var strPost = postfix.toString();
-    document.getElementById("Postfix").value = strPost.replaceAll(",", "");
+    Ans.value = strPost.replaceAll(",", "");
     e.preventDefault();
 });
