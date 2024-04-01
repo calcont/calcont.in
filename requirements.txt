@@ -63,7 +63,7 @@ six==1.16.0
 sniffio==1.2.0
 social-auth-app-django==5.4.0
 social-auth-core==4.5.3
-SpeechRecognition==3.8.1
+SpeechRecognition==3.10.3
 sqlparse==0.4.4
 tablib==3.3.0
 threadpoolctl==3.0.0
