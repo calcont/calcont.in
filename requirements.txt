@@ -2,7 +2,7 @@ asgiref==3.7.2
 autopep8==2.0.1
 certifi==2023.7.22
 cffi==1.15.1
-chardet==3.0.4
+chardet==5.2.0
 charset-normalizer==2.0.12
 click==8.0.1
 cloudscraper==1.2.58
