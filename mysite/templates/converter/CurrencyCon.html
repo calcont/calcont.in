@@ -1,138 +1,162 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-convert indian and other countries currencies to other currency.
-{% endblock  %}
+    convert indian and other countries currencies to other currency.
+{% endblock %}
 {% block MKW %}
-Convert indian rs to usd ,pound,euros,rand,yen,
-usd to rs,pound,euros,rand,yen
-Pound to rs,usd,euros,rand,yen
-{% endblock  %}
+    Convert indian rs to usd ,pound,euros,rand,yen,
+    usd to rs,pound,euros,rand,yen
+    Pound to rs,usd,euros,rand,yen
+{% endblock %}
 {% block Mr %}
-24/12/2020
-{% endblock  %}
+    04/06/2024
+{% endblock %}
 {% block MAut %}
-Amar khamkar
-{% endblock  %}
+    Amar khamkar
+{% endblock %}
 {% block title %} Currency Converter of RS,USD,POUNDS
-{% endblock  %}
+{% endblock %}
 {% block body %}
+    <div class="container text-light">
+        <div class="row ">
+            <div class="col-md-7 my-3 "
+                 style="background-color:rgb(30,30,30);box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <div class="my-4 ">
+                    <h1 class="text-center">Currency Converter</h1>
+                    <hr class="my-4 bg-dark">
+                    <p class="my-2">
+                        Currency exchange is the process of converting one currency into another based on prevailing
+                        exchange rates. These rates are influenced by factors such as inflation, interest rates,
+                        geopolitical events, and market speculation. Understanding currency exchange is crucial for
+                        individuals and businesses involved in international transactions, as it impacts the cost of
+                        goods and services, investment returns, and overall financial planning.
+                    </p>
+                    <hr class="my-4 bg-dark">
+                    <form method='POST'>{% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6 my-2">
+                                <div class="input-group">
+                                    <select class="custom-select form-component" id="from-select">
+                                        <option value="INR" selected>Indian Rupee</option>
+                                        <option value="USD">United States Dollar</option>
+                                        <option value="GBP">Pound sterling</option>
+                                        <option value="EUR">Euro</option>
+                                        <option value="AUD">Australian Dollar</option>
+                                        <option value="NZD">New Zealand Dollar</option>
+                                        <option value="JPY">Japanese Yen</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6 my-2">
+                                <div class="input-group">
+                                    <select class="custom-select form-component" id="to-select">
+                                        <option value="INR">Indian Rupee</option>
+                                        <option value="USD" selected>United States Dollar</option>
+                                        <option value="GBP">Pound sterling</option>
+                                        <option value="EUR">Euro</option>
+                                        <option value="AUD">Australian Dollar</option>
+                                        <option value="NZD">New Zealand Dollar</option>
+                                        <option value="JPY">Japanese Yen</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="number" class="form-control form-component" placeholder="Amount" id="amount"
+                                       required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                <input type="text" class="form-control form-component" placeholder="Result" id="result"
+                                       readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline-secondary text-light my-2" type="submit" id="convertCurrency">
+                        Convert
+                    </button>
+                    <hr class="my-4 bg-dark">
+                    <h4>How Our Tool Can Help You ?</h4>
+                    <p class="my-2">
+                        Our currency converter tool simplifies currency conversion and empowers you to make informed
+                        financial decisions. Here's how it can benefit you:<br>
 
-<div class="container text-light">
-  <div class="row ">
-    <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-      <div class="my-4 ">
-        <h1 class="text-center">Currency Converter</h1>
-        <hr class="my-4 bg-dark">
-        <p class="my-2">
-          Currency exchange is the process of converting one currency into another based on prevailing exchange rates. These rates are influenced by factors such as inflation, interest rates, geopolitical events, and market speculation. Understanding currency exchange is crucial for individuals and businesses involved in international transactions, as it impacts the cost of goods and services, investment returns, and overall financial planning.
-        <br>Our currency converter tool supports the most commonly used currencies worldwide, including:<br>
-        Indian Rupee (INR), US Dollar (USD), Japanese Yen (JPY) ,Euro (EUR), British Pound (GBP), Australian Dollar (AUD), New Zealand Dollar (NZD)
-        </p>
-        <hr class="my-4 bg-dark">
-        <form method='POST'>{% csrf_token %}
-          <div class="row">
-            <div class="col-md-6 my-2">
-              <div class="input-group">
-                <select class="custom-select form-component" id="from-select">
-                  <option value="INR" selected>Indian Rupee</option>
-                  <option value="USD">United States Dollar</option>
-                  <option value="GBP">Pound sterling</option>
-                  <option value="EUR">Euro</option>
-                  <option value="AUD">Australian Dollar</option>
-                  <option value="NZD">New Zealand Dollar</option>
-                  <option value="JPY">Japanese Yen</option>
-                </select>
-              </div>
+                        <li><strong>Real-Time Exchange Rates </strong>: Access up-to-date exchange rates for accurate
+                            and reliable currency conversions.
+                        </li>
+                        <li><strong>Convenient Conversion</strong>: Convert currencies instantly with just a few clicks,
+                            eliminating the need for manual calculations.
+                        </li>
+                        <li><strong>Comparison Capabilities</strong>: Compare exchange rates between multiple currencies
+                            to identify the most favorable options.
+                        </li>
+                        <li><strong>Global Accessibility</strong>: Use our tool anytime, anywhere, whether you're
+                            traveling, conducting business overseas, or planning international transactions.
+                        </li>
+                        <li><strong>Financial Planning</strong>: Plan your budget, expenses, and investments more
+                            effectively by understanding how currency fluctuations impact your finances.
+                        </li>
+                        <br>
+                        Make the most of our currency converter tool to streamline your currency-related activities and
+                        navigate the global economy with confidence.
+                </div>
             </div>
-            <div class="col-md-6 my-2">
-              <div class="input-group">
-                <select class="custom-select form-component" id="to-select">
-                  <option value="INR">Indian Rupee</option>
-                  <option value="USD" selected>United States Dollar</option>
-                  <option value="GBP">Pound sterling</option>
-                  <option value="EUR">Euro</option>
-                  <option value="AUD">Australian Dollar</option>
-                  <option value="NZD">New Zealand Dollar</option>
-                  <option value="JPY">Japanese Yen</option>
-                </select>
-              </div>
+            <div class="col-md-4 my-4 ">
+                <div class="col p-4 d-flex flex-column position-static"
+                     style="background-color:rgb(30,30,30);box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                    <h4 class="mb-2 ">Converters</h4>
+                    {% for link in link_string1 %}
+                        <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                    {% endfor %}
+                </div>
+                <div class="col my-3 p-4 d-flex flex-column position-static"
+                     style="background-color:rgb(30,30,30);box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                    <h4 class="my-2">Calculators</h4>
+                        {% for link in link_string2 %}
+                            <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                        {% endfor %}
+                </div>
             </div>
-          </div>
-        </form>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="form-group">
-              <input type="text" class="form-control form-component" placeholder="Amount" id="amount" required>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="input-group">
-              <input type="text" class="form-control form-component" placeholder="Result" id="result" readonly>
-            </div>
-          </div>
         </div>
-        <button class="btn btn-outline-secondary text-light my-2" type="submit" id="convertCurrency">Convert</button>
-        <hr class="my-4 bg-dark">
-        <h4>How Our Tool Can Help You ?</h4>
-        <p class="my-2">
-          Our currency converter tool simplifies currency conversion and empowers you to make informed financial decisions. Here's how it can benefit you:<br>
-
-          <li><strong>Real-Time Exchange Rates </strong>: Access up-to-date exchange rates for accurate and reliable currency conversions.</li>
-          <li><strong>Convenient Conversion</strong>: Convert currencies instantly with just a few clicks, eliminating the need for manual calculations.</li>
-          <li><strong>Comparison Capabilities</strong>: Compare exchange rates between multiple currencies to identify the most favorable options.</li>
-          <li><strong>Global Accessibility</strong>: Use our tool anytime, anywhere, whether you're traveling, conducting business overseas, or planning international transactions.</li>
-          <li><strong>Financial Planning</strong>: Plan your budget, expenses, and investments more effectively by understanding how currency fluctuations impact your finances.</li>
-          <br>
-          Make the most of our currency converter tool to streamline your currency-related activities and navigate the global economy with confidence.
-      </div>  
     </div>
-    <div class="col-md-4 my-4 "> 
-      <div class="col p-4 d-flex flex-column position-static"  style="background-color:rgb(30,30,30);box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-        <h4 class="mb-2 ">Converters</h4>
-          {% for link in link_string1 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-          {% endfor %}
-      </div>
-      <div class="col my-3 p-4 d-flex flex-column position-static"  style="background-color:rgb(30,30,30);box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-        <h4 class="my-2">Calculators</h3>
-          {% for link in link_string2 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-          {% endfor %}
-      </div>     
-    </div>
-  </div>
-</div>
 {% endblock %}
 {% block JS %}
-<script>
-  document.getElementById("convertCurrency").addEventListener("click", (e) => {
-    var from = document.getElementById("from-select").value;
-    var to = document.getElementById("to-select").value;
-    var amount = document.getElementById("amount").value;
-    var result = document.getElementById("result");
-    e.preventDefault();
-    $.ajax({
-      url: "/Conversion/CurrencyConverter/",
-      type: "POST",
-      data: {
-          from_currency: from,
-          to_currency: to,
-          amount: amount,
-          csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-      },
-      success: function (data) {
-        const response = JSON.parse(data);
-        if (response.error) {
-          result.value = response.error;
-          return;
-        }
-        result.value = response?.converted_amount || "Error while converting. Please try again.";
-      },
-      error: function (data) {
-          originalText = "Error while processing the text. Please try again.";
-      }
-    })
-  })
-</script>
+    <script>
+        document.getElementById("convertCurrency").addEventListener("click", (e) => {
+            let from = document.getElementById("from-select").value;
+            let to = document.getElementById("to-select").value;
+            let amount = document.getElementById("amount").value;
+            let result = document.getElementById("result");
+            if (amount === "" || isNaN(amount) || amount <= 0) {
+                result.value = "Please enter a valid amount.";
+                return;
+            }
+            e.preventDefault();
+            $.ajax({
+                url: "/Conversion/CurrencyConverter/",
+                type: "POST",
+                data: {
+                    from_currency: from,
+                    to_currency: to,
+                    amount: amount,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function (data) {
+                    const response = JSON.parse(data);
+                    if (response.error) {
+                        result.value = response.error;
+                        return;
+                    }
+                    result.value = response?.converted_amount || "Error while converting. Please try again.";
+                },
+                error: function (data) {
+                    originalText = "Error while converting. Please try again.";
+                }
+            })
+        })
+    </script>
 
-{% endblock  %}
+{% endblock %}
