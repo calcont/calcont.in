@@ -1,152 +1,124 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-Convert prefix expression to postfix expression by entering expression.
-{% endblock  %}
-{% block MKW %}prefix to postfix calculator,prefix to postfix conversion,how to convert prefix to postfix?,prefix to postfix evaluator,prefix to postfix converter,prefix expression converter{% endblock  %}
+    Convert prefix expression to postfix expression by entering expression.
+{% endblock %}
+{% block MKW %}prefix to postfix calculator,prefix to postfix conversion,how to convert prefix to postfix?,prefix to
+    postfix evaluator,prefix to postfix converter,prefix expression converter{% endblock %}
 {% block Mr %}
-26/12/2020
-{% endblock  %}
+    26/12/2020
+{% endblock %}
 {% block MAut %}
-Amar khamkar
-{% endblock  %}
+    Amar khamkar
+{% endblock %}
 {% block title %} prefix to postfix converter
-{% endblock  %}
+{% endblock %}
 {% block body %}
-<style>
-
-
-</style>
-
-
 <div class="container text-light">
-  <div class="row ">
-
-  <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
-  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-      <div class="my-4 ">
-<h1 class="my-2 text-center text-light" >prefix to postfix converter</h1>
-<hr class="bg-dark">
-<h3 class="text-center text-light my-2">What is prefix and postfix expression?</h3>
-<p class="text-light text-monospace my-4 mx-2">An <b>prefix</b> expression 
- is a expression in which first operator comes and proceded by strings. Every prefix string longer than 
- a single variable contains first and 
- second operands followed by an operator.e.g. <b>A,+A B ,*A B ,+ * A B/ C D</b>.</p>
-<p class="text-light text-monospace my-4 mx-2">An postfix expression (also called Reverse Polish Notation)
-    is a single letter or an operator, preceded by two postfix strings. Every postfix string longer than a single variable contains first and 
-    second operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b></p>
-
-  <form>
-    <div class="form-group text-light my-4">
-      <label for="exampleInputEmail1">prefix expression</label>
-      <input type="text" class="form-control" placeholder="Enter prefix expression" style="    color: white;
-      background-color: #191717;
-      border: 3px solid black;
-      border-radius: 15px;" id="prefix" required>
-     
-    </div>
-    <div class="form-group text-light">
-      <label for="exampleInputPassword1">postfix expression</label>
-      <input type="text" class="form-control" placeholder="postfix expression is..." style="    color: white;
-      background-color: #191717;
-      border: 3px solid black;
-      border-radius: 15px;" id="postfix" readonly>
-    </div>
-   <div>
-    <button type="submit"  class="btn btn-outline-secondary text-light con my-3">Convert</button>
-   </div>
-  </form>
-  <hr class="bg-dark my-2">
-  
-
-  <h3 class="text-center text-light my-4">Conversion from prefix to postfix expressions.</h3>
-  <p class="text-light text-monospace my-4 mx-2">
-    First,Read the Prefix expression in reverse order (from right to left)<br>
-    1.If the symbol is an operand, then push it into the Stack<br>
-    2.But if the character is an operator, pop the top two values from stack. <br>
-    3.Create a string by concatenating the two operands and the operator between them. 
-    string = (2nd top value+1st top value+operator) <br>
-    4.And push the resultant string back to Stack
-    Repeat the above steps until end of Prefix expression..Checkout examples that are mention below in table.And you can also check
-    <a href="/Conversion/postfix_to_prefix"> postfix to prefix Converter</a> and <a href="/Conversion/postfix_to_postfix"> postfix to posfix Converter</a>
-    
-    
-    .Checkout examples that are mention below.</p>
-    <div class="container  mt-4" style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
-    1. Prefix Expression:+AB<br>
-    postfix Expression: AB+<br><br>
-    2. Prefix Expression: *CD<br>
-    postfix Expression: CD*<br><br>
-    3. Prefix Expression: *+AB+CD<br>
-    postfix Expression: AB+CD+*<br>
-   
-    </div>
-<hr class="bg-dark my-3">
-<h3 class="text-center text-light">Applications</h3>
-<p class="text-light text-monospace my-2 mx-2">Since some compilers,editors calculators convert expression to postfix to evaluate an expression.
-    That's why if it has prefix expression that should be converted to postfix due to their further evaluation. So,this type of converter
-    can be helpful in such cases.<p>
-
-
-</div>
-</div>
-
-
-    <div class="col-md-4 my-4 ">
-     
-      <div class="col p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
-      box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-
-<h4 class="mb-2 ">Converters</h3>
-  {% for link in link_string1 %}
-  <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-  {% endfor %}
-  </div>
-<div class="col my-3 p-4 d-flex flex-column position-static "  style="background-color:rgb(30,30,30);
+    <div class="row ">
+        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
 box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-<h4 class="my-2">Calculators</h3>
-{% for link in link_string2 %}
-<li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-{% endfor %}
-            
-          </div>
-          
-       
+            <div class="my-4 ">
+                <h1 class="my-2 text-center text-light">prefix to postfix converter</h1>
+                <hr class="bg-dark">
+                <h3 class="text-center text-light my-2">What is prefix and postfix expression?</h3>
+                <p class="text-light text-monospace my-4 mx-2">An <b>prefix</b> expression
+                    is a expression in which first operator comes and proceded by strings. Every prefix string
+                    longer than
+                    a single variable contains first and
+                    second operands followed by an operator.e.g. <b>A,+A B ,*A B ,+ * A B/ C D</b>.</p>
+                <p class="text-light text-monospace my-4 mx-2">An postfix expression (also called Reverse Polish
+                    Notation)
+                    is a single letter or an operator, preceded by two postfix strings. Every postfix string longer
+                    than a single variable contains first and
+                    second operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b></p>
+                <form>
+                    <div class="form-group text-light my-4">
+                        <label for="exampleInputEmail1">prefix expression</label>
+                        <input type="text" class="form-control form-component" placeholder="Enter prefix expression" id="prefix" required>
+                    </div>
+                    <div class="form-group text-light">
+                        <label for="exampleInputPassword1">postfix expression</label>
+                        <input type="text" class="form-control form-component" placeholder="postfix expression is..."  id="postfix" readonly>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-outline-secondary text-light con my-3">Convert</button>
+                    </div>
+                </form>
+                <hr class="bg-dark my-2">
+                <h3 class="text-center text-light my-4">Conversion from prefix to postfix expressions.</h3>
+                <p class="text-light text-monospace my-4 mx-2">
+                    First,Read the Prefix expression in reverse order (from right to left)<br>
+                    1.If the symbol is an operand, then push it into the Stack<br>
+                    2.But if the character is an operator, pop the top two values from stack. <br>
+                    3.Create a string by concatenating the two operands and the operator between them.
+                    string = (2nd top value+1st top value+operator) <br>
+                    4.And push the resultant string back to Stack
+                    Repeat the above steps until end of Prefix expression..Checkout examples that are mention below
+                    in table.And you can also check
+                    <a href="/Conversion/postfix_to_prefix"> postfix to prefix Converter</a> and <a
+                        href="/Conversion/postfix_to_postfix"> postfix to posfix Converter</a>
+                    Checkout examples that are mention below.</p>
+                <div class="container  mt-4"
+                     style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
+                    1. Prefix Expression:+AB<br>
+                    postfix Expression: AB+<br><br>
+                    2. Prefix Expression: *CD<br>
+                    postfix Expression: CD*<br><br>
+                    3. Prefix Expression: *+AB+CD<br>
+                    postfix Expression: AB+CD+*<br>
+                </div>
+                <hr class="bg-dark my-3">
+                <h3 class="text-center text-light">Applications</h3>
+                <p class="text-light text-monospace my-2 mx-2">Since some compilers,editors calculators convert
+                    expression to postfix to evaluate an expression.
+                    That's why if it has prefix expression that should be converted to postfix due to their further
+                    evaluation. So,this type of converter
+                    can be helpful in such cases.
+                <p>
+            </div>
         </div>
-      </div>
-</div>
+        <div class="col-md-4 my-4 ">
+            <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="mb-2 ">Converters</h4>
+                {% for link in link_string1 %}
+                    <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                {% endfor %}
+            </div>
+            <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2">Calculators</h4>
+                {% for link in link_string2 %}
+                    <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
 {% block JS %}
-<script>
-$('.con').click(function (e) {
-
-    var prefix = document.getElementById("prefix").value;
-    var stack = [] , c ,str;
-    function isOperator(c){
-        if (c == "*" || c == "+" || c == "-" || c == "/" || c == "^" || c == "(" || c == ")"){
-            return true;
-        }
-        else{
-            return false;
-            
-        }
-    }
-    for (i = prefix.length; i >=0; i--) {
-
-    if(isOperator(prefix[i])){
-        str =  stack.pop() +  stack.pop() + prefix[i] ;
-        stack.push(str)
-        
-    }
-    else{
-        stack.push(prefix[i])
-    }
-    
-    
-}
-  document.getElementById("postfix").value = stack.pop();
-  e.preventDefault();
-      });
+    <script>
+        $('.con').click(function (e) {
+            let prefix = document.getElementById("prefix").value;
+            let stack = [], str;
+            prefix = removeExtraSpaces(prefix);
+            for (let i = prefix.length - 1; i >= 0; i--) {
+                if (isOperator(prefix[i])) {
+                    let op1 = stack.pop();
+                    let op2 = stack.pop();
+                    if (op1 === undefined || op2 === undefined) {
+                        document.getElementById("postfix").value = "Invalid Expression";
+                        return;
+                    }
+                    str = op1 + op2 + prefix[i];
+                    stack.push(str)
+                } else {
+                    stack.push(prefix[i])
+                }
+            }
+            document.getElementById("postfix").value = stack.pop();
+            e.preventDefault();
+        });
     </script>
-{% endblock  %}
+{% endblock %}
 

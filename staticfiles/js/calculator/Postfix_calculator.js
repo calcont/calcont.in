@@ -17,7 +17,7 @@ $(".cal").click(function (e) {
     postfix = processSpacedExpression(postfix);
   }
   else {
-    postfix = postfix.replace(/\s/g, "").split("");
+    postfix = removeExtraSpaces(postfix).split("");
   }
 
   stack = [] ; 
@@ -26,7 +26,7 @@ $(".cal").click(function (e) {
   try {
     for (i = 0; i <= postfix.length; i++) {
       ch = postfix[i];
-  
+
       if (!isNaN(parseInt(ch))) {
         stack[++stackTop] = parseInt(ch);
       } else if (ch == "+" || ch == "-" || ch == "*" || ch == "/") {
@@ -34,28 +34,33 @@ $(".cal").click(function (e) {
         stackTop--;
         a = stack[stackTop];
         stackTop--;
-  
-        if (ch == "+") {
-          result = a + b;
-        } else if (ch == "-") {
-          result = a - b;
-        } else if (ch == "*") {
-          result = a * b;
-        } else if (ch == "/") {
-          result = a / b;
+
+        switch (ch) {
+          case "+":
+            result = a + b;
+            break;
+          case "-":
+            result = a - b;
+            break;
+          case "*":
+            result = a * b;
+            break;
+          case "/":
+            result = a / b;
+            break;
         }
         stack[++stackTop] = result;
       }
     }
-  
+
     pEval = stack[stackTop];
     if (isNaN(pEval)) {
       throw "Invalid Expression";
     }
-    Ans.value = pEval;
+    Ans.value = roundToThreeDecimalPlaces(pEval);
   }
   catch (e) {
-    Ans.value = "Error while parsing or Invalid Expression";
+    Ans.value = "Invalid Expression";
   }
 
 });

@@ -1,147 +1,130 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-Convert infix expression to postfix expression by entering expression.
+    Convert infix expression to postfix expression by entering expression.
 {% endblock %}
 {% block MKW %}Infix to postfix calculator,infix to postfix conversion,infix postfix converter,infix to postfix with
-table,how to convert infix to postfix?,Infix to postfix evaluator,Infix to postfix converter,infix expression
-converter{% endblock %}
+    table,how to convert infix to postfix?,Infix to postfix evaluator,Infix to postfix converter,infix expression
+    converter{% endblock %}
 {% block Mr %}
-26/12/2020
+    26/12/2020
 {% endblock %}
 {% block MAut %}
-Amar khamkar
+    Amar khamkar
 {% endblock %}
 {% block title %} Infix to postfix calculator
 {% endblock %}
 {% block body %}
-<style>
-
-
-</style>
-
-
-<div class="container text-light">
-  <div class="row ">
-
-    <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+    <div class="container text-light">
+        <div class="row ">
+            <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
   box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-      <div class="my-4 ">
-        <h1 class="my-2 text-center text-light">Infix to postfix calculator</h1>
-        <hr class="bg-dark">
-        <h3 class="text-center text-light my-2">What is infix and postfix expression?</h3>
-        <p class="text-light text-monospace my-4 mx-2">An infix expression is expression which is used by us in day
-          today life
-          An infix expression is a single letter, or an operator, proceeded by one infix string and followed by another
-          infix string.
-          e.g. <b>A,A + B,(A + B) + (C – D)</b>.So,in which we have operators between operands.And postfix expression
-          (also called Reverse Polish Notation)
-          is a single letter or an operator, preceded by two postfix strings. Every postfix string longer than a single
-          variable contains first and
-          second operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b></p>
-        <hr class="bg-dark my-2">
-        <form>
-          <div class="form-group text-light my-4">
-            <label for="exampleInputEmail1">Infix expression</label>
-            <input type="text" class="form-control" placeholder="Enter infix expression" style="    color: white;
-      background-color: #191717;
-      border: 3px solid black;
-      border-radius: 15px;" id="Infix" required>
-
-          </div>
-          <div class="form-group text-light">
-            <label for="exampleInputPassword1">Postfix expression</label>
-            <input type="text" class="form-control" placeholder="Postfix expression is..." style="    color: white;
-      background-color: #191717;
-      border: 3px solid black;
-      border-radius: 15px;" id="Postfix" readonly>
-          </div>
-          <div>
-            <button type="submit" class="btn btn-outline-secondary text-light con my-3">Convert</button>
-          </div>
-          <div class="tabs" id="OutTable" style="display: none;">
-            <hr class="bg-dark my-2">
-            <p class="my-2 lead">Infix to Postfix table</p>
-            <table class="table table-borderless text-light my-4 mb-4">
-              <thead>
-                <tr>
-                  <th class="rounded-lg" scope="col">Sr No</th>
-                  <th class="rounded-lg" scope="col">Expression</th>
-                  <th class="rounded-lg" scope="col">Stack</th>
-                  <th class="rounded-lg" scope="col">Postfix</th>
-                </tr>
-
-              </thead>
-              <tbody id="content">
-
-              </tbody>
-            </table>
-          </div>
-        </form>
-        <hr class="bg-dark my-2">
-
-
-        <h3 class="text-center text-light my-4">Conversion from infix to postfix expressions.</h3>
-        <p class="text-light text-monospace my-4 mx-2">To convert infix expression to postfix expression, computers
-          usually use the stack data structure.
-          By scanning the infix expression from left to right, when we will get any operand,
-          simply add them to the postfix form, and for the operator and parenthesis, add them in the stack maintaining
-          the precedence of them.So,
-          here you can convert infix expression to postfix by just entering infix expression.Checkout examples that are
-          mention below in table.And you can also check
-          <a href="/Conversion/postfix_to_infix"> Postfix to infix Converter</a> and <a
-            href="/Calculator/Postfix_calculator/">Postfix Calculator</a>
-        </p>
-
-        <div class="container  mt-4" style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
-          1) Infix Expression: (a+b) <br>
-          Prefix Expression: ab+<br><br>
-          2) Infix Expression: (A+B)*(C+D)<br>
-          Prefix Expression: AB+CD+ <br><br>
-          3) Infix Expression: x^y/(5*z)+2<br>
-          Prefix Expression: xy^5z*/2+<br>
+                <div class="my-4 ">
+                    <h1 class="my-2 text-center text-light">Infix to postfix calculator</h1>
+                    <hr class="bg-dark">
+                    <h3 class="text-center text-light my-2">What is infix and postfix expression?</h3>
+                    <p class="text-light text-monospace my-4 mx-2">An infix expression is expression which is used by us
+                        in day
+                        today life
+                        An infix expression is a single letter, or an operator, proceeded by one infix string and
+                        followed by another
+                        infix string.
+                        e.g. <b>A,A + B,(A + B) + (C – D)</b>.So,in which we have operators between operands.And postfix
+                        expression
+                        (also called Reverse Polish Notation)
+                        is a single letter or an operator, preceded by two postfix strings. Every postfix string longer
+                        than a single
+                        variable contains first and
+                        second operands followed by an operator.e.g. <b>A,A B +,A B + C D –</b></p>
+                    <hr class="bg-dark my-2">
+                    <form>
+                        <div class="form-group text-light my-4">
+                            <label for="exampleInputEmail1">Infix expression</label>
+                            <input type="text" class="form-control form-component" placeholder="Enter infix expression"
+                                   id="Infix" required>
+                        </div>
+                        <div class="form-group text-light">
+                            <label for="exampleInputPassword1">Postfix expression</label>
+                            <input type="text" class="form-control form-component"
+                                   placeholder="Postfix expression is..." id="Postfix" readonly>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-outline-secondary text-light con my-3">Convert</button>
+                        </div>
+                        <div class="tabs" id="OutTable" style="display: none;">
+                            <hr class="bg-dark my-2">
+                            <p class="my-2 lead">Infix to Postfix table</p>
+                            <table class="table table-borderless text-light my-4 mb-4">
+                                <thead>
+                                <tr>
+                                    <th class="rounded-lg" scope="col">Sr No</th>
+                                    <th class="rounded-lg" scope="col">Expression</th>
+                                    <th class="rounded-lg" scope="col">Stack</th>
+                                    <th class="rounded-lg" scope="col">Postfix</th>
+                                </tr>
+                                </thead>
+                                <tbody id="content">
+                                </tbody>
+                            </table>
+                        </div>
+                    </form>
+                    <hr class="bg-dark my-2">
+                    <h3 class="text-center text-light my-4">Conversion from infix to postfix expressions.</h3>
+                    <p class="text-light text-monospace my-4 mx-2">To convert infix expression to postfix expression,
+                        computers
+                        usually use the stack data structure.
+                        By scanning the infix expression from left to right, when we will get any operand,
+                        simply add them to the postfix form, and for the operator and parenthesis, add them in the stack
+                        maintaining
+                        the precedence of them.So,
+                        here you can convert infix expression to postfix by just entering infix expression.Checkout
+                        examples that are
+                        mention below in table.And you can also check
+                        <a href="/Conversion/postfix_to_infix"> Postfix to infix Converter</a> and <a
+                                href="/Calculator/Postfix_calculator/">Postfix Calculator</a>
+                    </p>
+                    <div class="container  mt-4"
+                         style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
+                        1) Infix Expression: (a+b) <br>
+                        Prefix Expression: ab+<br><br>
+                        2) Infix Expression: (A+B)*(C+D)<br>
+                        Prefix Expression: AB+CD+ <br><br>
+                        3) Infix Expression: x^y/(5*z)+2<br>
+                        Prefix Expression: xy^5z*/2+<br>
+                    </div>
+                    <hr class="bg-dark my-3">
+                    <h3 class="text-center text-light">Applications</h3>
+                    <p class="text-light text-monospace my-2 mx-2">Infix expressions are readable and solvable by
+                        humans. We can
+                        easily
+                        distinguish the order of operators, and also can use the parenthesis to solve that part first
+                        during solving
+                        mathematical expressions.
+                        The computer cannot differentiate the operators
+                        and parenthesis easily, that’s why postfix conversion is needed.Compilers or command editor in
+                        computer and
+                        some calculators also convert expression
+                        to postfix first and then solve those expression to evaluate answer for the same.</p>
+                </div>
+            </div>
+            <div class="col-md-4 my-4 ">
+                <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                    <h4 class="mb-2 ">Converters</h4>
+                    {% for link in link_string1 %}
+                        <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                    {% endfor %}
+                </div>
+                <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                    <h4 class="my-2">Calculators</h4>
+                    {% for link in link_string2 %}
+                        <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                    {% endfor %}
+                </div>
+            </div>
         </div>
-        <hr class="bg-dark my-3">
-        <h3 class="text-center text-light">Applications</h3>
-        <p class="text-light text-monospace my-2 mx-2">Infix expressions are readable and solvable by humans. We can
-          easily
-          distinguish the order of operators, and also can use the parenthesis to solve that part first during solving
-          mathematical expressions.
-          The computer cannot differentiate the operators
-          and parenthesis easily, that’s why postfix conversion is needed.Compilers or command editor in computer and
-          some calculators also convert expression
-          to postfix first and then solve those expression to evaluate answer for the same.</p>
-
-
-
-      </div>
     </div>
-
-
-    <div class="col-md-4 my-4 ">
-
-      <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-
-
-        <h4 class="mb-2 ">Converters</h3>
-          {% for link in link_string1 %}
-          <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-          {% endfor %}
-      </div>
-      <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-        <h4 class="my-2">Calculators</h3>
-          {% for link in link_string2 %}
-          <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-          {% endfor %}
-      </div>
-
-
-    </div>
-  </div>
-</div>
-</div>
 {% endblock %}
 {% block JS %}
-<script src="/static/js/converter/infix_to_postfix.js"></script>
+    <script src="/static/js/converter/infix_to_postfix.js"></script>
 {% endblock %}
