@@ -42,19 +42,13 @@ converter,infix expression converter
           operand1 operand2).e.g. <b>*+AB-CD </b>
         </p>
         <hr class="bg-dark my-2" />
-        <form>
+        <form class="form-group">
           <div class="form-group text-light my-4">
             <label for="exampleInputEmail1">Infix expression</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control form-component"
               placeholder="Enter infix expression"
-              style="
-                color: white;
-                background-color: #191717;
-                border: 3px solid black;
-                border-radius: 15px;
-              "
               id="Infix"
               required
             />
@@ -63,14 +57,8 @@ converter,infix expression converter
             <label for="exampleInputPassword1">prefix expression</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control form-component"
               placeholder="prefix expression is..."
-              style="
-                color: white;
-                background-color: #191717;
-                border: 3px solid black;
-                border-radius: 15px;
-              "
               id="prefix"
               readonly
             />
@@ -176,5 +164,6 @@ converter,infix expression converter
   </div>
 </div>
 {% endblock %} {% block JS %}
+<script src="/static/js/converter/convertersCommon.js"></script>
 <script src="/static/js/converter/infix_to_prefix.js"></script>
 {% endblock %}

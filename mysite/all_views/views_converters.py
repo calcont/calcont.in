@@ -1,12 +1,24 @@
-from .. import MyFunctions
 from django.shortcuts import render
 from django.http import HttpResponse
 import json
 import base64
 import requests
+import random
 from django.views.decorators.csrf import csrf_exempt
+from django.core.cache import cache
+from .. import MyFunctions
+from ..constants import converters as constants
+from ..handlers.requestHandler.get import GetHandler
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
+CACHE_TIMEOUT = 60 * 60 * 24
+
+
+def generate_currency_endpoint(from_currency):
+    endpoint_key = random.choice([constants.ENDPOINT_KEY1, constants.ENDPOINT_KEY2])
+    currencies_queryparam = ','.join(constants.CURRENCIES)
+    endpoint = f"{constants.CURRENCY_ENDPOINT}/?apikey={endpoint_key}&base_currency={from_currency}&currencies={currencies_queryparam}"
+    return endpoint
 
 
 def Binaryconversion(request):
@@ -30,6 +42,20 @@ def Hexadecimalconversion(request):
 def Currencyconversion(request):
     link_string1, link_string2 = SideMap.arrange(3, 2, 'CC')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
+    if request.method == "POST":
+        from_currency = request.POST.get('from_currency')
+        to_currency = request.POST.get('to_currency')
+        amount = request.POST.get('amount')
+        if cache.get(from_currency) is None:
+            endpoint = generate_currency_endpoint(from_currency)
+            get_request = GetHandler(endpoint)
+            response = get_request.send()
+            cache.set(from_currency, response, CACHE_TIMEOUT)
+        data = cache.get(from_currency).json()
+        conversion_rate = data['data'][to_currency]['value']
+        converted_amount = float(amount) * conversion_rate
+        json_response = json.dumps({'converted_amount': converted_amount}, default=str)
+        return HttpResponse(json_response)
     return render(request, '../templates/converter/CurrencyCon.html', param)
 
 

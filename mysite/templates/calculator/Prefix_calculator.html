@@ -50,38 +50,29 @@ expression evaluator,prefix expression calculator
               >
               <input
                 type="text"
-                class="form-control"
+                class="form-control form-component"
                 placeholder="Enter expression"
-                style="
-                  color: white;
-                  background-color: #191717;
-                  border: 3px solid black;
-                  border-radius: 15px;
-                "
-                id="prefix"
+                id="Prefix"
                 required
               />
             </div>
             <div class="form-group">
               <label for="">Ans</label>
               <input
-                type="number"
-                class="form-control"
+                type="text"
+                class="form-control form-component"
                 placeholder="Ans is.."
-                style="
-                  color: white;
-                  background-color: #191717;
-                  border: 3px solid black;
-                  border-radius: 15px;
-                "
                 id="Ans"
-                disabled
+                readonly
               />
             </div>
-
+            <div class="custom-control custom-switch">
+              <input type="checkbox" class="custom-control-input" id="prefix-switch">
+              <label class="custom-control-label text-info radio-text" id="prefix-switch_text" for="prefix-switch">Enable space-separated digits e.g. treat "54" as one number in "+ 54"</label>
+            </div>
             <button
               type="submit"
-              class="btn btn-outline-secondary mb-3 text-light cal"
+              class="btn btn-outline-secondary my-3 text-light cal"
             >
               Calculate
             </button>
@@ -161,6 +152,5 @@ expression evaluator,prefix expression calculator
   </div>
 </div>
 {% endblock %} {% block JS %}
-<script src="/static/js/calculator/Prefix_calculator.js">
-</script>
+<script src="/static/js/calculator/Prefix_calculator.js"></script>
 {% endblock %}

@@ -1,40 +1,71 @@
+const enabledSpaceText = "Disable Space Separation e.g 54 considered as 5 and 4";
+const disabledSpaceText = 'Enable space-separated digits e.g. treat "54" as one number in "54 +"';
+const Ans = document.getElementById("Ans");
+let postfix, spaceSeparationStatus = false;
+let stack, stackTop;
+let i, a, b, result, pEval, ch;
+
 $(".cal").click(function (e) {
-    var postfix = document.getElementById("Postfix").value;
-    var stack = [],
-      top = -1;
-  
-    var i, a, b, result, pEval, ch;
-  
+  e.preventDefault();
+  postfix = document.getElementById("Postfix").value;
+  if (postfix === "") {
+    Ans.value = "Please enter a valid postfix expression";
+    return;
+  }
+  spaceSeparationStatus = document.getElementById("postfix-switch").checked;
+  if (spaceSeparationStatus) {
+    postfix = processSpacedExpression(postfix);
+  }
+  else {
+    postfix = removeExtraSpaces(postfix).split("");
+  }
+
+  stack = [] ; 
+  stackTop = -1;
+
+  try {
     for (i = 0; i <= postfix.length; i++) {
       ch = postfix[i];
-  
+
       if (!isNaN(parseInt(ch))) {
-        stack[++top] = parseInt(ch);
+        stack[++stackTop] = parseInt(ch);
       } else if (ch == "+" || ch == "-" || ch == "*" || ch == "/") {
-        b = stack[top];
-        top--;
-        a = stack[top];
-        top--;
-  
-        if (ch == "+") {
-          result = a + b;
-        } else if (ch == "-") {
-          result = a - b;
-        } else if (ch == "*") {
-          result = a * b;
-        } else if (ch == "/") {
-          result = a / b;
+        b = stack[stackTop];
+        stackTop--;
+        a = stack[stackTop];
+        stackTop--;
+
+        switch (ch) {
+          case "+":
+            result = a + b;
+            break;
+          case "-":
+            result = a - b;
+            break;
+          case "*":
+            result = a * b;
+            break;
+          case "/":
+            result = a / b;
+            break;
         }
-        stack[++top] = result;
+        stack[++stackTop] = result;
       }
     }
-  
-    pEval = stack[top];
-  
-    // top--;
-  
-    document.getElementById("Ans").value = pEval;
-  
-    e.preventDefault();
-  });
-  
+
+    pEval = stack[stackTop];
+    if (isNaN(pEval)) {
+      throw "Invalid Expression";
+    }
+    Ans.value = roundToThreeDecimalPlaces(pEval);
+  }
+  catch (e) {
+    Ans.value = "Invalid Expression";
+  }
+
+});
+
+document.getElementById("postfix-switch").addEventListener("change", function () {
+  let spaceSeparationText = document.getElementById("postfix-switch_text");
+  spaceSeparationText.innerText = this.checked ? enabledSpaceText : disabledSpaceText;
+});
