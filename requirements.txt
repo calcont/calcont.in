@@ -27,7 +27,7 @@ hstspreload==2020.12.22
 httpcore==0.9.1
 httpx==0.13.3
 hyperframe==5.2.0
-idna==2.10
+idna==3.7
 joblib==1.2.0
 language-tool-python==2.5.2
 MarkupPy==1.14
