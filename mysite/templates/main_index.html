@@ -188,8 +188,6 @@
           <p class="my-3">
             &copy;2020-<span id="copyright-endYear"></span> CalConT |   <a href="https://amardev.tech/" target="_blank">About</a> |
             <a href="/Privacy_policy/">Privacy Policy</a> |
-            <a href="/Sitemaps/">Sitemap</a> |
-            <a href="https://github.com/Amark19/calcont.in" target="_blank">Contribute</a> |
             <a href="https://blog.calcont.in" target="_blank">Blog</a> |
             <a href="https://draw.calcont.in" target="_blank">Whiteboard</a>
           </p>
@@ -214,58 +212,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script>
-      document.getElementById('copyright-endYear').textContent =
-        new Date().getFullYear();
-      function readCookie(name) {
-        var nameEQ = name + '='
-        var ca = document.cookie.split(';')
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i]
-          while (c.charAt(0) == ' ') c = c.substring(1, c.length)
-          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length)
-        }
-      }
-      
-      function setexpire() {
-        var date1 = new Date()
-      
-        date1.setTime(new Date(date1.getFullYear(), date1.getMonth(), date1.getDate(), date1.getHours() + 48))
-      
-        var x = Math.floor(Math.random() * 1000 + 1)
-      
-        document.cookie = 'PopCookie' + '=' + x + '; ' + 'expires=' + date1.toUTCString() + ';path=/'
-      }
-      function setexpire_1Month() {
-        var date1 = new Date()
-      
-        date1.setTime(new Date(date1.getFullYear(), date1.getMonth() + 1, date1.getDate(), date1.getHours(), date1.getMinutes()))
-      
-        var x = Math.floor(Math.random() * 1000 + 1)
-      
-        document.cookie = 'PopCookie' + '=' + x + '; ' + 'expires=' + date1.toUTCString() + ';path=/'
-      }
-      
-      var myCookie = readCookie('PopCookie')
-      
-      if (myCookie == undefined) {
-        // code to show modal here
-        setTimeout(function () {
-          $('#DoLogin').modal('show')
-        }, 50000)
-      }
-      $('#mbdy').click(function (e) {
-        window.open('https://draw.calcont.in/')
-        setexpire_1Month()
-        $('#DoLogin').modal('hide')
-      })
-      $('#closeP').click(function (e) {
-        setexpire_1Month()
-        $('#DoLogin').modal('hide')
-      })
-      $('.signin').click(function (e) {
-        setexpire_1Month()
-        $('#DoLogin').modal('hide')
-      })
+      document.getElementById('copyright-endYear').textContent = (new Date().getFullYear()).toString();
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3911342542125154" crossorigin="anonymous"></script>
     <!-- recommend-calcont-adunit -->
@@ -274,6 +221,7 @@
       ;(adsbygoogle = window.adsbygoogle || []).push({})
     </script>
     <script src="/static/js/utils.js"></script>
+    <script src="/static/js/main.js"></script>
     {% block JS %}
 
     {% endblock %}
