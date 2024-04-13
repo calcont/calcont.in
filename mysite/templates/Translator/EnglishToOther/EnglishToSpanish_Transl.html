@@ -167,7 +167,6 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
       recognition.interimResults = true;
       recognition.onresult = function(event) {
     const UserMsg = event.results[0][0].transcript;
-      // console.log(UserMsg)
       document.getElementById("EText").value=UserMsg
      
 
