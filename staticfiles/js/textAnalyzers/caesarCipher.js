@@ -36,13 +36,14 @@ class strategyInterface {
     constructor(shift) {
         this.strategy = null;
         this.shift = shift;
-        this.output = '';
     }
 
     execute(code) {
-        this.output = this.capitalCase(code);
-        this.output = this.smallCase(code);
-        return this.output;
+        let currentOutput = '';
+        currentOutput += this.capitalCase(code);
+        currentOutput += this.smallCase(code);
+        return currentOutput;
+
     }
 
     capitalCase(code) {
