@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous" />
     <meta name="p:domain_verify" content="28e934c826c14b50d8566460490226c8" />
     <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
-    <script src="/static/js/typed.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js"></script>
     <meta name="p:domain_verify" content="28e934c826c14b50d8566460490226c8" />
@@ -46,20 +45,18 @@
     </script>
     <script data-ad-client="ca-pub-3911342542125154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   </head>
-
   <body>
-    <!-- Modal -->
-    <div class="modal fade text-light" id="DoLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade text-light" id="self-ad" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content" style="background-color: rgb(25, 25, 25); border-radius: 40px">
           <div class="modal-header" style="border-bottom: 1px solid rgb(41 40 40)">
-            <h4 class="modal-title" id="exampleModalLabel">Calcont Whiteboard</h4>
-            <button type="button" class="close" id="closeP" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="ad-title">Calcont Whiteboard</h4>
+            <button type="button" class="close" id="ad-close-btn" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           </div>
-          <div class="modal-body" id="mbdy">
+          <div class="modal-body" id="ad-body">
             <p class="modalText">
               Hey There 👋, <br />
-              I have some good news for you. I have developed whiteboard webapp, accessible on <a href="https://draw.calcont.in/" target="_blank"><b>calcont whiteboard</b></a> which contains various tools to draw, design & to create flowdiagram. As calcont.in is all about online tools I thought we should also have some application to draw where our users can easily switch between these apps.
+              I have some good news for you. I have developed whiteboard webapp, accessible on <a id="ad-link" href="https://draw.calcont.in/" target="_blank"><b>calcont whiteboard</b></a> which contains various tools to draw, design & to create flowdiagram. As calcont.in is all about online tools I thought we should also have some application to draw where our users can easily switch between these apps.
               <br />
               <br />
             </p>
@@ -189,8 +186,6 @@
           <p class="my-3">
             &copy;2020-<span id="copyright-endYear"></span> CalConT |   <a href="https://amardev.tech/" target="_blank">About</a> |
             <a href="/Privacy_policy/">Privacy Policy</a> |
-            <a href="/Sitemaps/">Sitemap</a> |
-            <a href="https://github.com/Amark19/calcont.in" target="_blank">Contribute</a> |
             <a href="https://blog.calcont.in" target="_blank">Blog</a> |
             <a href="https://draw.calcont.in" target="_blank">Whiteboard</a>
           </p>
@@ -215,58 +210,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     <script>
-      document.getElementById('copyright-endYear').textContent =
-        new Date().getFullYear();
-      function readCookie(name) {
-        var nameEQ = name + '='
-        var ca = document.cookie.split(';')
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i]
-          while (c.charAt(0) == ' ') c = c.substring(1, c.length)
-          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length)
-        }
-      }
-      
-      function setexpire() {
-        var date1 = new Date()
-      
-        date1.setTime(new Date(date1.getFullYear(), date1.getMonth(), date1.getDate(), date1.getHours() + 48))
-      
-        var x = Math.floor(Math.random() * 1000 + 1)
-      
-        document.cookie = 'PopCookie' + '=' + x + '; ' + 'expires=' + date1.toUTCString() + ';path=/'
-      }
-      function setexpire_1Month() {
-        var date1 = new Date()
-      
-        date1.setTime(new Date(date1.getFullYear(), date1.getMonth() + 1, date1.getDate(), date1.getHours(), date1.getMinutes()))
-      
-        var x = Math.floor(Math.random() * 1000 + 1)
-      
-        document.cookie = 'PopCookie' + '=' + x + '; ' + 'expires=' + date1.toUTCString() + ';path=/'
-      }
-      
-      var myCookie = readCookie('PopCookie')
-      
-      if (myCookie == undefined) {
-        // code to show modal here
-        setTimeout(function () {
-          $('#DoLogin').modal('show')
-        }, 50000)
-      }
-      $('#mbdy').click(function (e) {
-        window.open('https://draw.calcont.in/')
-        setexpire_1Month()
-        $('#DoLogin').modal('hide')
-      })
-      $('#closeP').click(function (e) {
-        setexpire_1Month()
-        $('#DoLogin').modal('hide')
-      })
-      $('.signin').click(function (e) {
-        setexpire_1Month()
-        $('#DoLogin').modal('hide')
-      })
+      document.getElementById('copyright-endYear').textContent = (new Date().getFullYear()).toString();
     </script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3911342542125154" crossorigin="anonymous"></script>
     <!-- recommend-calcont-adunit -->
@@ -275,6 +219,7 @@
       ;(adsbygoogle = window.adsbygoogle || []).push({})
     </script>
     <script src="/static/js/utils.js"></script>
+    <script src="/static/js/main.js"></script>
     {% block JS %}
 
     {% endblock %}

@@ -149,7 +149,6 @@ $(document).on('submit','#post-form',function(e){
         encode:true,
         success:function(response){
           var GotRes=JSON.parse(response)
-          //console.log(x)
           var keyword = GotRes['Keyword']
           let uniquekeyword = [...new Set(keyword)];
           document.getElementById('OutTable').style.display="block";
