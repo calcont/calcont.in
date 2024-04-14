@@ -126,7 +126,7 @@ DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 LOGIN_URL = '/auth/login/google-oauth2/'
 LOGOUT_URL = '/'
-LOGIN_REDIRECT_URL = "/Sitemaps/"
+LOGIN_REDIRECT_URL = "/"
 
 
 def get_cache():

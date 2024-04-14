@@ -1,18 +1,17 @@
 from django.shortcuts import render
 from datetime import datetime
-from .. import globals
 from ..models import Contact
 from basicsite.settings.base import BASE_DIR
 import json
 import os
 import environ
+
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 client_secret = env('client_secret_captcha')
 
 
 def isCaptchaValid(r):
-
     url = 'https://www.google.com/recaptcha/api/siteverify'
     captchaData = {
         'secret': client_secret,
@@ -28,17 +27,6 @@ def isCaptchaValid(r):
 
 def index(request):
     return render(request, '../templates/index.html')
-
-
-def sitemaps(request):
-    text = [url for url in globals.urlSideMapList() if url[2] == 1]
-    converter = [url for url in globals.urlSideMapList() if url[2] == 2]
-    Translator = [url for url in globals.urlSideMapList() if url[2] == 3]
-    calculator = [url for url in globals.urlSideMapList() if url[2] == 4]
-
-    return render(request, 'sitemaps.html', {'text': text, 'converter': converter, 'translator': Translator, 'calculator': calculator})
-
-# contact
 
 
 def ContactMe(request):
@@ -76,6 +64,8 @@ def Aboutme(request):
 
 def PrivacyPolicy(request):
     return render(request, '../templates/PrivacyPolicy.html')
+
+
 # authentication
 
 
