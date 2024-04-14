@@ -20,7 +20,6 @@ def urlpatterns():
         path('Contact_me/', all_views.other_views.ContactMe, name='contact'),
         path('About/', all_views.other_views.Aboutme, name="about"),
         path('Supportme/', all_views.other_views.Supportme, name="support"),
-        path('Sitemaps/', all_views.other_views.sitemaps),
         # PrivacyPolicy
         path('Privacy_policy/', all_views.other_views.PrivacyPolicy,
              name="PrivacyPolicy"),
