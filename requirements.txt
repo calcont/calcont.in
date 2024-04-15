@@ -65,7 +65,7 @@ sniffio==1.2.0
 social-auth-app-django==5.4.0
 social-auth-core==4.5.3
 SpeechRecognition==3.8.1
-sqlparse==0.4.4
+sqlparse==0.5.0
 tablib==3.3.0
 threadpoolctl==3.0.0
 tomli==2.0.1
