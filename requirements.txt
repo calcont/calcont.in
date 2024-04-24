@@ -62,7 +62,7 @@ scipy==1.10.0
 shellescape==3.8.1
 six==1.16.0
 sniffio==1.2.0
-social-auth-app-django==5.4.0
+social-auth-app-django==5.4.1
 social-auth-core==4.5.3
 SpeechRecognition==3.8.1
 sqlparse==0.4.4
