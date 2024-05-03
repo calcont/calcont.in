@@ -69,7 +69,7 @@ sqlparse==0.4.4
 tablib==3.3.0
 threadpoolctl==3.0.0
 tomli==2.0.1
-tqdm==4.60.0
+tqdm==4.66.3
 urllib3==2.2.1
 whitenoise==5.2.0
 xlrd==2.0.1
