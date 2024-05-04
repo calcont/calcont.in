@@ -19,7 +19,7 @@ django-import-export==2.7.1
 et-xmlfile==1.1.0
 flake8==6.0.0
 googletrans==4.0.0rc1
-gunicorn==20.1.0
+gunicorn==22.0.0
 h11==0.9.0
 h2==3.2.0
 hpack==3.0.0
@@ -27,7 +27,7 @@ hstspreload==2020.12.22
 httpcore==0.9.1
 httpx==0.13.3
 hyperframe==5.2.0
-idna==2.10
+idna==3.7
 joblib==1.2.0
 language-tool-python==2.5.2
 MarkupPy==1.14
@@ -38,7 +38,7 @@ numpy==1.24.1
 oauthlib==3.2.2
 odfpy==1.4.1
 openpyxl==3.0.10
-Pillow==10.2.0  
+Pillow==10.3.0
 psycopg2==2.9.5
 pybase64==1.2.0
 pycodestyle==2.10.0
@@ -62,10 +62,10 @@ scipy==1.10.0
 shellescape==3.8.1
 six==1.16.0
 sniffio==1.2.0
-social-auth-app-django==5.4.0
+social-auth-app-django==5.4.1
 social-auth-core==4.5.3
 SpeechRecognition==3.8.1
-sqlparse==0.4.4
+sqlparse==0.5.0
 tablib==3.3.0
 threadpoolctl==3.0.0
 tomli==2.0.1
