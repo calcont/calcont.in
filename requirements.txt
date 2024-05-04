@@ -25,7 +25,7 @@ h2==3.2.0
 hpack==3.0.0
 hstspreload==2020.12.22
 httpcore==0.9.1
-httpx==0.13.3
+httpx==0.27.0
 hyperframe==5.2.0
 idna==3.7
 joblib==1.2.0
@@ -70,6 +70,7 @@ tablib==3.3.0
 threadpoolctl==3.0.0
 tomli==2.0.1
 tqdm==4.60.0
+translators==5.9.1
 urllib3==2.2.1
 whitenoise==5.2.0
 xlrd==2.0.1

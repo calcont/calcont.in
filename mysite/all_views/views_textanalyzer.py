@@ -6,8 +6,7 @@ import json
 from rake_nltk import Rake
 import os
 from PIL import Image
-from googletrans import Translator
-import googletrans
+import translators as ts
 import pytesseract
 from io import BytesIO
 from django.views.decorators.csrf import csrf_exempt
@@ -157,17 +156,15 @@ def imagetotext(request):
 
 def LangIdenti(request):
     link_string1, link_string2 = SideMap.arrange(8, 1, 'AT')
-    t = Translator()
     if request.method == "POST":
         text = request.POST['text']
         if request.POST.get('isDetect') == "0":
-            eng_txt = t.translate(text, dest='en')
+            eng_txt = ts.translate_text(text)
             response = json.dumps({'e_lang': eng_txt.text}, default=str)
         else:
             try:
-                lang = t.detect(text)
-                response = json.dumps(
-                    {'lang': googletrans.LANGUAGES[lang.lang]}, default=str)
+                lang = ts.translate_text(text)
+                response = json.dumps({'lang': lang.src}, default=str)
             except Exception:
                 err = "Not able to detect this text.This might be due to some special characters or some other reason.Can you please try some other text?"
                 response = json.dumps({'lang': err}, default=str)
