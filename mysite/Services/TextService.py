@@ -1,6 +1,7 @@
 import langdetect
 from pycountry import languages
 import translators as ts
+import logging
 
 
 def detect_language(text):
@@ -10,5 +11,9 @@ def detect_language(text):
 
 
 def translate_text(text, src='auto', target='en'):
-    translated_text = ts.translate_text(text, from_language=src, to_language=target)
+    try:
+        translated_text = ts.translate_text(text, from_language=src, to_language=target)
+    except Exception as e:
+        logging.error(e)
+        translated_text = "There is some Error while processing, can be due to invalid input such as blank space"
     return translated_text
