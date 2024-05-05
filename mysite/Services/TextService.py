@@ -10,8 +10,5 @@ def detect_language(text):
 
 
 def translate_text(text, src='auto', target='en'):
-    try:
-        translated_text = ts.translate_text(text, from_language=src, to_language=target)
-    except Exception:
-        translated_text = "Sorry, we could not translate the text. Please try again later."
+    translated_text = ts.translate_text(text, from_language=src, to_language=target)
     return translated_text
