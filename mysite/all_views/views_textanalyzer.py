@@ -6,10 +6,11 @@ import json
 from rake_nltk import Rake
 import os
 from PIL import Image
-import translators as ts
 import pytesseract
+from ..Services.TextService import detect_language, translate_text
 from io import BytesIO
 from django.views.decorators.csrf import csrf_exempt
+
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
 if os.getcwd() != '/app':  # for windows
     pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'  # do install tesseract in this path only and add it to your environment-variables
@@ -46,7 +47,6 @@ def text(request):
                     analysed += char
 
         if fullcaps != 'on' and removepunc != "on" and xtraspaceremover != "on" and newlineremover != "on":
-
             analysed = "PLEASE SELECT OPERATION."
         if tex == "":
             analysed = "PLEASE ENTER TEXT FIRST."
@@ -76,10 +76,12 @@ def Grammar_correction(request):
         corrected_text = text
         for error in reversed_errors:
             correction = error['better'][0]
-            corrected_text = corrected_text[:error['offset']] + correction + corrected_text[error['offset'] + error['length']:]
+            corrected_text = corrected_text[:error['offset']] + correction + corrected_text[
+                                                                             error['offset'] + error['length']:]
         return HttpResponse(corrected_text)
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/Grammar_correction.html', param)
+
 
 # namesorting
 
@@ -88,6 +90,7 @@ def name_sorting(request):
     link_string1, link_string2 = SideMap.arrange(1, 1, 'AT')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/name_sorting.html', param)
+
 
 # KeywordsExtractionFromText
 
@@ -114,6 +117,7 @@ def texttobase64(request):
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/text_to_base64.html', param)
 
+
 # base64 to text
 
 
@@ -121,6 +125,7 @@ def base64totext(request):
     link_string1, link_string2 = SideMap.arrange(5, 1, 'AT')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/base64_to_text.html', param)
+
 
 # texttoimage
 
@@ -151,6 +156,7 @@ def imagetotext(request):
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/Imagetotext.html', param)
 
+
 # Language identifier
 
 
@@ -159,18 +165,20 @@ def LangIdenti(request):
     if request.method == "POST":
         text = request.POST['text']
         if request.POST.get('isDetect') == "0":
-            eng_txt = ts.translate_text(text)
-            response = json.dumps({'e_lang': eng_txt.text}, default=str)
+            translated_text = translate_text(text)
+            response = json.dumps({'e_lang': translated_text}, default=str)
         else:
             try:
-                lang = ts.translate_text(text)
-                response = json.dumps({'lang': lang.src}, default=str)
+                detected_lang = detect_language(text)
+                response = json.dumps({'lang': detected_lang}, default=str)
             except Exception:
                 err = "Not able to detect this text.This might be due to some special characters or some other reason.Can you please try some other text?"
                 response = json.dumps({'lang': err}, default=str)
         return HttpResponse(response)
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/LangIdenti.html', param)
+
+
 # Caesar cipher encoder/decoder
 
 
@@ -178,6 +186,7 @@ def caesarCipher(request):
     link_string1, link_string2 = SideMap.arrange(9, 1, 'AT')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/CaesarCipher.html', param)
+
 
 # playfair cipher encoder/decoder
 

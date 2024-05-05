@@ -2,14 +2,9 @@ from . import globals
 import json
 from django.shortcuts import render
 from django.http import HttpResponse
-import translators as ts
+from .Services.TextService import translate_text
 
 urls = globals.urlSideMapList()
-
-
-def translate(text, dest, src='en'):
-    t = ts.translate_text(text, from_language=src, to_language=dest)
-    return t
 
 
 class TranslatorFun:
@@ -20,7 +15,7 @@ class TranslatorFun:
         if request.method == "POST":
             input_text = request.POST.get('text', 'default')
             try:
-                translated_text = translate(input_text, dest)
+                translated_text = translate_text(input_text, src='en', target=dest)
                 alt = True
                 param = {"ortext": input_text, "text": translated_text, "alt": alt,
                          'link_string1': link_string1, 'link_string2': link_string2}
@@ -42,7 +37,7 @@ class TranslatorFun:
                 if text == "":
                     res = json.dumps({'ConTex': ""}, default=str)
                 else:
-                    translated_text = translate(text, dest, src=src)
+                    translated_text = translate_text(text, src, dest)
                     res = json.dumps({'ConTex': translated_text}, default=str)
             except Exception:
                 res = json.dumps(
