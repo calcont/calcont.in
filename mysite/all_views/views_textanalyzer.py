@@ -76,8 +76,7 @@ def Grammar_correction(request):
         corrected_text = text
         for error in reversed_errors:
             correction = error['better'][0]
-            corrected_text = corrected_text[:error['offset']] + correction + corrected_text[
-                                                                             error['offset'] + error['length']:]
+            corrected_text = corrected_text[:error['offset']] + correction + corrected_text[error['offset'] + error['length']:]
         return HttpResponse(corrected_text)
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/Grammar_correction.html', param)

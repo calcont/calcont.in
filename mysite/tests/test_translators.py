@@ -1,4 +1,3 @@
-import html
 import json
 
 from django.test import TestCase
@@ -24,9 +23,8 @@ class EnglishToOtherTestCase(TestCase):
         response = self.client.post(reverse(controller_name), data=self.dummy_request)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, ENGLISH_TO_OTHER_TEMPLATE + controller_name + '_Transl.html')
-        decoded_html = html.unescape(response.content.decode('utf-8'))
         self.assertContains(response, expected_text)
-        
+
     def test_english_to_hindi(self):
         self.english_to_other('EnglishToHindi', 'मेरा नाम अमर है')
 
@@ -38,6 +36,7 @@ class EnglishToOtherTestCase(TestCase):
 
     def test_english_to_french(self):
         self.english_to_other('EnglishToFrench', "Je m’appelle Amar")
+
     #
     def test_english_to_arabian(self):
         self.english_to_other('EnglishToArabian', 'اسمي عمار')
