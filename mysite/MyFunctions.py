@@ -1,35 +1,34 @@
-
-from googletrans import Translator
 from . import globals
 import json
 from django.shortcuts import render
 from django.http import HttpResponse
+from .Services.TextService import translate_text
+
 urls = globals.urlSideMapList()
 
 
 class TranslatorFun:
-    def Translate(self, text, dest, src='en'):
-        trans = Translator()
-        return trans.translate(text, dest=dest, src=src)
 
-    def EnglishToOther(self, request, indi_id, dest, htmlFile):
+    def english_to_other(self, request, indi_id, dest, html_file):
         link_string1, link_string2 = ArrangeSideMapForWebpage.arrange(
             self, indi_id, 3, 'AT')
         if request.method == "POST":
+            input_text = request.POST.get('text', 'default')
             try:
-                text = request.POST.get('text', 'default')
-                t = self.Translate(text, dest)
+                translated_text = translate_text(input_text, src='en', target=dest)
                 alt = True
-                param = {"ortext": text, "text": t.text, "alt": alt,
+                param = {"ortext": input_text, "text": translated_text, "alt": alt,
                          'link_string1': link_string1, 'link_string2': link_string2}
             except Exception:
-                param = {"ortext": text, "text": "There is some Error while processing, can be due to invalid input such as blank space", "alt": True,
+                param = {"ortext": input_text,
+                         "text": "There is some Error while processing, can be due to invalid input such as blank space",
+                         "alt": True,
                          'link_string1': link_string1, 'link_string2': link_string2}
         else:
             param = {'link_string1': link_string1, 'link_string2': link_string2}
-        return render(request, htmlFile, param)
+        return render(request, html_file, param)
 
-    def HindiToOther(self, request, indi_id, dest, src, htmlFile):
+    def hindi_to_other(self, request, indi_id, dest, src, html_file):
         link_string1, link_string2 = ArrangeSideMapForWebpage.arrange(
             self, indi_id, 3, 'AT')
         if request.method == "POST":
@@ -38,13 +37,15 @@ class TranslatorFun:
                 if text == "":
                     res = json.dumps({'ConTex': ""}, default=str)
                 else:
-                    t = self.Translate(text, dest, src=src)
-                    res = json.dumps({'ConTex': t.text}, default=str)
+                    translated_text = translate_text(text, src, dest)
+                    res = json.dumps({'ConTex': translated_text}, default=str)
             except Exception:
-                res = json.dumps({'ConTex': "There is some Error while processing,edit some text or type some.It may work"}, default=str)
+                res = json.dumps(
+                    {'ConTex': "There is some Error while processing,edit some text or type some.It may work"},
+                    default=str)
             return HttpResponse(res)
         param = {'link_string1': link_string1, 'link_string2': link_string2}
-        return render(request, htmlFile, param)
+        return render(request, html_file, param)
 
 
 class ArrangeSideMapForWebpage:
