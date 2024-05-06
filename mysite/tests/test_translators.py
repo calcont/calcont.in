@@ -62,7 +62,7 @@ class HindiToOtherTestCase(TestCase):
         self.assertEqual(expected_text, decoded_json['ConTex'])
 
     def test_hindi_to_english(self):
-        self.hindi_to_other('HindiToEnglish', 'this is a test message')
+        self.hindi_to_other('HindiToEnglish', 'This is a test message')
 
     def test_hindi_to_marathi(self):
         self.hindi_to_other('HindiToMarathi', 'हा एक चाचणी संदेश आहे')
