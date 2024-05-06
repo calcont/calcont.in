@@ -1,6 +1,6 @@
 import langdetect
 from pycountry import languages
-import translators as ts
+from deep_translator import GoogleTranslator
 import logging
 
 
@@ -12,8 +12,8 @@ def detect_language(text):
 
 def translate_text(text, src='auto', target='en'):
     try:
-        translated_text = ts.translate_text(text, from_language=src, to_language=target)
+        translated_text = GoogleTranslator(source=src, target=target).translate(text)
     except Exception as e:
         logging.error(e)
-        translated_text = "There is some Error while processing, can be due to invalid input such as blank space"
+        translated_text = "Sorry, translation failed. Please try again later."
     return translated_text
