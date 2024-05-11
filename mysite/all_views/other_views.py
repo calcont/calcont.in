@@ -58,15 +58,8 @@ def ContactMe(request):
     return render(request, '../templates/Contact_me.html')
 
 
-def Aboutme(request):
-    return render(request, '../templates/Aboutme.html')
-
-
 def PrivacyPolicy(request):
     return render(request, '../templates/PrivacyPolicy.html')
-
-
-# authentication
 
 
 def Supportme(request):
