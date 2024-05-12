@@ -10,7 +10,6 @@ class StaticViewsSitemap(Sitemap):
         return [
             "index",
             "contact",
-            "about",
             "Login",
             "Signin",
             "text",
