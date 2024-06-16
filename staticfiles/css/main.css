@@ -137,10 +137,17 @@ tbody {
 }
 
 .ad-container {
+  margin: 0px;
+  padding: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
+}
+
+.ad-container>body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .modelText {
