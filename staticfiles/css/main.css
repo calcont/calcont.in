@@ -1,6 +1,5 @@
-
 @import url('https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
-    
+
 html {
   scroll-behavior: smooth;
 }
@@ -10,6 +9,11 @@ a {
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background-color: rgb(25, 25, 25);
 }
 
@@ -128,7 +132,15 @@ tbody {
 }
 
 .footer {
-  position: absolute;
+  height: fit-content;
+  position: relative;
+}
+
+.ad-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .modelText {
@@ -136,19 +148,19 @@ tbody {
 }
 
 .form-component {
-    color: white;
-    background-color: #191717;
-    border: 2px solid #141414;
-    border-radius: 10px;
-  }
-  
-.form-component:focus {
-    color: white;
-    background-color: #191717;
-    border: 2px solid #141414;
-    border-radius: 10px;
+  color: white;
+  background-color: #191717;
+  border: 2px solid #141414;
+  border-radius: 10px;
 }
 
-.form-component[readonly]{
+.form-component:focus {
+  color: white;
+  background-color: #191717;
+  border: 2px solid #141414;
+  border-radius: 10px;
+}
+
+.form-component[readonly] {
   background-color: #191717;
 }
