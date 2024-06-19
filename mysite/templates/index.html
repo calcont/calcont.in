@@ -24,18 +24,35 @@ Amar khamkar
     
   }
 
-  .imge:hover {
-    animation: rotate 2s alternate;
-
+  .imge {
+    position: relative;
+    display: inline-block;
+    will-change: transform background-color;
+    transition: background-color 0.3s ease;
   }
 
-  @keyframes rotate {
-    from {
-      transform: translateY(-1rem);
+  .imge:hover {
+    -webkit-animation: mover 1s infinite alternate;
+    animation: mover 1s infinite alternate;
+  }
+
+  @-webkit-keyframes mover {
+    0% {
+      transform: translateY(0);
     }
 
-    to {
-      transform: translateY(0.3rem);
+    100% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes mover {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-20px);
     }
   }
 
