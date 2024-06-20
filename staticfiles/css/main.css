@@ -1,5 +1,6 @@
-@import url('https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
 
+@import url('https://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
+    
 html {
   scroll-behavior: smooth;
 }
@@ -9,11 +10,6 @@ a {
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
   background-color: rgb(25, 25, 25);
 }
 
@@ -132,8 +128,29 @@ tbody {
 }
 
 .footer {
-  height: fit-content;
-  position: relative;
+  position: absolute;
+}
+
+.modelText {
+  font-size: 18px;
+}
+
+.form-component {
+    color: white;
+    background-color: #191717;
+    border: 2px solid #141414;
+    border-radius: 10px;
+  }
+  
+.form-component:focus {
+    color: white;
+    background-color: #191717;
+    border: 2px solid #141414;
+    border-radius: 10px;
+}
+
+.form-component[readonly]{
+  background-color: #191717;
 }
 
 .ad-container {
@@ -148,26 +165,4 @@ tbody {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.modelText {
-  font-size: 18px;
-}
-
-.form-component {
-  color: white;
-  background-color: #191717;
-  border: 2px solid #141414;
-  border-radius: 10px;
-}
-
-.form-component:focus {
-  color: white;
-  background-color: #191717;
-  border: 2px solid #141414;
-  border-radius: 10px;
-}
-
-.form-component[readonly] {
-  background-color: #191717;
 }
