@@ -80,6 +80,18 @@ tbody {
   border-radius: 20px;
 }
 
+.add-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-container>body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (max-width: 500px) and (min-width: 200px) {
   #AlertS {
     font-size: 14px;
@@ -153,16 +165,3 @@ tbody {
   background-color: #191717;
 }
 
-.ad-container {
-  margin: 0px;
-  padding: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.ad-container>body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
