@@ -80,6 +80,18 @@ tbody {
   border-radius: 20px;
 }
 
+.add-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-container>body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media only screen and (max-width: 500px) and (min-width: 200px) {
   #AlertS {
     font-size: 14px;
