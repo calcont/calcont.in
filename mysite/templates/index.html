@@ -1,384 +1,394 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-calcont.in is basically a online tools website where you will find all essential tools majorly for students and for everyone.
-Here,you will find calculators,converters,AI based text tools/analyzers and translators which is been used by many people.
+    calcont.in is basically a online tools website where you will find all essential tools majorly for students and for
+    everyone.
+    Here,you will find calculators,converters,AI based text tools/analyzers and translators which is been used by many
+    people.
 {% endblock %}
 {% block MKW %}
-Converters,calculators,translators and various text utility tools
+    Converters,calculators,translators and various text utility tools
 {% endblock %}
 {% block Mr %}
-30/12/2020
+    30/12/2020
 {% endblock %}
 {% block MAut %}
-Amar khamkar
+    Amar khamkar
 {% endblock %}
 {% block title %} CalConT
 {% endblock %}
 {% block body %}
 
-<style>
-  h1,
-  h2 {
-    font-family: 'Ubuntu Mono', monospace;
-    color: #c6cace;
-    
-  }
+    <style>
+        h1,
+        h2 {
+            font-family: 'Ubuntu Mono', monospace;
+            color: #c6cace;
 
-  .imge:hover {
-    animation: rotate 2s alternate;
+        }
 
-  }
+        .imge:hover {
+            animation: rotate 2s alternate;
 
-  @keyframes rotate {
-    from {
-      transform: translateY(-1rem);
-    }
+        }
 
-    to {
-      transform: translateY(0.3rem);
-    }
-  }
+        @keyframes rotate {
+            from {
+                transform: translateY(-1rem);
+            }
 
-  .contact {
-    padding: 0.8rem 1.8rem;
-    border: none;
-    font-size: 1.4rem;
-    border-radius: 2rem;
-    text-transform: uppercase;
-    /* box-shadow: vertical horizontal blur spread color; */
-    box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
-    outline: none;
-    font-size: 20px;
-    transition: transform ease-in-out 0.5s;
+            to {
+                transform: translateY(0.3rem);
+            }
+        }
 
-  }
+        .contact {
+            padding: 0.8rem 1.8rem;
+            border: none;
+            font-size: 1.4rem;
+            border-radius: 2rem;
+            text-transform: uppercase;
+            /* box-shadow: vertical horizontal blur spread color; */
+            box-shadow: 0px 8px 6px -6px rgba(0, 0, 0, 0.8);
+            outline: none;
+            font-size: 20px;
+            transition: transform ease-in-out 0.5s;
 
-  .contact:hover {
-    box-shadow: 0px 8px 6px -6px var(--main-color);
-    transform: translateY(-0.5rem);
+        }
+
+        .contact:hover {
+            box-shadow: 0px 8px 6px -6px var(--main-color);
+            transform: translateY(-0.5rem);
 
 
-  }
+        }
 
-  a {
-    font-size: 15px;
-  }
+        a {
+            font-size: 15px;
+        }
 
-  h3 {
-    font-size: 1.3125rem;
-    letter-spacing: -.01em;
-    line-height: 1.4;
-    color: #6c859a;
-  }
+        h3 {
+            font-size: 1.3125rem;
+            letter-spacing: -.01em;
+            line-height: 1.4;
+            color: #6c859a;
+        }
 
-  p {
-    color: #c6cace;
-  }
-  @media only screen and (max-width: 370px) and (min-width: 100px) {
-    
-  }
-  @media only screen and (max-width: 370px) and (min-width: 100px) {
-  
-    .imge{
-      width: 250px;
-      height: 200px;
-  }
-  }
-  @media only screen and (max-width: 768px) and (min-width: 100px) {
-  
-  .imge{
-      width: 350px;
-      height: 300px;
-  }
-  }
-  @media only screen and (max-width: 988px) and (min-width: 100px) {
+        p {
+            color: #c6cace;
+        }
 
-    h1
-    {
-      font-size: 28px;
+        @media only screen and (max-width: 370px) and (min-width: 100px) {
 
-    }
-    h2{
-      font-size:25px;
-    }
+        }
 
-    .desc {
-      margin-top: -120px;
+        @media only screen and (max-width: 370px) and (min-width: 100px) {
 
-    }
+            .imge {
+                width: 250px;
+                height: 200px;
+            }
+        }
 
-    .contact {
-      font-size: 15px;
-    }
-    .imge1{
-     
-      width: 300px;
-      height: 220px;
-    }
+        @media only screen and (max-width: 768px) and (min-width: 100px) {
 
-  }
-</style>
-<!-- Custom styles for this template -->
-{% if canlogin %}
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-  {{message}} you can login here <a href="/login/" class="">Login</a>
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-{% endfor %}
-{% endif %}
-{% else %}
-{% if messages %}
-{% for message in messages %}
-<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
-  {{message}}
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-{% endfor %}
-{% endif %}
-{% endif %}
+            .imge {
+                width: 350px;
+                height: 300px;
+            }
+        }
 
-<section class="pt-4 pt-md-11  " style="background-color:rgb(25,25,25);">
-  <div class="container ">
-    <div class="row align-items-center container">
-      <div class="col-12 col-md-5 col-lg-6 order-md-2">
+        @media only screen and (max-width: 988px) and (min-width: 100px) {
 
-        <!-- Image -->
-        <!-- <img src="/static/2.svg" class="img-fluid imge mw-md-150 mw-lg-130 mb-6 mb-md-0 " alt="..." > -->
-        <embed src="/static/2.svg" class="img-fluid imge mw-md-150 mw-lg-130 mb-6 mb-md-0 ">
+            h1 {
+                font-size: 28px;
+
+            }
+
+            h2 {
+                font-size: 25px;
+            }
+
+            .desc {
+                margin-top: -120px;
+
+            }
+
+            .contact {
+                font-size: 15px;
+            }
+
+            .imge1 {
+
+                width: 300px;
+                height: 220px;
+            }
+
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    {% if canlogin %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }} you can login here <a href="/login/" class="">Login</a>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% else %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+
+    <section class="pt-4 pt-md-11  " style="background-color:rgb(25,25,25);">
+        <div class="container ">
+            <div class="row align-items-center container">
+                <div class="col-12 col-md-5 col-lg-6 order-md-2">
+
+                    <!-- Image -->
+                    <!-- <img src="/static/2.svg" class="img-fluid imge mw-md-150 mw-lg-130 mb-6 mb-md-0 " alt="..." > -->
+                    <embed src="/static/2.svg" class="img-fluid imge mw-md-150 mw-lg-130 mb-6 mb-md-0 ">
+                    <div class="container">
+                        <a href="https://www.freepik.com/vectors/money" class="mx-5 Credits" style="font-size: 10px;">Image
+                            Credits: freepik</a>
+                    </div>
+
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 order-md-1 "
+                     style="margin-top: 130px;">
+
+                    <!-- Heading -->
+                    <h1 class="display-5  font-weight-bold  text-md-start desc">
+                        <span class="text-warning">CalConT</span> an unique
+                        <span style="color:#6c859a">Cal</span>culators,
+                        <span style="color:#6c859a">Con</span>verters &
+
+                        <span style="color:#6c859a">T</span>ranslator webapp.
+                    </h1>
+
+                    <!-- Text -->
+                    <p class="lead ">You will get a unique calculators,converters here which are essential for all of us
+                        and
+                        that's why it can reduce your time.</p>
+                    <p class="lead   text-md-start  mb-6 mb-lg-8">
+                        For any query or if you have any suggestions feel free to contact me.
+                    </p>
+
+                    <!-- Buttons -->
+                    <div class=" text-md-start ">
+                        <a href="/Contact_me/" class="btn btn-primary contact shadow lift my-2 ">
+                            Contact Me <i class="fe fe-arrow-right d-none d-md-inline ms-3"></i>
+                        </a>
+                    </div>
+
+                </div>
+            </div> <!-- / .row -->
+        </div> <!-- / .container -->
+    </section>
+
+    <div class="container">
+
         <div class="container">
-          <a href="https://www.freepik.com/vectors/money" class="mx-5 Credits" style="font-size: 10px;" >Image Credits: freepik</a>
+            <div class="row mb-4 " style="margin-top: 150px;">
+                <div class="col-12 col-md-4 aos-init aos-animate" data-aos="fade-up">
+
+                    <!-- Icon -->
+                    <div class="icon text-primary mb-3">
+                        <img src="/static/calico.png" width="50" height="50" alt="">
+                    </div>
+
+                    <!-- Heading -->
+                    <h3>
+                        Calculator
+                    </h3>
+
+                    <!-- Text -->
+                    <p class="  mb-6 mb-md-0">
+                        Calculator such as postfix,prefix which students used the most and BMI calculator with suggestor
+                        are also
+                        here.
+                    </p>
+
+                </div>
+                <div class="col-12 col-md-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="50">
+
+                    <!-- Icon -->
+                    <div class="icon text-primary mb-3">
+                        <img src="/static/conico.png" width="50" height="50" alt="">
+                    </div>
+
+                    <!-- Heading -->
+                    <h3>
+                        Converter
+                    </h3>
+
+                    <!-- Text -->
+                    <p class="  mb-6 mb-md-0">
+                        Binary ,decimal ,infix & postfix converters which are essential for students and units
+                        converters are for
+                        general use.
+                    </p>
+
+                </div>
+                <div class="col-12 col-md-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+
+                    <!-- Icon -->
+                    <div class="icon text-primary mb-3">
+                        <img src="/static/Transico.png" width="50" height="50" alt="">
+                    </div>
+
+                    <!-- Heading -->
+                    <h3>
+                        Translator
+                    </h3>
+
+                    <!-- Text -->
+                    <p class="  mb-0">
+                        Translators which helps us to know other languages are also here in which you can convert
+                        english language to
+                        other major language.
+                    </p>
+
+                </div>
+            </div>
         </div>
-        
-      </div>
-      <div class="col-12 col-md-6 col-lg-6 order-md-1 " 
-        style="margin-top: 130px;">
+        <hr class="bg-dark my-3">
+        <h2 class=" text-center my-5">
+            Some of the top viewed pages
+        </h2>
+        <div class="row align-items-center container">
+            <div class="col-12 col-md-5 col-lg-6 order-md-1">
 
-        <!-- Heading -->
-        <h1 class="display-5  font-weight-bold  text-md-start desc">
-          <span class="text-warning">CalConT</span> an unique
-          <span style="color:#6c859a">Cal</span>culators,
-          <span style="color:#6c859a">Con</span>verters &
+                <div class="w-md-150 w-lg-130 position-relative ">
+                    <embed src="/static/achievment.png" class="img-fluid imge1" width="400px" height="400px">
+                </div>
 
-          <span style="color:#6c859a">T</span>ranslator webapp.
-        </h1>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6  order-md-2">
 
-        <!-- Text -->
-        <p class="lead ">You will get a unique calculators,converters here which are essential for all of us and
-          that's why it can reduce your time.</p>
-        <p class="lead   text-md-start  mb-6 mb-lg-8">
-          For any query or if you have any suggestions feel free to contact me.
-        </p>
+                <!-- Heading -->
 
-        <!-- Buttons -->
-        <div class=" text-md-start ">
-          <a href="/Contact_me/" class="btn btn-primary contact shadow lift my-2 ">
-            Contact Me <i class="fe fe-arrow-right d-none d-md-inline ms-3"></i>
-          </a>
+                <!-- Text -->
+                <h2 class="fs-lg mb-6">
+                    Out of many tools, these three are most viewed ones.
+                </h2>
+
+                <!-- List -->
+                <div class="d-flex">
+
+                    <!-- Icon -->
+                    <div class="icon text-primary">
+                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0h24v24H0z"></path>
+                                <path
+                                        d="M12 8H8a4 4 0 00-4 4v1a3 3 0 003 3v2a5 5 0 01-5-5v-1a6 6 0 016-6h4V4.728a.5.5 0 01.8-.4l2.856 2.133a.5.5 0 01-.001.802l-2.857 2.121A.5.5 0 0112 8.983V8z"
+                                        fill="#335EEA"></path>
+                                <path
+                                        d="M12.058 16H16a4 4 0 004-4v-1a3 3 0 00-3-3V6a5 5 0 015 5v1a6 6 0 01-6 6h-3.942v.983a.5.5 0 01-.798.401l-2.857-2.12a.5.5 0 010-.803l2.856-2.134a.5.5 0 01.8.401V16z"
+                                        fill="#335EEA" opacity=".3"></path>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="ms-5">
+
+                        <!-- Heading -->
+                        <a href="/Calculator/Postfix_calculator/" class="mb-1" style="font-size: 20px;">
+                            Postfix Calculator
+                        </a>
+
+                        <!-- Text -->
+                        <p class=" mb-6">
+                            Postfix Calculator evaluates the postfix expression and calculates its value.
+                        </p>
+
+                    </div>
+
+                </div>
+                <div class="d-flex">
+
+                    <!-- Icon -->
+                    <div class="icon text-primary">
+                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0h24v24H0z"></path>
+                                <path
+                                        d="M12 8H8a4 4 0 00-4 4v1a3 3 0 003 3v2a5 5 0 01-5-5v-1a6 6 0 016-6h4V4.728a.5.5 0 01.8-.4l2.856 2.133a.5.5 0 01-.001.802l-2.857 2.121A.5.5 0 0112 8.983V8z"
+                                        fill="#335EEA"></path>
+                                <path
+                                        d="M12.058 16H16a4 4 0 004-4v-1a3 3 0 00-3-3V6a5 5 0 015 5v1a6 6 0 01-6 6h-3.942v.983a.5.5 0 01-.798.401l-2.857-2.12a.5.5 0 010-.803l2.856-2.134a.5.5 0 01.8.401V16z"
+                                        fill="#335EEA" opacity=".3"></path>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="ms-5">
+
+                        <!-- Heading -->
+                        <a href="/Conversion/infix_to_postfix" class="mb-1" style="font-size: 20px;">
+                            Infix to Postfix Converter.
+                        </a>
+
+                        <!-- Text -->
+                        <p class=" mb-6 mb-md-0">
+                            Entered infix expression converted quickly to postfix expression.
+                        </p>
+
+                    </div>
+
+                </div>
+                <div class="d-flex my-3">
+
+                    <!-- Icon -->
+                    <div class="icon text-primary">
+                        <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0h24v24H0z"></path>
+                                <path
+                                        d="M12 8H8a4 4 0 00-4 4v1a3 3 0 003 3v2a5 5 0 01-5-5v-1a6 6 0 016-6h4V4.728a.5.5 0 01.8-.4l2.856 2.133a.5.5 0 01-.001.802l-2.857 2.121A.5.5 0 0112 8.983V8z"
+                                        fill="#335EEA"></path>
+                                <path
+                                        d="M12.058 16H16a4 4 0 004-4v-1a3 3 0 00-3-3V6a5 5 0 015 5v1a6 6 0 01-6 6h-3.942v.983a.5.5 0 01-.798.401l-2.857-2.12a.5.5 0 010-.803l2.856-2.134a.5.5 0 01.8.401V16z"
+                                        fill="#335EEA" opacity=".3"></path>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="ms-5">
+
+                        <!-- Heading -->
+                        <a href="/Calculator/Prefix_calculator/" class="mb-1" style="font-size: 20px;">
+                            Prefix Calculator
+                        </a>
+
+                        <!-- Text -->
+                        <p class=" mb-6 mb-md-0">
+                            Prefix Calculator evaluates the prefix expression and calculates its value.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
         </div>
-
-      </div>
-    </div> <!-- / .row -->
-  </div> <!-- / .container -->
-</section>
-
-<div class="container">
-
-  <div class="container">
-    <div class="row mb-4 " style="margin-top: 150px;">
-      <div class="col-12 col-md-4 aos-init aos-animate" data-aos="fade-up">
-
-        <!-- Icon -->
-        <div class="icon text-primary mb-3">
-          <img src="/static/calico.png" width="50" height="50" alt="">
-        </div>
-
-        <!-- Heading -->
-        <h3>
-          Calculator
-        </h3>
-
-        <!-- Text -->
-        <p class="  mb-6 mb-md-0">
-          Calculator such as postfix,prefix which students used the most and BMI calculator with suggestor are also
-          here.
-        </p>
-
-      </div>
-      <div class="col-12 col-md-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="50">
-
-        <!-- Icon -->
-        <div class="icon text-primary mb-3">
-          <img src="/static/conico.png" width="50" height="50" alt="">
-        </div>
-
-        <!-- Heading -->
-        <h3>
-          Converter
-        </h3>
-
-        <!-- Text -->
-        <p class="  mb-6 mb-md-0">
-          Binary ,decimal ,infix & postfix converters which are essential for students and units converters are for
-          general use.
-        </p>
-
-      </div>
-      <div class="col-12 col-md-4 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-
-        <!-- Icon -->
-        <div class="icon text-primary mb-3">
-          <img src="/static/Transico.png" width="50" height="50" alt="">
-        </div>
-
-        <!-- Heading -->
-        <h3>
-          Translator
-        </h3>
-
-        <!-- Text -->
-        <p class="  mb-0">
-          Translators which helps us to know other languages are also here in which you can convert english language to
-          other major language.
-        </p>
-        
-      </div>
     </div>
-  </div>
-  <hr class="bg-dark my-3">
-  <h2 class=" text-center my-5" >
-    Some of the top viewed pages
-  </h2>
-  <div class="row align-items-center container" >
-    <div class="col-12 col-md-5 col-lg-6 order-md-1">
-  
-      <div class="w-md-150 w-lg-130 position-relative ">
-  
-        <embed src="/static/FrontPage.gif" class="img-fluid imge1" width="400px" height="400px">
-     </div>
-  
-    </div>
-    <div class="col-12 col-md-6 col-lg-6  order-md-2" >
-      
-      <!-- Heading -->
-
-      <!-- Text -->
-      <h2 class="fs-lg mb-6">
-        Out of many tools, these three are most viewed ones.
-      </h2>
-
-      <!-- List -->
-      <div class="d-flex">
-
-        <!-- Icon -->
-        <div class="icon text-primary">
-          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fill-rule="evenodd">
-              <path d="M0 0h24v24H0z"></path>
-              <path
-                d="M12 8H8a4 4 0 00-4 4v1a3 3 0 003 3v2a5 5 0 01-5-5v-1a6 6 0 016-6h4V4.728a.5.5 0 01.8-.4l2.856 2.133a.5.5 0 01-.001.802l-2.857 2.121A.5.5 0 0112 8.983V8z"
-                fill="#335EEA"></path>
-              <path
-                d="M12.058 16H16a4 4 0 004-4v-1a3 3 0 00-3-3V6a5 5 0 015 5v1a6 6 0 01-6 6h-3.942v.983a.5.5 0 01-.798.401l-2.857-2.12a.5.5 0 010-.803l2.856-2.134a.5.5 0 01.8.401V16z"
-                fill="#335EEA" opacity=".3"></path>
-            </g>
-          </svg>
-        </div>
-
-        <div class="ms-5">
-
-          <!-- Heading -->
-          <a href="/Calculator/Postfix_calculator/" class="mb-1" style="font-size: 20px;">
-            Postfix Calculator
-          </a>
-
-          <!-- Text -->
-          <p class=" mb-6">
-            Postfix Calculator evaluates the postfix expression and calculates its value.
-          </p>
-
-        </div>
-
-      </div>
-      <div class="d-flex">
-
-        <!-- Icon -->
-        <div class="icon text-primary">
-          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fill-rule="evenodd">
-              <path d="M0 0h24v24H0z"></path>
-              <path
-                d="M12 8H8a4 4 0 00-4 4v1a3 3 0 003 3v2a5 5 0 01-5-5v-1a6 6 0 016-6h4V4.728a.5.5 0 01.8-.4l2.856 2.133a.5.5 0 01-.001.802l-2.857 2.121A.5.5 0 0112 8.983V8z"
-                fill="#335EEA"></path>
-              <path
-                d="M12.058 16H16a4 4 0 004-4v-1a3 3 0 00-3-3V6a5 5 0 015 5v1a6 6 0 01-6 6h-3.942v.983a.5.5 0 01-.798.401l-2.857-2.12a.5.5 0 010-.803l2.856-2.134a.5.5 0 01.8.401V16z"
-                fill="#335EEA" opacity=".3"></path>
-            </g>
-          </svg>
-        </div>
-
-        <div class="ms-5">
-
-          <!-- Heading -->
-          <a href="/Conversion/infix_to_postfix" class="mb-1" style="font-size: 20px;">
-            Infix to Postfix Converter.
-          </a>
-
-          <!-- Text -->
-          <p class=" mb-6 mb-md-0">
-            Entered infix expression coverted quickly to postfix expression.
-          </p>
-
-        </div>
-
-      </div>
-      <div class="d-flex my-3">
-
-        <!-- Icon -->
-        <div class="icon text-primary">
-          <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <g fill="none" fill-rule="evenodd">
-              <path d="M0 0h24v24H0z"></path>
-              <path
-                d="M12 8H8a4 4 0 00-4 4v1a3 3 0 003 3v2a5 5 0 01-5-5v-1a6 6 0 016-6h4V4.728a.5.5 0 01.8-.4l2.856 2.133a.5.5 0 01-.001.802l-2.857 2.121A.5.5 0 0112 8.983V8z"
-                fill="#335EEA"></path>
-              <path
-                d="M12.058 16H16a4 4 0 004-4v-1a3 3 0 00-3-3V6a5 5 0 015 5v1a6 6 0 01-6 6h-3.942v.983a.5.5 0 01-.798.401l-2.857-2.12a.5.5 0 010-.803l2.856-2.134a.5.5 0 01.8.401V16z"
-                fill="#335EEA" opacity=".3"></path>
-            </g>
-          </svg>
-        </div>
-
-        <div class="ms-5">
-
-          <!-- Heading -->
-          <a href="/Calculator/Prefix_calculator/" class="mb-1" style="font-size: 20px;">
-            Prefix Calculator
-          </a>
-
-          <!-- Text -->
-          <p class=" mb-6 mb-md-0">
-            Prefix Calculator evaluates the prefix expression and calculates its value.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-  </div>
-</div>
 
 {% endblock %}
 {% block JS %}
-<script>
+    <script>
 
 
-
-</script>
+    </script>
 {% endblock %}
