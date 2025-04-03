@@ -1,105 +1,107 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-Support Me
+    Support Me
 {% endblock %}
 {% block MKW %}
 
 {% endblock %}
 {% block Mr %}
-20/01/2021
+    20/01/2021
 {% endblock %}
 {% block MAut %}
-Amar khamkar
+    Amar khamkar
 {% endblock %}
 {% block title %} Support CalConT
 {% endblock %}
 {% block body %}
-<style>
-  section {
-    margin-top: 150px;
-    margin-bottom: 150px;
-  }
+    <style>
+        section {
+            margin-top: 150px;
+            margin-bottom: 150px;
+        }
 
-  .razorpay {
-    width: 300px;
-    height: 510px;
-  }
+        .razorpay {
+            width: 300px;
+            height: 510px;
+        }
 
-  @media only screen and (max-width: 3000px) and (min-width: 768px) {
-    .razorpay {
+        @media only screen and (max-width: 3000px) and (min-width: 768px) {
+            .razorpay {
 
-      margin-top: 10px;
+                margin-top: 10px;
 
-    }
+            }
 
-    .mobileView {
-      display: none;
-    }
+            .mobileView {
+                display: none;
+            }
 
-    .pfimg {
-      /* position: relative; */
-    }
-  }
+            .pfimg {
+                /* position: relative; */
+            }
+        }
 
-  @media only screen and (max-width: 767px) and (min-width: 400px) {
+        @media only screen and (max-width: 767px) and (min-width: 400px) {
 
-    .mobileView {
-      display: block;
-    }
-.razorpay {
-      margin-left: 90px;
-    }
+            .mobileView {
+                display: block;
+            }
 
-    .txt {
-      font-size: 18px;
-    }
-  }
-</style>
-<div class="container-fluid text-light">
-  <section>
-    <div class="row ">
-      <div class="col-1"></div>
-      <div class="col-md-5 my-4 order-md-2 info">
+            .razorpay {
+                margin-left: 90px;
+            }
 
-        <h2>Support <span class="text-warning">CalConT</span></h2>
+            .txt {
+                font-size: 18px;
+            }
+        }
+    </style>
+    <div class="container-fluid text-light text-center">
+        <section>
+            <div class="row justify-content-center">
+                <div class="col-md-6 my-4">
+                    <h2>Support <span class="text-warning">CalConT</span></h2>
+                    <p class="lead my-4">
+                        Hello! I hope you're doing well wherever you are.
 
-        <p class="lead txt  my-4">Hello , hope you are fine where ever you are!</p>
-        <p class="lead txt my-4">
-          As this is the free online tools website so it becomes very hard to pay hosting & maintainence amount for this
-          website.<br>And from ads also I am not able to the
-          earn significant amount of money.<br>So,that's why today I need your support as it requires a lot of efforts
-          to make these tools.
-          <br>
-          You can just scan the the QR code from any UPI scanner.Also you can donate through below 2 options <b>razorpay
-            or buymeacoffee</b> .
-          <br>Besides that you can share CalConT to as many people as possible.
-        </p>
-        <hr class=" bg-dark my-2">
-       
-            <div class="razorpay-embed-btn my-4 " data-url="https://pages.razorpay.com/pl_IFIsllwqcX1KQM/view" data-text="Pay Now" data-color="#528FF0" data-size="large">
+                        CalConT is a free website, but keeping it running comes with hosting and maintenance costs. Unfortunately, ad revenue isn’t enough to cover these expenses.
 
-  <script>
-    (function(){
-      var d=document; var x=!d.getElementById('razorpay-embed-btn-js')
-      if(x){ var s=d.createElement('script'); s.defer=!0;s.id='razorpay-embed-btn-js';
-      s.src='https://cdn.razorpay.com/static/embed_btn/bundle.js';d.body.appendChild(s);} else{var rzp=window['__rzp__'];
-      rzp && rzp.init && rzp.init()}})();
-  </script>
-</div>
-<a class="my-2 mx-4" href="https://www.buymeacoffee.com/CalConT" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" style="height: 50px !important;width: 200px !important;" ></a>
-         
-        <div class="mobileView my-2">
-          <hr class="bg-dark">
-        </div>
-      </div>
-      <div class="col-md-5 order-md-1 pic">
-        <div class="pfimg  ">
-          <img src="/static/QrCode.jpeg" class="razorpay" alt="">
-        </div>
-      </div>
+                        If you find this website useful, you can support it by making a donation using the options below or simply by sharing CalConT with others. Every bit of support helps!"
 
+                        This version keeps the message friendly, clear, and engaging. Let me know if you want any further tweaks! 😊
+                    </p>
+                    <hr class="bg-dark my-2">
+
+                    <!-- Razorpay Button -->
+                    <div class="razorpay-embed-btn my-4" data-url="https://pages.razorpay.com/pl_IFIsllwqcX1KQM/view"
+                         data-text="Pay Now" data-color="#528FF0" data-size="large">
+                        <script>
+                            (function () {
+                                var d = document;
+                                var x = !d.getElementById('razorpay-embed-btn-js')
+                                if (x) {
+                                    var s = d.createElement('script');
+                                    s.defer = !0;
+                                    s.id = 'razorpay-embed-btn-js';
+                                    s.src = 'https://cdn.razorpay.com/static/embed_btn/bundle.js';
+                                    d.body.appendChild(s);
+                                } else {
+                                    var rzp = window['__rzp__'];
+                                    rzp && rzp.init && rzp.init()
+                                }
+                            })();
+                        </script>
+                    </div>
+
+                    <!-- Buy Me a Coffee Button -->
+                    <a href="https://www.buymeacoffee.com/CalConT" target="_blank">
+                        <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                             alt="Buy Me A Coffee"
+                             style="height: 50px !important; width: 200px !important;">
+                    </a>
+
+                </div>
+            </div>
+        </section>
     </div>
-  </section>
-</div>
-
 {% endblock %}
