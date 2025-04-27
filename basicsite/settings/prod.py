@@ -21,8 +21,9 @@ ADMINS = [
 
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST = 'smtp.mailgun.org'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = env('EMAIL_HOST_USER')
+SERVER_EMAIL = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 
 db_from_env = dj_database_url.config(env=DB_KEY, conn_max_age=500)
