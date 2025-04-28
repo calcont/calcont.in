@@ -18,7 +18,7 @@ ADMINS = [
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = ['.calcont.in', 'calcont.in']
+ALLOWED_HOSTS = ['.calcont.in', 'calcont.in', '.railway.app']
 
 SECURE_HSTS_SECONDS = 60
 
