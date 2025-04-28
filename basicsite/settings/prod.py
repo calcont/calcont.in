@@ -1,6 +1,5 @@
 from basicsite.settings.base import *
 import os
-import django_heroku
 import environ
 import dj_database_url
 
@@ -29,7 +28,7 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 db_from_env = dj_database_url.config(env=DB_KEY, conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = ['.calcont.in', 'calcont.in', '.herokuapp.com', '.calcont.com', 'calcont.com']
+ALLOWED_HOSTS = ['.calcont.in', 'calcont.in', '.calcont.com', 'calcont.com']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
@@ -44,7 +43,6 @@ CSRF_COOKIE_SECURE = True
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-django_heroku.settings(locals())
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = env('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = env('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')

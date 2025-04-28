@@ -1,6 +1,5 @@
 from basicsite.settings.base import *
 import os
-import django_heroku
 import environ
 import dj_database_url
 # Initialise environment variables
@@ -19,7 +18,7 @@ ADMINS = [
 db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = ['.calcont.in', 'calcont.in', '.herokuapp.com']
+ALLOWED_HOSTS = ['.calcont.in', 'calcont.in']
 
 SECURE_HSTS_SECONDS = 60
 
@@ -30,7 +29,6 @@ CSRF_COOKIE_SECURE = True
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-django_heroku.settings(locals())
 
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = env('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')
