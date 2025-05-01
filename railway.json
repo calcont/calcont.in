@@ -7,7 +7,7 @@
         "setup": {
           "nixPkgs": [
             "...",
-            "tesseract"
+            "tesseract-ocr"
           ]
         }
       }
