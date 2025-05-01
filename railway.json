@@ -1,5 +1,12 @@
 {
-  "nixpacks": {
-    "pkgs": ["tesseract"]
+  "$schema": "https://railway.app/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS",
+    "nixpacksConfig": {
+      "pkgs": ["tesseract"]
+    }
+  },
+  "deploy": {
+    "startCommand": "gunicorn basicsite.wsgi"
   }
 }
