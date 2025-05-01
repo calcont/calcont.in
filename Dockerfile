@@ -3,7 +3,7 @@ FROM python:3.9-slim
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
-    gcc libpq-dev build-essential
+    gcc libpq-dev build-essential \
     tesseract-ocr \
     libtesseract-dev \
     libleptonica-dev \
