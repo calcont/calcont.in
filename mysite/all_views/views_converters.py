@@ -4,7 +4,6 @@ import json
 import base64
 import requests
 import random
-from django.views.decorators.csrf import csrf_exempt
 from django.core.cache import cache
 from .. import MyFunctions
 from ..constants import converters as constants
@@ -94,8 +93,6 @@ def prefix_to_infix(request):
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/converter/prefix_to_infix.html', param)
 
-
-@csrf_exempt
 def Image_to_base64(request):
     link_string1, link_string2 = SideMap.arrange(10, 2, 'CC')
     if request.method == "POST":

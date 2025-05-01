@@ -1,288 +1,310 @@
 {% extends 'main_index.html' %}
 {% block MDesc %}
-Convert image to text, online and for free. You can convert and extract text from anytype of image such as jpg,png,jpeg..etc.
-You can also enter url of any image from online that too convert it into text.
+    Convert image to text, online and for free. You can convert and extract text from anytype of image such as
+    jpg,png,jpeg..etc.
+    You can also enter url of any image from online that too convert it into text.
 {% endblock %}
-{% block MKW %}Image to text, image to text converter, convert image to text,image to text from from image to text, extract text from image,text extraction{% endblock %}
+{% block MKW %}Image to text, image to text converter, convert image to text,image to text from from image to text,
+    extract text from image,text extraction{% endblock %}
 {% block Mr %}
-24/09/2021
+    24/09/2021
 {% endblock %}
 {% block MAut %}
-Amar khamkar
+    Amar khamkar
 {% endblock %}
 {% block title %} image to text converter | online text extraction from image
 {% endblock %}
 {% block body %}
-<style>
-    .input {
+    <style>
+        .input {
 
-        border: 1px solid rgb(38, 35, 35);
-        border-radius: 10px;
+            border: 1px solid rgb(38, 35, 35);
+            border-radius: 10px;
 
-    }
-    .files input {
-    outline: 2px dashed #2ea591;
-    outline-offset: -10px;
-    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-    transition: outline-offset .15s ease-in-out, background-color .15s linear;
-    padding: 120px 0px 85px 35%;
-    text-align: center !important;
-    margin: 0;
-    width: 100% !important;
-}
-/* .files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
-    -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
-    transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
- } */
-.files{ position:relative}
-.files:after {  pointer-events: none;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    width: 50px;
-    right: 0;
-    height: 56px;
-    content: "";
-    background-image: url('/static/drive_folder_upload_white_18dp.svg');
-    display: block;
-    margin: 0 auto;
-    background-size: 100%;
-    background-repeat: no-repeat;
-}
+        }
 
-.files:before {
-    position: absolute;
-    bottom: 10px;
-    left: 0;  pointer-events: none;
-    width: 100%;
-    right: 0;
-    height: 40px;
-    content: " or drag it here. ";
-    display: block;
-    margin: 0 auto;
-    color: #2ea591;
-    font-weight: 600;
-    text-transform: capitalize;
-    text-align: center;
-}
+        .files input {
+            outline: 2px dashed #2ea591;
+            outline-offset: -10px;
+            -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            padding: 120px 0px 85px 35%;
+            text-align: center !important;
+            margin: 0;
+            width: 100% !important;
+        }
 
-    .AddName {
-        background-color: #3671ab;
-    }
-    .form-control {
-        background-color: #191717;
+        /* .files input:focus{     outline: 2px dashed #92b0b3;  outline-offset: -10px;
+            -webkit-transition: outline-offset .15s ease-in-out, background-color .15s linear;
+            transition: outline-offset .15s ease-in-out, background-color .15s linear; border:1px solid #92b0b3;
+         } */
+        .files {
+            position: relative
+        }
+
+        .files:after {
+            pointer-events: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 50px;
+            right: 0;
+            height: 56px;
+            content: "";
+            background-image: url('/static/drive_folder_upload_white_18dp.svg');
+            display: block;
+            margin: 0 auto;
+            background-size: 100%;
+            background-repeat: no-repeat;
+        }
+
+        .files:before {
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            pointer-events: none;
+            width: 100%;
+            right: 0;
+            height: 40px;
+            content: " or drag it here. ";
+            display: block;
+            margin: 0 auto;
+            color: #2ea591;
+            font-weight: 600;
+            text-transform: capitalize;
+            text-align: center;
+        }
+
+        .AddName {
+            background-color: #3671ab;
+        }
+
+        .form-control {
+            background-color: #191717;
             border: 3px solid black;
             border-radius: 15px;
-        
-    }
-</style>
-<div class="container text-light">
-    <div class="row ">
 
-        <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+        }
+    </style>
+    <div class="container text-light">
+        <div class="row ">
+
+            <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
     box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-            <div class="my-4 ">
-                <h1 >Image to text converter</h1>
-                <hr class="my-4 bg-dark">
-                <h3 class="text-monospace my-2">Text extractor from Image?</h3>
-                <p class="text-monospace my-4">Text extractor is a tool which analyzes and process the image and extract the text from it.
-                    Any type of image such as jpg,png,jpeg..etc. it can extract.It tries out to extract all possible text from image but due to some
-                    different font style or unknown characters, it can omit some words from image.<br>
-                   You can also try <a href="/Analyzer/text-to-image-converter/"> text to image converter</a>.
-                </p>
-                <hr class="bg-dark my-2">
-                <h3 class="my-4 mb-4 text-monospace text-center">Image to text converter tool</h3>
-                <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
-                    <form id="post-form"   enctype="multipart/form-data">
-                        <div class="form-group files">
-                            <label>Upload Your File </label>
-                            <input type="file" class="form-control" accept="image/*" id='img' name ="img" required>
-                          </div>
-                          <p class="text-warning" id="notify"></p>
-                        <div class="mb-2">
-                            
-                                    <button class="mx-2  btn btn-outline-secondary btn-md extract text-light"
-                                        type="submit" style="display:block;" id="convert">Convert-FILE</button>
-                                        <button class="btn btn-outline-secondary btn-sm text-light" style="display:none;" id="loading" stytype="button" >
-                                            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                                            Loading...
-                                          </button>
-                               
-                        </div>
-                    </form>
-                    <p class="text-center font-weight-bold my-2">OR</p>
-                    <form id="post-form1"   enctype="multipart/form-data">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
+                <div class="my-4 ">
+                    <h1>Image to text converter</h1>
+                    <hr class="my-4 bg-dark">
+                    <h3 class="text-monospace my-2">Text extractor from Image?</h3>
+                    <p class="text-monospace my-4">Text extractor is a tool which analyzes and process the image and
+                        extract the text from it.
+                        Any type of image such as jpg,png,jpeg..etc. it can extract.It tries out to extract all possible
+                        text from image but due to some
+                        different font style or unknown characters, it can omit some words from image.<br>
+                        You can also try <a href="/Analyzer/text-to-image-converter/"> text to image converter</a>.
+                    </p>
+                    <hr class="bg-dark my-2">
+                    <h3 class="my-4 mb-4 text-monospace text-center">Image to text converter tool</h3>
+                    <div class="container" style="border:3px solid #2b2929;border-radius: 10px;">
+                        <form id="post-form" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="form-group files">
+                                <label>Upload Your File </label>
+                                <input type="file" class="form-control" accept="image/*" id='img' name="img" required>
+                            </div>
+                            <p class="text-warning" id="notify"></p>
+                            <div class="mb-2">
+
+                                <button class="mx-2  btn btn-outline-secondary btn-md extract text-light"
+                                        type="submit" style="display:block;" id="convert">Convert-FILE
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm text-light" style="display:none;"
+                                        id="loading" stytype="button">
+                                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                    Loading...
+                                </button>
+
+                            </div>
+                        </form>
+                        <p class="text-center font-weight-bold my-2">OR</p>
+                        <form id="post-form1" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
                               <span class="input-group-text" style="    background-color: #191717;
                               border-radius: 10px;
                               color: white;
                               border: 2px solid black;" id="basic-addon1">url</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="Enter url" id="input-url"
+                                       aria-label="Username" aria-describedby="basic-addon1" required>
                             </div>
-                            <input type="text" class="form-control" placeholder="Enter url" id="input-url" aria-label="Username" aria-describedby="basic-addon1" required>
-                          </div>
-                          <p class="text-warning" id="notify"></p>
-                        <div class="mb-2">
-                            
-                                    <button class="mx-2 my-2 btn btn-outline-secondary btn-md extract text-light"
-                                        type="submit" style="display:block;" id="convert-url">Convert-URL</button>
-                                        <button class="btn btn-outline-secondary btn-sm text-light" style="display:none;" id="loading-url" stytype="button" >
-                                            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-                                            Loading...
-                                          </button>
-                               
-                        </div>
-                    </form>
-                    <textarea class="form-control input my-4" name="text" placeholder="Genrated text" id="text"
-                                rows="7" style="    color: white;
+                            <p class="text-warning" id="notify"></p>
+                            <div class="mb-2">
+
+                                <button class="mx-2 my-2 btn btn-outline-secondary btn-md extract text-light"
+                                        type="submit" style="display:block;" id="convert-url">Convert-URL
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm text-light" style="display:none;"
+                                        id="loading-url" stytype="button">
+                                    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                                    Loading...
+                                </button>
+
+                            </div>
+                        </form>
+                        <textarea class="form-control input my-4" name="text" placeholder="Genrated text" id="text"
+                                  rows="7" style="    color: white;
             background-color: #191717;
             border: 3px solid black;
-            border-radius: 15px; " ></textarea>
-            <div class="row">
-            <div class="col-4 mb-2">
-                <a class="mx-2  btn btn-outline-secondary btn-md clear "  >Clear</a>
-            </div>
-            <div class="col-4 mb-2">
-                <a class="mx-2  btn btn-outline-secondary btn-md " id="copybtn">Copy</a>
-                <p class="mx-2" style="display: none;" id="copytxt">Text is copied!</p>
-            </div>
-                </div>
-                </div>
+            border-radius: 15px; "></textarea>
+                        <div class="row">
+                            <div class="col-4 mb-2">
+                                <a class="mx-2  btn btn-outline-secondary btn-md clear ">Clear</a>
+                            </div>
+                            <div class="col-4 mb-2">
+                                <a class="mx-2  btn btn-outline-secondary btn-md " id="copybtn">Copy</a>
+                                <p class="mx-2" style="display: none;" id="copytxt">Text is copied!</p>
+                            </div>
+                        </div>
+                    </div>
 
-            </div>
-            <hr class="my-4 bg-dark">
-            <h3 class="text-monospace my-2">Image to text converter in CalConT?</h3>
-            <p class="text-monospace my-4">So,to use this tool in calcont ,<br>
-                1.You can click on upload button or can drag and drop image in above field and other option is you can just enter the url of online image <br>
-                2.Press the convert button and wait for some seconds. <br>
-                3.Now,you can see the expected text in output textarea or if their is some error it'll also notifies you below in output field.
-            </p>
-            <hr class="my-4 bg-dark">
-            <h3 class="text-monospace my-4">Use of tool?</h3>
-            <p class=" my-4">There are a lot application like,
+                </div>
+                <hr class="my-4 bg-dark">
+                <h3 class="text-monospace my-2">Image to text converter in CalConT?</h3>
+                <p class="text-monospace my-4">So,to use this tool in calcont ,<br>
+                    1.You can click on upload button or can drag and drop image in above field and other option is you
+                    can just enter the url of online image <br>
+                    2.Press the convert button and wait for some seconds. <br>
+                    3.Now,you can see the expected text in output textarea or if their is some error it'll also notifies
+                    you below in output field.
+                </p>
+                <hr class="my-4 bg-dark">
+                <h3 class="text-monospace my-4">Use of tool?</h3>
+                <p class=" my-4">There are a lot application like,
                 <p>
-                    <p class="my-2 text-monospace"> <b>1</b>.There are many such situation where we need to make some document and text to be written on it is on image.So,instead of writing all of those text we can use this tool</p>
-                    <p class="my-2 text-monospace"> <b>2</b>.Can be used by students,employes,like almost everyone can use it.</p>
-                    <p class="my-2 text-monospace"> <b>3</b>.Can be used in image editing.</p>
-                    <p class="my-2 text-monospace"> <b>3</b>.If you don't want to save image from online then you can just enter it's url.</p>
-                    <p class="my-2 text-monospace"> <b>4</b>.To extract famous quotes,poetry and many more text which is on image.</p>
-                    </p>
+                <p class="my-2 text-monospace"><b>1</b>.There are many such situation where we need to make some
+                    document and text to be written on it is on image.So,instead of writing all of those text we can use
+                    this tool</p>
+                <p class="my-2 text-monospace"><b>2</b>.Can be used by students,employes,like almost everyone can use
+                    it.</p>
+                <p class="my-2 text-monospace"><b>3</b>.Can be used in image editing.</p>
+                <p class="my-2 text-monospace"><b>3</b>.If you don't want to save image from online then you can just
+                    enter it's url.</p>
+                <p class="my-2 text-monospace"><b>4</b>.To extract famous quotes,poetry and many more text which is on
+                    image.</p>
+                </p>
+            </div>
+
+
+            <div class="col-md-4 my-4 ">
+                <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                    <h4 class="my-2">Analyzers</h3>
+                        {% for link in link_string1 %}
+                            <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                        {% endfor %}
+                </div>
+                <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+
+
+                    <h4 class="my-2 ">Translators</h3>
+                        {% for link in link_string2 %}
+                            <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                        {% endfor %}
+                </div>
+
+            </div>
         </div>
-                    
-
-
-
-<div class="col-md-4 my-4 ">
-    <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-        <h4 class="my-2">Analyzers</h3>
-            {% for link in link_string1 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-            {% endfor %}
     </div>
-    <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
-    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
-
-
-        <h4 class="my-2 ">Translators</h3>
-            {% for link in link_string2 %}
-            <li class="my-2"><a href="{{link.0}}">{{link.1}}</a></li>
-            {% endfor %}
-    </div>
-
-</div>
-</div>
-</div>
 
 {% endblock %}
 {% block JS %}
-<script>
-    $('.clear').click(function (e) {
-        document.getElementById('text').value = "";
-        document.getElementById('output').value = "";
-        e.preventDefault();
-    })
-    $('#copybtn').click(function (e) {
-  var copyText = document.getElementById("text");
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  document.execCommand("copy");
-  document.getElementById("copybtn").style.display = "none";
-  document.getElementById("copytxt").style.display = "block";
-});
-    
+    <script>
+        $('.clear').click(function (e) {
+            document.getElementById('text').value = "";
+            document.getElementById('output').value = "";
+            e.preventDefault();
+        })
+        $('#copybtn').click(function (e) {
+            var copyText = document.getElementById("text");
+            copyText.select();
+            copyText.setSelectionRange(0, 99999);
+            document.execCommand("copy");
+            document.getElementById("copybtn").style.display = "none";
+            document.getElementById("copytxt").style.display = "block";
+        });
+
         $('#post-form').submit(function (e) {
             var data = new FormData();
-        var image = $('#img')[0].files[0];  
-        var validImageTypes = ["image/gif", "image/jpeg", "image/png","image/jpg"];
-        var fileType = image["type"];
-        e.preventDefault();
-        if ($.inArray(fileType, validImageTypes) < 0) {
-            document.getElementById('notify').innerHTML = "*Invalid Image format";
-        }
-        else{
-        document.getElementById('notify').innerHTML = "";
-        data.append('image', image)
-        document.getElementById("convert").style.display = "none";
+            var image = $('#img')[0].files[0];
+            var validImageTypes = ["image/gif", "image/jpeg", "image/png", "image/jpg"];
+            var fileType = image["type"];
+            e.preventDefault();
+            if ($.inArray(fileType, validImageTypes) < 0) {
+                document.getElementById('notify').innerHTML = "*Invalid Image format";
+            } else {
+                document.getElementById('notify').innerHTML = "";
+                data.append('image', image);
+                data.append('csrfmiddlewaretoken', $('input[name=csrfmiddlewaretoken]').val());
+                document.getElementById("convert").style.display = "none";
                 document.getElementById("loading").style.display = "block";
-        $.ajax({
-            type: 'POST',
-            url: '/Analyzer/image-to-text-converter/',
-            data:data,
-            cache: false,
-            contentType: false,
-            processData: false,
-            encode:true,
-            success: function (response) {
-                var GotRes = JSON.parse(response)
-                var text = GotRes['txt']
-                document.getElementById('text').value = text;
-                document.getElementById('convert').style.display = "block";
-                document.getElementById('loading').style.display = "none";
-                document.getElementById("copybtn").style.display = "block";
-                document.getElementById("copytxt").style.display = "none";
-            },
-            error: function (response) {
-                document.getElementById('convert').style.display = "block";
-                document.getElementById('loading').style.display = "none";
-                document.getElementById('text').value = "Invalid Image format";
-                },
-            })
-        }
+                $.ajax({
+                    type: 'POST',
+                    url: '/Analyzer/image-to-text-converter/',
+                    data: data,
+                    cache: false,
+                    contentType: false,
+                    processData: false,
+                    encode: true,
+                    success: function (response) {
+                        var GotRes = JSON.parse(response)
+                        var text = GotRes['txt']
+                        document.getElementById('text').value = text;
+                        document.getElementById('convert').style.display = "block";
+                        document.getElementById('loading').style.display = "none";
+                        document.getElementById("copybtn").style.display = "block";
+                        document.getElementById("copytxt").style.display = "none";
+                    },
+                    error: function (response) {
+                        document.getElementById('convert').style.display = "block";
+                        document.getElementById('loading').style.display = "none";
+                        document.getElementById('text').value = "Invalid Image format";
+                    },
+                })
+            }
         })
         $('#post-form1').submit(function (e) {
-            var url=document.getElementById('input-url').value;
+            var url = document.getElementById('input-url').value;
             e.preventDefault();
             document.getElementById("convert-url").style.display = "none";
-                document.getElementById("loading-url").style.display = "block";
-            data={'data1':url,'isurl':1};
-$.ajax({
-            type: 'POST',
-            url: '/Analyzer/image-to-text-converter/',
-            data:{
-            url:url,
-            csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
-        },
-            encode:true,
-            success: function (response) {
-                var GotRes = JSON.parse(response)
-                var text = GotRes['txt']
-                document.getElementById('text').value = text;
-                document.getElementById("convert-url").style.display = "block";
-                document.getElementById("loading-url").style.display = "none";
-                document.getElementById("copybtn").style.display = "block";
-                document.getElementById("copytxt").style.display = "none";
-            },
-            error: function (response) {
-                document.getElementById("convert-url").style.display = "block";
-                document.getElementById("loading-url").style.display = "none";
-                document.getElementById('text').value = "error occured";
+            document.getElementById("loading-url").style.display = "block";
+            $.ajax({
+                type: 'POST',
+                url: '/Analyzer/image-to-text-converter/',
+                data: {
+                    url: url,
+                    csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                },
+                encode: true,
+                success: function (response) {
+                    var GotRes = JSON.parse(response)
+                    var text = GotRes['txt']
+                    document.getElementById('text').value = text;
+                    document.getElementById("convert-url").style.display = "block";
+                    document.getElementById("loading-url").style.display = "none";
+                    document.getElementById("copybtn").style.display = "block";
+                    document.getElementById("copytxt").style.display = "none";
+                },
+                error: function (response) {
+                    document.getElementById("convert-url").style.display = "block";
+                    document.getElementById("loading-url").style.display = "none";
+                    document.getElementById('text').value = "error occured";
                 },
             })
         })
 
 
-
-</script>
+    </script>
 
 {% endblock %}
