@@ -27,7 +27,7 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://web-staging-4e14.up.railway.app/',
+    'https://web-staging-4e14.up.railway.app',
 ]
 
 
