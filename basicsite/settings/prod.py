@@ -28,7 +28,7 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 db_from_env = dj_database_url.config(env=DB_KEY, conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
-ALLOWED_HOSTS = ['.calcont.in', 'calcont.in', '.calcont.com', 'calcont.com']
+ALLOWED_HOSTS = ['.calcont.in', 'calcont.in', '.calcont.com', 'calcont.com', '.railway.app']
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 SECURE_SSL_REDIRECT = True
@@ -41,6 +41,9 @@ SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
 
 STATIC_URL = '/static/'
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
