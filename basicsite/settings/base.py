@@ -129,36 +129,11 @@ LOGIN_URL = '/auth/login/google-oauth2/'
 LOGOUT_URL = '/'
 LOGIN_REDIRECT_URL = "/"
 
-
-def get_cache():
-    import os
-    try:
-        servers = os.environ['MEMCACHIER_SERVERS']
-        username = os.environ['MEMCACHIER_USERNAME']
-        password = os.environ['MEMCACHIER_PASSWORD']
-        return {
-            'default': {
-                'BACKEND': 'django_bmemcached.memcached.BMemcached',
-                # TIMEOUT is not the connection timeout! It's the default expiration
-                # timeout that should be applied to keys! Setting it to `None`
-                # disables expiration.
-                'TIMEOUT': None,
-                'LOCATION': servers,
-                'OPTIONS': {
-                    'username': username,
-                    'password': password,
-                }
-            }
-        }
-    except KeyError:
-        return {
-            'default': {
-                'BACKEND': 'django.core.cache.backends.locmem.LocMemCache'
-            }
-        }
-
-
-CACHES = get_cache()
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+    }
+}
 
 sentry_sdk.init(
     dsn=os.environ.get('SENTRY_DSN'),
