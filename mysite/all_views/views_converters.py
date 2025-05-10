@@ -97,6 +97,7 @@ def prefix_to_infix(request):
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/converter/prefix_to_infix.html', param)
 
+
 def Image_to_base64(request):
     link_string1, link_string2 = SideMap.arrange(10, 2, 'CC')
     if request.method == "POST":

@@ -134,6 +134,7 @@ def texttoimage(request):
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/texttoimage.html', param)
 
+
 def imagetotext(request):
     link_string1, link_string2 = SideMap.arrange(7, 1, 'AT')
     if request.method == "POST":
