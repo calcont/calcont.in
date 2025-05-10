@@ -39,14 +39,6 @@ def ContactMe(request):
 
         desc = request.POST.get("desc")
         r = request.POST.get('g-recaptcha-response')
-        import joblib
-        models = joblib.load('spam.pkl')
-        v = joblib.load('vector.pickel')
-        spam = models.predict(v.transform([desc]))
-        if spam[0] == 0:
-            pass
-        else:
-            desc = "[spam] " + desc
         if isCaptchaValid(r):
             contact = Contact(name=name, email=email,
                               desc=desc, date=datetime.today())

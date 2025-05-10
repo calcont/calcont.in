@@ -9,7 +9,7 @@ def urlSideMapList():
         ['/Analyzer/text-to-base64-converter/', 'text to base64 encoder', 1, 'AT', 4],
         ['/Analyzer/base64-to-text-converter/', 'base64 to text decoder', 1, 'AT', 5],
         ['/Analyzer/text-to-image-converter/', 'text to image converter', 1, 'AT', 6],
-        ['/Analyzer/text-to-image-to-text-converter/', 'Image to text converter', 1, 'AT', 7],
+        ['/Analyzer/image-to-text-converter/', 'Image to text converter', 1, 'AT', 7],
         ['/Analyzer/Language-Identifier/', 'Language Identifier', 1, 'AT', 8],
         ['/Analyzer/Caesar-cipher-encoder-decoder/', 'Caesar Cipher encoder/decoder', 1, 'AT', 9],
         ['/Analyzer/playfair-cipher-encoder-decoder/', 'playfair Cipher encoder/decoder', 1, 'AT', 10],

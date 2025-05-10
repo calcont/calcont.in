@@ -7,15 +7,15 @@ from rake_nltk import Rake
 import os
 from PIL import Image
 import pytesseract
+import shutil
 from ..Services.TextService import detect_language, translate_text
 from io import BytesIO
-from django.views.decorators.csrf import csrf_exempt
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
-if os.getcwd() != '/app':  # for windows
-    pytesseract.pytesseract.tesseract_cmd = 'C:/Program Files/Tesseract-OCR/tesseract'  # do install tesseract in this path only and add it to your environment-variables
-else:
-    pytesseract.pytesseract.tesseract_cmd = '/app/.apt/usr/bin/tesseract'
+# Automatically detect the tesseract binary
+tesseract_cmd = shutil.which("tesseract")
+if tesseract_cmd:
+    pytesseract.pytesseract.tesseract_cmd = tesseract_cmd
 
 
 def text(request):
@@ -135,7 +135,6 @@ def texttoimage(request):
     return render(request, '../templates/textAnalyzer/texttoimage.html', param)
 
 
-@csrf_exempt
 def imagetotext(request):
     link_string1, link_string2 = SideMap.arrange(7, 1, 'AT')
     if request.method == "POST":
