@@ -3,9 +3,17 @@ const precedence = {
     '-': 1,
     '*': 2,
     '/': 2,
-    '^': 3
+    '^': 3,
+    '(': 0
 };
 
+const associativity = {
+    '+': 'L',
+    '-': 'L',
+    '*': 'L',
+    '/': 'L',
+    '^': 'R'
+};
 
 function processSpacedExpression(input) {
     return input.trim().split(/\s+|([+\-*\/])/).filter(Boolean);
