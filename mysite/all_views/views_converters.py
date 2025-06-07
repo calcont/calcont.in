@@ -4,7 +4,7 @@ import json
 import base64
 import requests
 import random
-from django.views.decorators.csrf import csrf_exempt
+import logging
 from django.core.cache import cache
 from .. import MyFunctions
 from ..constants import converters as constants
@@ -12,6 +12,7 @@ from ..handlers.requestHandler.get import GetHandler
 
 SideMap = MyFunctions.ArrangeSideMapForWebpage()
 CACHE_TIMEOUT = 60 * 60 * 24
+logger = logging.getLogger(__name__)
 
 
 def generate_currency_endpoint(from_currency):
@@ -51,7 +52,9 @@ def Currencyconversion(request):
             get_request = GetHandler(endpoint)
             response = get_request.send()
             cache.set(from_currency, response, CACHE_TIMEOUT)
+            logger.info(f"Cache miss for {from_currency}. Data fetched from API.")
         data = cache.get(from_currency).json()
+        logger.info(f"Cache hit for {from_currency}. Data fetched from cache.")
         conversion_rate = data['data'][to_currency]['value']
         converted_amount = float(amount) * conversion_rate
         json_response = json.dumps({'converted_amount': converted_amount}, default=str)
@@ -95,7 +98,6 @@ def prefix_to_infix(request):
     return render(request, '../templates/converter/prefix_to_infix.html', param)
 
 
-@csrf_exempt
 def Image_to_base64(request):
     link_string1, link_string2 = SideMap.arrange(10, 2, 'CC')
     if request.method == "POST":
