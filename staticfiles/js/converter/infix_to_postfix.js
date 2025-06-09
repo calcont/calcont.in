@@ -20,30 +20,40 @@ function infixToPostfix(infix) {
     let stack = [];
     let postfix = [];
     let i;
+
     for (i = 0; i < infix.length; i++) {
-        if (isOperand(infix[i])) {
-            postfix.push(infix[i]);
-        } else if (stack.length === 0) {
-            stack.push(infix[i]);
-        } else if (infix[i] === ')') {
-            while (stack[stack.length - 1] !== '(') {
+        let token = infix[i];
+
+        if (isOperand(token)) {
+            postfix.push(token);
+        } else if (token === '(') {
+            stack.push(token);
+        } else if (token === ')') {
+            while (stack.length && stack[stack.length - 1] !== '(') {
                 postfix.push(stack.pop());
             }
-            stack.pop();
-        } else if (precedence[infix[i]] > precedence[stack[stack.length - 1]]) {
-            stack.push(infix[i]);
+            stack.pop(); // remove '('
         } else {
-            while (precedence[infix[i]] <=  precedence[stack[stack.length - 1]] && stack.length !== 0 && stack[stack.length - 1] !== '(') {
+            while (
+                stack.length &&
+                stack[stack.length - 1] !== '(' &&
+                (
+                    (associativity[token] === 'L' && precedence[token] <= precedence[stack[stack.length - 1]]) ||
+                    (associativity[token] === 'R' && precedence[token] < precedence[stack[stack.length - 1]])
+                )
+                ) {
                 postfix.push(stack.pop());
             }
-            stack.push(infix[i]);
+            stack.push(token);
         }
-        updateTable(i, infix[i], stack, postfix, content);
+
+        updateTable(i, token, stack, postfix, content);
     }
-    while (stack.length !== 0) {
+
+    while (stack.length) {
         postfix.push(stack.pop());
     }
+
     updateTable(i, '', stack, postfix, content);
-    let postfixString = postfix.join('');
-    return removeExtraSpaces(postfixString);
+    return removeExtraSpaces(postfix.join(''));
 }
