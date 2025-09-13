@@ -20,7 +20,7 @@ $(".cal").click(function (e) {
     postfix = removeExtraSpaces(postfix).split("");
   }
 
-  stack = [] ; 
+  stack = [] ;
   stackTop = -1;
 
   try {
@@ -29,7 +29,7 @@ $(".cal").click(function (e) {
 
       if (!isNaN(parseInt(ch))) {
         stack[++stackTop] = parseInt(ch);
-      } else if (ch == "+" || ch == "-" || ch == "*" || ch == "/") {
+      } else if (ch == "+" || ch == "-" || ch == "*" || ch == "/" || ch == "^") {
         b = stack[stackTop];
         stackTop--;
         a = stack[stackTop];
@@ -47,6 +47,9 @@ $(".cal").click(function (e) {
             break;
           case "/":
             result = a / b;
+            break;
+          case "^":
+            result = Math.pow(a, b);
             break;
         }
         stack[++stackTop] = result;
