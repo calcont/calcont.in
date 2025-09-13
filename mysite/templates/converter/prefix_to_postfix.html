@@ -103,7 +103,7 @@ box-shadow:13px 4px 19px 7px rgb(19 17 17);">
             let stack = [], str;
             prefix = removeExtraSpaces(prefix);
             for (let i = prefix.length - 1; i >= 0; i--) {
-                if (isOperator(prefix[i])) {
+                if (isOperatorWithParenthesis(prefix[i])) {
                     let op1 = stack.pop();
                     let op2 = stack.pop();
                     if (op1 === undefined || op2 === undefined) {

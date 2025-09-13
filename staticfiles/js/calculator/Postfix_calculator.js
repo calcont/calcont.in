@@ -29,7 +29,7 @@ $(".cal").click(function (e) {
 
       if (!isNaN(parseInt(ch))) {
         stack[++stackTop] = parseInt(ch);
-      } else if (ch == "+" || ch == "-" || ch == "*" || ch == "/" || ch == "^") {
+      } else if (isOperator(ch)) {
         b = stack[stackTop];
         stackTop--;
         a = stack[stackTop];

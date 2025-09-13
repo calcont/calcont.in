@@ -39,8 +39,12 @@ function isOperand(operand) {
     }
 }
 
-function isOperator(operator) {
+function isOperatorWithParenthesis(operator) {
     return ['+', '-', '*', '/', '^', '(', ')'].includes(operator);
+}
+
+function isOperator(operator) {
+    return ['+', '-', '*', '/', '^'].includes(operator);
 }
 
 function updateTable(index, value, stack, exp, contentRef) {

@@ -25,7 +25,7 @@ $(".con").click(function (e) {
                 operandsPushLogic(operands, operators);
             }
             operators.pop();
-        } else if (!isOperator(infix[i])) {
+        } else if (!isOperatorWithParenthesis(infix[i])) {
             operands.push(infix[i] + "");
         } else {
             while (operators.length &&
