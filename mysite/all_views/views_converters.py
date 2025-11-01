@@ -119,3 +119,9 @@ def Base64_to_Image(request):
     link_string1, link_string2 = SideMap.arrange(11, 2, 'CC')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/converter/Base64_to_Image.html', param)
+
+
+def Epoch_Timestamp_Converter(request):
+    link_string1, link_string2 = SideMap.arrange(12, 2, 'CC')
+    param = {'link_string1': link_string1, 'link_string2': link_string2}
+    return render(request, '../templates/converter/epoch_timestamp_converter.html', param)
