@@ -39,5 +39,8 @@ def urlpatterns():
         # epoch timestamp converter
         path('Conversion/Epoch_Timestamp_Converter/',
              all_views.views_converters.Epoch_Timestamp_Converter, name="Epoch_Timestamp_Converter"),
+        # IST to UTC converter
+        path('Conversion/IST_UTC_Converter/',
+             all_views.views_converters.IST_UTC_Converter, name="IST_UTC_Converter"),
     ]
     return urlspatterns

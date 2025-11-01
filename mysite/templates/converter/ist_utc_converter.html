@@ -1,0 +1,119 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+    Convert IST (Indian Standard Time) to UTC (Coordinated Universal Time) and vice versa.
+{% endblock %}
+{% block MKW %}ist to utc converter,utc to ist converter,ist utc time converter,timezone converter,indian standard time converter{% endblock %}
+{% block Mr %}
+    {% now "d/m/Y" %}
+{% endblock %}
+{% block MAut %}
+    Amar khamkar
+{% endblock %}
+{% block title %} IST/UTC Converter
+{% endblock %}
+{% block body %}
+    <div class="container text-light">
+        <div class="row ">
+            <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <div class="my-4 ">
+                    <h1 class="my-2 text-center text-light">IST/UTC Converter</h1>
+                    <hr class="bg-dark">
+                    <h3 class="text-center text-light my-2">What is IST and UTC?</h3>
+                    <p class="text-light text-monospace my-4 mx-2">
+                        <b>IST (Indian Standard Time)</b> is the time zone used in India. It is UTC+5:30, meaning it is 5 hours and 30 minutes ahead of Coordinated Universal Time.
+                        <br><br>
+                        <b>UTC (Coordinated Universal Time)</b> is the primary time standard by which the world regulates clocks and time. It is the successor to Greenwich Mean Time (GMT) and serves as the basis for civil time worldwide.
+                    </p>
+                    <hr class="bg-dark my-2">
+                    <form>
+                        <!-- IST Section -->
+                        <div class="container my-4" style="background-color: #1d1c1c; border:2px solid #4a4848; border-radius: 10px; padding: 20px;">
+                            <h4 class="text-center text-light mb-3">IST (Indian Standard Time, UTC+5:30)</h4>
+                            <div class="form-group text-light">
+                                <label>Date & Time</label>
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <input type="date" class="form-control form-component"
+                                               id="istDatePicker">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <input type="time" class="form-control form-component"
+                                               id="istTimePicker">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- UTC Section -->
+                        <div class="container my-4" style="background-color: #1d1c1c; border:2px solid #4a4848; border-radius: 10px; padding: 20px;">
+                            <h4 class="text-center text-light mb-3">UTC (Coordinated Universal Time)</h4>
+                            <div class="form-group text-light">
+                                <label>Date & Time</label>
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <input type="date" class="form-control form-component"
+                                               id="utcDatePicker">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <input type="time" class="form-control form-component"
+                                               id="utcTimePicker">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="button" class="btn btn-outline-secondary text-light my-3" id="currentTimeBtn">Use Current Time</button>
+                        </div>
+                    </form>
+                    <hr class="bg-dark my-2">
+                    <h3 class="text-center text-light my-4">How to use IST/UTC Converter?</h3>
+                    <p class="text-light text-monospace my-4 mx-2">This converter allows you to convert between IST (Indian Standard Time) and UTC (Coordinated Universal Time) in real-time.
+                    <br><br>
+                    <b>Real-time Conversion:</b> Simply modify the date or time in either the IST or UTC section, and the corresponding timezone will update automatically. Changes are instant and bidirectional.
+                    <br><br>
+                    <b>Date & Time Pickers:</b> Use the date and time pickers to select or modify the time. Any change in IST will automatically update UTC, and vice versa.
+                    <br><br>
+                    <b>Current Time:</b> Click "Use Current Time" to set both timezones to the current time.
+                    <br><br>
+                    <b>Note:</b> IST is always UTC+5:30, meaning IST is 5 hours and 30 minutes ahead of UTC.
+                    </p>
+                    <div class="container  mt-4"
+                         style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
+                        1) IST: 2024-01-01 12:00:00<br>
+                        UTC: 2024-01-01 06:30:00<br><br>
+                        2) IST: 2024-06-15 18:30:00<br>
+                        UTC: 2024-06-15 13:00:00<br><br>
+                        3) UTC: 2024-01-01 00:00:00<br>
+                        IST: 2024-01-01 05:30:00<br>
+                    </div>
+                    <hr class="bg-dark my-3">
+                    <h3 class="text-center text-light">Applications</h3>
+                    <p class="text-light text-monospace my-2 mx-2">Converting between IST and UTC is essential for international communication, scheduling meetings across time zones, coordinating global events, and working with distributed teams. This converter is particularly useful for developers, businesses, and individuals who need to work with both Indian Standard Time and Coordinated Universal Time.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 my-4 ">
+                <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                    <h4 class="mb-2 ">Converters</h4>
+                    {% for link in link_string1 %}
+                        <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                    {% endfor %}
+                </div>
+                <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                    <h4 class="my-2">Calculators</h4>
+                    {% for link in link_string2 %}
+                        <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block JS %}
+    <script src="/static/js/converter/ist_utc_converter.js"></script>
+{% endblock %}
+

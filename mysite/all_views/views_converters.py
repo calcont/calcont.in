@@ -125,3 +125,9 @@ def Epoch_Timestamp_Converter(request):
     link_string1, link_string2 = SideMap.arrange(12, 2, 'CC')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/converter/epoch_timestamp_converter.html', param)
+
+
+def IST_UTC_Converter(request):
+    link_string1, link_string2 = SideMap.arrange(13, 2, 'CC')
+    param = {'link_string1': link_string1, 'link_string2': link_string2}
+    return render(request, '../templates/converter/ist_utc_converter.html', param)
