@@ -2,6 +2,7 @@ from django.shortcuts import render
 from datetime import datetime
 from ..models import Contact
 from basicsite.settings.base import BASE_DIR
+from django.core.mail import send_mail
 import json
 import os
 import environ
@@ -43,6 +44,12 @@ def ContactMe(request):
             contact = Contact(name=name, email=email,
                               desc=desc, date=datetime.today())
             contact.save()
+            send_mail(
+                "New Contact Message from Your Website",
+                f"Name: {name}\nEmail: {email}\n\nMessage:\n{desc}",
+                env('EMAIL_HOST_USER'),
+                [env('EMAIL_HOST_USER')],
+            )
             isValid = True
         else:
             isValid = False
