@@ -35,6 +35,8 @@ class StaticViewsSitemap(Sitemap):
             "infix_to_prefix",
             "Image_to_base64",
             "Base64_to_Image",
+            "Epoch_Timestamp_Converter",
+            "IST_UTC_Converter",
             "EnglishToHindi",
             "EnglishToMarathi",
             "EnglishToGerman",
@@ -56,6 +58,8 @@ class StaticViewsSitemap(Sitemap):
             "Prefix_calculator",
             "material_weight_calculator",
             "Linear_regression_calculator",
+            "HCF_LCM_calculator",
+            "SIP_calculator",
             "PrivacyPolicy",
         ]
 
