@@ -72,3 +72,9 @@ def HCF_LCM_calculator(request):
     link_string1, link_string2 = SideMap.arrange(7, 4, 'CC')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/calculator/HCF_LCM_calculator.html', param)
+
+
+def SIP_calculator(request):
+    link_string1, link_string2 = SideMap.arrange(8, 4, 'CC')
+    param = {'link_string1': link_string1, 'link_string2': link_string2}
+    return render(request, '../templates/calculator/SIP_calculator.html', param)

@@ -1,0 +1,294 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+    Calculate SIP and Lumpsum returns with interactive sliders. Estimate your wealth creation through systematic investment plans in mutual funds.
+{% endblock %}
+{% block MKW %}SIP calculator,systematic investment plan calculator,lumpsum calculator,mutual fund calculator,sip returns calculator{% endblock %}
+{% block Mr %}
+    {% now "d/m/Y" %}
+{% endblock %}
+{% block MAut %}
+    Amar khamkar
+{% endblock %}
+{% block title %} SIP Calculator
+{% endblock %}
+{% block body %}
+<style>
+    .calc-toggle {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 25px;
+        background-color: #1d1c1c;
+        padding: 4px;
+        border-radius: 8px;
+        width: fit-content;
+    }
+    
+    .calc-toggle-btn {
+        padding: 8px 25px;
+        border: none;
+        background: transparent;
+        color: #aaa;
+        cursor: pointer;
+        border-radius: 6px;
+        font-weight: 500;
+        font-size: 13px;
+        transition: all 0.3s;
+    }
+    
+    .calc-toggle-btn.active {
+        background-color: #6c757d;
+        border-radius: 20px;
+        color: white;
+    }
+
+    .slider-container { margin: 18px 0; max-width: 600px; }
+    .slider-label { color:#ddd; margin-bottom:8px; font-size:13px; display:block; }
+
+    .value-display{
+        color:#fff;
+        background:#191717;
+        border:2px solid #2b2929;
+        padding:8px 12px;
+        border-radius:8px;
+        font-weight:500;
+        min-width:110px;
+        text-align:center;
+        display:inline-block;
+        margin-right:12px;
+        vertical-align:middle;
+    }
+
+    /* Wrapper that contains the custom track + fill + the actual input on top */
+    .slider-wrapper{
+        display:inline-block;
+        width: calc(100% - 150px); /* adjust or use flex layout for responsive */
+        height: 18px;
+        position: relative;
+        vertical-align: middle;
+    }
+
+    /* the "background" track visual */
+    .slider-track{
+        position:absolute;
+        left:0; right:0;
+        top:50%;
+        transform:translateY(-50%);
+        height:6px;
+        background:#2b2929;
+        border-radius:6px;
+        z-index:1;
+    }
+
+    /* the fill that grows up to the thumb */
+    .slider-fill{
+        position:absolute;
+        left:0;
+        top:50%;
+        transform:translateY(-50%);
+        height:6px;
+        width:0%;
+        background:#6c757d;
+        border-radius:6px;
+        z-index:2;
+        pointer-events:none;
+    }
+
+    /* place range input on top and make native track transparent */
+    .slider-input{
+        -webkit-appearance:none;
+        appearance:none;
+        position:absolute;
+        left:0; right:0;
+        top:50%;
+        transform:translateY(-50%);
+        height:18px;
+        background:transparent; /* important: hide default background */
+        z-index:3;
+        margin:0;
+        padding:0;
+    }
+
+    /* Thumb (cross-browser) */
+    .slider-input::-webkit-slider-thumb{
+        -webkit-appearance:none;
+        width:18px; height:18px;
+        border-radius:50%;
+        background:#fff;
+        border:2px solid #6c757d;
+        cursor:pointer;
+        box-shadow:0 2px 4px rgba(0,0,0,0.3);
+        margin-top: -6px; /* aligns chrome thumb with our 6px track height */
+    }
+    .slider-input::-moz-range-thumb{
+        width:18px; height:18px;
+        border-radius:50%;
+        background:#fff;
+        border:2px solid #6c757d;
+        cursor:pointer;
+        box-shadow:0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    /* Hide native track visuals (so our background + fill show) */
+    .slider-input::-webkit-slider-runnable-track { height:6px; background:transparent; border:none; }
+    .slider-input::-moz-range-track { height:6px; background:transparent; border:none; }
+    
+    .results-container {
+        margin-top: 35px;
+        padding-top: 25px;
+        border-top: 2px solid #2b2929;
+    }
+    
+    .result-item {
+        margin: 12px 0;
+    }
+    
+    .result-label {
+        color: #aaa;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+    
+    .result-value {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+    .hidden {
+        display: none;
+    }
+</style>
+
+<div class="container text-light">
+    <div class="row">
+        <div class="col-md-7 my-3" style="background-color:rgb(30,30,30);
+            box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4">
+                <h1 class="my-2 text-center text-light">SIP Calculator</h1>
+                <hr class="bg-dark">
+                
+                <!-- Toggle between SIP and Lumpsum -->
+                <div class="calc-toggle">
+                    <button class="calc-toggle-btn active" id="sipToggle">SIP</button>
+                    <button class="calc-toggle-btn" id="lumpsumToggle">Lumpsum</button>
+                </div>
+                
+                <!-- SIP Inputs -->
+                <div id="sipInputs">
+                    <div class="slider-container">
+                        <label class="slider-label">Monthly investment</label>
+                        <input type="text" class="value-display" id="monthlyInvestmentDisplay" value="₹ 5,000">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="monthlyInvestmentFill"></div>
+                            <input type="range" class="slider-input" id="monthlyInvestment" min="500" max="1000000" step="500" value="5000">
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="slider-label">Expected return rate (p.a)</label>
+                        <input type="text" class="value-display" id="expectedReturnDisplay" value="12%">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="expectedReturnFill"></div>
+                            <input type="range" class="slider-input" id="expectedReturn" min="1" max="30" step="0.1" value="12">
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="slider-label">Time period</label>
+                        <input type="text" class="value-display" id="timePeriodDisplay" value="10 Yr">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="timePeriodFill"></div>
+                            <input type="range" class="slider-input" id="timePeriod" min="1" max="50" step="1" value="10">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lumpsum Inputs -->
+                <div id="lumpsumInputs" class="hidden">
+                    <div class="slider-container">
+                        <label class="slider-label">Lumpsum investment</label>
+                        <input type="text" class="value-display" id="lumpsumAmountDisplay" value="₹ 1,00,000">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="lumpsumAmountFill"></div>
+                            <input type="range" class="slider-input" id="lumpsumAmount" min="1000" max="10000000" step="1000" value="100000">
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="slider-label">Expected return rate (p.a)</label>
+                        <input type="text" class="value-display" id="lumpsumReturnDisplay" value="12%">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="lumpsumReturnFill"></div>
+                            <input type="range" class="slider-input" id="lumpsumReturn" min="1" max="30" step="0.1" value="12">
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="slider-label">Time period</label>
+                        <input type="text" class="value-display" id="lumpsumPeriodDisplay" value="10 Yr">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="lumpsumPeriodFill"></div>
+                            <input type="range" class="slider-input" id="lumpsumPeriod" min="1" max="50" step="1" value="10">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Results -->
+                <div class="results-container">
+                    <div class="result-item">
+                        <div class="result-label">Invested amount</div>
+                        <div class="result-value text-light" id="investedAmount">₹0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Est. returns</div>
+                        <div class="result-value text-light" id="estimatedReturns">₹0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Total value</div>
+                        <div class="result-value text-light" id="totalValue">₹0</div>
+                    </div>
+                </div>
+                
+                <hr class="bg-dark my-4">
+                <h3 class="text-center text-light my-4">About SIP & Lumpsum</h3>
+                <p class="text-light text-monospace my-4 mx-2">
+                    <b>SIP (Systematic Investment Plan)</b> allows you to invest a fixed amount regularly, benefiting from rupee cost averaging and compounding.
+                    <br><br>
+                    <b>Lumpsum</b> is a one-time investment where you invest a large amount at once, which can potentially grow significantly over time with compounding.
+                </p>
+                <div class="container mt-4" style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
+                    <b>SIP Formula:</b> M = P × ([1 + i]^n – 1) / i × (1 + i)<br>
+                    <b>Lumpsum Formula:</b> A = P × (1 + r)^n<br>
+                    Where P = Principal, i/r = Rate, n = Time period
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 my-4">
+            <div class="col p-4 d-flex flex-column position-static" style="background-color:rgb(30,30,30);
+                box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="mb-2">Calculators</h4>
+                {% for link in link_string1 %}
+                    <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                {% endfor %}
+            </div>
+            <div class="col my-3 p-4 d-flex flex-column position-static" style="background-color:rgb(30,30,30);
+                box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2">Converters</h4>
+                {% for link in link_string2 %}
+                    <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block JS %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="/static/js/calculator/SIP_calculator.js"></script>
+{% endblock %}
