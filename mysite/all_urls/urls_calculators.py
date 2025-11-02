@@ -30,5 +30,8 @@ def urlpatterns():
         # hcf and lcm calculator
         path('Calculator/HCF-LCM-calculator/',
              all_views.views_calculators.HCF_LCM_calculator, name="HCF_LCM_calculator"),
+        # SIP calculator
+        path('Calculator/SIP-calculator/',
+             all_views.views_calculators.SIP_calculator, name="SIP_calculator"),
     ]
     return urlpatterns

@@ -1,0 +1,125 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+    Convert epoch timestamp to IST/UTC datetime and vice versa by entering timestamp or datetime.
+{% endblock %}
+{% block MKW %}epoch timestamp converter,epoch to ist,epoch to utc,ist to epoch,utc to epoch,timestamp converter,unix timestamp converter{% endblock %}
+{% block Mr %}
+    {% now "d/m/Y" %}
+{% endblock %}
+{% block MAut %}
+    Amar khamkar
+{% endblock %}
+{% block title %} Epoch Timestamp Converter
+{% endblock %}
+{% block body %}
+    <div class="container text-light">
+        <div class="row ">
+            <div class="col-md-7 my-3 " style="background-color:rgb(30,30,30);
+  box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <div class="my-4 ">
+                    <h1 class="my-2 text-center text-light">Epoch Timestamp to IST/UTC Converter</h1>
+                    <hr class="bg-dark">
+                    <h3 class="text-center text-light my-2">What is Epoch Timestamp?</h3>
+                    <p class="text-light text-monospace my-4 mx-2">An epoch timestamp (also known as Unix timestamp) is the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC. This is a standard way to represent time in computers and programming. The timestamp is typically a large integer value representing the number of seconds since the Unix epoch.
+                    </p>
+                    <hr class="bg-dark my-2">
+                    <form>
+                        <div class="form-group text-light my-4">
+                            <label for="epochInput">Epoch Timestamp (seconds)</label>
+                            <input type="text" class="form-control form-component" placeholder="Enter epoch timestamp (e.g., 1609459200)"
+                                   id="epochInput">
+                        </div>
+                        <div class="form-group text-light">
+                            <label for="datePicker">Date & Time (IST/UTC)</label>
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <input type="date" class="form-control form-component"
+                                           id="datePicker">
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <input type="time" class="form-control form-component"
+                                           id="timePicker" step="1">
+                                </div>
+                            </div>
+                            <small class="form-text text-muted">Or enter manually in format: YYYY-MM-DD HH:MM:SS</small>
+                            <input type="text" class="form-control form-component mt-2"
+                                   placeholder="Enter date time manually (e.g., 2024-01-01 12:00:00)" id="dateInput">
+                        </div>
+                        <div class="form-group text-light">
+                            <label for="timezoneSelect">Timezone</label>
+                            <select class="form-control form-component" id="timezoneSelect">
+                                <option value="IST">IST (Indian Standard Time, UTC+5:30)</option>
+                                <option value="UTC">UTC (Coordinated Universal Time)</option>
+                            </select>
+                        </div>
+                        <div class="form-group text-light">
+                            <label for="utcOutput">UTC Date & Time</label>
+                            <input type="text" class="form-control form-component"
+                                   placeholder="UTC datetime will appear here..." id="utcOutput" readonly>
+                        </div>
+                        <div class="form-group text-light">
+                            <label for="istOutput">IST Date & Time</label>
+                            <input type="text" class="form-control form-component"
+                                   placeholder="IST datetime will appear here..." id="istOutput" readonly>
+                        </div>
+                        <div class="form-group text-light">
+                            <label for="epochOutput">Epoch Timestamp (seconds)</label>
+                            <input type="text" class="form-control form-component"
+                                   placeholder="Epoch timestamp will appear here..." id="epochOutput" readonly>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-outline-secondary text-light con my-3">Convert</button>
+                            <button type="button" class="btn btn-outline-secondary text-light my-3" id="currentTimeBtn">Use Current Time</button>
+                        </div>
+                    </form>
+                    <hr class="bg-dark my-2">
+                    <h3 class="text-center text-light my-4">How to use Epoch Timestamp Converter?</h3>
+                    <p class="text-light text-monospace my-4 mx-2">This converter allows you to convert between epoch timestamps and human-readable datetime formats in both IST (Indian Standard Time) and UTC (Coordinated Universal Time).
+                    <br><br>
+                    <b>To convert Epoch to DateTime:</b> Enter the epoch timestamp (in seconds) and click Convert. The corresponding UTC and IST datetime will be displayed.
+                    <br><br>
+                    <b>To convert DateTime to Epoch:</b> Enter the date and time in the format "YYYY-MM-DD HH:MM:SS", select the appropriate timezone (IST or UTC), and click Convert. The epoch timestamp will be displayed.
+                    <br><br>
+                    <b>Current Time:</b> Click "Use Current Time" to automatically fill in the current timestamp and convert it.
+                    </p>
+                    <div class="container  mt-4"
+                         style="background-color: #1d1c1c; border:2px solid white;border-radius: 10px;">
+                        1) Epoch Timestamp: 1609459200<br>
+                        UTC: 2021-01-01 00:00:00<br>
+                        IST: 2021-01-01 05:30:00<br><br>
+                        2) Epoch Timestamp: 1640995200<br>
+                        UTC: 2022-01-01 00:00:00<br>
+                        IST: 2022-01-01 05:30:00<br><br>
+                        3) Epoch Timestamp: 1704067200<br>
+                        UTC: 2024-01-01 00:00:00<br>
+                        IST: 2024-01-01 05:30:00<br>
+                    </div>
+                    <hr class="bg-dark my-3">
+                    <h3 class="text-center text-light">Applications</h3>
+                    <p class="text-light text-monospace my-2 mx-2">Epoch timestamps are widely used in computer systems, databases, APIs, and programming because they provide a consistent way to represent time across different timezones. They are essential for logging events, scheduling tasks, tracking user activity, and storing timestamps in databases. Converting between epoch timestamps and human-readable formats is a common task in software development and system administration.
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-4 my-4 ">
+                <div class="col p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                    <h4 class="mb-2 ">Converters</h4>
+                    {% for link in link_string1 %}
+                        <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                    {% endfor %}
+                </div>
+                <div class="col my-3 p-4 d-flex flex-column position-static " style="background-color:rgb(30,30,30);
+    box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                    <h4 class="my-2">Calculators</h4>
+                    {% for link in link_string2 %}
+                        <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block JS %}
+    <script src="/static/js/converter/epoch_timestamp_converter.js"></script>
+{% endblock %}
+

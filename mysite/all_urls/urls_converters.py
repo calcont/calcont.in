@@ -36,5 +36,11 @@ def urlpatterns():
         # base4 to Image converter
         path('Conversion/Base64_to_Image_Converter/',
              all_views.views_converters.Base64_to_Image, name="Base64_to_Image"),
+        # epoch timestamp converter
+        path('Conversion/Epoch_Timestamp_Converter/',
+             all_views.views_converters.Epoch_Timestamp_Converter, name="Epoch_Timestamp_Converter"),
+        # IST to UTC converter
+        path('Conversion/IST_UTC_Converter/',
+             all_views.views_converters.IST_UTC_Converter, name="IST_UTC_Converter"),
     ]
     return urlspatterns

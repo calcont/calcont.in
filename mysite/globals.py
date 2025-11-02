@@ -26,6 +26,8 @@ def urlSideMapList():
         ['/Conversion/cgpa_to_percentage/', 'Cgpa to Percentage Converter', 2, 'CC', 9],
         ['/Conversion/Image_to_base64_Converter/', 'Image to base64 converter', 2, 'CC', 10],
         ['/Conversion/Base64_to_Image_Converter/', 'Base64 to Image converter', 2, 'CC', 11],
+        ['/Conversion/Epoch_Timestamp_Converter/', 'Epoch Timestamp Converter', 2, 'CC', 12],
+        ['/Conversion/IST_UTC_Converter/', 'IST to UTC Converter', 2, 'CC', 13],
 
         ['/Translator/English_to_hindi/', 'English to Hindi Translator', 3, 'AT', 0],
         ['/Translator/English_to_Marathi/', 'English to Marathi Translator', 3, 'AT', 1],
@@ -51,5 +53,6 @@ def urlSideMapList():
         ['/Calculator/Material-weight-calculator/', 'Material weight Calculator', 4, 'CC', 5],
         ['/Calculator/Linear-regression-calculator/', 'Linear Regression Calculator', 4, 'CC', 6],
         ['/Calculator/HCF-LCM-calculator/', 'Hcf Lcm calculator', 4, 'CC', 7],
+        ['/Calculator/SIP-calculator/', 'SIP Calculator', 4, 'CC', 8],
     ]
     return urls
