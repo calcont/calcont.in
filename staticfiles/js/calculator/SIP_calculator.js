@@ -1,4 +1,3 @@
-let sipChart = null;
 let currentMode = 'SIP'; // 'SIP' or 'LUMPSUM'
 
 // Format currency in Indian format
@@ -95,52 +94,6 @@ function updateResults() {
     document.getElementById('investedAmount').textContent = formatCurrency(result.totalInvested);
     document.getElementById('estimatedReturns').textContent = formatCurrency(result.estimatedReturns);
     document.getElementById('totalValue').textContent = formatCurrency(result.totalValue);
-    
-    // Update chart if exists
-    if (document.getElementById('sipChart')) {
-        updateChart(result.totalInvested, result.estimatedReturns);
-    }
-}
-
-// Update chart
-function updateChart(invested, returns) {
-    const ctx = document.getElementById('sipChart');
-    if (!ctx) return;
-    
-    if (sipChart) {
-        sipChart.destroy();
-    }
-    
-    sipChart = new Chart(ctx, {
-        type: 'pie',
-        data: {
-            labels: ['Invested Amount', 'Estimated Returns'],
-            datasets: [{
-                data: [invested, returns],
-                backgroundColor: [
-                    'rgba(40, 167, 69, 0.8)',
-                    'rgba(23, 162, 184, 0.8)'
-                ],
-                borderColor: [
-                    'rgba(40, 167, 69, 1)',
-                    'rgba(23, 162, 184, 1)'
-                ],
-                borderWidth: 2
-            }]
-        },
-        options: {
-            responsive: true,
-            maintainAspectRatio: true,
-            plugins: {
-                legend: {
-                    position: 'bottom',
-                    labels: {
-                        color: '#ffffff'
-                    }
-                }
-            }
-        }
-    });
 }
 
 // Parse value from display string (remove currency/percentage symbols)
