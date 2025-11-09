@@ -2,7 +2,7 @@
 {% block MDesc %}
     Calculate SIP and Lumpsum returns with interactive sliders. Estimate your wealth creation through systematic investment plans in mutual funds.
 {% endblock %}
-{% block MKW %}SIP calculator,calculator of sip,sip calculator india,systematic investment plan calculator,lumpsum calculator,mutual fund calculator,sip returns calculator{% endblock %}
+{% block MKW %}SIP calculator,Step Up SIP Calculator,sip calculator india,systematic investment plan calculator,lumpsum calculator,mutual fund calculator,sip returns calculator{% endblock %}
 {% block Mr %}
     {% now "d/m/Y" %}
 {% endblock %}
@@ -202,6 +202,16 @@
                             <div class="slider-track"></div>
                             <div class="slider-fill" id="timePeriodFill"></div>
                             <input type="range" class="slider-input" id="timePeriod" min="1" max="50" step="1" value="10">
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="slider-label">Annual Step-up (%)</label>
+                        <input type="text" class="value-display" id="sipStepupDisplay" value="0%">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="sipStepupFill"></div>
+                            <input type="range" class="slider-input" id="sipStepup" min="0" max="50" step="0.5" value="0">
                         </div>
                     </div>
                 </div>
