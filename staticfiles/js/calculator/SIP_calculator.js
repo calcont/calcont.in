@@ -35,26 +35,30 @@ function getMonthlyRate(annualReturn) {
 }
 
 // Calculate SIP
-function calculateSIP(monthlyInvestment, annualReturn, years) {
+function calculateSIP(monthlyInvestment, annualReturn, years, stepUpPercent = 0) {
     const monthlyRate = getMonthlyRate(annualReturn);
-    const totalMonths = years * 12;
-    
-    const totalInvested = monthlyInvestment * totalMonths;
+    let totalInvested = 0;
     let totalValue = 0;
-    
-    if (monthlyRate > 0) {
-        const factor = (Math.pow(1 + monthlyRate, totalMonths) - 1) / monthlyRate;
-        totalValue = monthlyInvestment * factor * (1 + monthlyRate);
-    } else {
-        totalValue = totalInvested;
+
+    let currentInvestment = monthlyInvestment;
+    const stepUpMultiplier = 1 + (stepUpPercent / 100);
+
+    for (let year = 1; year <= years; year++) {
+        // For each year, do 12 months of SIP
+        for (let month = 1; month <= 12; month++) {
+            totalInvested += currentInvestment;
+            const monthsRemaining = (years - year) * 12 + (12 - month + 1);
+            totalValue += currentInvestment * Math.pow(1 + monthlyRate, monthsRemaining);
+        }
+        currentInvestment *= stepUpMultiplier; // Increase SIP for next year
     }
-    
+
     const estimatedReturns = totalValue - totalInvested;
-    
+
     return {
-        totalInvested: totalInvested,
-        estimatedReturns: estimatedReturns,
-        totalValue: totalValue
+        totalInvested,
+        estimatedReturns,
+        totalValue
     };
 }
 
@@ -80,8 +84,9 @@ function updateResults() {
         const monthlyInvestment = parseFloat(document.getElementById('monthlyInvestment').value);
         const annualReturn = parseFloat(document.getElementById('expectedReturn').value);
         const years = parseInt(document.getElementById('timePeriod').value);
-        
-        result = calculateSIP(monthlyInvestment, annualReturn, years);
+        const stepUpPercent = parseFloat(document.getElementById('sipStepup').value);
+
+        result = calculateSIP(monthlyInvestment, annualReturn, years, stepUpPercent);
     } else {
         const lumpsumAmount = parseFloat(document.getElementById('lumpsumAmount').value);
         const annualReturn = parseFloat(document.getElementById('lumpsumReturn').value);
@@ -111,7 +116,9 @@ function updateDisplays() {
         const monthlyInvestment = parseFloat(document.getElementById('monthlyInvestment').value);
         const annualReturn = parseFloat(document.getElementById('expectedReturn').value);
         const years = parseInt(document.getElementById('timePeriod').value);
-        
+        const stepUpPercent = parseFloat(document.getElementById('sipStepup').value);
+
+        document.getElementById('sipStepupDisplay').value = formatPercentage(stepUpPercent);
         document.getElementById('monthlyInvestmentDisplay').value = formatCurrency(monthlyInvestment);
         document.getElementById('expectedReturnDisplay').value = formatPercentage(annualReturn);
         document.getElementById('timePeriodDisplay').value = formatYears(years);
@@ -119,6 +126,7 @@ function updateDisplays() {
         updateSliderFill('monthlyInvestment', 'monthlyInvestmentFill');
         updateSliderFill('expectedReturn', 'expectedReturnFill');
         updateSliderFill('timePeriod', 'timePeriodFill');
+        updateSliderFill('sipStepup', 'sipStepupFill');
     } else {
         const lumpsumAmount = parseFloat(document.getElementById('lumpsumAmount').value);
         const annualReturn = parseFloat(document.getElementById('lumpsumReturn').value);
@@ -178,6 +186,7 @@ document.getElementById('lumpsumToggle').addEventListener('click', function() {
 document.getElementById('monthlyInvestment').addEventListener('input', updateDisplays);
 document.getElementById('expectedReturn').addEventListener('input', updateDisplays);
 document.getElementById('timePeriod').addEventListener('input', updateDisplays);
+document.getElementById('sipStepup').addEventListener('input', updateDisplays);
 
 // Lumpsum sliders event listeners
 document.getElementById('lumpsumAmount').addEventListener('input', updateDisplays);
