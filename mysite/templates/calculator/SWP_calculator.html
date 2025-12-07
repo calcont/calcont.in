@@ -1,0 +1,260 @@
+{% extends 'main_index.html' %}
+{% block MDesc %}
+Calculate SWP (Systematic Withdrawal Plan) returns with interactive sliders. Estimate your monthly withdrawals and
+remaining balance from your mutual fund investments.
+{% endblock %}
+{% block MKW %}SWP calculator, Systematic Withdrawal Plan Calculator, swp calculator india, mutual fund withdrawal
+calculator, monthly income plan calculator, swp calculator for monthly income, mutual fund swp calculator, systematic
+withdrawal plan calculator india, post retirement swp calculator, monthly pension calculator{% endblock %}
+{% block Mr %}
+{% now "d/m/Y" %}
+{% endblock %}
+{% block MAut %}
+Amar khamkar
+{% endblock %}
+{% block title %} SWP Calculator
+{% endblock %}
+{% block body %}
+<style>
+    .slider-container {
+        margin: 18px 0;
+        max-width: 600px;
+    }
+
+    .slider-label {
+        color: #ddd;
+        margin-bottom: 8px;
+        font-size: 13px;
+        display: block;
+    }
+
+    .value-display {
+        color: #fff;
+        background: #191717;
+        border: 2px solid #2b2929;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-weight: 500;
+        min-width: 110px;
+        text-align: center;
+        display: inline-block;
+        margin-right: 12px;
+        vertical-align: middle;
+    }
+
+    /* Wrapper that contains the custom track + fill + the actual input on top */
+    .slider-wrapper {
+        display: inline-block;
+        width: calc(100% - 150px);
+        /* adjust or use flex layout for responsive */
+        height: 18px;
+        position: relative;
+        vertical-align: middle;
+    }
+
+    /* the "background" track visual */
+    .slider-track {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 6px;
+        background: #2b2929;
+        border-radius: 6px;
+        z-index: 1;
+    }
+
+    /* the fill that grows up to the thumb */
+    .slider-fill {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 6px;
+        width: 0%;
+        background: #6c757d;
+        border-radius: 6px;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* place range input on top and make native track transparent */
+    .slider-input {
+        -webkit-appearance: none;
+        appearance: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 18px;
+        background: transparent;
+        /* important: hide default background */
+        z-index: 3;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Thumb (cross-browser) */
+    .slider-input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #6c757d;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        margin-top: -6px;
+        /* aligns chrome thumb with our 6px track height */
+    }
+
+    .slider-input::-moz-range-thumb {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        background: #fff;
+        border: 2px solid #6c757d;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Hide native track visuals (so our background + fill show) */
+    .slider-input::-webkit-slider-runnable-track {
+        height: 6px;
+        background: transparent;
+        border: none;
+    }
+
+    .slider-input::-moz-range-track {
+        height: 6px;
+        background: transparent;
+        border: none;
+    }
+
+    .results-container {
+        margin-top: 35px;
+        padding-top: 25px;
+        border-top: 2px solid #2b2929;
+    }
+
+    .result-item {
+        margin: 12px 0;
+    }
+
+    .result-label {
+        color: #aaa;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .result-value {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+    }
+</style>
+
+<div class="container text-light">
+    <div class="row">
+        <div class="col-md-7 my-3" style="background-color:rgb(30,30,30);
+            box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+            <div class="my-4">
+                <h1 class="my-2 text-center text-light">SWP Calculator</h1>
+                <hr class="bg-dark">
+
+                <!-- SWP Inputs -->
+                <div id="swpInputs">
+                    <div class="slider-container">
+                        <label class="slider-label">Total Investment</label>
+                        <input type="text" class="value-display" id="totalInvestmentDisplay" value="₹ 5,00,000">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="totalInvestmentFill"></div>
+                            <input type="range" class="slider-input" id="totalInvestment" min="10000" max="10000000"
+                                step="1000" value="500000">
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="slider-label">Withdrawal per month</label>
+                        <input type="text" class="value-display" id="withdrawalAmountDisplay" value="₹ 5,000">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="withdrawalAmountFill"></div>
+                            <input type="range" class="slider-input" id="withdrawalAmount" min="500" max="100000"
+                                step="500" value="5000">
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="slider-label">Expected return rate (p.a)</label>
+                        <input type="text" class="value-display" id="expectedReturnDisplay" value="8%">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="expectedReturnFill"></div>
+                            <input type="range" class="slider-input" id="expectedReturn" min="1" max="30" step="0.1"
+                                value="8">
+                        </div>
+                    </div>
+
+                    <div class="slider-container">
+                        <label class="slider-label">Time period</label>
+                        <input type="text" class="value-display" id="timePeriodDisplay" value="5 Yr">
+                        <div class="slider-wrapper">
+                            <div class="slider-track"></div>
+                            <div class="slider-fill" id="timePeriodFill"></div>
+                            <input type="range" class="slider-input" id="timePeriod" min="1" max="30" step="1"
+                                value="5">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Results -->
+                <div class="results-container">
+                    <div class="result-item">
+                        <div class="result-label">Total Investment</div>
+                        <div class="result-value text-light" id="resultTotalInvestment">₹0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Total Withdrawal</div>
+                        <div class="result-value text-light" id="totalWithdrawal">₹0</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-label">Final Value</div>
+                        <div class="result-value text-light" id="finalValue">₹0</div>
+                    </div>
+                </div>
+
+                <hr class="bg-dark my-4">
+                <h3 class="text-center text-light my-4">About SWP</h3>
+                <p class="text-light text-monospace my-4 mx-2">
+                    <b>SWP (Systematic Withdrawal Plan)</b> allows you to withdraw a fixed amount regularly from your
+                    existing mutual fund investment. It provides a steady income flow while your remaining investment
+                    continues to grow.
+                </p>
+            </div>
+        </div>
+        <div class="col-md-4 my-4">
+            <div class="col p-4 d-flex flex-column position-static" style="background-color:rgb(30,30,30);
+                box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="mb-2">Calculators</h4>
+                {% for link in link_string1 %}
+                <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                {% endfor %}
+            </div>
+            <div class="col my-3 p-4 d-flex flex-column position-static" style="background-color:rgb(30,30,30);
+                box-shadow:13px 4px 19px 7px rgb(19 17 17);">
+                <h4 class="my-2">Converters</h4>
+                {% for link in link_string2 %}
+                <li class="my-2"><a href="{{ link.0 }}">{{ link.1 }}</a></li>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block JS %}
+<script src="/static/js/calculator/SWP_calculator.js"></script>
+{% endblock %}
