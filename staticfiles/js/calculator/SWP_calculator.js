@@ -126,17 +126,17 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('expectedReturn').addEventListener('input', updateDisplays);
     document.getElementById('timePeriod').addEventListener('input', updateDisplays);
 
-    // Display input event listeners (editable fields) - real-time updates
-    document.getElementById('totalInvestmentDisplay').addEventListener('input', function () {
+    // Display input event listeners (editable fields) - use blur to allow editing
+    document.getElementById('totalInvestmentDisplay').addEventListener('blur', function () {
         updateFromDisplay('totalInvestmentDisplay', 'totalInvestment', 'currency');
     });
-    document.getElementById('withdrawalAmountDisplay').addEventListener('input', function () {
+    document.getElementById('withdrawalAmountDisplay').addEventListener('blur', function () {
         updateFromDisplay('withdrawalAmountDisplay', 'withdrawalAmount', 'currency');
     });
-    document.getElementById('expectedReturnDisplay').addEventListener('input', function () {
+    document.getElementById('expectedReturnDisplay').addEventListener('blur', function () {
         updateFromDisplay('expectedReturnDisplay', 'expectedReturn', 'percentage');
     });
-    document.getElementById('timePeriodDisplay').addEventListener('input', function () {
+    document.getElementById('timePeriodDisplay').addEventListener('blur', function () {
         updateFromDisplay('timePeriodDisplay', 'timePeriod', 'years');
     });
 

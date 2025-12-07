@@ -195,28 +195,28 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('lumpsumReturn').addEventListener('input', updateDisplays);
     document.getElementById('lumpsumPeriod').addEventListener('input', updateDisplays);
 
-    // SIP display input event listeners (editable fields) - real-time updates
-    document.getElementById('monthlyInvestmentDisplay').addEventListener('input', function () {
+    // SIP display input event listeners (editable fields) - use blur to allow editing
+    document.getElementById('monthlyInvestmentDisplay').addEventListener('blur', function () {
         updateFromDisplay('monthlyInvestmentDisplay', 'monthlyInvestment', 'currency');
     });
-    document.getElementById('expectedReturnDisplay').addEventListener('input', function () {
+    document.getElementById('expectedReturnDisplay').addEventListener('blur', function () {
         updateFromDisplay('expectedReturnDisplay', 'expectedReturn', 'percentage');
     });
-    document.getElementById('timePeriodDisplay').addEventListener('input', function () {
+    document.getElementById('timePeriodDisplay').addEventListener('blur', function () {
         updateFromDisplay('timePeriodDisplay', 'timePeriod', 'years');
     });
-    document.getElementById('sipStepupDisplay').addEventListener('input', function () {
+    document.getElementById('sipStepupDisplay').addEventListener('blur', function () {
         updateFromDisplay('sipStepupDisplay', 'sipStepup', 'percentage');
     });
 
-    // Lumpsum display input event listeners (editable fields) - real-time updates
-    document.getElementById('lumpsumAmountDisplay').addEventListener('input', function () {
+    // Lumpsum display input event listeners (editable fields) - use blur to allow editing
+    document.getElementById('lumpsumAmountDisplay').addEventListener('blur', function () {
         updateFromDisplay('lumpsumAmountDisplay', 'lumpsumAmount', 'currency');
     });
-    document.getElementById('lumpsumReturnDisplay').addEventListener('input', function () {
+    document.getElementById('lumpsumReturnDisplay').addEventListener('blur', function () {
         updateFromDisplay('lumpsumReturnDisplay', 'lumpsumReturn', 'percentage');
     });
-    document.getElementById('lumpsumPeriodDisplay').addEventListener('input', function () {
+    document.getElementById('lumpsumPeriodDisplay').addEventListener('blur', function () {
         updateFromDisplay('lumpsumPeriodDisplay', 'lumpsumPeriod', 'years');
     });
 
