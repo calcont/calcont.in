@@ -60,6 +60,7 @@ class StaticViewsSitemap(Sitemap):
             "Linear_regression_calculator",
             "HCF_LCM_calculator",
             "SIP_calculator",
+            "SWP_calculator",
             "PrivacyPolicy",
         ]
 

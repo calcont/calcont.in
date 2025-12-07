@@ -54,5 +54,6 @@ def urlSideMapList():
         ['/Calculator/Linear-regression-calculator/', 'Linear Regression Calculator', 4, 'CC', 6],
         ['/Calculator/HCF-LCM-calculator/', 'Hcf Lcm calculator', 4, 'CC', 7],
         ['/Calculator/SIP-calculator/', 'SIP Calculator', 4, 'CC', 8],
+        ['/Calculator/SWP-calculator/', 'SWP Calculator', 4, 'CC', 9],
     ]
     return urls

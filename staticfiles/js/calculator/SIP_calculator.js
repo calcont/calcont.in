@@ -68,7 +68,7 @@ function calculateLumpsum(principal, annualReturn, years) {
     const totalInvested = principal;
     const totalValue = principal * Math.pow(1 + annualReturn / 100, years);
     const estimatedReturns = totalValue - totalInvested;
-    
+
     return {
         totalInvested: totalInvested,
         estimatedReturns: estimatedReturns,
@@ -79,7 +79,7 @@ function calculateLumpsum(principal, annualReturn, years) {
 // Update results display
 function updateResults() {
     let result;
-    
+
     if (currentMode === 'SIP') {
         const monthlyInvestment = parseFloat(document.getElementById('monthlyInvestment').value);
         const annualReturn = parseFloat(document.getElementById('expectedReturn').value);
@@ -91,10 +91,10 @@ function updateResults() {
         const lumpsumAmount = parseFloat(document.getElementById('lumpsumAmount').value);
         const annualReturn = parseFloat(document.getElementById('lumpsumReturn').value);
         const years = parseInt(document.getElementById('lumpsumPeriod').value);
-        
+
         result = calculateLumpsum(lumpsumAmount, annualReturn, years);
     }
-    
+
     // Update display
     document.getElementById('investedAmount').textContent = formatCurrency(result.totalInvested);
     document.getElementById('estimatedReturns').textContent = formatCurrency(result.estimatedReturns);
@@ -122,7 +122,7 @@ function updateDisplays() {
         document.getElementById('monthlyInvestmentDisplay').value = formatCurrency(monthlyInvestment);
         document.getElementById('expectedReturnDisplay').value = formatPercentage(annualReturn);
         document.getElementById('timePeriodDisplay').value = formatYears(years);
-        
+
         updateSliderFill('monthlyInvestment', 'monthlyInvestmentFill');
         updateSliderFill('expectedReturn', 'expectedReturnFill');
         updateSliderFill('timePeriod', 'timePeriodFill');
@@ -131,16 +131,16 @@ function updateDisplays() {
         const lumpsumAmount = parseFloat(document.getElementById('lumpsumAmount').value);
         const annualReturn = parseFloat(document.getElementById('lumpsumReturn').value);
         const years = parseInt(document.getElementById('lumpsumPeriod').value);
-        
+
         document.getElementById('lumpsumAmountDisplay').value = formatCurrency(lumpsumAmount);
         document.getElementById('lumpsumReturnDisplay').value = formatPercentage(annualReturn);
         document.getElementById('lumpsumPeriodDisplay').value = formatYears(years);
-        
+
         updateSliderFill('lumpsumAmount', 'lumpsumAmountFill');
         updateSliderFill('lumpsumReturn', 'lumpsumReturnFill');
         updateSliderFill('lumpsumPeriod', 'lumpsumPeriodFill');
     }
-    
+
     updateResults();
 }
 
@@ -148,74 +148,78 @@ function updateDisplays() {
 function updateFromDisplay(displayId, sliderId, type) {
     const display = document.getElementById(displayId);
     const slider = document.getElementById(sliderId);
-    
+
     if (!display || !slider) return;
-    
+
     let value = parseDisplayValue(display.value, type);
     const min = parseFloat(slider.min);
     const max = parseFloat(slider.max);
-    
+
     // Clamp value to slider range
     value = Math.max(min, Math.min(max, value));
-    
+
     // Update slider
     slider.value = value;
     updateDisplays();
 }
 
-// Toggle between SIP and Lumpsum
-document.getElementById('sipToggle').addEventListener('click', function() {
-    currentMode = 'SIP';
-    document.getElementById('sipToggle').classList.add('active');
-    document.getElementById('lumpsumToggle').classList.remove('active');
-    document.getElementById('sipInputs').classList.remove('hidden');
-    document.getElementById('lumpsumInputs').classList.add('hidden');
-    updateDisplays();
-});
-
-document.getElementById('lumpsumToggle').addEventListener('click', function() {
-    currentMode = 'LUMPSUM';
-    document.getElementById('lumpsumToggle').classList.add('active');
-    document.getElementById('sipToggle').classList.remove('active');
-    document.getElementById('lumpsumInputs').classList.remove('hidden');
-    document.getElementById('sipInputs').classList.add('hidden');
-    updateDisplays();
-});
-
-// SIP sliders event listeners
-document.getElementById('monthlyInvestment').addEventListener('input', updateDisplays);
-document.getElementById('expectedReturn').addEventListener('input', updateDisplays);
-document.getElementById('timePeriod').addEventListener('input', updateDisplays);
-document.getElementById('sipStepup').addEventListener('input', updateDisplays);
-
-// Lumpsum sliders event listeners
-document.getElementById('lumpsumAmount').addEventListener('input', updateDisplays);
-document.getElementById('lumpsumReturn').addEventListener('input', updateDisplays);
-document.getElementById('lumpsumPeriod').addEventListener('input', updateDisplays);
-
-// SIP display input event listeners (editable fields)
-document.getElementById('monthlyInvestmentDisplay').addEventListener('blur', function() {
-    updateFromDisplay('monthlyInvestmentDisplay', 'monthlyInvestment', 'currency');
-});
-document.getElementById('expectedReturnDisplay').addEventListener('blur', function() {
-    updateFromDisplay('expectedReturnDisplay', 'expectedReturn', 'percentage');
-});
-document.getElementById('timePeriodDisplay').addEventListener('blur', function() {
-    updateFromDisplay('timePeriodDisplay', 'timePeriod', 'years');
-});
-
-// Lumpsum display input event listeners (editable fields)
-document.getElementById('lumpsumAmountDisplay').addEventListener('blur', function() {
-    updateFromDisplay('lumpsumAmountDisplay', 'lumpsumAmount', 'currency');
-});
-document.getElementById('lumpsumReturnDisplay').addEventListener('blur', function() {
-    updateFromDisplay('lumpsumReturnDisplay', 'lumpsumReturn', 'percentage');
-});
-document.getElementById('lumpsumPeriodDisplay').addEventListener('blur', function() {
-    updateFromDisplay('lumpsumPeriodDisplay', 'lumpsumPeriod', 'years');
-});
-
 // Initialize on page load
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
+    // Toggle between SIP and Lumpsum
+    document.getElementById('sipToggle').addEventListener('click', function () {
+        currentMode = 'SIP';
+        document.getElementById('sipToggle').classList.add('active');
+        document.getElementById('lumpsumToggle').classList.remove('active');
+        document.getElementById('sipInputs').classList.remove('hidden');
+        document.getElementById('lumpsumInputs').classList.add('hidden');
+        updateDisplays();
+    });
+
+    document.getElementById('lumpsumToggle').addEventListener('click', function () {
+        currentMode = 'LUMPSUM';
+        document.getElementById('lumpsumToggle').classList.add('active');
+        document.getElementById('sipToggle').classList.remove('active');
+        document.getElementById('lumpsumInputs').classList.remove('hidden');
+        document.getElementById('sipInputs').classList.add('hidden');
+        updateDisplays();
+    });
+
+    // SIP sliders event listeners
+    document.getElementById('monthlyInvestment').addEventListener('input', updateDisplays);
+    document.getElementById('expectedReturn').addEventListener('input', updateDisplays);
+    document.getElementById('timePeriod').addEventListener('input', updateDisplays);
+    document.getElementById('sipStepup').addEventListener('input', updateDisplays);
+
+    // Lumpsum sliders event listeners
+    document.getElementById('lumpsumAmount').addEventListener('input', updateDisplays);
+    document.getElementById('lumpsumReturn').addEventListener('input', updateDisplays);
+    document.getElementById('lumpsumPeriod').addEventListener('input', updateDisplays);
+
+    // SIP display input event listeners (editable fields) - use blur to allow editing
+    document.getElementById('monthlyInvestmentDisplay').addEventListener('blur', function () {
+        updateFromDisplay('monthlyInvestmentDisplay', 'monthlyInvestment', 'currency');
+    });
+    document.getElementById('expectedReturnDisplay').addEventListener('blur', function () {
+        updateFromDisplay('expectedReturnDisplay', 'expectedReturn', 'percentage');
+    });
+    document.getElementById('timePeriodDisplay').addEventListener('blur', function () {
+        updateFromDisplay('timePeriodDisplay', 'timePeriod', 'years');
+    });
+    document.getElementById('sipStepupDisplay').addEventListener('blur', function () {
+        updateFromDisplay('sipStepupDisplay', 'sipStepup', 'percentage');
+    });
+
+    // Lumpsum display input event listeners (editable fields) - use blur to allow editing
+    document.getElementById('lumpsumAmountDisplay').addEventListener('blur', function () {
+        updateFromDisplay('lumpsumAmountDisplay', 'lumpsumAmount', 'currency');
+    });
+    document.getElementById('lumpsumReturnDisplay').addEventListener('blur', function () {
+        updateFromDisplay('lumpsumReturnDisplay', 'lumpsumReturn', 'percentage');
+    });
+    document.getElementById('lumpsumPeriodDisplay').addEventListener('blur', function () {
+        updateFromDisplay('lumpsumPeriodDisplay', 'lumpsumPeriod', 'years');
+    });
+
+    // Initial calculation
     updateDisplays();
 });

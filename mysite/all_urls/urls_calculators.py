@@ -33,5 +33,8 @@ def urlpatterns():
         # SIP calculator
         path('Calculator/SIP-calculator/',
              all_views.views_calculators.SIP_calculator, name="SIP_calculator"),
+        # SWP calculator
+        path('Calculator/SWP-calculator/',
+             all_views.views_calculators.SWP_calculator, name="SWP_calculator"),
     ]
     return urlpatterns
