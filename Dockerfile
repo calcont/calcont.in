@@ -8,6 +8,10 @@ RUN apt-get update && apt-get install -y \
     libtesseract-dev \
     libleptonica-dev \
     poppler-utils \
+    curl \
+    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y nodejs \
+    && npm install -g terser \
     && apt-get clean
 
 # Set working directory
@@ -24,6 +28,9 @@ RUN python -m nltk.downloader stopwords wordnet punkt pros_cons
 
 # Copy Django project code
 COPY . .
+
+# Run uglification script
+RUN chmod +x scripts/uglify-minify.sh && ./scripts/uglify-minify.sh
 
 # Expose port (default for Railway)
 EXPOSE 8000
