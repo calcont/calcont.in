@@ -2,7 +2,7 @@
 
 echo "Running JS uglification (recursive, in-place)..."
 
-JS_DIR="static/js"
+JS_DIR="staticfiles/js"
 
 if [ ! -d "$JS_DIR" ]; then
     echo "No $JS_DIR directory — skipping."
