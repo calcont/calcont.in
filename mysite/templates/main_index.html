@@ -175,6 +175,13 @@
       </div>
     </div>
   </div>
+  {% block promo_banner %}
+  <div class="promo-banner text-center py-2 px-3"
+    style="background: #ffc107; color: #000; font-weight: 500; font-size: 0.9rem; line-height: 1.4;">
+    I have build new privacy first browser first file processer toolkit, please visit <a href="https://drop.calcont.in"
+      target="_blank" style="color: #000; text-decoration: underline; font-weight: 700;">drop.calcont.in</a>
+  </div>
+  {% endblock %}
   <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: rgb(20, 20, 20)">
     <a class="navbar-brand" href="/">
       <img src="/static/Logo.png" class="brand" width="60" height="60" alt="" loading="lazy" />
@@ -262,6 +269,7 @@
             <a class="dropdown-item" href="/Analyzer/Caesar-cipher-encoder-decoder/ ">Caesar cipher encoder/decoder</a>
             <a class="dropdown-item" href="/Analyzer/playfair-cipher-encoder-decoder/ ">Playfair cipher
               encoder/decoder</a>
+            <a class="dropdown-item" href="/Analyzer/password-generator/">Password Generator</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -403,7 +411,8 @@
     ; (adsbygoogle = window.adsbygoogle || []).push({})
   </script>
   <script src="/static/js/utils.js"></script>
-  {#  <script src="/static/js/main.js"></script>#}
+  {#
+  <script src="/static/js/main.js"></script>#}
   {% block JS %}
 
   {% endblock %}
