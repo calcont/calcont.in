@@ -193,3 +193,10 @@ def playfCipher(request):
     link_string1, link_string2 = SideMap.arrange(10, 1, 'AT')
     param = {'link_string1': link_string1, 'link_string2': link_string2}
     return render(request, '../templates/textAnalyzer/playfCipher.html', param)
+
+
+def password_generator(request):
+    link_string1, link_string2 = SideMap.arrange(11, 1, 'AT')
+    param = {'link_string1': link_string1, 'link_string2': link_string2}
+    return render(request, '../templates/textAnalyzer/password_generator.html', param)
+

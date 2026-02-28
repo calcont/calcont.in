@@ -13,6 +13,7 @@ def urlSideMapList():
         ['/Analyzer/Language-Identifier/', 'Language Identifier', 1, 'AT', 8],
         ['/Analyzer/Caesar-cipher-encoder-decoder/', 'Caesar Cipher encoder/decoder', 1, 'AT', 9],
         ['/Analyzer/playfair-cipher-encoder-decoder/', 'playfair Cipher encoder/decoder', 1, 'AT', 10],
+        ['/Analyzer/password-generator/', 'Password Generator', 1, 'AT', 11],
 
         ['/Conversion/BinaryConverter/', 'Binary Converter', 2, 'CC', 0],
         ['/Conversion/DecimalConverter/', 'Decimal Converter', 2, 'CC', 1],

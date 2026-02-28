@@ -28,5 +28,7 @@ def urlpatterns():
              all_views.views_textanalyzer.caesarCipher, name="caesarCipher"),
         path('Analyzer/playfair-cipher-encoder-decoder/',
              all_views.views_textanalyzer.playfCipher, name="playfCipher"),
+        path('Analyzer/password-generator/',
+             all_views.views_textanalyzer.password_generator, name="password_generator"),
     ]
     return urlspatterns
