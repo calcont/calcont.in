@@ -12,13 +12,15 @@ const currentTimeBtn = document.getElementById('currentTimeBtn');
 const IST_OFFSET_MS = 5.5 * 60 * 60 * 1000;
 
 // Function to format date time string
+// Uses UTC getters so output never depends on the visitor's local timezone.
+// epochToIST() pre-shifts the date by the IST offset and relies on this.
 function formatDateTime(date) {
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-    const hours = String(date.getHours()).padStart(2, '0');
-    const minutes = String(date.getMinutes()).padStart(2, '0');
-    const seconds = String(date.getSeconds()).padStart(2, '0');
+    const year = date.getUTCFullYear();
+    const month = String(date.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(date.getUTCDate()).padStart(2, '0');
+    const hours = String(date.getUTCHours()).padStart(2, '0');
+    const minutes = String(date.getUTCMinutes()).padStart(2, '0');
+    const seconds = String(date.getUTCSeconds()).padStart(2, '0');
     return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
@@ -58,10 +60,11 @@ function istToEpoch(dateTimeString) {
         const [year, month, day] = datePart.split('-').map(Number);
         const [hours, minutes, seconds] = timePart.split(':').map(Number);
         
-        // Create date in local time (IST)
-        const date = new Date(year, month - 1, day, hours, minutes, seconds);
-        // Convert to UTC epoch by subtracting IST offset
-        const utcTime = date.getTime() - IST_OFFSET_MS;
+        // Treat the entered wall-clock time as IST: read it as UTC, then
+        // subtract the IST offset. Using Date.UTC (not the local-time
+        // constructor) keeps this correct for visitors outside IST.
+        const asIfUtc = Date.UTC(year, month - 1, day, hours, minutes, seconds);
+        const utcTime = asIfUtc - IST_OFFSET_MS;
         return Math.floor(utcTime / 1000);
     } catch (e) {
         return null;
